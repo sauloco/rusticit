@@ -1,0 +1,32 @@
+<head> 
+  <link rel="stylesheet" href="estilos.css" type="text/css" media="all">
+</head>
+<html>
+<title> JAVASCRIPTEANDO </title>
+<script type="text/javascript" src="textoporpantalla.js"></script>
+<marquee behavior=alternate class=contenedor>
+"Ingrese su apodo, luego presione el botón"
+</marquee>
+
+<body class=fondo>
+<div >
+<br> <br/>
+<br> <br/>
+<br> <br/>
+<DIV align="center">
+<br> <br/>
+<br> <br/>
+<br> <br/>
+<!-- Lo único que se modificó es el atributo del evento onkeyup -->
+<input type="text" id="Ingres" class=mostrador autofocus placeholder="Pj: Cacho" onkeyup="isEnter(event,validar,this.value)"/> 
+<br> <br/>
+<br> <br/>
+<br> <br/>
+<input type="button" name="Mostrar" value="Mostrar Apodo" onclick="validar()" class=boton />
+</DIV>
+<div align="center">
+<br> <br/>
+<br> <br/>
+<br> <br/>
+<input size="50" type="text" name="muestra" id="mues" class=invisible />
+</div>

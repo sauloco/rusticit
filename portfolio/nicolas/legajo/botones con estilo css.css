@@ -1,0 +1,155 @@
+
+.resto{
+
+        position:absolute; 
+        right: 130px; 
+        top: 50px;
+        margin:8;
+        font-size:20px;
+        text-align: center;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:white;
+        border:8px;
+        width:300px;
+        height:120px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.titulo{
+        
+        position:absolute; 
+        left: 150px; 
+        top: 80px;
+        margin:8;
+        font-size:28px;
+        text-align: central;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:lightgrey;
+        border:8px;
+        width:520px;
+        height:45px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        
+      }
+
+.divsuperior{
+        position:absolute; 
+        left: 505px; 
+        top: 200px;
+        width:600px;
+            }
+
+.mostrador{
+        
+        font-size:20px;
+        text-align: left;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        background:#ffffff;
+        width:240px;
+        height:40px;
+        border:8px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+.divcentral{
+        position:absolute; 
+        left: 500px; 
+        top: 240px;
+        width:600px;
+            }
+.boton{
+        
+        margin:8;
+        float:left;
+        font-size:28px;
+        text-align: center;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:lightgrey;
+        border:8px;
+        width:65px;
+        height:45px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        
+      }
+
+.botonflecha{
+        
+        transform:rotateY(180deg);
+        margin:8;
+        float:left;
+        font-size:36px;
+        text-align: center;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:lightgrey;
+        border:8px;
+        width:65px;
+        height:45px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        
+      }
+
+.renglon{
+    clear:both;
+}
+
+.cero{
+        position:relative; 
+        left: 85px;
+}
+ .divinferior{
+        position:absolute; 
+        left: 400px; 
+        top: 550px;
+        width:500px;
+       
+ }
+
+ .aceptar{
+        
+        margin:8;
+        float:left;
+        font-size:28px;
+        text-align: center;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:lightgrey;
+        border:8px;
+        width:140px;
+        height:45px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
+ }
+
+ .cancelar{
+
+        margin:8;
+        float:right;
+        font-size:28px;
+        text-align: center;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:darkcyan;
+        background:lightgrey;
+        border:8px;
+        width:140px;
+        height:45px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+ }
