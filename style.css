@@ -1,15 +1,26 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
 
-body {
+.principal {
     font-family: 'Rubik', sans-serif;
-    width: 270px;
-    text-align: center;
-
+    background-color: gold;
     
 }
+
 .rusticLogo{
     width: 270px;
-    text-align: center;
+    
+}
+
+.secctionOne {
+    width: 270px;
+    background-color: aqua;
+    margin: 0 auto;
+}
+
+.secctionTwo {
+    width: 270px;
+    background-color: red;
+    margin: 0 auto;
     
 }
 
