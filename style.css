@@ -1,29 +1,80 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+    font-family: 'JetBrainsMono';
+    src: url('assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot'); 
+    src: url('assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype'), 
+         url('assets/JetBrainsMono-1.0.3/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'), 
+         url('assets/JetBrainsMono-1.0.3/web/woff/JetBrainsMono-Regular.woff') format('woff'), 
+         url('assets/JetBrainsMono-1.0.3/ttf/JetBrainsMono-Regular.ttf')  format('truetype') 
+  }
+@font-face {
+    font-family: 'SF UI Display Thin';
+    font-weight: normal;
+    src: local('SF UI Display Thin'), url('assets/sf-ui-display-cufonfonts-webfont/sf-ui-display-thin-58646e9b26e8b.woff') format('woff');
+    }
+  
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body {
+    width: 100vw;
+}
 
-.principal {
+section {
+    font-family: 'JetBrainsMono', 'Courier New', Courier, monospace;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.logo{
+    width: 100%;   
+}
+
+section div {
+    width: 75%;
+    margin: 0 auto;
+    align-self: flex-start;
+}
+
+.type-here { 
+    align-items: flex-end;
+}
+
+h1{
     font-family: 'Rubik', sans-serif;
-    background-color: gold;
-    
-}
-
-.rusticLogo{
-    width: 270px;
-    
-}
-
-.secctionOne {
-    width: 270px;
-    background-color: aqua;
-    margin: 0 auto;
-}
-
-.secctionTwo {
-    width: 270px;
-    background-color: red;
-    margin: 0 auto;
+    font-size: 2.6rem;
     
 }
 
 
+.subrayado{
+    background: linear-gradient(to right, #9C1DE7, #FF073A, #FFF707);
+}
 
+h2{
+    font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.illustrations{
+    width: 100%;
+}
+
+p{
+    font-family: 'SF UI Display Thin', sans-serif;
+    font-size: 1.1rem;
+}
+
+
+.light-mode{
+    background-color: #F7F7F7;
+    color: #353535;
+}
+
+.dark-mode{
+    background-color: #353535;
+    color: #F7F7F7;
+}
 
