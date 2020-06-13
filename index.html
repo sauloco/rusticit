@@ -79,16 +79,15 @@
       <div>
         <h1 class="do-you"><span>Do you</span>want to <span>know</span>more?</h1>
       </div>
-      <div>  
-        <p>Type your name here</p>
-      </div>
-      <div> 
-        <p>Type your mail and/or phone number here</p>
-      </div>
       <div>
-        <input type="text" id="idea" value="Tell us more about yourself and your idea" >
-      </div>
-      <p class="contact-me">Great, contact me here</p> 
+        <form name="contact" method="POST" data-netlify="true"> 
+          <input class="text-input" type="text" placeholder="Type your name here">
+          <input class="text-input" type="text" placeholder="Type your mail and/or phone number here">
+          <input class="text-input" type="text" placeholder="Tell us more about yourself and your idea">
+          <p class="span"><input class="text-input" name="bot-field" value="Don’t fill this out if you're human"/></p>
+          <button class="contact-me">Great, contact me here</button> 
+      </form>
+    </div> 
     </section>
   </body>
 </html>

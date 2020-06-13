@@ -115,6 +115,7 @@ p{
 .contact-me{
     font-family: 'SF UI Display Thin', sans-serif;
     font-weight: bolder;
+    justify-self: center;
     align-self: center;
 }
 
@@ -126,7 +127,21 @@ p{
     font-size: 3.2rem;
 }
 
+.text-input{
+    font-family: 'SF UI Display Thin', sans-serif;
+    font-size: 0.9rem;
+    width: 100%;
+    border: 0;
+    background: transparent;
+}
 
+.text-input:focus{
+    outline: none;
+}
+
+.span{
+    display: none;
+}
 
 .light-mode{
     background-color: #F7F7F7;
