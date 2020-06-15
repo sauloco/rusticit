@@ -117,6 +117,10 @@ p{
     font-weight: bolder;
     justify-self: center;
     align-self: center;
+    border: 0; 
+}
+.contact-me:focus{
+    outline: none;
 }
 
 .we-can{
@@ -133,13 +137,14 @@ p{
     width: 100%;
     border: 0;
     background: transparent;
+    justify-content: space-between;
 }
 
 .text-input:focus{
     outline: none;
 }
 
-.span{
+.hide{
     display: none;
 }
 
