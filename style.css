@@ -13,8 +13,40 @@
     }
   
 *{margin: 0; padding: 0; box-sizing: border-box;}
+html{ 
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100vw;
+}
+
+nav{
+    position: fixed;
+    font-family: 'SF UI Display Thin', sans-serif;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav img{
+    align-self: flex-end;
+    margin-right: 1rem;
+    position:relative;
+    z-index: -1;
+    
+}
+
+a{
+    align-self: center;  
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #353535;
 }
 
 section {
