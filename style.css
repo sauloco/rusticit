@@ -43,10 +43,6 @@ section div {
     align-self: flex-start;
   }
 
-.logo {
-  width: 100%;
-}
-
 .type-here {
   align-items: flex-end;
 }
@@ -92,7 +88,7 @@ h2 {
   font-size: 1.1rem;
 }
 
-.illustrations {
+div img {
   width: 100%;
 }
 
