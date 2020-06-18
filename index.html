@@ -34,15 +34,15 @@
       <h2>Javascript mobile and web programming</h2>
     </div>
     <div class='type-here'>
-      <input class="text-input" placeholder="Just type you mail and/or phone number here and we will contact you.">
+      <input placeholder="Just type you mail and/or phone number here and we will contact you.">
     </div>
   </section>
-  <section id="great_idea">
+  <section>
     <div>
       <h1>Share your <span>great idea</span> with us</h1>
     </div>
     <div>
-      <img class="illustrations" src="assets/woman_great_idea_light.svg">
+      <img src="assets/woman_great_idea_light.svg">
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -50,10 +50,10 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section id="think">
+  <section>
     <div>
       <h3>Let us <span>think</span> about it</h3>
-      <img class="illustrations man-think" src="assets/man_think_light.svg">
+      <img class="man-think" src="assets/man_think_light.svg">
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -63,10 +63,10 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section id="design_and_code">
+  <section>
     <div class="we-can">
       <h1>We can <sup>and want</sup><br> <span>design</span> it<br> and <span>code</span> it</h1>
-      <img class="illustrations woman-design" src="assets/woman_design_and_code_light.svg">
+      <img class="woman-design" src="assets/woman_design_and_code_light.svg">
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -74,33 +74,35 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section id="the_mess">
+  <section>
     <div>
       <h1>We will handle all <span>the mess</span> for you</h1>
-      <img class="illustrations server" src="assets/server_the_mess_light.svg">
+     <div> 
+      <img src="assets/server_the_mess_light.svg">
+    </div> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aenean ac massa eu mauris fringilla dignissim. Vestibulum condimentum posuere sapien eu tristique.
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <form name="contact" method="POST" data-netlify="true">
-    <section id="want_more?">
+  <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+    <section>
       <div>
         <h1 class="do-you"><span>Do you</span> want to <span>know</span>more?</h1>
       </div>
       <div>
-        <input class="text-input" type="text" placeholder="Type your name here">
+        <input type="text" placeholder="Type your name here">
       </div>
       <div>
-        <input class="text-input" type="text" placeholder="Type your mail and/or phone number here">
+        <input type="text" placeholder="Type your mail and/or phone number here">
       </div>
       <div>
-        <input class="text-input" type="text" placeholder="Tell us more about yourself and your idea">
+        <input type="text" placeholder="Tell us more about yourself and your idea">
       </div>
       <div>
-        <input class="text-input hide" name="bot-field" value="Don’t fill this out if you're human" /></p>
+        <input class="hide" name="bot-field" value="Don’t fill this out if you're human" /></p>
       </div>
-      <button type="submit" class="contact-me">Great, contact me here</button>
+      <button type="submit">Great, contact me here</button>
     </section>
   </form>
 </body>
