@@ -1,0 +1,158 @@
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot");
+  src: url("assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/JetBrainsMono-1.0.3/web/woff2/JetBrainsMono-Regular.woff2")
+      format("woff2"),
+    url("assets/JetBrainsMono-1.0.3/web/woff/JetBrainsMono-Regular.woff")
+      format("woff"),
+    url("assets/JetBrainsMono-1.0.3/ttf/JetBrainsMono-Regular.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "SF UI Display Thin";
+  font-weight: normal;
+  src: local("SF UI Display Thin"),
+    url("assets/sf-ui-display-cufonfonts-webfont/sf-ui-display-thin-58646e9b26e8b.woff")
+      format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+}
+
+section {
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 100vw;
+}
+
+section div {
+    width: 75%;
+    margin: 0 auto;
+    align-self: flex-start;
+  }
+
+.type-here {
+  align-items: flex-end;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h3 span {
+  font-size: 5.5rem;
+  background: linear-gradient(to right, #581b98 0%, #9c1de7 50%, #ff073a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 span {
+  position: relative;
+}
+
+h1 span:after {
+  content: "";
+  height: 14px;
+  z-index: -1;
+  background: linear-gradient(to right, #9c1de7, #ff073a, #fff707);
+  width: 100%;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+}
+
+h1 sup {
+  font-size: 1.5rem;
+  color: rgb(224, 220, 220);
+}
+
+h2 {
+  font-family: "JetBrainsMono", "Courier New", Courier, monospace;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+div img {
+  width: 100%;
+}
+
+.man-think {
+  z-index: -1;
+  top: -30px;
+  position: relative;
+}
+
+.woman-design {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+p {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-size: 1.1rem;
+}
+
+button {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-weight: bolder;
+  justify-self: center;
+  align-self: center;
+  border: 0;
+}
+button:focus {
+  outline: none;
+}
+
+.we-can {
+  width: 90%;
+}
+
+.do-you {
+  font-size: 3.2rem;
+}
+
+input {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  justify-content: space-between;
+}
+
+input:focus {
+  outline: none;
+}
+
+.hide {
+  display: none;
+}
+
+.light-mode {
+  background-color: #f7f7f7;
+  color: #353535;
+}
+
+.dark-mode {
+  background-color: #353535;
+  color: #f7f7f7;
+}
