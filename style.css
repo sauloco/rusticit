@@ -172,9 +172,19 @@ button:focus {
   background-color: #353535;
 }
 
+.dark-mode nav span:not(.for-dark), .dark-mode img:not(.for-dark){
+  display: none;
+}
+
+.light-mode .for-dark{
+  display: none;
+}
+
 .light-mode button{
   color: #353535;
 }
+
+
 
 .we-can {
   width: 90%;
