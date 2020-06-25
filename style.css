@@ -23,12 +23,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   width: 100vw;
+  transition: .3s ease all;
+}
+
+:root{
+  --white: #f7f7f7;
+  --black: #353535;
+  --grey: #e0dcdc;
+  --light-violet: #9c1de7;
+  --dark-violet: #581b98;
+  --red: #ff073a;
+  --yelow: #fff707;
 }
 
 .menu{
@@ -46,7 +60,7 @@ nav {
   justify-content: space-evenly;
   height: 100vh;
   width: 100vw;
-  background-color: #f7f7f7;
+  background-color: var(--white);
   z-index: 100;
 }
 
@@ -65,7 +79,7 @@ a {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #353535;
+  color: var(--black);
 }
 
 section {
@@ -98,7 +112,7 @@ h3 {
 
 h3 span {
   font-size: 5.5rem;
-  background: linear-gradient(to right, #581b98 0%, #9c1de7 50%, #ff073a 100%);
+  background: linear-gradient(to right, var(--dark-violet), var(--light-violet), var(--red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -111,7 +125,7 @@ h1 span:after {
   content: "";
   height: 14px;
   z-index: -1;
-  background: linear-gradient(to right, #9c1de7, #ff073a, #fff707);
+  background: linear-gradient(to right, var(--light-violet), var(--red), var(--yelow));
   width: 100%;
   position: absolute;
   bottom: 6px;
@@ -120,7 +134,7 @@ h1 span:after {
 
 h1 sup {
   font-size: 1.5rem;
-  color: rgb(224, 220, 220);
+  color: var(--grey);
 }
 
 h2 {
@@ -165,11 +179,11 @@ button:focus {
 }
 
 .dark-mode button, .dark-mode input, .dark-mode ::placeholder, .dark-mode a{
-  color: #f7f7f7;
+  color: var(--white);
 }
 
 .dark-mode nav{
-  background-color: #353535;
+  background-color: var(--black);
 }
 
 .dark-mode nav span:not(.for-dark), .dark-mode img:not(.for-dark){
@@ -181,7 +195,7 @@ button:focus {
 }
 
 .light-mode button{
-  color: #353535;
+  color: var(--black);
 }
 
 
@@ -208,7 +222,7 @@ input:focus {
 }
 
 ::placeholder{
-  color: #353535;
+  color: var(--black);
 }
 
 .hide {
@@ -216,11 +230,23 @@ input:focus {
 }
 
 .light-mode {
-  background-color: #f7f7f7;
-  color: #353535;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .dark-mode {
-  background-color: #353535;
-  color: #f7f7f7;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+@media (min-width: 500px) {
+  .light-mode {
+    
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #9c1de7;
+  }
 }
