@@ -12,14 +12,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rustic IT</title>
   <link rel="icon" type="image/svg" href="assets/R.svg">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body class="light-mode">
+  <img class="menu" src="assets/menu_icon.svg">
+  <img class="menu for-dark" src="assets/menu_dark.svg">
+  <nav class="hide">
+      <img src="assets/close_icon.svg">
+      <img class="for-dark" src="assets/close_menu_dark.svg">
+      <a href="#great_idea">great idea</a>
+      <a href="#think">think</a>
+      <a href="#design_and_code">design and code</a>
+      <a href="#the_mess">the mess</a>
+      <a href="#want_more">want more?</a>
+      <a>español</a>
+      <a class="toggle-mode">
+        <span>dark</span>
+        <span class="for-dark">light</span>
+      </a>
+  </nav>
   <section>
     <div>
-      <img src="assets/rustic_logo_light.svg">
+      <img class='logo' src="assets/rustic_logo_light.svg">
+      <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg">
       <h2><strong>information & technology</strong></h2>
       <h2>Javascript mobile and web programming</h2>
     </div>
@@ -27,12 +42,13 @@
       <input placeholder="Just type you mail and/or phone number here and we will contact you.">
     </div>
   </section>
-  <section>
+  <section id="great_idea">
     <div>
       <h1>Share your <span>great idea</span> with us</h1>
     </div>
     <div>
       <img src="assets/woman_great_idea_light.svg">
+      <img class="for-dark" src="assets/woman_great_idea_dark.svg">
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -40,11 +56,13 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section>
+  <section id="think">
     <div>
-      <h3>Let us <span>think</span> about it</h3>
+      <h3>Let us <br><span>think</span><br> about it</h3>
+      
       <img class="man-think" src="assets/man_think_light.svg">
-    </div>
+      <img class="man-think for-dark" src="assets/man_think_dark.svg">
+    </div> 
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aenean ac massa eu mauris fringilla dignissim. Vestibulum condimentum posuere sapien eu tristique.
@@ -53,10 +71,11 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section>
+  <section id="design_and_code">
     <div class="we-can">
       <h1>We can <sup>and want</sup><br> <span>design</span> it<br> and <span>code</span> it</h1>
       <img class="woman-design" src="assets/woman_design_and_code_light.svg">
+      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg">
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -64,11 +83,12 @@
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
     </div>
   </section>
-  <section>
+  <section id="the_mess">
     <div>
       <h1>We will handle all <span>the mess</span> for you</h1>
      <div> 
       <img src="assets/server_the_mess_light.svg">
+      <img class="for-dark" src="assets/server_the_mess_dark.svg">
     </div> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aenean ac massa eu mauris fringilla dignissim. Vestibulum condimentum posuere sapien eu tristique.
@@ -76,9 +96,9 @@
     </div>
   </section>
   <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-    <section>
+    <section id="want_more">
       <div>
-        <h1 class="do-you"><span>Do you</span> want to <span>know</span>more?</h1>
+        <h1 class="do-you"><span>Do you</span> want to <span>know</span> more?</h1>
       </div>
       <div>
         <input type="text" placeholder="Type your name here">
@@ -95,6 +115,10 @@
       <button type="submit">Great, contact me here</button>
     </section>
   </form>
+  
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
 </body>
 
 </html>
