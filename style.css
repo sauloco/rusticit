@@ -18,6 +18,51 @@
       format("woff");
 }
 
+@media (min-width: 768px){
+  nav a{
+    font-size: 1.2rem;
+  }
+  .logo{
+    min-width: 600px;
+  }
+  .hero{
+    max-width: 600px;
+  }
+  div img{
+    width: 50%;
+  }
+  section{
+    flex-direction: row;
+  }
+  .section-one{
+    flex-direction: column;
+  }
+  section div{
+    text-align: center;
+    
+  }
+  div h2{
+    text-align: left;
+    width: 50%;
+    min-width: 600px;
+  }
+  input{
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px){
+  div img {
+    width: 100%;
+  }
+  input{
+    font-size: 0.9rem;
+  }
+  section{
+    flex-direction: column;
+  }
+}
+
 :root{
   --white: #f7f7f7;
   --black: #353535;
@@ -102,7 +147,6 @@ a:visited {
 section {
   font-family: "Rubik", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
   height: 100vh;
@@ -162,9 +206,7 @@ h2 {
   font-size: 1.1rem;
 }
 
-div img {
-  width: 100%;
-}
+
 
 .man-think {
   z-index: -1;
@@ -214,7 +256,6 @@ button:focus {
 
 input {
   font-family: "SF UI Display Thin", sans-serif;
-  font-size: 0.9rem;
   width: 100%;
   border: 0;
   background: transparent;
