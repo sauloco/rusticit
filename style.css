@@ -109,12 +109,6 @@ section {
   width: 100vw;
 }
 
-section div {
-  width: 75%;
-  margin: 0 auto;
-  align-self: flex-start;
-}
-
 .type-here {
   align-items: flex-end;
 }
@@ -239,6 +233,8 @@ input:focus {
   }
   .hero {
     max-width: 600px;
+    width: 75%;
+    align-self: center;
   }
   div img {
     width: 100%;
@@ -251,9 +247,12 @@ input:focus {
     flex-direction: column;
     text-align: center;
   }
-  section div {
+  section div:not(.hero) {
     width: 75%;
+    margin-left: 5rem;
+    align-self: center;
   }
+  
   div h2 {
     text-align: left;
     width: 50%;
@@ -280,5 +279,10 @@ input:focus {
   }
   section {
     flex-direction: column;
+  }
+  section div{
+    width: 75%;
+    margin: 0 auto;
+    align-self: flex-start;
   }
 }
