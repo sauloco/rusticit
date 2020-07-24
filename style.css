@@ -252,21 +252,26 @@ input:focus {
     min-width: 600px;
   }
   div h1 {
-    font-size: 3rem;
+    font-size: 3.7rem;
   }
-  input {
+  input{
+    font-size: 1.5rem;
+  }
+  .type-mail{
     text-align: center;
     font-size: 1.5rem;
   }
-  .contact {
-    position: absolute;
-    align-self: flex-end;
+  button {
     text-align: center;
-    margin-bottom: 2rem;
     font-size: 1.1rem;
+    width: 100%;
+    margin: 2rem 0;
   }
   .for-small{
     display: none;
+  }
+  h3 span{
+    font-size: 10rem;
   }
 }
 @media (max-width: 768px) {
