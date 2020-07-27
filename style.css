@@ -58,7 +58,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--color);
-  width: 100vw;
+  max-width: 100vw;
   transition: 0.3s ease all;
 }
 
@@ -201,7 +201,6 @@ input {
   background: transparent;
   color: var(--color);
   justify-content: space-between;
-  margin: 2rem 0;
 }
 
 input:focus {
@@ -239,7 +238,7 @@ input:focus {
     overflow-x: auto;
     align-items: center;
   }
-  .section-one {
+  .hero-wrapper {
     flex-direction: column;
     text-align: center;
   }
@@ -256,6 +255,7 @@ input:focus {
   }
   input{
     font-size: 1.5rem;
+    margin: 2rem 0;
   }
   .type-mail{
     text-align: center;
@@ -280,9 +280,11 @@ input:focus {
   }
   input {
     font-size: 0.9rem;
+    margin: 1rem 0;
   }
   section {
     flex-direction: column;
+    width: 100%;
   }
   section div {
     width: 75%;
@@ -294,5 +296,10 @@ input:focus {
   }
   .type-mail{
     text-align: center;
+  }
+  button{
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
   }
 }
