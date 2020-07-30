@@ -28,23 +28,21 @@
       <a>español</a>
       <a class="toggle-mode">
         <span>dark</span>
-        <span class="for-dark">light</span>
+        <span class="for-dark">light</span> 
       </a>
   </nav>
-  <section>
-    <div>
-      <img class='logo' src="assets/rustic_logo_light.svg">
-      <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg">
-      <h2><strong>information & technology</strong></h2>
+  <section class="hero-wrapper"> 
+    <div class="hero">
+      <img class="logo" src="assets/rustic_logo_light.svg">
+      <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg"> 
+      <h2><strong>information & technology</strong></h2> 
       <h2>Javascript mobile and web programming</h2>
-    </div>
-    <div class='type-here'>
-      <input placeholder="Just type you mail and/or phone number here and we will contact you.">
-    </div>
+    </div> 
+      <input class="type-mail" placeholder="Just type you mail and/or phone number here and we will contact you.">
   </section>
   <section id="great_idea">
     <div>
-      <h1>Share your <span>great idea</span> with us</h1>
+      <h1>Share your <br><span>great idea</span><br> with us</h1>
     </div>
     <div>
       <img src="assets/woman_great_idea_light.svg">
@@ -59,7 +57,6 @@
   <section id="think">
     <div>
       <h3>Let us <br><span>think</span><br> about it</h3>
-      
       <img class="man-think" src="assets/man_think_light.svg">
       <img class="man-think for-dark" src="assets/man_think_dark.svg">
     </div> 
@@ -72,10 +69,17 @@
     </div>
   </section>
   <section id="design_and_code">
-    <div class="we-can">
-      <h1>We can <sup>and want</sup><br> <span>design</span> it<br> and <span>code</span> it</h1>
+    <div class="for-large">
       <img class="woman-design" src="assets/woman_design_and_code_light.svg">
       <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg">
+    </div>
+    <div class="we-can">
+      <h1>We can <sup>and want</sup><br> <span>design</span> it and <span>code</span> it</h1>
+    </div>
+    <div class="for-small">
+      <img class="woman-design" src="assets/woman_design_and_code_light.svg">
+      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg">
+    </div>
     </div>
     <div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -86,10 +90,12 @@
   <section id="the_mess">
     <div>
       <h1>We will handle all <span>the mess</span> for you</h1>
-     <div> 
+    </div>  
+    <div> 
       <img src="assets/server_the_mess_light.svg">
       <img class="for-dark" src="assets/server_the_mess_dark.svg">
-    </div> 
+    </div>
+    <div> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Aenean ac massa eu mauris fringilla dignissim. Vestibulum condimentum posuere sapien eu tristique.
         Vivamus accumsan ligula ut ipsum elementum, eget aliquet velit hendrerit.</p>
@@ -100,25 +106,19 @@
       <div>
         <h1 class="do-you"><span>Do you</span> want to <span>know</span> more?</h1>
       </div>
-      <div>
+     <div class="space"> 
         <input type="text" placeholder="Type your name here">
-      </div>
-      <div>
         <input type="text" placeholder="Type your mail and/or phone number here">
-      </div>
-      <div>
         <input type="text" placeholder="Tell us more about yourself and your idea">
-      </div>
-      <div>
         <input class="hide" name="bot-field" value="Don’t fill this out if you're human" /></p>
+        <button type="submit">Great, contact me here</button>
       </div>
-      <button type="submit">Great, contact me here</button>
+    </div> 
+      
     </section>
   </form>
-  
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <script src="script.js"></script>
 </body>
-
 </html>
