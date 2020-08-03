@@ -181,7 +181,7 @@ button:focus {
   outline: none;
 }
 
-.dark-mode nav span:not(.for-dark),
+.dark-mode nav .toggle-mode span:not(.for-dark),
 .dark-mode img:not(.for-dark) {
   display: none;
 }
