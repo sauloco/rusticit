@@ -179,11 +179,6 @@ function toggleLanguage() {
     const element = document.querySelector(sentence.selector);
     const value = sentence["html_"+language];
 
-    if (!element) {
-      console.error(sentence.selector, 'not found');
-      continue;
-    }
-
     if (element.tagName === "INPUT") {
       element.placeholder = value;
     } else {
