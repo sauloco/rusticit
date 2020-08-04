@@ -51,8 +51,7 @@
       <h2 id="hero-two">Software for mobile and web.</h2>
       <h2 id="hero-three">Designing, consulting and development.</h2>
     </div> 
-      <input class="type-mail" placeholder="Just type you mail and/or phone number here and we will contact you.">
-      <input class="type-mail" placeholder="Escribe aquí tu correo electrónico o número de teléfono y te contactaremos">
+      <input class="type-mail" id="hero-input" placeholder="Just type you mail and/or phone number here and we will contact you.">
   </section>
   <section id="great_idea">
     <div>
@@ -67,16 +66,11 @@
         digital world. Well, a great idea, like yours, is a great start to make a bussiness, but sadly that's not enough.
         We want to help you! We offer you all our knowledge in digital experiences, design and marketing, 
         that way you will see your idea becoming real, worth the shot? Contact us</p>
-      <p>Tú sabes que vale mucho esa idea, que tiene potencial... si tan solo supieras dar todos los pasos necesarios para
-         hacerla digital. Una buena idea es un gran puntapié para iniciar un negocio, pero lamentablemente con eso solo no alcanza.
-        ¡Queremos ayudarte! Para eso ponemos a tu disposición todos nuestros conocimientos en experiencias, diseño y 
-        marketing digital, para que puedas ir haciendo realidad tus ideas. ¡Vale la pena intentarlo! Consúltanos.</p>
     </div>
   </section>
   <section id="think">
     <div>
-      <h3 id="thik-t">Let us <br><span>think</span> about it</h3>
-      <h3>Danos unos días para <br><span>pensar</span> la solución</h3>
+      <h3 id="think-t">Let us <br><span>think</span> about it</h3>
       <img class="man-think" src="assets/man_think_light.svg">
       <img class="man-think for-dark" src="assets/man_think_dark.svg">
     </div> 
@@ -85,10 +79,6 @@
         after that we will invest our time to think what's the optimal solution for you to reach your goals.
         Sometimes will be mandatory to develop a custom solution, but sometimes we will help you through the implementation 
         and adaptation of an existing digital tool. In any case we will be there to make whatever it takes. Contact us</p>
-      <p>Tus ideas son extremadamente valiosas, para ello contáctanos, organicemos una llamada para conocer los detalles, 
-        pero luego invertiremos de nuestro tiempo en pensar cuál es la solución óptima para lograr tu objetivo.
-        A veces será necesario desarrollar una solución, a veces será necesario adaptar una solución ya existente, 
-        en cualquier caso estaremos ahí para hacer lo que haga falta. ¡Consultanos!</p>
     </div>
   </section>
   <section id="design_and_code">
@@ -109,11 +99,6 @@
         it becomes reality.
         Do you have the design too? Great! Following that guides we can focus to bring it to the next level, adapting it 
         for digital media.</p>
-      <p>Tienes solo la idea, no es inconveniente, comenzaremos ayudándote a diseñar todos los aspectos para convertirla 
-        en realidad.
-        ¿Tienes el diseño? ¡Excelente! Respetando esas guías podremos concentrarnos en llevarla al siguiente nivel, 
-        adaptándola a todos los medios digitales.
-        En cualquier caso, ¡consúltanos!</p>
     </div>
   </section>
   <section id="the_mess">
@@ -129,10 +114,6 @@
         servers, security... looks overwelming? Don't worry, we want you focus in your business, not in technical details.
         We partner with the best companies, and use their best resources to bring you highly reliable services and 
         availability, then your idea can grow at your own pace.</p>
-      <p>Esta idea se transformará en una página web, app móvil, perfiles en redes sociales, servidores, seguridad... puede 
-        parecer abrumador, pero nosotros queremos que te enfoques en tu negocio, no en los detalles técnicos.
-        Nos asociamos con empresas que brindan servicios de alta confiabilidad y disponibilidad, para que tu idea pueda 
-        crecer al ritmo que necesitas. Consulta sobre este tema</p>
     </div>
   </section>
   <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
@@ -141,18 +122,11 @@
         <h1 id="want-more-t" class="do-you"><span>Do you</span> want to <span>know</span> more?</h1>
       </div>
      <div class="space"> 
-        <input type="text" placeholder="Type your name or company name here">
-        <input type="text" placeholder="Write your mail or phone here">
-        <input type="text" placeholder="Tell us a bit about your idea">
+        <input type="text" id="more-input-name" placeholder="Type your name or company name here">
+        <input type="text" id="more-input-mail" placeholder="Write your mail or phone here">
+        <input type="text" id="more-input-tell" placeholder="Tell us a bit about your idea">
         <input class="hide" name="bot-field" value="Don’t fill this out if you're human" /></p>
-        <button type="submit">Ok, send</button>
-      </div>
-     <div class="space"> 
-        <input type="text" placeholder="Escribe tu nombre o el nombre de tu empresa aquí">
-        <input type="text" placeholder="Escribe tu correo electrónico o número de teléfono aquí">
-        <input type="text" placeholder="Cuéntanos un poco sobre lo que necesitas">
-        <input class="hide" name="bot-field" value="Don’t fill this out if you're human" /></p>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="more-send">Ok, send</button>
       </div>
     </div> 
       
