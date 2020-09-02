@@ -75,9 +75,14 @@ function toggleLanguage() {
       html_es: "Consultoría y creación de soluciones.",
     },
     {
+      selector: "#hero-p",
+      html_en: "We will contact you",
+      html_es: "Te contactaremos"
+    },
+    {
       selector: "#hero-input",
-      html_en: "Just type you mail and/or phone number here and we will contact you.",
-      html_es: "Escribe aquí tu correo electrónico o número de teléfono y te contactaremos"
+      html_en: "Type your mail and/or phone number here.",
+      html_es: "Escribe aquí tu mail o número de teléfono."
     },
     {
       selector: "#great-idea-t",

@@ -141,6 +141,7 @@ h1 span:after {
 h1 sup {
   font-size: 1.5rem;
   color: var(--grey);
+  position: absolute;
 }
 
 h2 {
@@ -225,7 +226,7 @@ input:focus {
   .logo {
     min-width: 600px;
   }
-  .hero {
+  .hero, .hero-contact {
     max-width: 600px;
     width: 75%;
     align-self: center;
@@ -243,9 +244,9 @@ input:focus {
     text-align: center;
   }
   section div:not(.hero) {
-    flex: 0 0 25%;
+    flex: 0 0 30%;
   }
-  div h2 {
+  div h2, .hero-contact {
     text-align: left;
     width: 50%;
     min-width: 600px;
@@ -253,13 +254,11 @@ input:focus {
   div h1 {
     font-size: 3.7rem;
   }
-  input{
+  .hero-contact p, input{
     font-size: 1.5rem;
-    margin: 2rem 0;
   }
-  .type-mail{
-    text-align: center;
-    font-size: 1.5rem;
+  .space input{
+    margin: 2rem 0;
   }
   button {
     text-align: center;
@@ -278,8 +277,10 @@ input:focus {
   div img {
     width: 100%;
   }
-  input {
+  .hero-contact p, input{
     font-size: 0.9rem;
+  }
+  .space input {
     margin: 1rem 0;
   }
   section {
@@ -294,9 +295,7 @@ input:focus {
   .for-large {
     display: none;
   }
-  .type-mail{
-    text-align: center;
-  }
+  
   button{
     text-align: center;
     width: 100%;
