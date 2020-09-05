@@ -183,7 +183,8 @@ button:focus {
 }
 
 .dark-mode nav .toggle-mode span:not(.for-dark),
-.dark-mode img:not(.for-dark) {
+.dark-mode img:not(.for-dark),
+.dark-mode svg:not(.for-dark){
   display: none;
 }
 
@@ -231,7 +232,7 @@ input:focus {
     width: 75%;
     align-self: center;
   }
-  div img {
+  div img, svg {
     width: 100%;
   }
   section {
@@ -274,7 +275,7 @@ input:focus {
   }
 }
 @media (max-width: 768px) {
-  div img {
+  div img, svg {
     width: 100%;
   }
   .hero-contact p, input{
