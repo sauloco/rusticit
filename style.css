@@ -232,7 +232,7 @@ input:focus {
     width: 75%;
     align-self: center;
   }
-  div img, svg {
+  div img, div svg {
     width: 100%;
   }
   section {
@@ -275,7 +275,7 @@ input:focus {
   }
 }
 @media (max-width: 768px) {
-  div img, svg {
+  div img, div svg {
     width: 100%;
   }
   .hero-contact p, input{
