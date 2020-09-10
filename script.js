@@ -205,3 +205,15 @@ function handleMode() {
     }
   }
 }
+
+// const data = new FormData(document.querySelector('#contact'));
+
+// fetch('https://deploy-preview-8--rusticit.netlify.app/', {
+//   method: 'POST',
+//   body: data
+// })
+// .then(function(response) {
+//   if(response.ok) {
+//     return response.text()
+//   }
+// })

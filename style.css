@@ -125,17 +125,14 @@ h3 span {
 
 h1 span {
   position: relative;
-}
+  background-image: linear-gradient(to right, var(--lg-border));
+  background-position: 0 93%;
+  background-size: 100% 0.3em;
+  background-clip: border-box;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
 
-h1 span:after {
-  content: "";
-  height: 14px;
-  z-index: -1;
-  background: linear-gradient(to right, var(--lg-border));
-  width: 100%;
-  position: absolute;
-  bottom: 6px;
-  left: 0;
 }
 
 h1 sup {
