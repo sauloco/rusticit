@@ -210,6 +210,10 @@ input:focus {
   color: var(--color);
 }
 
+.check{
+  width: 1.5rem;
+}
+
 .hide {
   display: none;
 }

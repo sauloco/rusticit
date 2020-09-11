@@ -19,21 +19,23 @@ async function sendData(event) {
   document
     .querySelectorAll("form input")
     .forEach((element) => (body[element.name] = element.value));
-  if (!body.name) {
-    alert("Ingrese su nombre")}
-  if (!body.mail) {
-    alert("Ingrese un contacto")
-    return
-  }
+  // if (!body.name) {
+  //   alert("Ingrese su nombre")}
+  // if (!body.mail) {
+  //   alert("Ingrese un contacto")
+  //   return
+  // }
   const response = await fetch('#', {
     method: 'POST',
     body,
   })
   if(response.ok){
-    alert("Ok")
+    document.getElementById("contacto").reset();
+    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("check"));
   }
   else{
-    alert("Error")
+    document.getElementById("contacto").reset();
+    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("error").delay(1000).hide(500));
   }
 }
 
