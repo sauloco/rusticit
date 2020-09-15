@@ -89,6 +89,10 @@ nav img {
   z-index: -1;
 }
 
+.menu, nav img, a{
+  cursor: pointer;
+}
+
 a {
   align-self: center;
 }
@@ -174,6 +178,7 @@ button {
   border: 0;
   background-color: transparent;
   color: var(--color);
+  cursor: pointer;
 }
 button:focus {
   outline: none;
@@ -212,10 +217,21 @@ input:focus {
 
 .check{
   width: 1.5rem;
+  /* opacity: 0; */
 }
 
 .hide {
   display: none;
+}
+
+.required{
+  background: linear-gradient(to left, var(--bg-color)20%, var(--red)30%, var(--bg-color)50%); 
+  background-size: 600% 600%;
+  animation: AnimationName 3s infinite;
+}
+@keyframes AnimationName {
+  0%{background-position:100% 0%}
+  100%{background-position:0% 100%}
 }
 
 @media (min-width: 768px) {

@@ -29,13 +29,31 @@ async function sendData(event) {
     method: 'POST',
     body,
   })
-  if(response.ok){
+  if(!response.ok){
     document.getElementById("contacto").reset();
     document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("check"));
-  }
+    let check = document.getElementById("check").style;
+    check.opacity = 1;
+    let interval = setInterval (hide,50);
+    function hide () {
+      if (check.opacity > 0){
+        check.opacity -= 0.01
+        console.log(check.opacity)
+      } else {clearInterval(interval)}
+    }
+  }  
   else{
     document.getElementById("contacto").reset();
-    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("error").delay(1000).hide(500));
+    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("error"));
+    let error = document.getElementById("error").style;
+    error.opacity = 1;
+    let interval = setInterval (hide,50);
+    function hide () {
+      if (error.opacity > 0){
+        error.opacity -= 0.01;
+        console.log(error.opacity)
+      } else {clearInterval(interval)}
+    };
   }
 }
 
@@ -196,18 +214,18 @@ function toggleLanguage() {
     },
     {
       selector: "#more-input-name",
-      html_en: "Type your name or company name here",
-      html_es: "Escribe tu nombre o el nombre de tu empresa aquí",
+      html_en: "Type your name here",
+      html_es: "Escribe tu nombre aquí",
     },
     {
       selector: "#more-input-mail",
       html_en: "Write your mail or phone here",
-      html_es: "Escribe tu correo electrónico o número de teléfono aquí",
+      html_es: "Escribe tu correo o teléfono aquí",
     },
     {
       selector: "#more-input-tell",
       html_en: "Tell us a bit about your idea",
-      html_es: "Cuéntanos un poco sobre lo que necesitas",
+      html_es: "Cuéntanos tu idea",
     },
     {
       selector: "#more-send",
