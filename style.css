@@ -190,6 +190,10 @@ button:focus {
   display: none;
 }
 
+.dark-mode .check:not(.for-dark){
+  display: inline;
+}
+
 .light-mode .for-dark {
   display: none;
 }
@@ -211,13 +215,22 @@ input:focus {
   outline: none;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--color) !important;
+}
+
 ::placeholder {
   color: var(--color);
 }
 
-.check{
-  width: 1.5rem;
-  /* opacity: 0; */
+.check {
+  opacity: 0;
+  position: absolute; 
+  margin-left: 0.5rem; 
 }
 
 .hide {
@@ -225,9 +238,9 @@ input:focus {
 }
 
 .required{
-  background: linear-gradient(to left, var(--bg-color)20%, var(--red)30%, var(--bg-color)50%); 
-  background-size: 600% 600%;
-  animation: AnimationName 3s infinite;
+  background: linear-gradient(to left, var(--bg-color)35%, var(--red), var(--bg-color)65%); 
+  background-size: 400%;
+  animation: AnimationName 2s infinite;
 }
 @keyframes AnimationName {
   0%{background-position:100% 0%}
@@ -290,6 +303,9 @@ input:focus {
   h3 span{
     font-size: 10rem;
   }
+  .check{
+    width: 1.2rem;
+  }
 }
 @media (max-width: 768px) {
   div img, div svg {
@@ -318,5 +334,8 @@ input:focus {
     text-align: center;
     width: 100%;
     margin: 1rem 0;
+  }
+  .check{
+    width: 0.8rem;
   }
 }

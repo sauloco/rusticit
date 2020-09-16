@@ -19,12 +19,23 @@ async function sendData(event) {
   document
     .querySelectorAll("form input")
     .forEach((element) => (body[element.name] = element.value));
-  // if (!body.name) {
-  //   alert("Ingrese su nombre")}
-  // if (!body.mail) {
-  //   alert("Ingrese un contacto")
-  //   return
-  // }
+  
+  let name = document.getElementById("more-input-name").classList;
+  let mail = document.getElementById("more-input-mail").classList;
+  if (!body.name && !body.mail) {
+    name.add("required")
+    mail.add("required")
+    return 
+  }else {name.remove("required"), mail.remove("required")};
+  if (!body.name) {
+    name.add("required");
+    return 
+  }else {name.remove("required")};
+  if (!body.mail) {
+    mail.add("required");
+    return
+  }else {mail.remove("required")};
+  
   const response = await fetch('#', {
     method: 'POST',
     body,
@@ -38,7 +49,6 @@ async function sendData(event) {
     function hide () {
       if (check.opacity > 0){
         check.opacity -= 0.01
-        console.log(check.opacity)
       } else {clearInterval(interval)}
     }
   }  
@@ -51,7 +61,6 @@ async function sendData(event) {
     function hide () {
       if (error.opacity > 0){
         error.opacity -= 0.01;
-        console.log(error.opacity)
       } else {clearInterval(interval)}
     };
   }
