@@ -153,7 +153,7 @@ h2 {
 
 .man-think {
   z-index: -1;
-  top: -30px;
+  height: 50%;
   position: relative;
 }
 
@@ -247,6 +247,10 @@ input:-webkit-autofill {
   100%{background-position:0% 100%}
 }
 
+div img, div svg {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   body {
     overflow-x: hidden;
@@ -262,9 +266,7 @@ input:-webkit-autofill {
     width: 75%;
     align-self: center;
   }
-  div img, div svg {
-    width: 100%;
-  }
+ 
   section {
     flex-direction: row;
     overflow-x: auto;
@@ -308,9 +310,7 @@ input:-webkit-autofill {
   }
 }
 @media (max-width: 768px) {
-  div img, div svg {
-    width: 100%;
-  }
+ 
   .hero-contact p, input{
     font-size: 0.9rem;
   }

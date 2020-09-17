@@ -20,21 +20,21 @@ async function sendData(event) {
     .querySelectorAll("form input")
     .forEach((element) => (body[element.name] = element.value));
   
-  let name = document.getElementById("more-input-name").classList;
-  let mail = document.getElementById("more-input-mail").classList;
+  let nameClassList = document.getElementById("more-input-name").classList;
+  let mailClassList = document.getElementById("more-input-mail").classList;
   if (!body.name && !body.mail) {
-    name.add("required")
-    mail.add("required")
+    nameClassList.add("required")
+    mailClassList.add("required")
     return 
-  }else {name.remove("required"), mail.remove("required")};
+  }else {nameClassList.remove("required"), mailClassList.remove("required")};
   if (!body.name) {
-    name.add("required");
+    nameClassList.add("required");
     return 
-  }else {name.remove("required")};
+  }else {nameClassList.remove("required")};
   if (!body.mail) {
-    mail.add("required");
+    mailClassList.add("required");
     return
-  }else {mail.remove("required")};
+  }else {mailClassList.remove("required")};
   
   const response = await fetch('#', {
     method: 'POST',
