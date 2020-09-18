@@ -89,7 +89,9 @@ nav img {
   z-index: -1;
 }
 
-.menu, nav img, a{
+.menu,
+nav img,
+a {
   cursor: pointer;
 }
 
@@ -136,7 +138,6 @@ h1 span {
   background-attachment: scroll;
   background-origin: padding-box;
   background-repeat: no-repeat;
-
 }
 
 h1 sup {
@@ -165,32 +166,25 @@ h2 {
   -ms-filter: "FlipH";
 }
 
+div img,
+div svg {
+  width: 100%;
+}
+
 p {
   font-family: "SF UI Display Thin", sans-serif;
   font-size: 1.1rem;
 }
 
-button {
-  font-family: "SF UI Display Thin", sans-serif;
-  font-weight: bolder;
-  justify-self: center;
-  align-self: center;
-  border: 0;
-  background-color: transparent;
-  color: var(--color);
-  cursor: pointer;
-}
-button:focus {
-  outline: none;
-}
 
 .dark-mode nav .toggle-mode span:not(.for-dark),
 .dark-mode img:not(.for-dark),
-.dark-mode svg:not(.for-dark){
+.dark-mode svg:not(.for-dark) {
   display: none;
 }
 
-.dark-mode .check:not(.for-dark){
+.dark-mode .check:not(.for-dark),
+.dark-mode .error:not(.for-dark) {
   display: inline;
 }
 
@@ -227,28 +221,57 @@ input:-webkit-autofill {
   color: var(--color);
 }
 
-.check {
-  opacity: 0;
-  position: absolute; 
-  margin-left: 0.5rem; 
+button {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-weight: bolder;
+  justify-self: center;
+  align-self: center;
+  border: 0;
+  background-color: transparent;
+  color: var(--color);
+  cursor: pointer;
+  
+}
+button:focus {
+  outline: none;
+}
+
+.send{
+  display: flex;
+  flex-direction: row;
+  
+}
+.check,
+.error {
+  opacity: 1;
+  position: relative;
+  z-index: -1;
+ 
+  /* margin-left: 0.5rem; */
 }
 
 .hide {
   display: none;
 }
 
-.required{
-  background: linear-gradient(to left, var(--bg-color)35%, var(--red), var(--bg-color)65%); 
+.required {
+  border-bottom: 1px var(--red) solid;
+  background: linear-gradient(
+    to left,
+    var(--bg-color) 35%,
+    var(--red),
+    var(--bg-color) 65%
+  );
   background-size: 400%;
-  animation: AnimationName 2s infinite;
+  animation: RequiredInputWarning 2s;
 }
-@keyframes AnimationName {
-  0%{background-position:100% 0%}
-  100%{background-position:0% 100%}
-}
-
-div img, div svg {
-  width: 100%;
+@keyframes RequiredInputWarning {
+  0% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -261,12 +284,13 @@ div img, div svg {
   .logo {
     min-width: 600px;
   }
-  .hero, .hero-contact {
+  .hero,
+  .hero-contact {
     max-width: 600px;
     width: 75%;
     align-self: center;
   }
- 
+
   section {
     flex-direction: row;
     overflow-x: auto;
@@ -279,7 +303,8 @@ div img, div svg {
   section div:not(.hero) {
     flex: 0 0 30%;
   }
-  div h2, .hero-contact {
+  div h2,
+  .hero-contact {
     text-align: left;
     width: 50%;
     min-width: 600px;
@@ -287,10 +312,11 @@ div img, div svg {
   div h1 {
     font-size: 3.7rem;
   }
-  .hero-contact p, input{
+  .hero-contact p,
+  input {
     font-size: 1.5rem;
   }
-  .space input{
+  .space input {
     margin: 2rem 0;
   }
   button {
@@ -299,19 +325,20 @@ div img, div svg {
     width: 100%;
     margin: 2rem 0;
   }
-  .for-small{
+  .for-small {
     display: none;
   }
-  h3 span{
+  h3 span {
     font-size: 10rem;
   }
-  .check{
+  .check,
+  .error {
     width: 1.2rem;
   }
 }
 @media (max-width: 768px) {
- 
-  .hero-contact p, input{
+  .hero-contact p,
+  input {
     font-size: 0.9rem;
   }
   .space input {
@@ -329,13 +356,14 @@ div img, div svg {
   .for-large {
     display: none;
   }
-  
-  button{
+
+  button {
     text-align: center;
     width: 100%;
     margin: 1rem 0;
   }
-  .check{
+  .check,
+  .error {
     width: 0.8rem;
   }
 }

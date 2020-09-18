@@ -2,15 +2,11 @@ document.addEventListener("DOMContentLoaded", handleMode);
 document
   .querySelectorAll(".menu, nav a, nav img")
   .forEach((e) => e.addEventListener("click", toggleNav));
-document
-  .querySelector(".toggle-mode")
-  .addEventListener("click", toggleDark);
+document.querySelector(".toggle-mode").addEventListener("click", toggleDark);
 document
   .querySelector(".toggle-language")
   .addEventListener("click", toggleLanguage);
-document
-  .querySelector("#more-send")
-  .addEventListener("click", sendData);
+document.querySelector("#more-send").addEventListener("click", sendData);
 let language = "en";
 
 async function sendData(event) {
@@ -19,52 +15,56 @@ async function sendData(event) {
   document
     .querySelectorAll("form input")
     .forEach((element) => (body[element.name] = element.value));
-  
-  let nameClassList = document.getElementById("more-input-name").classList;
-  let mailClassList = document.getElementById("more-input-mail").classList;
-  if (!body.name && !body.mail) {
-    nameClassList.add("required")
-    mailClassList.add("required")
-    return 
-  }else {nameClassList.remove("required"), mailClassList.remove("required")};
-  if (!body.name) {
-    nameClassList.add("required");
-    return 
-  }else {nameClassList.remove("required")};
-  if (!body.mail) {
-    mailClassList.add("required");
-    return
-  }else {mailClassList.remove("required")};
-  
-  const response = await fetch('#', {
-    method: 'POST',
-    body,
-  })
-  if(!response.ok){
-    document.getElementById("contacto").reset();
-    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("check"));
-    let check = document.getElementById("check").style;
-    check.opacity = 1;
-    let interval = setInterval (hide,50);
-    function hide () {
-      if (check.opacity > 0){
-        check.opacity -= 0.01
-      } else {clearInterval(interval)}
+
+  let nameClassList = document.querySelector("#more-input-name").classList;
+  let mailClassList = document.querySelector("#more-input-mail").classList;
+
+  if (!body.name || !body.mail) {
+    if (!body.name) {
+      nameClassList.add("required");
+    } else {
+      nameClassList.remove("required");
     }
-  }  
-  else{
-    document.getElementById("contacto").reset();
-    document.getElementById("more-send").insertAdjacentElement("beforeend", document.getElementById("error"));
-    let error = document.getElementById("error").style;
-    error.opacity = 1;
-    let interval = setInterval (hide,50);
-    function hide () {
-      if (error.opacity > 0){
-        error.opacity -= 0.01;
-      } else {clearInterval(interval)}
-    };
+    if (!body.mail) {
+      mailClassList.add("required");
+    } else {
+      mailClassList.remove("required");
+    }
+    return;
+  } else {
+    nameClassList.remove("required");
+    mailClassList.remove("required");
+  }
+
+  const response = await fetch("#", {
+    method: "POST",
+    body,
+  });
+  const buttonSend = document.querySelector("#more-send")
+  const check = document.querySelector(".check");
+  const error = document.querySelector(".error");
+  function hide(symbol){
+    let interval = setInterval(fade, 50);
+    symbol.style.opacity = 1;
+    function fade() {
+    console.log(symbol.style.opacity)
+    if (symbol.style.opacity > 0) {
+      symbol.style.opacity -= 0.01;
+    } else {
+      clearInterval(interval);
+    }}
+  }
+  if (response.ok) {
+    document.querySelector("#contacto").reset();
+   // buttonSend.insertAdjacentElement("beforeend", check);
+    hide(check);
+  } else {
+    document.querySelector("#contacto").reset();
+    //buttonSend.insertAdjacentElement("beforeend", error);
+    hide(error)
   }
 }
+
 
 function toggleNav() {
   document.querySelector("nav").classList.toggle("hide");
