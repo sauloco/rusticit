@@ -36,35 +36,25 @@ async function sendData(event) {
     mailClassList.remove("required");
   }
 
-  const response = await fetch("#", {
+  const response = await fetch("/", {
     method: "POST",
     body,
   });
-  const buttonSend = document.querySelector("#more-send")
-  const check = document.querySelector(".check");
-  const error = document.querySelector(".error");
-  function hide(symbol){
-    let interval = setInterval(fade, 50);
-    symbol.style.opacity = 1;
-    function fade() {
-    console.log(symbol.style.opacity)
-    if (symbol.style.opacity > 0) {
-      symbol.style.opacity -= 0.01;
-    } else {
-      clearInterval(interval);
-    }}
-  }
+
+  let checkClasslist = document.querySelector(".check");
+  let errorCLassList = document.querySelector(".error");
+
   if (response.ok) {
     document.querySelector("#contacto").reset();
-   // buttonSend.insertAdjacentElement("beforeend", check);
-    hide(check);
+    checkClasslist.classList.remove("show-hide-symbol");
+    void checkClasslist.offsetWidth;
+    checkClasslist.classList.add("show-hide-symbol");
   } else {
-    document.querySelector("#contacto").reset();
-    //buttonSend.insertAdjacentElement("beforeend", error);
-    hide(error)
+    errorCLassList.classList.remove("show-hide-symbol");
+    void errorCLassList.offsetWidth;
+    errorCLassList.classList.add("show-hide-symbol");
   }
 }
-
 
 function toggleNav() {
   document.querySelector("nav").classList.toggle("hide");
