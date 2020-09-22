@@ -16,8 +16,9 @@ heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
 
-function goForm() {
-  location.href = "/#want_more";
+function goForm(event) {
+  event.preventDefault();
+  document.querySelector("#want_more").scrollIntoView();
 }
 
 async function sendData(event) {
