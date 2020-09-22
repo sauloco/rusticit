@@ -7,7 +7,13 @@ document
   .querySelector(".toggle-language")
   .addEventListener("click", toggleLanguage);
 document.querySelector("#more-send").addEventListener("click", sendData);
+document.querySelector("#read-more").addEventListener("click", readMore);
 let language = "en";
+
+function readMore() {
+  document.querySelector("#great_idea").classList.toggle("read-more");
+  document.querySelector("#great_idea").classList.toggle("read-less");
+}
 
 async function sendData(event) {
   event.preventDefault();
