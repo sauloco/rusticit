@@ -7,15 +7,17 @@ document
   .querySelector(".toggle-language")
   .addEventListener("click", toggleLanguage);
 document.querySelector("#more-send").addEventListener("click", sendData);
-document.querySelector("#read-idea").addEventListener("click", function(){readMore("#great_idea")});
-document.querySelector("#read-think").addEventListener("click", function(){readMore("#think")});
-document.querySelector("#read-design").addEventListener("click", function(){readMore("#design_and_code")});
-document.querySelector("#read-mess").addEventListener("click", function(){readMore("#the_mess")});
-let language = "en";
 
-function readMore(section) {
-  document.querySelector(section).classList.toggle("read-more");
-  document.querySelector(section).classList.toggle("read-less");
+document.querySelector("#hero-submit").addEventListener("click", goForm);
+
+let heroInput = document.querySelector("#hero-input");
+let formInput = document.querySelector("#more-input-mail");
+heroInput.addEventListener("input", function () {
+  formInput.value = heroInput.value;
+});
+
+function goForm() {
+  location.href = "/#want_more";
 }
 
 async function sendData(event) {

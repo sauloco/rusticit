@@ -263,7 +263,6 @@ button:focus {
     opacity: 0;
   }
 }
-
 .required {
   border-bottom: 0.1rem var(--red) solid;
   background: linear-gradient(
@@ -273,7 +272,7 @@ button:focus {
     var(--bg-color) 65%
   );
   background-size: 400%;
-  animation: RequiredInputWarning 2s 2;
+  animation: RequiredInputWarning 2s;
 }
 @keyframes RequiredInputWarning {
   from {
@@ -310,25 +309,6 @@ button:focus {
     flex-direction: column;
     text-align: center;
   }
-  section:not(.hero-wrapper):not(.send-section) {
-    width: 140%;
-  }
-  .read-more {
-    width: 140%;
-    animation: ReadMore 2s forwards;
-  }
-  @keyframes ReadMore {
-    from {
-      width: 140%;
-    }
-    to {
-      width: 100%;
-    }
-  }
-  .read-less {
-    width: 100%;
-    animation: ReadLess 2s forwards;
-  }
   @keyframes ReadLess {
     from {
       width: 100%;
@@ -363,14 +343,14 @@ button:focus {
   .for-small {
     display: none;
   }
-  h3{
+  h3 {
     font-size: 2.5rem;
     height: 12rem;
   }
   h3 span {
     font-size: 11rem;
   }
-  .man-think{
+  .man-think {
     left: 20%;
   }
   .check,
