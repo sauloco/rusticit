@@ -83,9 +83,7 @@ function validateResponse(response) {
 function parseBody(validator) {
   let body = "";
   for (const [key, value] of Object.entries(validator)) {
-    if (key && value) {
-      body += `${key}=${encodeURIComponent(value)}&`;
-    }
+    body += `${key}=${encodeURIComponent(value)}&`;
   }
   body += "form-name=contact";
   return body;
