@@ -21,51 +21,72 @@ function goForm(event) {
   document.querySelector("#want_more").scrollIntoView();
 }
 
-async function sendData(event) {
-  event.preventDefault();
-  let body = {};
-  document
-    .querySelectorAll("form input")
-    .forEach((element) => (body[element.name] = element.value));
-
+function validateForm(data) {
   let nameClassList = document.querySelector("#more-input-name").classList;
   let mailClassList = document.querySelector("#more-input-mail").classList;
 
-  if (!body.name || !body.mail) {
-    if (!body.name) {
+  nameClassList.remove("required");
+  mailClassList.remove("required");
+
+  if (!data.name || !data.mail) {
+    if (!data.name) {
       nameClassList.add("required");
-    } else {
-      nameClassList.remove("required");
     }
-    if (!body.mail) {
+    if (!data.mail) {
       mailClassList.add("required");
-    } else {
-      mailClassList.remove("required");
     }
-    return;
-  } else {
-    nameClassList.remove("required");
-    mailClassList.remove("required");
+    return false;
   }
+  return true;
+}
+
+async function sendData(event) {
+  event.preventDefault();
+
+  let validator = {};
+  document
+    .querySelectorAll("form#contacto input")
+    .forEach((element) => (validator[element.name] = element.value));
+
+  if (!validateForm(validator)) {
+    return;
+  }
+
+  const body = parseBody(validator);
 
   const response = await fetch("/", {
     method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body,
   });
 
-  let checkClasslist = document.querySelector(".check");
-  let errorCLassList = document.querySelector(".error");
+  validateResponse(response);
+}
+
+function validateResponse(response) {
+  let checkElement = document.querySelector(".check");
+  let errorElement = document.querySelector(".error");
+
+  const fadeIconClassName = "show-hide-symbol";
+
+  checkElement.classList.remove(fadeIconClassName);
+  errorElement.classList.remove(fadeIconClassName);
 
   if (response.ok) {
     document.querySelector("#contacto").reset();
-    checkClasslist.classList.remove("show-hide-symbol");
-    void checkClasslist.offsetWidth;
-    checkClasslist.classList.add("show-hide-symbol");
+    checkElement.classList.add(fadeIconClassName);
   } else {
-    errorCLassList.classList.remove("show-hide-symbol");
-    void errorCLassList.offsetWidth;
-    errorCLassList.classList.add("show-hide-symbol");
+    errorElement.classList.add(fadeIconClassName);
   }
+}
+
+function parseBody(validator) {
+  let body = "";
+  for (const [key, value] of Object.entries(validator)) {
+    body += `${key}=${encodeURIComponent(value)}&`;
+  }
+  body += "form-name=contact";
+  return body;
 }
 
 function toggleNav() {
@@ -276,6 +297,3 @@ function handleMode() {
     }
   }
 }
-
-
-
