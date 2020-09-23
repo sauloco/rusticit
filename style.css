@@ -89,6 +89,12 @@ nav img {
   z-index: -1;
 }
 
+.menu,
+nav img,
+a {
+  cursor: pointer;
+}
+
 a {
   align-self: center;
 }
@@ -118,29 +124,26 @@ h3 {
 
 h3 span {
   font-size: 5.5rem;
-  background: linear-gradient(to right, var(--lg-text));
+  background: linear-gradient(to left, var(--lg-text));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 h1 span {
   position: relative;
-}
-
-h1 span:after {
-  content: "";
-  height: 14px;
-  z-index: -1;
-  background: linear-gradient(to right, var(--lg-border));
-  width: 100%;
-  position: absolute;
-  bottom: 6px;
-  left: 0;
+  background-image: linear-gradient(to right, var(--lg-border));
+  background-position: 0 93%;
+  background-size: 100% 0.3em;
+  background-clip: border-box;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
 }
 
 h1 sup {
   font-size: 1.5rem;
   color: var(--grey);
+  position: absolute;
 }
 
 h2 {
@@ -150,8 +153,8 @@ h2 {
 }
 
 .man-think {
-  z-index: -1;
-  top: -30px;
+  z-index: 1;
+  height: 50%;
   position: relative;
 }
 
@@ -163,27 +166,25 @@ h2 {
   -ms-filter: "FlipH";
 }
 
+div img,
+div svg {
+  width: 100%;
+}
+
 p {
   font-family: "SF UI Display Thin", sans-serif;
   font-size: 1.1rem;
 }
 
-button {
-  font-family: "SF UI Display Thin", sans-serif;
-  font-weight: bolder;
-  justify-self: center;
-  align-self: center;
-  border: 0;
-  background-color: transparent;
-  color: var(--color);
-}
-button:focus {
-  outline: none;
+.dark-mode nav .toggle-mode span:not(.for-dark),
+.dark-mode img:not(.for-dark),
+.dark-mode svg:not(.for-dark) {
+  display: none;
 }
 
-.dark-mode nav span:not(.for-dark),
-.dark-mode img:not(.for-dark) {
-  display: none;
+.dark-mode .check:not(.for-dark),
+.dark-mode .error:not(.for-dark) {
+  display: inline;
 }
 
 .light-mode .for-dark {
@@ -197,22 +198,89 @@ button:focus {
 input {
   font-family: "SF UI Display Thin", sans-serif;
   width: 100%;
-  border: 0;
   background: transparent;
   color: var(--color);
   justify-content: space-between;
+  border: 0;
+  border-bottom: 0.1rem var(--bg-color) solid;
 }
 
 input:focus {
   outline: none;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--color) !important;
+}
+
 ::placeholder {
   color: var(--color);
 }
 
+button {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-weight: bolder;
+  justify-self: center;
+  align-self: center;
+  border: 0;
+  background-color: transparent;
+  color: var(--color);
+  cursor: pointer;
+  text-align: center;
+}
+button:focus {
+  outline: none;
+}
+
+.send-button {
+  width: 100%;
+  text-align: center;
+}
+
+.check,
+.error {
+  opacity: 0;
+  position: absolute;
+}
+
 .hide {
   display: none;
+}
+
+.show-hide-symbol {
+  animation: HideSymbol 10s;
+}
+
+@keyframes HideSymbol {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.required {
+  border-bottom: 0.1rem var(--red) solid;
+  background: linear-gradient(
+    to left,
+    var(--bg-color) 35%,
+    var(--red),
+    var(--bg-color) 65%
+  );
+  background-size: 400%;
+  animation: RequiredInputWarning 2s;
+}
+@keyframes RequiredInputWarning {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -225,14 +293,14 @@ input:focus {
   .logo {
     min-width: 600px;
   }
-  .hero {
+  
+  .hero,
+  .hero-contact {
     max-width: 600px;
     width: 75%;
     align-self: center;
   }
-  div img {
-    width: 100%;
-  }
+
   section {
     flex-direction: row;
     overflow-x: auto;
@@ -242,10 +310,20 @@ input:focus {
     flex-direction: column;
     text-align: center;
   }
-  section div:not(.hero) {
-    flex: 0 0 25%;
+
+  @keyframes ReadLess {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 140%;
+    }
   }
-  div h2 {
+  section div:not(.hero):not(.hero-contact) {
+    flex: 0 0 30%;
+  }
+  div h2,
+  .hero-contact {
     text-align: left;
     width: 50%;
     min-width: 600px;
@@ -253,33 +331,42 @@ input:focus {
   div h1 {
     font-size: 3.7rem;
   }
-  input{
+  .hero-contact p,
+  input {
     font-size: 1.5rem;
-    margin: 2rem 0;
   }
-  .type-mail{
-    text-align: center;
-    font-size: 1.5rem;
+  .space input {
+    margin: 2rem 0;
   }
   button {
-    text-align: center;
     font-size: 1.1rem;
-    width: 100%;
     margin: 2rem 0;
   }
-  .for-small{
+  .for-small {
     display: none;
   }
-  h3 span{
-    font-size: 10rem;
+  h3 {
+    font-size: 2.5rem;
+    height: 12rem;
+  }
+  h3 span {
+    font-size: 11rem;
+  }
+  .man-think {
+    left: 20%;
+  }
+  .check,
+  .error {
+    width: 1.2rem;
+    margin: 2rem 0.3rem;
   }
 }
 @media (max-width: 768px) {
-  div img {
-    width: 100%;
-  }
+  .hero-contact p,
   input {
     font-size: 0.9rem;
+  }
+  .space input {
     margin: 1rem 0;
   }
   section {
@@ -294,12 +381,15 @@ input:focus {
   .for-large {
     display: none;
   }
-  .type-mail{
-    text-align: center;
-  }
-  button{
-    text-align: center;
-    width: 100%;
+
+  button {
+    font-size: 0.9rem;
     margin: 1rem 0;
+  }
+  .check,
+  .error {
+    align-self: center;
+    width: 1rem;
+    margin: 1rem 0.2rem;
   }
 }
