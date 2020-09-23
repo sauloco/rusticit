@@ -9,7 +9,7 @@ document
 document.querySelector("#more-send").addEventListener("click", sendData);
 
 document.querySelector("#hero-submit").addEventListener("click", goForm);
-
+let language = "en";
 let heroInput = document.querySelector("#hero-input");
 let formInput = document.querySelector("#more-input-mail");
 heroInput.addEventListener("input", function () {
