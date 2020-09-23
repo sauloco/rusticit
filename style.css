@@ -1,0 +1,395 @@
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot");
+  src: url("assets/JetBrainsMono-1.0.3/web/eot/JetBrainsMono-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("assets/JetBrainsMono-1.0.3/web/woff2/JetBrainsMono-Regular.woff2")
+      format("woff2"),
+    url("assets/JetBrainsMono-1.0.3/web/woff/JetBrainsMono-Regular.woff")
+      format("woff"),
+    url("assets/JetBrainsMono-1.0.3/ttf/JetBrainsMono-Regular.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: "SF UI Display Thin";
+  font-weight: normal;
+  src: local("SF UI Display Thin"),
+    url("assets/sf-ui-display-cufonfonts-webfont/sf-ui-display-thin-58646e9b26e8b.woff")
+      format("woff");
+}
+
+:root {
+  --white: #f7f7f7;
+  --black: #353535;
+  --grey: #e0dcdc;
+  --light-violet: #9c1de7;
+  --dark-violet: #581b98;
+  --red: #ff073a;
+  --yellow: #fff707;
+  --lg-one: var(--light-violet), var(--red), var(--yellow);
+  --lg-two: var(--dark-violet), var(--light-violet), var(--red);
+  --lg-three: var(--red), var(--light-violet), var(--dark-violet);
+}
+
+.light-mode {
+  --bg-color: var(--white);
+  --color: var(--black);
+  --lg-text: var(--lg-two);
+  --lg-border: var(--lg-one);
+}
+
+.dark-mode {
+  --bg-color: var(--black);
+  --color: var(--white);
+  --lg-text: var(--lg-one);
+  --lg-border: var(--lg-three);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--color);
+  max-width: 100vw;
+  transition: 0.3s ease all;
+}
+
+.menu {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  font-family: "SF UI Display Thin", sans-serif;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  z-index: 100;
+}
+
+nav img {
+  align-self: flex-end;
+  top: 1rem;
+  right: 1rem;
+  position: fixed;
+  z-index: -1;
+}
+
+.menu,
+nav img,
+a {
+  cursor: pointer;
+}
+
+a {
+  align-self: center;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--color);
+}
+
+section {
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h3 span {
+  font-size: 5.5rem;
+  background: linear-gradient(to left, var(--lg-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 span {
+  position: relative;
+  background-image: linear-gradient(to right, var(--lg-border));
+  background-position: 0 93%;
+  background-size: 100% 0.3em;
+  background-clip: border-box;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+}
+
+h1 sup {
+  font-size: 1.5rem;
+  color: var(--grey);
+  position: absolute;
+}
+
+h2 {
+  font-family: "JetBrainsMono", "Courier New", Courier, monospace;
+  font-weight: normal;
+  font-size: 1.1rem;
+}
+
+.man-think {
+  z-index: 1;
+  height: 50%;
+  position: relative;
+}
+
+.woman-design {
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+div img,
+div svg {
+  width: 100%;
+}
+
+p {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-size: 1.1rem;
+}
+
+.dark-mode nav .toggle-mode span:not(.for-dark),
+.dark-mode img:not(.for-dark),
+.dark-mode svg:not(.for-dark) {
+  display: none;
+}
+
+.dark-mode .check:not(.for-dark),
+.dark-mode .error:not(.for-dark) {
+  display: inline;
+}
+
+.light-mode .for-dark {
+  display: none;
+}
+
+.do-you {
+  font-size: 3.2rem;
+}
+
+input {
+  font-family: "SF UI Display Thin", sans-serif;
+  width: 100%;
+  background: transparent;
+  color: var(--color);
+  justify-content: space-between;
+  border: 0;
+  border-bottom: 0.1rem var(--bg-color) solid;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--color) !important;
+}
+
+::placeholder {
+  color: var(--color);
+}
+
+button {
+  font-family: "SF UI Display Thin", sans-serif;
+  font-weight: bolder;
+  justify-self: center;
+  align-self: center;
+  border: 0;
+  background-color: transparent;
+  color: var(--color);
+  cursor: pointer;
+  text-align: center;
+}
+button:focus {
+  outline: none;
+}
+
+.send-button {
+  width: 100%;
+  text-align: center;
+}
+
+.check,
+.error {
+  opacity: 0;
+  position: absolute;
+}
+
+.hide {
+  display: none;
+}
+
+.show-hide-symbol {
+  animation: HideSymbol 10s;
+}
+
+@keyframes HideSymbol {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.required {
+  border-bottom: 0.1rem var(--red) solid;
+  background: linear-gradient(
+    to left,
+    var(--bg-color) 35%,
+    var(--red),
+    var(--bg-color) 65%
+  );
+  background-size: 400%;
+  animation: RequiredInputWarning 2s;
+}
+@keyframes RequiredInputWarning {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  nav a {
+    font-size: 1.2rem;
+  }
+  .logo {
+    min-width: 600px;
+  }
+  
+  .hero,
+  .hero-contact {
+    max-width: 600px;
+    width: 75%;
+    align-self: center;
+  }
+
+  section {
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center;
+  }
+  .hero-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  @keyframes ReadLess {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 140%;
+    }
+  }
+  section div:not(.hero):not(.hero-contact) {
+    flex: 0 0 30%;
+  }
+  div h2,
+  .hero-contact {
+    text-align: left;
+    width: 50%;
+    min-width: 600px;
+  }
+  div h1 {
+    font-size: 3.7rem;
+  }
+  .hero-contact p,
+  input {
+    font-size: 1.5rem;
+  }
+  .space input {
+    margin: 2rem 0;
+  }
+  button {
+    font-size: 1.1rem;
+    margin: 2rem 0;
+  }
+  .for-small {
+    display: none;
+  }
+  h3 {
+    font-size: 2.5rem;
+    height: 12rem;
+  }
+  h3 span {
+    font-size: 11rem;
+  }
+  .man-think {
+    left: 20%;
+  }
+  .check,
+  .error {
+    width: 1.2rem;
+    margin: 2rem 0.3rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-contact p,
+  input {
+    font-size: 0.9rem;
+  }
+  .space input {
+    margin: 1rem 0;
+  }
+  section {
+    flex-direction: column;
+    width: 100%;
+  }
+  section div {
+    width: 75%;
+    margin: 0 auto;
+    align-self: flex-start;
+  }
+  .for-large {
+    display: none;
+  }
+
+  button {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+  .check,
+  .error {
+    align-self: center;
+    width: 1rem;
+    margin: 1rem 0.2rem;
+  }
+}
