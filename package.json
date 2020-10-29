@@ -1,0 +1,34 @@
+{
+  "name": "rusticit",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/621a3286-65c3-49ab-b9e6-a8e9447f735f/deploy-status)](https://app.netlify.com/sites/rusticit/deploys)",
+  "version": "1.0.0",
+  "main": "src/index.html",
+  "dependencies": {
+    "parcel-bundler": "1.12.4"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/*.html src/presentador/*/*.html",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sauloco/rusticit.git"
+  },
+  "keywords": [
+    "Rustic",
+    "IT",
+    "Landing",
+    "page"
+  ],
+  "author": "Rustic IT <contact@rusticit.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sauloco/rusticit/issues"
+  },
+  
+  "homepage": "https://github.com/sauloco/rusticit#readme"
+}
