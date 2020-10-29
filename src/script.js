@@ -242,7 +242,7 @@ function toggleLanguage() {
     {
       selector: "#want-more-t",
       html_en: "Do you<span> want to </span>know</span> more?",
-      html_es: "Quieres</span> saber un poco <span>más",
+      html_es: "<span>Quieres</span> saber un poco <span>más",
     },
     {
       selector: "#more-input-name",
