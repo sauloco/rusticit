@@ -282,6 +282,7 @@ function toggleLanguage() {
       element.innerHTML = value;
     }
   }
+  document.querySelector("html").setAttribute('lang', language);
 }
 
 function handleMode() {

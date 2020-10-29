@@ -1,0 +1,18 @@
+/* TEAM */
+	Chef: Saulo Vargas
+	Contact: saulo [at] rusticit.com
+	Twitter: @sauloco
+	From: Buenos Aires, Argentina
+
+	Dev: Florencia Soncini
+	Contact: flor [at] rusticit.com
+	From: Buenos Aires, Argentina
+
+	Dev: Martín Soncini
+	Contact: martin [at] rusticit.com
+	From: Buenos Aires, Argentina
+
+/* THANKS */
+
+	(First) EN Translator: Abigaíl Pullol
+	From: Buenos Aires, Argentina
