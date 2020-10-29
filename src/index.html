@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Rustic Information & Technology. Javascript mobile and web programming
-  software consulting and development" />
+  <meta name="description" content="Rustic Information & Technology. Javascript experts. We build robust yet modern digital experiences. Software for mobile and web. Designing, consulting and development." />
   <meta name="keywords"
-    content="Desarrollo, software, mobile, app, android, ios, windows, linux, native, web apps, websites" />
+    content="Software Development, Javascript, React Native, ReactJS, NodeJS, Desarrollo, software, mobile, app, android, ios, windows, linux, native, web apps, websites" />
   <meta name="author" content="RusticIT https://rusticit.com" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rustic IT</title>
+  
+  <!-- <link rel="preload" href="assets/JetBrainsMono-1.0.3/web/woff2/JetBrainsMono-Regular.woff2" as="font">
+  <link rel="preload" href="assets/sf-ui-display-cufonfonts-webfont/sf-ui-display-thin-58646e9b26e8b.woff" as="font"> -->
   <link rel="icon" type="image/svg" href="assets/R.svg">
+  <link rel="stylesheet" defer href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" defer rel="stylesheet"/>
+  <script defer src="script.js"></script>
 </head>
 
 <body class="light-mode">
-  <img class="menu" src="assets/menu_icon.svg">
-  <img class="menu for-dark" src="assets/menu_dark.svg">
+  <img class="menu" src="assets/menu_icon.svg" alt="menu icon"/>
+  <img class="menu for-dark" src="assets/menu_dark.svg" alt="menu icon">
   <nav class="hide">
-      <img src="assets/close_icon.svg">
-      <img class="for-dark" src="assets/close_menu_dark.svg">
+      <img src="assets/close_icon.svg" alt="close icon">
+      <img class="for-dark" src="assets/close_menu_dark.svg" alt="close icon">
       <a href="#great_idea">
         <span id= "menu-idea" >great idea</span>
       </a>  
@@ -45,14 +50,14 @@
   </nav>
   <section class="hero-wrapper" > 
     <div class="hero">
-      <img class="logo" src="assets/rustic_logo_light.svg">
-      <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg"> 
+      <img class="logo" src="assets/rustic_logo_light.svg" alt="Our company logo in big letters it reads Rustic">
+      <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg" alt="Our company logo in big letters it reads Rustic"> 
       <h2><strong id="hero-one">We build robust yet modern digital experiences</strong></h2> 
       <h2 id="hero-two">Software for mobile and web.</h2>
       <h2 id="hero-three">Designing, consulting and development.</h2>
     </div>
     <div class="hero-contact">
-      <p id="hero-p">We will contact you.</p>
+      <label for="hero-input" id="hero-p">We will contact you.</label>
       <form>
         <input id="hero-input" placeholder="Type your mail and/or phone number here.">
         <button id="hero-submit" style="display:none"></button>
@@ -64,8 +69,8 @@
       <h1 id="great-idea-t">Share your <br><span>great idea</span><br> with us</h1>
     </div>
     <div>
-      <img src="assets/woman_great_idea_light.svg">
-      <img class="for-dark" src="assets/woman_great_idea_dark.svg">
+      <img src="assets/woman_great_idea_light.svg" alt = "an illustration of a person having an inspirational idea, like you">
+      <img class="for-dark" src="assets/woman_great_idea_dark.svg"  alt = "an illustration of a person having an inspirational idea, like you">
     </div>
     <div>
       <p id="great-idea-p">You know how much that idea worth, it has potential... if you only knew the recipe to turn it real in the 
@@ -78,7 +83,7 @@
     <div>
 
       <h3 id="think-t">Let us <br><span>think</span><br> about it</h3> 
-      <svg class="man-think" id="undraw_code_thinking_1jeh" xmlns="http://www.w3.org/2000/svg" width="802.404" height="333.493" viewBox="0 0 802.404 333.493">
+      <svg alt="a boy sitting lean on a giant laptop and thinking about how to bring this idea to digital world" class="man-think" id="undraw_code_thinking_1jeh" xmlns="http://www.w3.org/2000/svg" width="802.404" height="333.493" viewBox="0 0 802.404 333.493">
         <path id="Trazado_119" data-name="Trazado 119" d="M71.17,390.067l-18.4-1.227,6.133,27.6,20.851-8.586Z" transform="translate(-13.653 -100.597)" fill="#ffb9b9"/>
         <path id="Trazado_120" data-name="Trazado 120" d="M264.648,306.447l-42.929-41.7-24.532,19.012-48.449,58.261,5.52,8.586,58.874-39.863L253,362.868l38.023-19.011Z" transform="translate(-38.48 -68.492)" fill="#2f2e41"/>
         <path id="Trazado_121" data-name="Trazado 121" d="M264.648,306.447l-42.929-41.7-24.532,19.012-48.449,58.261,5.52,8.586,58.874-39.863L253,362.868l38.023-19.011Z" transform="translate(-38.48 -68.492)" opacity="0.1"/>
@@ -121,7 +126,7 @@
         <path id="Trazado_137" data-name="Trazado 137" d="M1044.306,296.872H1022.26V274.826h22.046Zm-21.087-.958h20.129V275.785h-20.129Z" transform="translate(-308.042 -237.935)" fill="#3f3d56"/>
         <path id="Trazado_138" data-name="Trazado 138" d="M934.215,607.633H888.827v-3.27a.649.649,0,0,0-.648-.648H872.616a.648.648,0,0,0-.648.648v3.27h-9.732v-3.27a.648.648,0,0,0-.648-.648H846.026a.648.648,0,0,0-.649.648v3.27h-9.722v-3.27a.649.649,0,0,0-.649-.648H819.444a.648.648,0,0,0-.648.648v3.27H809.07v-3.27a.648.648,0,0,0-.648-.648H792.859a.649.649,0,0,0-.649.648v3.27h-9.726v-3.27a.649.649,0,0,0-.648-.648H766.275a.648.648,0,0,0-.648.648v3.27H755.9v-3.27a.648.648,0,0,0-.648-.648H739.689a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.649.649,0,0,0-.648-.648h-121.9a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H580.181a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H553.6a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H527.011a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H500.426a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H473.841a.648.648,0,0,0-.648.648v3.27h-9.726v-3.27a.648.648,0,0,0-.648-.648H447.256a.648.648,0,0,0-.648.648v3.27H416.781A15.562,15.562,0,0,0,401.219,623.2v7.037a15.562,15.562,0,0,0,15.562,15.562H934.215a15.562,15.562,0,0,0,15.562-15.562V623.2a15.562,15.562,0,0,0-15.562-15.562Z" transform="translate(-147.373 -323.021)" fill="#3f3d56"/>
       </svg>
-      <svg class="man-think for-dark" id="undraw_code_thinking_1jeh" xmlns="http://www.w3.org/2000/svg" width="802.404" height="333.492" viewBox="0 0 802.404 333.492">
+      <svg alt="a boy sitting lean on a giant laptop and thinking about how to bring this idea to digital world" class="man-think for-dark" id="undraw_code_thinking_1jeh" xmlns="http://www.w3.org/2000/svg" width="802.404" height="333.492" viewBox="0 0 802.404 333.492">
         <path id="Trazado_119" data-name="Trazado 119" d="M71.17,390.067l-18.4-1.227,6.133,27.6,20.851-8.586Z" transform="translate(-13.653 -100.597)" fill="#ffb9b9"/>
         <path id="Trazado_120" data-name="Trazado 120" d="M264.648,306.447l-42.929-41.7-24.532,19.012-48.449,58.261,5.52,8.586,58.874-39.863L253,362.868l38.023-19.011Z" transform="translate(-38.48 -68.492)" fill="#2f2e41"/>
         <path id="Trazado_121" data-name="Trazado 121" d="M264.648,306.447l-42.929-41.7-24.532,19.012-48.449,58.261,5.52,8.586,58.874-39.863L253,362.868l38.023-19.011Z" transform="translate(-38.48 -68.492)" fill="#f7f7f7" opacity="0.1"/>
@@ -174,15 +179,15 @@
   </section>
   <section id="design_and_code">
     <div class="for-large">
-      <img class="woman-design" src="assets/woman_design_and_code_light.svg">
-      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg">
+      <img class="woman-design" src="assets/woman_design_and_code_light.svg" alt="a girl sitting lean on a giant cellphone designing and building a solution for your needs">
+      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg" alt="a girl sitting lean on a giant cellphone designing and building a solution for your needs">
     </div>
     <div class="we-can">
       <h1 id="design-t">We can <sup>and want</sup><br> <span>design</span> it and <span>code</span> it</h1>
     </div>
     <div class="for-small">
-      <img class="woman-design" src="assets/woman_design_and_code_light.svg">
-      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg">
+      <img class="woman-design" src="assets/woman_design_and_code_light.svg" alt="a girl sitting lean on a giant cellphone designing and building a solution for your needs">
+      <img class="woman-design for-dark" src="assets/woman_design_and_code_dark.svg" alt="a girl sitting lean on a giant cellphone designing and building a solution for your needs">
     </div>
     </div>
     <div>
@@ -197,8 +202,8 @@
       <h1 id="mess-t">We will handle all <br><span>the mess</span> for you</h1>
     </div>  
     <div> 
-      <img src="assets/server_the_mess_light.svg">
-      <img class="for-dark" src="assets/server_the_mess_dark.svg">
+      <img src="assets/server_the_mess_light.svg" alt="an illustration showing a server, a smartphone, a webpage and a smartwatch interconnected by a circle.">
+      <img class="for-dark" src="assets/server_the_mess_dark.svg"  alt="an illustration showing a server, a smartphone, a webpage and a smartwatch interconnected by a circle."> 
     </div>
     <div> 
       <p id="mess-p">This idea of yours will become in a web site, mobile app, social media profiles, advertisment and coordinate posts, 
@@ -213,20 +218,21 @@
         <h1 id="want-more-t" class="do-you"><span>Do you</span> want to <span>know</span> more?</h1>
       </div>
       <div class="space"> 
+        <label for="more-input-name">Name</label>
         <input type="text" id="more-input-name" name="name" placeholder="Type your name here">
+        <label for="more-input-mail">Mail</label>
         <input type="text" id="more-input-mail" name="mail" placeholder="Write your mail or phone here">
+        <label for="more-input-tell">Your idea</label>
         <input type="text" id="more-input-tell" name="tell" placeholder="Tell us a bit about your idea">
-        <input class="hide" name="bot-field"/>
+        <label class="hide" for="bot-field">Dont input here</label>
+        <input class="hide" id = "bot-field" name="bot-field"/>
         <div class="send-button">
         <button type="submit" id="more-send">Ok, send</button>
-        <img class="check" src="assets/check_icon.svg">
-        <img class="error" src="assets/error_icon.svg">
+        <img class="check" src="assets/check_icon.svg" alt="an icon showing that everything went well">
+        <img class="error" src="assets/error_icon.svg" alt="an icon showing that something went wrong">
       </div>
       </div>
     </section>
   </form>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet"/>
-  <script src="script.js"></script>
 </body>
 </html>
