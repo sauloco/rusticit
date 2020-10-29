@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rm -rf ./dist/* && rm -rf ./.cache/*", 
     "build": "parcel build src/*.html src/presentador/*/*.html",
     "dev": "parcel src/index.html"
   },
