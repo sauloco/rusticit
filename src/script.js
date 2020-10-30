@@ -16,6 +16,44 @@ heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
 
+let pack = document.querySelector(".the-mess-gsap");
+let phone = document.querySelector(".the-mess-phone");
+let web = document.querySelector(".the-mess-web");
+let watch = document.querySelector(".the-mess-watch");
+
+function animateSvg() {
+  gsap.to(pack, {
+    duration: 10,
+    ease: "none",
+    repeat: -1,
+    rotation: 360,
+    transformOrigin: "50% 57%",
+  });
+  gsap.to(phone, {
+    duration: 10,
+    ease: "none",
+    repeat: -1,
+    rotation: -360,
+    transformOrigin: "50% 50%",
+  });
+  gsap.to(web, {
+    duration: 10,
+    ease: "none",
+    repeat: -1,
+    rotation: -360,
+    transformOrigin: "50% 50%",
+  });
+  gsap.to(watch, {
+    duration: 10,
+    ease: "none",
+    repeat: -1,
+    rotation: -360,
+    transformOrigin: "50% 50%",
+  });
+}
+
+animateSvg();
+
 function goForm(event) {
   event.preventDefault();
   document.querySelector("#want_more").scrollIntoView();
@@ -42,10 +80,9 @@ function validateForm(data) {
 
 async function sendData(event) {
   event.preventDefault();
-
   let validator = {};
   document
-    .querySelectorAll("form#contacto input")
+    .querySelectorAll("#contacto input")
     .forEach((element) => (validator[element.name] = element.value));
 
   if (!validateForm(validator)) {
@@ -142,7 +179,7 @@ function toggleLanguage() {
     },
     {
       selector: "#hero-one",
-      html_en: "We build robust yet modern digital experiences",
+      html_en: "We build reliable and modern digital experiences",
       html_es:
         "Construimos experiencias digitales robustas, seguras y modernas",
     },
@@ -174,10 +211,10 @@ function toggleLanguage() {
     {
       selector: "#great-idea-p",
       html_en:
-        `You know how much that idea worth, it has potential... if you only knew the recipe to turn it real in the ` +
+        `You know how much that idea worth, it has potential... if you only knew the recipe to make it real in the ` +
         `digital world. Well, a great idea, like yours, is a great start to make a bussiness, but sadly that's not enough. ` +
         `We want to help you! We offer you all our knowledge in digital experiences, design and marketing, ` +
-        `that way you will see your idea becoming real, worth the shot? Contact us`,
+        `that way you will see your idea becoming real, is it worth the shot? Contact us`,
       html_es:
         `Tú sabes que vale mucho esa idea, que tiene potencial... si tan solo supieras dar todos los pasos necesarios para ` +
         `hacerla digital. Una buena idea es un gran puntapié para iniciar un negocio, pero lamentablemente con eso solo no alcanza. ` +
@@ -192,10 +229,10 @@ function toggleLanguage() {
     {
       selector: "#think-p",
       html_en:
-        `As valuable as your ideas are for you, also they are for us. Then after you reach us we will set a call and ` +
+        `As valuable as your ideas are for you, also they are for us. Then after you get in touch with us we will arrange a call and ` +
         `after that we will invest our time to think what's the optimal solution for you to reach your goals. ` +
-        `Sometimes will be mandatory to develop a custom solution, but sometimes we will help you through the implementation ` +
-        `and adaptation of an existing digital tool. In any case we will be there to make whatever it takes. Contact us`,
+        `Sometimes will be mandatory to develop a custom solution, but other times we will help you through the implementation ` +
+        `and adaptation of an existing digital tool. We'll be there for whatever you need. Contact us`,
       html_es:
         `Tus ideas son extremadamente valiosas, para ello contáctanos, organicemos una llamada para conocer los detalles, ` +
         `pero luego invertiremos de nuestro tiempo en pensar cuál es la solución óptima para lograr tu objetivo. ` +
@@ -230,9 +267,9 @@ function toggleLanguage() {
       selector: "#mess-p",
       html_en:
         `This idea of yours will become in a web site, mobile app, social media profiles, advertisment and coordinate posts, ` +
-        `servers, security... looks overwelming? Don't worry, we want you focus in your business, not in technical details. ` +
+        `servers, security... looks overwhelming? Don't worry, we want you focus in your business, not in technical details. ` +
         `We partner with the best companies, and use their best resources to bring you highly reliable services and ` +
-        `availability, then your idea can grow at your own pace.`,
+        `availability, then your idea will be able to grow at your own pace.`,
       html_es:
         `Esta idea se transformará en una página web, app móvil, perfiles en redes sociales, servidores, seguridad... puede ` +
         `parecer abrumador, pero nosotros queremos que te enfoques en tu negocio, no en los detalles técnicos. ` +
@@ -241,8 +278,8 @@ function toggleLanguage() {
     },
     {
       selector: "#want-more-t",
-      html_en: "Do you<span> want to </span>know</span> more?",
-      html_es: "<span>Quieres</span> saber un poco <span>más",
+      html_en: "Do you <span>want</span> to know <span>more</span>?",
+      html_es: "<span>Quieres</span> saber un poco <span>más</span>",
     },
     {
       selector: "#more-input-name",
@@ -264,6 +301,21 @@ function toggleLanguage() {
       html_en: "Ok, send",
       html_es: "Enviar",
     },
+    {
+      selector: "#label-name",
+      html_en: "Name",
+      html_es: "Nombre",
+    },
+    {
+      selector: "#label-mail",
+      html_en: "Mail / Phone",
+      html_es: "Correo / Teléfono",
+    },
+    {
+      selector: "#label-idea",
+      html_en: "Your idea",
+      html_es: "Tu idea",
+    },
   ];
 
   if (language === "en") {
@@ -282,7 +334,7 @@ function toggleLanguage() {
       element.innerHTML = value;
     }
   }
-  document.querySelector("html").setAttribute('lang', language);
+  document.querySelector("html").setAttribute("lang", language);
 }
 
 function handleMode() {
