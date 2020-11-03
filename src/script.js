@@ -16,43 +16,45 @@ heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
 
-let pack = document.querySelector(".the-mess-gsap");
-let phone = document.querySelector(".the-mess-phone");
-let web = document.querySelector(".the-mess-web");
-let watch = document.querySelector(".the-mess-watch");
+// animated svg
 
-function animateSvg() {
-  gsap.to(pack, {
-    duration: 10,
-    ease: "none",
-    repeat: -1,
-    rotation: 360,
-    transformOrigin: "50% 57%",
-  });
-  gsap.to(phone, {
-    duration: 10,
-    ease: "none",
-    repeat: -1,
-    rotation: -360,
-    transformOrigin: "50% 50%",
-  });
-  gsap.to(web, {
-    duration: 10,
-    ease: "none",
-    repeat: -1,
-    rotation: -360,
-    transformOrigin: "50% 50%",
-  });
-  gsap.to(watch, {
-    duration: 10,
-    ease: "none",
-    repeat: -1,
-    rotation: -360,
-    transformOrigin: "50% 50%",
-  });
-}
+// let pack = document.querySelector(".the-mess-gsap");
+// let phone = document.querySelector(".the-mess-phone");
+// let web = document.querySelector(".the-mess-web");
+// let watch = document.querySelector(".the-mess-watch");
 
-animateSvg();
+// function animateSvg() {
+//   gsap.to(pack, {
+//     duration: 10,
+//     ease: "none",
+//     repeat: -1,
+//     rotation: 360,
+//     transformOrigin: "50% 57%",
+//   });
+//   gsap.to(phone, {
+//     duration: 10,
+//     ease: "none",
+//     repeat: -1,
+//     rotation: -360,
+//     transformOrigin: "50% 50%",
+//   });
+//   gsap.to(web, {
+//     duration: 10,
+//     ease: "none",
+//     repeat: -1,
+//     rotation: -360,
+//     transformOrigin: "50% 50%",
+//   });
+//   gsap.to(watch, {
+//     duration: 10,
+//     ease: "none",
+//     repeat: -1,
+//     rotation: -360,
+//     transformOrigin: "50% 50%",
+//   });
+// }
+
+// animateSvg();
 
 function goForm(event) {
   event.preventDefault();
