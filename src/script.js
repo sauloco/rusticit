@@ -16,46 +16,6 @@ heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
 
-// animated svg
-
-// let pack = document.querySelector(".the-mess-gsap");
-// let phone = document.querySelector(".the-mess-phone");
-// let web = document.querySelector(".the-mess-web");
-// let watch = document.querySelector(".the-mess-watch");
-
-// function animateSvg() {
-//   gsap.to(pack, {
-//     duration: 10,
-//     ease: "none",
-//     repeat: -1,
-//     rotation: 360,
-//     transformOrigin: "50% 57%",
-//   });
-//   gsap.to(phone, {
-//     duration: 10,
-//     ease: "none",
-//     repeat: -1,
-//     rotation: -360,
-//     transformOrigin: "50% 50%",
-//   });
-//   gsap.to(web, {
-//     duration: 10,
-//     ease: "none",
-//     repeat: -1,
-//     rotation: -360,
-//     transformOrigin: "50% 50%",
-//   });
-//   gsap.to(watch, {
-//     duration: 10,
-//     ease: "none",
-//     repeat: -1,
-//     rotation: -360,
-//     transformOrigin: "50% 50%",
-//   });
-// }
-
-// animateSvg();
-
 function goForm(event) {
   event.preventDefault();
   document.querySelector("#want_more").scrollIntoView();
@@ -336,7 +296,7 @@ function toggleLanguage() {
       element.innerHTML = value;
     }
   }
-  document.querySelector("html").setAttribute("lang", language);
+  document.querySelector("html").setAttribute('lang', language);
 }
 
 function handleMode() {
@@ -344,7 +304,7 @@ function handleMode() {
     const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
-    darkModeMediaQuery.addListener((e) => {
+    darkModeMediaQuery.addEventListener((e) => {
       toggleDark();
     });
     if (darkModeMediaQuery.matches) {
