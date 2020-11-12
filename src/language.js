@@ -14,12 +14,16 @@ export function setPreferredLanguage() {
 }
 
 function getUserLanguage() {
-  if (location.href.endsWith('/es/') || location.href.endsWith('/es')) {
-    return 'es';
+  
+  const forcedLanguage = location.hash.split('#').join('');
+  if (forcedLanguage) {
+    if (supportedLanguages.includes(forcedLanguage)) {
+      return forcedLanguage;
+    } else {
+      history.pushState({}, null, location.origin);
+    }
   }
-  if (location.href.endsWith('/en/') || location.href.endsWith('/en')) {
-    return 'en';
-  }
+  
   if (window.navigator.languages) {
     return window.navigator.languages[0];
   }
@@ -49,7 +53,7 @@ export function toggleLanguage() {
 
   document.querySelector("html").setAttribute("lang", language);
   
-  const url = location.href.split(`/${previousLanguage}`).join(`/${language}`).split(`/${previousLanguage}/`).join(`/${language}/`);
+  const url = location.href.split(`#${previousLanguage}`).join(`#${language}`);
   
   if (url !== location.href) {
     history.pushState({}, null, url);
