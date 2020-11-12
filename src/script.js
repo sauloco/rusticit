@@ -2,6 +2,7 @@ import { setPreferredLanguage, toggleLanguage } from "./i18n";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
+document.addEventListener("DOMContentLoaded", addSmoothTransition);
 
 document
   .querySelectorAll(".menu, nav a, nav img")
@@ -19,6 +20,10 @@ let formInput = document.querySelector("#more-input-mail");
 heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
+
+function addSmoothTransition() {
+  document.body.classList.add('transition');
+}
 
 function goForm(event) {
   event.preventDefault();
