@@ -24,11 +24,7 @@ function getUserLanguage() {
       return;
     }
   }
-  console.log({
-    languages: window.navigator.languages,
-    userLanguage: window.navigator.userLanguage,
-    language: window.navigator.language
-  });
+  
   if (window.navigator.languages) {
     return window.navigator.languages[0];
   }
