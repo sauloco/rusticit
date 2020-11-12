@@ -14,13 +14,14 @@ export function setPreferredLanguage() {
 }
 
 function getUserLanguage() {
-  
+
   const forcedLanguage = location.hash.split('#').join('');
   if (forcedLanguage) {
     if (supportedLanguages.includes(forcedLanguage)) {
       return forcedLanguage;
     } else {
       history.pushState({}, null, location.origin);
+      return;
     }
   }
   
