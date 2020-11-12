@@ -7,7 +7,7 @@ let language = defaultLanguage;
 export function setPreferredLanguage() {
   const userLanguage = getUserLanguage();
   if (userLanguage !== defaultLanguage) {
-    if (supportedLanguages.includes(userLanguage)) {
+    if (supportedLanguages.filter(v => userLanguage.startsWith(v)).length) {
       toggleLanguage(); // this works because we support only 2 languages so far
     }
   }
@@ -24,7 +24,11 @@ function getUserLanguage() {
       return;
     }
   }
-  
+  console.log({
+    languages: window.navigator.languages,
+    userLanguage: window.navigator.userLanguage,
+    language: window.navigator.language
+  });
   if (window.navigator.languages) {
     return window.navigator.languages[0];
   }
