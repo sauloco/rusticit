@@ -1,4 +1,4 @@
-import { setPreferredLanguage, toggleLanguage } from "./language.js";
+import { setPreferredLanguage, toggleLanguage } from "./i18n";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
