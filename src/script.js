@@ -304,7 +304,7 @@ function handleMode() {
     const darkModeMediaQuery = window.matchMedia(
       "(prefers-color-scheme: dark)"
     );
-    darkModeMediaQuery.addEventListener((e) => {
+    darkModeMediaQuery.addListener((e) => {
       toggleDark();
     });
     if (darkModeMediaQuery.matches) {
