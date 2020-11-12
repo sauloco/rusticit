@@ -132,8 +132,8 @@ h3 span {
 h1 span {
   position: relative;
   background-image: linear-gradient(to right, var(--lg-border));
-  background-position: 0 93%;
-  background-size: 100% 0.3em;
+  background-position: 0 85%;
+  background-size: 100% 0.22em;
   background-clip: border-box;
   background-attachment: scroll;
   background-origin: padding-box;
@@ -293,7 +293,7 @@ button:focus {
   .logo {
     min-width: 600px;
   }
-  
+
   .hero,
   .hero-contact {
     max-width: 600px;
