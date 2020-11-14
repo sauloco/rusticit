@@ -31,6 +31,16 @@
   --lg-three: var(--red), var(--light-violet), var(--dark-violet);
 }
 
+/* PRUEBA FLASH LOAD */
+@media (prefers-color-scheme: dark) {
+  .load {
+    --bg-color: var(--black);
+    --color: var(--white);
+    --lg-text: var(--lg-one);
+    --lg-border: var(--lg-three);
+  }
+}
+/* - - - - - - - - - - - - - - - - - - - -  */
 .light-mode {
   --bg-color: var(--white);
   --color: var(--black);
