@@ -115,7 +115,9 @@ function handleMode() {
       toggleDark();
     });
     if (darkModeMediaQuery.matches) {
-      toggleDark();
+      document.querySelector("body").classList.toggle("dark-mode");
+    } else {
+      document.querySelector("body").classList.toggle("light-mode");
     }
   }
 }
