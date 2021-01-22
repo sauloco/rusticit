@@ -79,7 +79,8 @@ function validateResponse(response) {
 
   checkElement.classList.remove(fadeIconClassName);
   errorElement.classList.remove(fadeIconClassName);
-
+  void errorElement.offsetWidth;
+  
   if (response.ok) {
     document.querySelector("#contacto").reset();
     checkElement.classList.add(fadeIconClassName);

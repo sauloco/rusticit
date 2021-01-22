@@ -44,11 +44,6 @@
   svg:not(.for-dark) {
     display: none;
   }
-
-  .check:not(.for-dark),
-  .error:not(.for-dark) {
-    display: inline;
-  }
 }
 @media (prefers-color-scheme: light) {
   .for-dark {
@@ -221,20 +216,16 @@ p {
   display: inline;
 }
 
-.dark-mode .check:not(.for-dark),
-.dark-mode .error:not(.for-dark) {
-  display: inline;
-}
-.light-mode .check:not(.for-dark),
-.light-mode .error:not(.for-dark) {
-  display: none;
-}
-
 .light-mode .for-dark {
   display: none;
 }
 .dark-mode .for-dark {
   display: inline;
+}
+
+.check,
+.error {
+  display: inline !important;
 }
 
 .do-you {
