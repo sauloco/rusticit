@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/sauloco/rusticit/issues"
   },
-  "homepage": "https://github.com/sauloco/rusticit#readme"
+  "homepage": "https://github.com/sauloco/rusticit#readme",
+  "browserslist": [
+    "since 2017-06"
+  ]
 }
