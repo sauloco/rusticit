@@ -100,6 +100,7 @@ function parseBody(validator) {
 
 function toggleNav() {
   document.querySelector("nav").classList.toggle("hide");
+  document.querySelector(".button-menu").classList.toggle("opened");
 }
 
 function toggleDark() {
