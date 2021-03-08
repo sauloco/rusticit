@@ -351,6 +351,10 @@ button:focus {
   text-align: left;
 }
 
+.p-thanks-hidden{
+  display: none;
+}
+
 @keyframes HideSymbol {
   from {
     opacity: 1;

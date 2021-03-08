@@ -4,6 +4,7 @@ import { setPreferredLanguage, toggleLanguage } from "../i18n";
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
 document.addEventListener("DOMContentLoaded", setServiceName);
+document.addEventListener("DOMContentLoaded", setStatus);
 document
   .querySelectorAll(".menu, nav a")
   .forEach((e) => e.addEventListener("click", toggleNav));
@@ -13,13 +14,23 @@ document
   .addEventListener("click", toggleLanguage);
 const services = require("./services.json");
 
+function setStatus() {
+  const status = new URLSearchParams(window.location.search).get("status");
+  const pThanks = document.querySelectorAll(".p-thanks-hidden");
+  console.log(pThanks);
+  if (status === "approved") {
+    pThanks[1].classList.toggle("p-thanks-hidden");
+  } else {
+    pThanks[0].classList.toggle("p-thanks-hidden");
+  }
+}
 function setServiceName() {
   const spanServiceName = document.querySelectorAll(".service-name");
   const serviceName = new URLSearchParams(window.location.search).get("type");
   for (const service in services) {
     if (service === serviceName) {
       spanServiceName.forEach((span) => (span.innerHTML = services[service]));
-      history.pushState({}, "", "/thanks/index");
+      // history.pushState({}, "", "/thanks/index");
     }
   }
 }
