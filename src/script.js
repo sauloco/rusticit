@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", setPreferredLanguage);
 document.addEventListener("DOMContentLoaded", addSmoothTransition);
 
 document
-  .querySelectorAll(".menu, nav a, nav img")
+  .querySelectorAll(".menu, nav a")
   .forEach((e) => e.addEventListener("click", toggleNav));
 document.querySelector(".toggle-mode").addEventListener("click", toggleDark);
 document
@@ -123,3 +123,5 @@ function handleMode() {
     }
   }
 }
+
+export { toggleNav, toggleDark, handleMode };

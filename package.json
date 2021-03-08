@@ -15,7 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf ./dist && mkdir dist && rm -rf ./.cache && mkdir .cache",
     "build": "parcel build src/*.html src/presentador/*/*.html",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html src/thanks/index.html"
   },
   "repository": {
     "type": "git",

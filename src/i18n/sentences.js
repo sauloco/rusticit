@@ -133,14 +133,15 @@ export default [
   },
   {
     selector: "#thanks-t",
-    html_es: "<span>gracias</span><br> por su compra"
+    html_es: "<span>gracias</span><br> por su compra",
   },
   {
     selector: "#thanks-pending",
-    html_es: "El pago por nombre del servicio se encuentra pendiente aún. Si necesita más información contáctenos."
+    html_es:
+      "El pago por <span class='service-name'></span> se encuentra pendiente aún. Si necesita más información contáctenos.",
   },
   {
     selector: "#thanks-approved",
-    html_es: "El pago por nombre del servicio ha sido aprobado."
+    html_es: "El pago por <span class='service-name'></span> ha sido aprobado.",
   },
 ];
