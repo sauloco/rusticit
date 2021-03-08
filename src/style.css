@@ -461,6 +461,13 @@ button:focus {
     margin: 2rem 0.3rem;
   }
 
+  .rustic{
+    width: 12%;
+    z-index: -100;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+  }
   #thanks div{
     width: 60%;
   } 

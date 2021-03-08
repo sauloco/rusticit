@@ -16,12 +16,12 @@ const services = require("./services.json");
 
 function setStatus() {
   const status = new URLSearchParams(window.location.search).get("status");
-  const pThanks = document.querySelectorAll(".p-thanks-hidden");
+  const pThanks = document.querySelectorAll("#thanks p");
   console.log(pThanks);
   if (status === "approved") {
-    pThanks[1].classList.toggle("p-thanks-hidden");
+    pThanks[1].classList.toggle("hide");
   } else {
-    pThanks[0].classList.toggle("p-thanks-hidden");
+    pThanks[0].classList.toggle("hide");
   }
 }
 function setServiceName() {
