@@ -332,6 +332,21 @@ button:focus {
   animation: HideSymbol 10s;
 }
 
+#thanks{
+  flex-direction: column;
+}
+
+#thanks h3 span{
+  background: linear-gradient(to right, var(--lg-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#thanks p{
+  width: 50%;
+  text-align: left;
+}
+
 @keyframes HideSymbol {
   from {
     opacity: 1;
@@ -436,6 +451,10 @@ button:focus {
   .error {
     width: 1.2rem;
     margin: 2rem 0.3rem;
+  }
+
+  #thanks img{
+    width: 50%;
   }
 }
 @media (max-width: 768px) {
