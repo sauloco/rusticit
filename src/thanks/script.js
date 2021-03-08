@@ -19,6 +19,7 @@ function setServiceName() {
   for (const service in services) {
     if (service === serviceName) {
       spanServiceName.forEach((span) => (span.innerHTML = services[service]));
+      history.pushState({}, "", "/thanks/index");
     }
   }
 }
