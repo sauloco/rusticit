@@ -337,6 +337,10 @@ button:focus {
   width: 100%;
 }
 
+#thanks div{
+  flex-direction: column;
+}
+
 #thanks h4 span{
   background: linear-gradient(to right, var(--lg-text));
   -webkit-background-clip: text;

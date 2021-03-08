@@ -138,7 +138,7 @@ export default [
   {
     selector: "#thanks-pending",
     html_es:
-      "El pago por <span class='service-name'></span> se encuentra pendiente aún. Si necesita más información contáctenos.",
+      "El pago por <span class='service-name'></span> se encuentra pendiente aún. Si necesita más información <a>contáctenos</a>.",
   },
   {
     selector: "#thanks-approved",
