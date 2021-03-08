@@ -123,3 +123,5 @@ function handleMode() {
     }
   }
 }
+
+export { toggleNav, toggleDark, handleMode };
