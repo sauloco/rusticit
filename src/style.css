@@ -333,17 +333,17 @@ button:focus {
 }
 
 #thanks{
-  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
-#thanks h3 span{
+#thanks h4 span{
   background: linear-gradient(to right, var(--lg-text));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 #thanks p{
-  width: 50%;
   text-align: left;
 }
 
@@ -453,8 +453,40 @@ button:focus {
     margin: 2rem 0.3rem;
   }
 
+  #thanks div{
+    width: 60%;
+  } 
   #thanks img{
-    width: 50%;
+      width: 32%;
+      position: absolute;
+      right: 20%;
+      top: 31%;
+  }
+  #thanks h4 span{
+    font-size: 12rem;
+  }
+  #thanks h4{
+    font-size: 2.5rem;
+  }
+  #thanks p{
+    width: 35%;
+  }
+}
+@media (min-width: 1800px){
+  #thanks img{
+    width: 34%;
+    position: absolute;
+    right: 19%;
+    top: 37%;
+  }
+  #thanks h4 span{
+    font-size: 17rem;
+  }
+  #thanks h4{
+    font-size: 2.9rem;
+  }
+  #thanks p{
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 768px) {
