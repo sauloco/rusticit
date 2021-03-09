@@ -17,7 +17,6 @@ const services = require("./services.json");
 function setStatus() {
   const status = new URLSearchParams(window.location.search).get("status");
   const pThanks = document.querySelectorAll(".p-thanks-hidden");
-  console.log(pThanks);
   if (status === "approved") {
     pThanks[1].classList.toggle("p-thanks-hidden");
   } else {
