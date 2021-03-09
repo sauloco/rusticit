@@ -16,12 +16,7 @@ const services = require("./services.json");
 
 function setStatus() {
   const status = new URLSearchParams(window.location.search).get("status");
-<<<<<<< HEAD
-  const pThanks = document.querySelectorAll(".p-thanks-hidden");
-=======
   const pThanks = document.querySelectorAll("#thanks p");
-  console.log(pThanks);
->>>>>>> 04d71527deb483d6d1acac6b405470cb3f2c8ae7
   if (status === "approved") {
     pThanks[1].classList.toggle("hide");
   } else {
