@@ -3,8 +3,8 @@ import { toggleNav, toggleDark, handleMode } from "../toggle-functions";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
-document.addEventListener("DOMContentLoaded", setServiceName);
 document.addEventListener("DOMContentLoaded", setStatus);
+document.addEventListener("DOMContentLoaded", setServiceName);
 document
   .querySelectorAll(".menu, nav a")
   .forEach((e) => e.addEventListener("click", toggleNav));
@@ -29,7 +29,7 @@ function setServiceName() {
   for (const service in services) {
     if (service === serviceName) {
       spanServiceName.forEach((span) => (span.innerHTML = services[service]));
-      history.pushState({}, "", "/thanks/index");
+      history.pushState({}, "", "/thanks");
     }
   }
 }
