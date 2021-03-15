@@ -99,7 +99,7 @@ body {
 }
 
 .button-menu {
-  display: block !important
+  display: block !important;
 }
 
 nav {
@@ -332,26 +332,29 @@ button:focus {
   animation: HideSymbol 10s;
 }
 
-#thanks{
+#thanks {
   justify-content: center;
   width: 100%;
 }
 
-#thanks div{
+#thanks div {
   flex-direction: column;
 }
 
-#thanks h4 span{
+#thanks h4 span {
   background: linear-gradient(to right, var(--lg-text));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#thanks p{
+#thanks p {
   text-align: left;
 }
+#thanks a:link {
+  text-decoration: underline;
+}
 
-.p-thanks-hidden{
+.p-thanks-hidden {
   display: none;
 }
 
@@ -461,47 +464,64 @@ button:focus {
     margin: 2rem 0.3rem;
   }
 
-  .rustic{
+  .rustic {
     width: 12%;
     z-index: -100;
     position: absolute;
     top: 15%;
     left: 10%;
   }
-  #thanks div{
+  #thanks div {
     width: 60%;
-  } 
-  #thanks img{
-      width: 32%;
-      position: absolute;
-      right: 20%;
-      top: 31%;
   }
-  #thanks h4 span{
+  #thanks img {
+    width: 32%;
+    position: absolute;
+    right: 20%;
+    top: 31%;
+  }
+  #thanks h4 span {
     font-size: 12rem;
   }
-  #thanks h4{
+  #thanks h4 {
     font-size: 2.5rem;
   }
-  #thanks p{
+  #thanks p {
     width: 35%;
   }
 }
-@media (min-width: 1800px){
-  #thanks img{
+@media (min-width: 1800px) {
+  #thanks img {
     width: 34%;
     position: absolute;
     right: 19%;
     top: 37%;
   }
-  #thanks h4 span{
+  #thanks h4 span {
     font-size: 17rem;
   }
-  #thanks h4{
+  #thanks h4 {
     font-size: 2.9rem;
   }
-  #thanks p{
+  #thanks p {
     font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  #thanks img {
+    width: 38%;
+    position: absolute;
+    right: 14%;
+    top: 38%;
+  }
+  #thanks h4 span {
+    font-size: 14rem;
+  }
+  #thanks h4 {
+    font-size: 2.9rem;
+  }
+  #thanks p {
+    font-size: 1.9rem;
   }
 }
 @media (max-width: 768px) {
@@ -534,5 +554,15 @@ button:focus {
     align-self: center;
     width: 1rem;
     margin: 1rem 0.2rem;
+  }
+  #thanks h4 span {
+    font-size: 4rem;
+  }
+  #thanks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #thanks p {
+    margin-bottom: 1rem;
   }
 }
