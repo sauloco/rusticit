@@ -138,7 +138,7 @@ export default [
   {
     selector: "#thanks-pending",
     html_es:
-      "El pago por <span class='service-name'></span> se encuentra pendiente aún. Si necesita más información <a href= 'https://rusticit.com/#want_more'>contáctenos</a>.",
+      "El pago por <span class='service-name'></span> se encuentra pendiente aún. Si necesita más información <a href= '/#want_more'>contáctenos</a>.",
   },
   {
     selector: "#thanks-approved",

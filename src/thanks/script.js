@@ -1,5 +1,5 @@
 import { setPreferredLanguage, toggleLanguage } from "../i18n";
-// import { toggleNav, toggleDark, handleMode } from "../script";
+import { toggleNav, toggleDark, handleMode } from "../toggle-functions";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
@@ -29,34 +29,7 @@ function setServiceName() {
   for (const service in services) {
     if (service === serviceName) {
       spanServiceName.forEach((span) => (span.innerHTML = services[service]));
-      // history.pushState({}, "", "/thanks/index");
-    }
-  }
-}
-
-// cómo importar del script principal sin errores en consola
-function toggleNav() {
-  document.querySelector("nav").classList.toggle("hide");
-  document.querySelector(".button-menu").classList.toggle("opened");
-}
-
-function toggleDark() {
-  document.querySelector("body").classList.toggle("dark-mode");
-  document.querySelector("body").classList.toggle("light-mode");
-}
-
-function handleMode() {
-  if (window.matchMedia) {
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-    darkModeMediaQuery.addListener((e) => {
-      toggleDark();
-    });
-    if (darkModeMediaQuery.matches) {
-      document.querySelector("body").classList.toggle("dark-mode");
-    } else {
-      document.querySelector("body").classList.toggle("light-mode");
+      history.pushState({}, "", "/thanks/index");
     }
   }
 }
