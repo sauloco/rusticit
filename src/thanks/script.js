@@ -26,10 +26,7 @@ function setStatus() {
 function setServiceName() {
   const spanServiceName = document.querySelectorAll(".service-name");
   const serviceName = new URLSearchParams(window.location.search).get("type");
-  for (const service in services) {
-    if (service === serviceName) {
-      spanServiceName.forEach((span) => (span.innerHTML = services[service]));
-      history.pushState({}, "", "/thanks");
-    }
-  }
+  const serviceDescription = services[serviceName];
+  spanServiceName.forEach((span) => (span.innerHTML = serviceDescription));
+  history.pushState({}, "", "/thanks");
 }
