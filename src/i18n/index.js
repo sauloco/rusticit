@@ -42,13 +42,14 @@ export function toggleLanguage() {
   for (const sentence of sentences) {
     const element = document.querySelector(sentence.selector);
     const value = sentence["html_" + language];
-
-    if (element.tagName === "INPUT") {
-      sentence["html_" + previousLanguage] = element.placeholder;
-      element.placeholder = value;
-    } else {
-      sentence["html_" + previousLanguage] = element.innerHTML;
-      element.innerHTML = value;
+    if  (element)  {
+      if (element.tagName === "INPUT") {
+        sentence["html_" + previousLanguage] = element.placeholder;
+        element.placeholder = value;
+      } else {
+        sentence["html_" + previousLanguage] = element.innerHTML;
+        element.innerHTML = value;
+      }
     }
   }
 
