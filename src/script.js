@@ -1,11 +1,12 @@
 import { setPreferredLanguage, toggleLanguage } from "./i18n";
+import { toggleNav, toggleDark, handleMode } from "./toggle-functions";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
 document.addEventListener("DOMContentLoaded", addSmoothTransition);
 
 document
-  .querySelectorAll(".menu, nav a, nav img")
+  .querySelectorAll(".menu, nav a")
   .forEach((e) => e.addEventListener("click", toggleNav));
 document.querySelector(".toggle-mode").addEventListener("click", toggleDark);
 document
@@ -98,28 +99,3 @@ function parseBody(validator) {
   return body;
 }
 
-function toggleNav() {
-  document.querySelector("nav").classList.toggle("hide");
-  document.querySelector(".button-menu").classList.toggle("opened");
-}
-
-function toggleDark() {
-  document.querySelector("body").classList.toggle("dark-mode");
-  document.querySelector("body").classList.toggle("light-mode");
-}
-
-function handleMode() {
-  if (window.matchMedia) {
-    const darkModeMediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-    darkModeMediaQuery.addListener((e) => {
-      toggleDark();
-    });
-    if (darkModeMediaQuery.matches) {
-      document.querySelector("body").classList.toggle("dark-mode");
-    } else {
-      document.querySelector("body").classList.toggle("light-mode");
-    }
-  }
-}

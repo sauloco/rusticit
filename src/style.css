@@ -99,7 +99,7 @@ body {
 }
 
 .button-menu {
-  display: block !important
+  display: block !important;
 }
 
 nav {
@@ -332,6 +332,32 @@ button:focus {
   animation: HideSymbol 10s;
 }
 
+#thanks {
+  justify-content: center;
+  width: 100%;
+}
+
+#thanks div {
+  flex-direction: column;
+}
+
+#thanks h4 span {
+  background: linear-gradient(to right, var(--lg-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#thanks p {
+  text-align: left;
+}
+#thanks a:link {
+  text-decoration: underline;
+}
+
+.p-thanks-hidden {
+  display: none;
+}
+
 @keyframes HideSymbol {
   from {
     opacity: 1;
@@ -437,6 +463,66 @@ button:focus {
     width: 1.2rem;
     margin: 2rem 0.3rem;
   }
+
+  .rustic {
+    width: 12%;
+    z-index: -100;
+    position: absolute;
+    top: 5%;
+    left: 8%;
+  }
+  #thanks div {
+    width: 60%;
+  }
+  #thanks img {
+    width: 32%;
+    position: absolute;
+    right: 20%;
+    top: 50%;
+  }
+  #thanks h4 span {
+    font-size: 12rem;
+  }
+  #thanks h4 {
+    font-size: 2.5rem;
+  }
+  #thanks p {
+    width: 35%;
+  }
+}
+@media (min-width: 1800px) {
+  #thanks img {
+    width: 34%;
+    position: absolute;
+    right: 19%;
+    top: 45%;
+  }
+  #thanks h4 span {
+    font-size: 17rem;
+  }
+  #thanks h4 {
+    font-size: 2.9rem;
+  }
+  #thanks p {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  #thanks img {
+    width: 38%;
+    position: absolute;
+    right: 14%;
+    top: 45%;
+  }
+  #thanks h4 span {
+    font-size: 14rem;
+  }
+  #thanks h4 {
+    font-size: 2.9rem;
+  }
+  #thanks p {
+    font-size: 1.9rem;
+  }
 }
 @media (max-width: 768px) {
   .hero-contact p,
@@ -468,5 +554,15 @@ button:focus {
     align-self: center;
     width: 1rem;
     margin: 1rem 0.2rem;
+  }
+  #thanks h4 span {
+    font-size: 4rem;
+  }
+  #thanks h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #thanks p {
+    margin-bottom: 1rem;
   }
 }
