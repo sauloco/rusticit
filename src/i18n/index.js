@@ -61,3 +61,7 @@ export function toggleLanguage() {
     history.pushState({}, null, url);
   }
 }
+
+export function getLanguage() {
+  return language;
+}

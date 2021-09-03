@@ -1,5 +1,10 @@
-import { setPreferredLanguage, toggleLanguage } from "../i18n";
+import { setPreferredLanguage, toggleLanguage, getLanguage } from "../i18n";
 import { toggleNav, toggleDark, handleMode } from "../toggle-functions";
+import services from "./services.json";
+
+const serviceName = new URLSearchParams(window.location.search).get("type");
+const status = new URLSearchParams(window.location.search).get("status");
+history.pushState({}, "", "/thanks");
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
@@ -11,11 +16,10 @@ document
 document.querySelector(".toggle-mode").addEventListener("click", toggleDark);
 document
   .querySelector(".toggle-language")
-  .addEventListener("click", toggleLanguage);
-const services = require("./services.json");
+  .addEventListener("click", () => {toggleLanguage(); onLanguageChange();});
 
 function setStatus() {
-  const status = new URLSearchParams(window.location.search).get("status");
+  
   const pThanks = document.querySelectorAll("#thanks p");
   if (status === "approved") {
     pThanks[1].classList.toggle("hide");
@@ -25,8 +29,14 @@ function setStatus() {
 }
 function setServiceName() {
   const spanServiceName = document.querySelectorAll(".service-name");
-  const serviceName = new URLSearchParams(window.location.search).get("type");
+  
   const serviceDescription = services[serviceName];
-  spanServiceName.forEach((span) => (span.innerHTML = serviceDescription));
-  history.pushState({}, "", "/thanks");
+
+  const serviceDescriptionLanguage = serviceDescription[getLanguage()];
+  spanServiceName.forEach((span) => (span.innerHTML = serviceDescriptionLanguage));
+  
+}
+
+function onLanguageChange() {
+  setServiceName();
 }
