@@ -16,10 +16,12 @@ document
 document.querySelector(".toggle-mode").addEventListener("click", toggleDark);
 document
   .querySelector(".toggle-language")
-  .addEventListener("click", () => {toggleLanguage(); onLanguageChange();});
+  .addEventListener("click", () => {
+    toggleLanguage(); 
+    onLanguageChange();
+  });
 
 function setStatus() {
-  
   const pThanks = document.querySelectorAll("#thanks p");
   if (status === "approved") {
     pThanks[1].classList.toggle("hide");
