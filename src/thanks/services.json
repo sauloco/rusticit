@@ -1,6 +1,6 @@
 {
-    "type_one": "un servicio",
-    "type_two": "otro servicio",
-    "type_three": "otro servicio más",
-    "type_four": "un cuarto servicio"
+    "cm_monthly": {
+        "es": "manejo de redes sociales - mensual",
+        "en": "social networks management - monthly"
+    }
 }
