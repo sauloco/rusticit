@@ -6,6 +6,8 @@ function toggleNav() {
 function toggleDark() {
   document.querySelector("body").classList.toggle("dark-mode");
   document.querySelector("body").classList.toggle("light-mode");
+  const event = new CustomEvent("mode-toggled");
+  document.dispatchEvent(event);
 }
 
 function handleMode() {
