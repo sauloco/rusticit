@@ -15,6 +15,7 @@
   <link rel="icon" type="image/svg" href="assets/R.svg" />
   <link rel="stylesheet" defer href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" defer rel="stylesheet" />
+  <script defer src="gradients.js"></script>
   <script defer src="script.js"></script>
 </head>
 
@@ -49,10 +50,15 @@
     </a>
   </nav>
   <section class="hero-wrapper">
+    <div class='bg'>
+      <canvas id="gradient-canvas" data-transition-in>
+    </canvas>
+    </div>
+    
     <div class="hero">
       <img class="logo" src="assets/rustic_logo_light.svg" alt="Our company logo in big letters it reads Rustic" />
       <img class="logo for-dark" src="assets/rustic_gradient_logo_dark.svg"
-        alt="Our company logo in big letters it reads Rustic" />
+      alt="Our company logo in big letters it reads Rustic" />
       <h2>
         <strong id="hero-one">We build reliable and modern digital experiences</strong>
       </h2>

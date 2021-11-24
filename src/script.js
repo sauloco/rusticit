@@ -1,9 +1,13 @@
 import { setPreferredLanguage, toggleLanguage } from "./i18n";
 import { toggleNav, toggleDark, handleMode } from "./toggle-functions";
+import { Gradient } from "./gradients";
 
 document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
 document.addEventListener("DOMContentLoaded", addSmoothTransition);
+document.addEventListener("DOMContentLoaded", startGradient);
+
+document.addEventListener("mode-toggled", startGradient);
 
 document
   .querySelectorAll(".menu, nav a")
@@ -22,8 +26,14 @@ heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
 
+function startGradient() {
+  console.log("start gradient");
+  const gradient = new Gradient();
+  gradient.initGradient("#gradient-canvas");
+}
+
 function addSmoothTransition() {
-  document.body.classList.add('transition');
+  document.body.classList.add("transition");
 }
 
 function goForm(event) {
@@ -81,7 +91,7 @@ function validateResponse(response) {
   checkElement.classList.remove(fadeIconClassName);
   errorElement.classList.remove(fadeIconClassName);
   void errorElement.offsetWidth;
-  
+
   if (response.ok) {
     document.querySelector("#contacto").reset();
     checkElement.classList.add(fadeIconClassName);
@@ -98,4 +108,3 @@ function parseBody(validator) {
   body += "form-name=contact";
   return body;
 }
-
