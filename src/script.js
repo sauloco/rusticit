@@ -27,7 +27,6 @@ heroInput.addEventListener("input", function () {
 });
 
 function startGradient() {
-  console.log("start gradient");
   const gradient = new Gradient();
   gradient.initGradient("#gradient-canvas");
 }
@@ -42,22 +41,29 @@ function goForm(event) {
 }
 
 function validateForm(data) {
-  let nameClassList = document.querySelector("#more-input-name").classList;
-  let mailClassList = document.querySelector("#more-input-mail").classList;
+  
+  const nameClassList = document.querySelector("#more-input-name").classList;
+  const mailClassList = document.querySelector("#more-input-mail").classList;
 
   nameClassList.remove("required");
   mailClassList.remove("required");
+  
+  const isValidPhone = !!data.mail && /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(data.mail)
+  const isValidMail = !!data.mail && /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(data.mail)
+  
+  const isValidName = !!data.name;
+  const isValidPhoneOraMail = isValidPhone || isValidMail;
 
-  if (!data.name || !data.mail) {
-    if (!data.name) {
-      nameClassList.add("required");
-    }
-    if (!data.mail) {
-      mailClassList.add("required");
-    }
-    return false;
+  let result = true;
+  if (!isValidName) {
+    nameClassList.add("required");
+    result = false;
   }
-  return true;
+  if (!isValidPhoneOraMail) {
+    mailClassList.add("required");
+    result = false;
+  }
+  return result;
 }
 
 async function sendData(event) {
@@ -83,20 +89,26 @@ async function sendData(event) {
 }
 
 function validateResponse(response) {
-  let checkElement = document.querySelector(".check");
-  let errorElement = document.querySelector(".error");
 
-  const fadeIconClassName = "show-hide-symbol";
+  const buttonElement = document.querySelector("#more-send");
 
-  checkElement.classList.remove(fadeIconClassName);
-  errorElement.classList.remove(fadeIconClassName);
-  void errorElement.offsetWidth;
+  buttonElement.classList.remove('success');
+  buttonElement.classList.remove('errored');
 
   if (response.ok) {
+    buttonElement.classList.add('success');
     document.querySelector("#contacto").reset();
-    checkElement.classList.add(fadeIconClassName);
+    setTimeout(() => {
+      buttonElement.classList.remove('success');
+    }, 2000);
+
   } else {
-    errorElement.classList.add(fadeIconClassName);
+    buttonElement.classList.add('errored');
+    console.assert(response.status !== 200, 'Response error', response);
+
+    setTimeout(() => {
+      buttonElement.classList.remove('errored');
+    }, 2000);
   }
 }
 

@@ -96,6 +96,7 @@ body {
   position: fixed;
   top: 1rem;
   left: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .button-menu {
@@ -279,7 +280,9 @@ input {
   color: var(--color);
   justify-content: space-between;
   border: 0;
-  border-bottom: 0.1rem var(--bg-color) solid;
+  border-radius: 0;
+  padding: 1rem 0;
+  border-bottom: 0.1rem var(--color) solid;
 }
 
 input:focus {
@@ -287,7 +290,7 @@ input:focus {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset;
+  -webkit-box-shadow: 0 0 0 30px var(--color) inset;
 }
 
 input:-webkit-autofill {
@@ -303,7 +306,8 @@ button {
   font-weight: bolder;
   justify-self: center;
   align-self: center;
-  border: 0;
+  border: 0.1rem var(--color) solid;
+  padding: 1rem 2rem;
   background-color: transparent;
   color: var(--color);
   cursor: pointer;
@@ -377,6 +381,55 @@ button:focus {
   background-size: 400%;
   animation: RequiredInputWarning 2s;
 }
+
+.errored {
+  background: linear-gradient(
+    to left,
+    var(--bg-color) 35%,
+    var(--red),
+    var(--bg-color) 65%
+  );
+  background-size: 400%;
+  animation: ErroredInputWarning 2s;
+}
+
+@keyframes ErroredInputWarning {
+  from {
+    background-position: 100% 0%;
+    color: var(--red);
+    border: 0.1rem var(--red) solid;
+  }
+  to {
+    background-position: 0% 100%;
+    color: var(--color);
+    border: 0.1rem var(--color) solid;
+  }
+}
+
+.success {
+  background: linear-gradient(
+    to left,
+    var(--bg-color) 35%,
+    var(--light-violet),
+    var(--bg-color) 65%
+  );
+  background-size: 400%;
+  animation: SuccededInputWarning 2s;
+}
+
+@keyframes SuccededInputWarning {
+  from {
+    background-position: 100% 0%;
+    color: var(--light-violet);
+    border: 0.1rem var(--light-violet) solid;
+  }
+  to {
+    background-position: 0% 100%;
+    color: var(--color);
+    border: 0.1rem var(--color) solid;
+  }
+}
+
 @keyframes RequiredInputWarning {
   from {
     background-position: 100% 0%;
