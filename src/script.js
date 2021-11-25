@@ -95,7 +95,6 @@ function validateResponse(response) {
   buttonElement.classList.remove('success');
   buttonElement.classList.remove('errored');
 
-
   if (response.ok) {
     buttonElement.classList.add('success');
     document.querySelector("#contacto").reset();
