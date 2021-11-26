@@ -144,4 +144,12 @@ export default [
     selector: "#thanks-approved",
     html_es: "El pago por <span class='service-name'></span> ha sido aprobado.",
   },
+  {
+    selector: "#result-unsuccessful",
+    html_es: "Ocurrió un error enviando la información, por favor reintenta."
+  },
+  {
+    selector: "#result-successful",
+    html_es: "Enviado 👍🏼"
+  }
 ];
