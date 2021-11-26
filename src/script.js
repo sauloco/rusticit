@@ -91,20 +91,27 @@ async function sendData(event) {
 function validateResponse(response) {
 
   const buttonElement = document.querySelector("#more-send");
+  const results = document.querySelectorAll(".result");
+
+  results.forEach((element) => element.classList.add("hide"));
 
   buttonElement.classList.remove('success');
   buttonElement.classList.remove('errored');
 
 
   if (response.ok) {
+    const resultSuccessful = document.querySelector('.result.successful');
     buttonElement.classList.add('success');
+    resultSuccessful.classList.remove('hide');
     document.querySelector("#contacto").reset();
     setTimeout(() => {
       buttonElement.classList.remove('success');
+      resultSuccessful.classList.add('hide');
     }, 2000);
 
   } else {
     buttonElement.classList.add('errored');
+    document.querySelector('.result.unsuccessful').classList.remove('hide');
     console.assert(response.status !== 200, 'Response error', response);
 
     setTimeout(() => {
