@@ -98,7 +98,6 @@ function validateResponse(response) {
   buttonElement.classList.remove('success');
   buttonElement.classList.remove('errored');
 
-
   if (response.ok) {
     const resultSuccessful = document.querySelector('.result.successful');
     buttonElement.classList.add('success');
