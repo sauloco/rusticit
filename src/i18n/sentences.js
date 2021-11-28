@@ -151,5 +151,33 @@ export default [
   {
     selector: "#result-successful",
     html_es: "Enviado 👍🏼"
-  }
+  },
+  {
+    selector: "#our-projects",
+    html_es: "Nuestros <span>proyectos</span>"
+  },
+  {
+    selector: "#your-project",
+    html_es: "Estos son nuestros proyectos, pero ¿qué tal si también incluímos <strong>tus proyectos</strong>? Contactanos"
+  },
+  {
+    selector: "#entrenolibre_description",
+    html_es: "EntrenoLibre es una aplicación web que te ayudará a encontrar la mejor manera de entrenar en tu zona. Proveemos información curada tanto por la comunidad como también por nuestros expertos, para que encuentres los mejores entrenadores y los mejores centros cerca tuyo."
+  },
+  {
+    selector: "#rusticodes_description",
+    html_es: "rusti.codes es la herramienta perfecta para aquellos quienes quieren mantener sus habilidades en Javascript, incluso cuando te toque desempeñarte en otro rubro. Te permite recibir correos electrónicos periódicamente con desafíos de código que se realizan en las entrevistas de trabajo para las compañías más importantes del mundo."
+  },
+  {
+    selector: "#wonderacademy_description",
+    html_es: "Hemos ayudado a Wonder Academy a digitar completamente su academia de Español-Inglés. Nuestro equipo fue el encargado de crear toda su identidad online, desde diseñar la nueva marca hasta implementar su presencia en redes sociales."
+  },
+  {
+    selector: "#lineastop_description",
+    html_es: "Sistema de historia de salud digital para clínica especializada en tabaquismo. Desarrollamos completamente el ecosistema que consiste en un backoffice para gestionar y analizar la información, como también una app móvil para conectar con sus pacientes y la landing page que le da soporte."
+  },
+  {
+    selector: "#rusticit_description",
+    html_es: "Nuestro sitio web, la meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en neustros visitantes. Sinceramente esperamos que estés disfrutando el sitio web, de lo contrario, por favor, decinos."
+  },
 ];
