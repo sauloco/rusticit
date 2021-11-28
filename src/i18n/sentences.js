@@ -4,6 +4,10 @@ export default [
     html_es: "gran idea",
   },
   {
+    selector: "#menu-projects",
+    html_es: "nuestros proyectos",
+  },
+  {
     selector: "#menu-think",
     html_es: "pensar",
   },
