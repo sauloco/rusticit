@@ -1,0 +1,22 @@
+[
+  {
+    "name": "rusticit.com",
+    "url": "https://rusticit.com/",
+    "date": "2018-01-01",
+    "color": "#f7f7f7",
+    "description": "A website for Rustic IT Digital Agency.",
+    "icon": "https://rusticit.com/favicon.ico",
+    "image": "assets/projects/rustic.png",
+    "features": "Responsive, modern, animated, fresh."
+  },
+  {
+    "name": "Wonder Academy",
+    "url": "https://wonderacademy.online/",
+    "date": "2018-01-01",
+    "color": "#f7f7f7",
+    "description": "A complete digitalization for a (now).",
+    "icon": "https://wonderacademy.online/favicon.ico",
+    "image": "assets/projects/wonder.png",
+    "features": "Responsive, modern, animated, fresh."
+  }
+]
