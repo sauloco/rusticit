@@ -173,7 +173,7 @@ export default [
     html_es: "rusti.codes es la herramienta perfecta para aquellos quienes quieren mantener sus habilidades en Javascript, incluso cuando te toque desempeñarte en otro rubro. Te permite recibir correos electrónicos periódicamente con desafíos de código que se realizan en las entrevistas de trabajo para las compañías más importantes del mundo."
   },
   {
-    selector: "#wonderacademy_description",
+    selector: "#wonder_description",
     html_es: "Hemos ayudado a Wonder Academy a digitar completamente su academia de Español-Inglés. Nuestro equipo fue el encargado de crear toda su identidad online, desde diseñar la nueva marca hasta implementar su presencia en redes sociales."
   },
   {
@@ -182,6 +182,6 @@ export default [
   },
   {
     selector: "#rusticit_description",
-    html_es: "Nuestro sitio web, la meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en neustros visitantes. Sinceramente esperamos que estés disfrutando el sitio web, de lo contrario, por favor, decinos."
+    html_es: "Nuestro sitio web, la meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en nuestros visitantes. Sinceramente esperamos que estés disfrutando el sitio web, de lo contrario, por favor, decinos."
   },
 ];
