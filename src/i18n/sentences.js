@@ -166,22 +166,22 @@ export default [
   },
   {
     selector: "#entrenolibre_description",
-    html_es: "EntrenoLibre es una aplicación web que te ayudará a encontrar la mejor manera de entrenar en tu zona. Proveemos información curada tanto por la comunidad como también por nuestros expertos, para que encuentres los mejores entrenadores y los mejores centros cerca tuyo."
+    html_es: "EntrenoLibre es una aplicación web que te ayudará a encontrar la mejor manera de entrenar en tu zona. Proveemos información curada por la comunidad y por nuestros expertos, para que encuentres los mejores entrenadores y los mejores centros deportivos cerca tuyo."
   },
   {
     selector: "#rusticodes_description",
-    html_es: "rusti.codes es la herramienta perfecta para aquellos quienes quieren mantener sus habilidades en Javascript, incluso cuando te toque desempeñarte en otro rubro. Te permite recibir correos electrónicos periódicamente con desafíos de código que se realizan en las entrevistas de trabajo para las compañías más importantes del mundo."
+    html_es: "Es la herramienta perfecta para quienes desean tener al día sus habilidades en programación, incluso cuando se desempeñen en otros rubros. Gratuitamente te permite recibir correos electrónicos periódicamente con desafíos de código extraídos de las entrevistas de trabajo para las compañías más importantes del mundo. Las características Premium incluyen explicaciones completas, ambientes replicables y ejemplos."
   },
   {
     selector: "#wonder_description",
-    html_es: "Hemos ayudado a Wonder Academy a digitar completamente su academia de Español-Inglés. Nuestro equipo fue el encargado de crear toda su identidad online, desde diseñar la nueva marca hasta implementar su presencia en redes sociales."
+    html_es: "Hemos ayudado a Wonder Academy a digitalizar completamente su academia de Español-Inglés. Nuestro equipo fue el encargado de mejorar su identidad online, desde diseñar la nueva marca hasta implementar su presencia en redes sociales."
   },
   {
     selector: "#lineastop_description",
-    html_es: "Sistema de historia de salud digital para clínica especializada en tabaquismo. Desarrollamos completamente el ecosistema que consiste en un backoffice para gestionar y analizar la información, como también una app móvil para conectar con sus pacientes y la landing page que le da soporte."
+    html_es: "Sistema de historia de salud digital para clínica especializada en tabaquismo. Desarrollamos completamente el ecosistema desde el panel de administración para gestionar y analizar la información, hasta su app móvil para conectar con sus pacientes como también la landing page que le da soporte."
   },
   {
     selector: "#rusticit_description",
-    html_es: "Nuestro sitio web, la meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en nuestros visitantes. Sinceramente esperamos que estés disfrutando el sitio web, de lo contrario, por favor, decinos."
+    html_es: "Nuestro sitio web. La meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en nuestros visitantes. Sinceramente esperamos que estés disfrutando del sitio web, de lo contrario, por favor, comentanos en qué podríamos mejorar."
   },
 ];
