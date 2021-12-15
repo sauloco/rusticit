@@ -184,4 +184,8 @@ export default [
     selector: "#rusticit_description",
     html_es: "Nuestro sitio web. La meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en nuestros visitantes. Sinceramente esperamos que estés disfrutando del sitio web, de lo contrario, por favor, comentanos en qué podríamos mejorar."
   },
+  {
+    selector: "#instruction-form",
+    html_es: "Completa el siguiente formulario o <a id='calendly-link' class='extra-margin-left' href='https://calendly.com/saulovargas/rustic' target='_blank' rel='noopener noreferrer'>crea una reunión en Calendly</a>"
+  }
 ];
