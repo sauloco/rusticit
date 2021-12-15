@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Rustic Information & Technology. Javascript experts. We build robust yet modern digital experiences. Software for mobile and web. Designing, consulting and development."
+    />
+    <meta
+      name="keywords"
+      content="Software Development, Javascript, VueJS, Nuxt, Vuex, Digital agency, freelance, NodeJS, Desarrollo, software, mobile, app, android, ios, windows, linux, native, web apps, websites"
+    />
+    <meta name="author" content="RusticIT <info@rusticit.com>" />
+    <meta property="og:title" content="Rustic Information & Technology" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rustic IT | Web & Mobile | Design & Development</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:description"
+      content="Rustic Information & Technology. Javascript experts. We build robust yet modern digital experiences. Software for mobile and web. Designing, consulting and development."
+    />
+    <meta
+      name="twitter:title"
+      content="Rustic IT | Web & Mobile | Design & Development"
+    />
+    <meta name="twitter:site" content="@rusticit" />
+    <meta
+      name="twitter:image"
+      content="https://rusticit.com/rustic_preview.png"
+    />
+    <meta name="twitter:creator" content="@sauloco" />
+    <meta property="og:url" content="https://rusticit.com" />
+
+    <meta name="description" content="" />
+    <meta
+      property="og:title"
+      content="Rustic IT | Web & Mobile | Design & Development"
+    />
+    <meta
+      property="og:description"
+      content="Rustic Information & Technology. Javascript experts. We build robust yet modern digital experiences. Software for mobile and web. Designing, consulting and development."
+    />
+    <meta
+      property="og:image"
+      content="https://rusticit.com/rustic_preview.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="icon" type="image/svg" href="assets/R.svg" />
+    <link rel="stylesheet" defer href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap"
+      defer
+      crossorigin=""
+      rel="stylesheet"
+    />
+    <script defer src="gradients.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body class="load">
+    <section class="hero-wrapper" style="height: 100vh">
+      <div class="bg">
+        <canvas id="gradient-canvas" data-transition-in> </canvas>
+      </div>
+
+      <div
+        class="hero hide"
+        style="
+          background-color: var(--white);
+          opacity: 70%;
+          padding: 3rem;
+          border-radius: 1rem;
+          backdrop-filter: blur(10px);
+        "
+      >
+        <img
+          class="logo"
+          src="assets/rustic_logo_light.svg"
+          alt="Our company logo in big letters it reads Rustic"
+        />
+        <img
+          class="logo for-dark"
+          src="assets/rustic_gradient_logo_dark.svg"
+          alt="Our company logo in big letters it reads Rustic"
+        />
+        <h2 class="centered">
+          <strong id="hero-zero">Information & Technology</strong>
+        </h2>
+        <h2 class="centered" style="font-size: 3rem">
+          <strong>2022</strong>
+        </h2>
+        <h2 class="centered hide" >
+          Energías renovadas
+        </h2>
+        <h2 class="centered hide" >
+          Experiencias nuevas
+        </h2>
+        <h2 class="centered hide" >
+          Desafíos únicos
+        </h2>
+      </div>
+    </section>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", onPromoInit);
+
+    function onPromoInit() {
+      const hidden = document.querySelectorAll("h2.hide");
+      console.log(hidden);
+      
+      let timeout = 0;
+      for (const i in hidden) {
+        const el = hidden[i]
+        timeout += 2000
+        console.log({el, timeout});
+        window.setTimeout(() => {
+          el.classList.remove("hide");
+        }, timeout);
+      }
+    }
+  </script>
+</html>

@@ -334,7 +334,7 @@ input:-webkit-autofill {
   color: var(--color);
 }
 
-button {
+button, #calendly-link {
   font-family: "SF UI Display Thin", sans-serif;
   font-weight: bolder;
   justify-self: center;
@@ -747,4 +747,15 @@ details {
   .showcase-wrapper ul {
     grid-template-columns: repeat(5, minmax(150px, 1fr));
   }
+}
+
+.extra-margin-top {
+  margin: 2rem 0;
+}
+.extra-margin-left {
+  margin-left: 1rem;
+}
+
+#calendly-link {
+  display: inline-block;
 }
