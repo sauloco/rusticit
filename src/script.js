@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", handleMode);
 document.addEventListener("DOMContentLoaded", setPreferredLanguage);
 document.addEventListener("DOMContentLoaded", addSmoothTransition);
 document.addEventListener("DOMContentLoaded", startGradient);
+document.addEventListener("DOMContentLoaded", startDot);
+
+document.addEventListener("mousemove", throttle(moveDot, 100))
+window.addEventListener("scroll", throttle(moveDot, 100))
 
 document.addEventListener("mode-toggled", startGradient);
 
@@ -25,6 +29,42 @@ let formInput = document.querySelector("#more-input-mail");
 heroInput.addEventListener("input", function () {
   formInput.value = heroInput.value;
 });
+
+function throttle(callback, delay) {
+  let isThrottled = false;
+  return function() {
+    if (!isThrottled) {
+      callback.apply(this, arguments);
+      isThrottled = true;
+      setTimeout(function() {
+        isThrottled = false;
+      }, delay);
+    }
+  }
+}
+
+let dot;
+let lastClientX = 0;
+let lastClientY = 0;
+
+function startDot() {
+  dot = document.querySelector("#dot");
+}
+
+function moveDot(event) {
+  if (event.clientX) {
+    lastClientX = event.clientX;
+  }
+  if (event.clientY) {
+    lastClientY = event.clientY;
+  }
+  const xPos = lastClientX - (dot.clientWidth / 2);
+  const yPos = lastClientY + window.scrollY - (dot.clientHeight / 2);
+
+  dot.style.left = xPos + "px";
+  dot.style.top = yPos + "px";
+}
+
 
 function startGradient() {
   const gradient = new Gradient();
