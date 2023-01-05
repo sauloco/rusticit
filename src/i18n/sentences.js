@@ -1,27 +1,27 @@
 export default [
   {
     selector: "#menu-idea",
-    html_es: "gran idea",
+    html_es: "la idea",
   },
   {
     selector: "#menu-projects",
-    html_es: "nuestros proyectos",
+    html_es: "los proyectos",
   },
   {
     selector: "#menu-think",
-    html_es: "pensar",
+    html_es: "el lio",
   },
   {
     selector: "#menu-design",
-    html_es: "diseñar y programar",
+    html_es: "el diseño y el código",
   },
   {
     selector: "#menu-mess",
-    html_es: "complejo",
+    html_es: "la realidad",
   },
   {
     selector: "#menu-more",
-    html_es: "quieres más",
+    html_es: "más detalles",
   },
   {
     selector: "#menu-language",
@@ -37,71 +37,60 @@ export default [
   },
   {
     selector: "#hero-one",
-    html_es: "Construimos experiencias digitales robustas, seguras y modernas",
-  },
-  {
-    selector: "#hero-two",
-    html_es: "Desarrollo web y móvil en Javascript.",
+    html_es: "Construimos software confiable y moderno para experiencias web y móviles sorprendentes ",
   },
   {
     selector: "#hero-three",
-    html_es: "Consultoría y creación de soluciones.",
+    html_es: "Diseño | Consultoría | Desarrollo",
   },
   {
     selector: "#hero-p",
-    html_es: "Te contactaremos",
+    html_es: "Permítenos contactarte",
   },
   {
     selector: "#hero-input",
-    html_es: "Escribe aquí tu mail o número de teléfono.",
+    html_es: "Correo o número de teléfono.",
   },
   {
     selector: "#great-idea-t",
-    html_es: "Hagamos realidad tu <span>gran idea</span>",
+    html_es: "Todo comienza con una <span>simple idea</span>",
   },
   {
     selector: "#great-idea-p",
     html_es:
-      `Tú sabes que vale mucho esa idea, que tiene potencial... si tan solo supieras dar todos los pasos necesarios para ` +
-      `hacerla digital. Una buena idea es un gran puntapié para iniciar un negocio, pero lamentablemente con eso solo no alcanza. ` +
-      `¡Queremos ayudarte! Para eso ponemos a tu disposición todos nuestros conocimientos en experiencias, diseño y ` +
-      `marketing digital, para que puedas ir haciendo realidad tus ideas. ¡Vale la pena intentarlo! Consúltanos.`,
+      `¿Tienes una gran nueva idea y crees firmemente que tiene gran potencial? ¿Pero no tienes el conocimiento específico y/o no puedes encontrar personas para llevarla a cabo? No te preocupes, para eso está RusticIT. Convertimos las grandes ideas en productos aún mejores. Nuestra visión y misión es ayudar a varios clientes a convertir sus ideas y pensamientos en productos digitales en tiempo real. Por eso ofrecemos servicios de conocimiento informativo y digital excepcionales, diseño significativo y relevante marketing digital. "Te ayudaremos a hacer que tus sueños se hagan realidad".`
   },
   {
     selector: "#think-t",
-    html_es: "Danos unos días para <br><span>pensar</span> la solución",
+    html_es: 
+    "<span>Confíanos</span> <br> los detalles técnicos"
   },
   {
     selector: "#think-p",
     html_es:
-      `Tus ideas son extremadamente valiosas, para ello contáctanos, organicemos una llamada para conocer los detalles, ` +
-      `pero luego invertiremos de nuestro tiempo en pensar cuál es la solución óptima para lograr tu objetivo. ` +
-      `A veces será necesario desarrollar una solución, a veces será necesario adaptar una solución ya existente, ` +
-      `en cualquier caso estaremos ahí para hacer lo que haga falta. ¡Consultanos!`,
+      `Hasta hace unos años, RusticIT era sólo una idea en la que realmente creíamos. Empezamos con esa idea y construimos la empresa. Por esta razón, podemos identificarnos con cada persona creativa y emprendedora, porque entendemos que cada inicio es exigente y necesita un equipo bien coordinado de personas con habilidades específicas para convertir una idea en realidad. Si estás buscando un equipo confiable para hacer realidad tu idea, no dudes en contactarnos.`
   },
   {
     selector: "#design-t",
-    html_es: "Podemos <span>diseñarla</span> y <span>programarla</span>",
+    html_es: "Tu idea >> <br> Nuestro <span>diseño</span> >> <br> Nuestro <span>código</span>",
   },
   {
     selector: "#design-p",
     html_es:
-      `Tienes solo la idea, no es inconveniente, comenzaremos ayudándote a diseñar todos los aspectos para convertirla en realidad. ` +
-      `¿Tienes el diseño? ¡Excelente! Respetando esas guías podremos concentrarnos en llevarla al siguiente nivel, ` +
-      `adaptándola a todos los medios digitales. ` +
-      `En cualquier caso, ¡consúltanos!`,
+    `<p>Somos conscientes de que a menudo una idea de negocio puede tener obstáculos en forma de habilidades técnicas necesarias. Por esa razón está RusticIT. Podemos resolver todos tus problemas técnicos, desde el diseño hasta el codificación.</p>`+
+    `<ul><li>¿Tienes requisitos de negocio específicos?</li>`+
+    `<li>¿Tienes tu propio diseño y necesitas desarrollo de software?</li>`+
+    `<li>¿Necesitas una interfaz de usuario intuitiva?</li></ul>`+
+    `<p>No te preocupes, no importa el requisito, te tenemos cubierto.</p>`
   },
   {
     selector: "#mess-t",
-    html_es: "Vamos a hacernos cargo de todo lo <span>complejo</span> por vos",
+    html_es: "Tu idea se vuelve <span>realidad</span>",
   },
   {
     selector: "#mess-p",
-    html_es:
-      `Esta idea se transformará en una página web, app móvil, perfiles en redes sociales, servidores, seguridad... puede ` +
-      `parecer abrumador, pero nosotros queremos que te enfoques en tu negocio, no en los detalles técnicos. ` +
-      `Nos asociamos con empresas que brindan servicios de alta confiabilidad y disponibilidad, para que tu idea pueda ` +
-      `crecer al ritmo que necesitas. Consulta sobre este tema`,
+    html_es: `Pronto, tu idea se convertirá en un producto: una aplicación web o una aplicación móvil iOS/Android. No importa lo que necesites, podemos hacerlo. También tenemos experiencia en el desarrollo de redes sociales, anuncios, características de seguridad, etc. Estamos en asociación con algunas de las mejores empresas de TI del mundo, lo que nos permite utilizar tantos recursos como sea posible para ofrecerte un servicio, trabajo y aplicaciones de calidad. Contáctanos con confianza.`
+    
   },
   {
     selector: "#want-more-t",
@@ -158,34 +147,34 @@ export default [
   },
   {
     selector: "#our-projects",
-    html_es: "Nuestros <span>proyectos</span>"
+    html_es: "Nuestros (tus?) <span>proyectos</span>"
   },
   {
     selector: "#your-project",
-    html_es: "Estos son nuestros proyectos, pero ¿qué tal si también incluímos <strong>tus proyectos</strong>? Contactanos"
+    html_es: "Estos son nuestros proyectos. También queremos ayudarte con tus proyectos. ¡Contáctanos, te ayudaremos!"
   },
   {
     selector: "#entrenolibre_description",
-    html_es: "EntrenoLibre es una aplicación web que te ayudará a encontrar la mejor manera de entrenar en tu zona. Proveemos información curada por la comunidad y por nuestros expertos, para que encuentres los mejores entrenadores y los mejores centros deportivos cerca tuyo."
+    html_es: "EntrenoLibre es una aplicación web que te permite encontrar los centros de entrenamiento más destacados de tu zona. Ofrecemos información cuidadosamente seleccionada sobre entrenadores y instalaciones locales para ayudarte a tomar decisiones informadas sobre tu entrenamiento."
   },
   {
     selector: "#rusticodes_description",
-    html_es: "Es la herramienta perfecta para quienes desean tener al día sus habilidades en programación, incluso cuando se desempeñen en otros rubros. Gratuitamente te permite recibir correos electrónicos periódicamente con desafíos de código extraídos de las entrevistas de trabajo para las compañías más importantes del mundo. Las características Premium incluyen explicaciones completas, ambientes replicables y ejemplos."
+    html_es: "Mantén tus habilidades en JavaScript afiladas con nuestros desafíos diarios de código. Regístrate gratis para recibir ejercicios por correo electrónico, o actualiza a premium para obtener explicaciones completas, entornos replicables y ejemplos."
   },
   {
     selector: "#wonder_description",
-    html_es: "Hemos ayudado a Wonder Academy a digitalizar completamente su academia de Español-Inglés. Nuestro equipo fue el encargado de mejorar su identidad online, desde diseñar la nueva marca hasta implementar su presencia en redes sociales."
+    html_es: "Ayudamos a Wonder Academy a digitalizar completamente su academia de idiomas inglés/español, mejorando su identidad en línea desde cero. Nuestro equipo redesarrolló su marca y los presentó en las redes sociales, ayudándolos a alcanzar su objetivo."
   },
   {
     selector: "#lineastop_description",
-    html_es: "Sistema de historia de salud digital para clínica especializada en tabaquismo. Desarrollamos completamente el ecosistema desde el panel de administración para gestionar y analizar la información, hasta su app móvil para conectar con sus pacientes como también la landing page que le da soporte."
+    html_es: "Desarrollamos un sistema completo de gestión de historiales médicos digitales para una clínica de recuperación de adicciones especializada en adicción al tabaco. Nuestro ecosistema incluye un panel de administrador para gestionar y analizar datos, así como una página de destino para apoyar su aplicación móvil y conectarse con los pacientes."
   },
   {
     selector: "#rusticit_description",
-    html_es: "Nuestro sitio web. La meta era mostrar nuestros productos y servicios, pero tambien queríamos crear una experiencia memorable en nuestros visitantes. Sinceramente esperamos que estés disfrutando del sitio web, de lo contrario, por favor, comentanos en qué podríamos mejorar."
+    html_es: "Nuestro sitio web tiene como objetivo mostrar nuestros servicios y productos mientras ofrece una experiencia sin problemas a los visitantes. Esperamos que disfrutes tu tiempo en el sitio, pero si tienes algún comentario o problema, no dudes en hacérnoslo saber."
   },
   {
     selector: "#instruction-form",
-    html_es: "Completa el siguiente formulario o <a id='calendly-link' class='extra-margin-left' href='https://calendly.com/saulovargas/rustic' target='_blank' rel='noopener noreferrer'>crea una reunión en Calendly</a>"
+    html_es: "Contactanos completando el formulario o <a id='calendly-link' class='extra-margin-left' href='https://calendly.com/saulovargas/rustic' target='_blank' rel='noopener noreferrer'>reserva una reunion corta en Calendly</a>"
   }
 ];
