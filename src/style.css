@@ -216,6 +216,25 @@ section {
   position: relative;
 }
 
+section#think {
+  flex-direction: column;
+}
+#think-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 70%;
+  gap: 2rem;
+}
+#think-wrapper > p {
+  max-width: 25%;
+  ;
+}
+#think-wrapper > svg {
+
+}
+
 section:not(.hero-wrapper):nth-child(2n+1) {
   background-color: var(--bg-color-alternate);
 }
@@ -260,8 +279,10 @@ h2 {
 
 .man-think {
   z-index: 1;
-  height: 50%;
-  position: relative;
+}
+
+rect {
+  transition: none;
 }
 
 .woman-design {
@@ -676,9 +697,6 @@ details {
   }
   h3 span {
     font-size: 11rem;
-  }
-  .man-think {
-    left: 20%;
   }
   .check,
   .error {
