@@ -72,7 +72,7 @@ export default [
   },
   {
     selector: "#design-t",
-    html_es: "Tu idea >> <br> Nuestro <span>diseño</span> >> <br> Nuestro <span>código</span>",
+    html_es: "Tu <span>idea</span><br>Nuestro <span>diseño</span><br> Nuestro <span>código</span>",
   },
   {
     selector: "#design-p",

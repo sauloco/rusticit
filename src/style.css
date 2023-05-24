@@ -231,8 +231,8 @@ section#think {
   max-width: 25%;
   ;
 }
-#think-wrapper > svg {
-
+.man-think {
+  z-index: 1;
 }
 
 section:not(.hero-wrapper):nth-child(2n+1) {
@@ -275,10 +275,6 @@ h2 {
   font-family: "JetBrainsMono", "Courier New", Courier, monospace;
   font-weight: normal;
   font-size: 1.1rem;
-}
-
-.man-think {
-  z-index: 1;
 }
 
 rect {
@@ -606,6 +602,27 @@ details {
     display: none;
   }
 
+  section#think {
+    flex-direction: column;
+  }
+
+  h3 span {
+    font-size: 3rem;
+  }
+  #think-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+  #think-wrapper > p {
+    max-width: 100%;
+  }
+  .man-think {
+    z-index: 1;
+  }
+
   button {
     font-size: 0.9rem;
     margin: 1rem 0;
@@ -668,6 +685,7 @@ details {
   section>div:not(.hero):not(.hero-contact):not(.showcase-wrapper) {
     flex: 0 0 30%;
   }
+
   div h2,
   .hero-contact {
     text-align: left;
@@ -778,7 +796,7 @@ details {
 }
 
 .extra-margin-top {
-  margin: 2rem 0;
+  margin-top: 2rem;
 }
 .extra-margin-left {
   margin-left: 1rem;
