@@ -72,7 +72,7 @@ export default [
   },
   {
     selector: "#design-t",
-    html_es: "Tu idea >> <br> Nuestro <span>diseño</span> >> <br> Nuestro <span>código</span>",
+    html_es: "Tu <span>idea</span><br>Nuestro <span>diseño</span><br> Nuestro <span>código</span>",
   },
   {
     selector: "#design-p",
@@ -152,6 +152,10 @@ export default [
   {
     selector: "#your-project",
     html_es: "Estos son nuestros proyectos. También queremos ayudarte con tus proyectos. ¡Contáctanos, te ayudaremos!"
+  },
+  {
+    selector: "#vidanatural_description",
+    html_es: "Vida Natural Argentina es una empresa líder en productos naturales de belleza y salud. Hemos ofrecido nuestros servicios para implementar su visión desarrollando sitio web institucional, administrador de contenido, aplicación web y móvil para sus distribuidores independientes."
   },
   {
     selector: "#entrenolibre_description",
