@@ -14,8 +14,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf ./dist && mkdir dist && rm -rf ./.cache && mkdir .cache",
-    "build": "parcel build src/*.html src/presentador/*/*.html src/thanks/*.html",
-    "dev": "parcel src/index.html src/thanks/index.html src/promo.html"
+    "build": "parcel build src/*.html src/presentador/*/*.html src/thanks/*.html src/refined-jw/*.html",
+    "dev": "parcel src/index.html src/thanks/index.html src/promo.html src/refined-jw/index.html"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,6 @@
   "homepage": "https://github.com/sauloco/rusticit#readme",
   "browserslist": [
     "since 2017-06"
-  ]
+  ],
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
