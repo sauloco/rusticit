@@ -154,12 +154,8 @@ export default [
     html_es: "Estos son nuestros proyectos. También queremos ayudarte con tus proyectos. ¡Contáctanos, te ayudaremos!"
   },
   {
-    selector: "#vidanatural_description",
-    html_es: "Vida Natural Argentina es una empresa líder en productos naturales de belleza y salud. Hemos ofrecido nuestros servicios para implementar su visión desarrollando sitio web institucional, administrador de contenido, aplicación web y móvil para sus distribuidores independientes."
-  },
-  {
     selector: "#entrenolibre_description",
-    html_es: "EntrenoLibre es una aplicación web que te permite encontrar los centros de entrenamiento más destacados de tu zona. Ofrecemos información cuidadosamente seleccionada sobre entrenadores y instalaciones locales para ayudarte a tomar decisiones informadas sobre tu entrenamiento."
+    html_es: "EntrenoLibre es una plataforma digital para organizar eventos deportivos y compartir resultados en vivo con tu comunidad. Gestiona torneos, inscripciones, partidos, cuadros y puntuaciones manteniendo a todos informados en tiempo real, sin importar la ubicación o tipo de competencia."
   },
   {
     selector: "#rusticodes_description",
