@@ -662,11 +662,12 @@ details {
     font-size: 1.2rem;
   }
   .logo {
-    min-width: 600px;
+    width: 100%;
   }
 
   .hero,
   .hero-contact {
+    transition: all 1s ease-in;
     max-width: 600px;
     width: 75%;
     align-self: center;
@@ -689,8 +690,7 @@ details {
   div h2,
   .hero-contact {
     text-align: left;
-    width: 50%;
-    min-width: 600px;
+    width: 100%;
   }
   div h1 {
     font-size: 3.7rem;

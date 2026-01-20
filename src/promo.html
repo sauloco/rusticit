@@ -57,10 +57,28 @@
       crossorigin=""
       rel="stylesheet"
     />
-    <script type="module" src="./gradients.js"></script>
-    <script type="module" src="./script.js"></script>
+    <script type="module">
+      import { Gradient } from './gradients.js';
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const gradient = new Gradient();
+        gradient.initGradient('#gradient-canvas');
+      });
+    </script>
+    <style>
+      .fade-in-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .fade-in-element.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
   </head>
-  <body class="load">
+  <body class="load light-mode">
     <section class="hero-wrapper" style="height: 100vh">
       <div class="bg">
         <canvas id="gradient-canvas" data-transition-in> </canvas>
@@ -77,28 +95,28 @@
         "
       >
         <img
-          class="logo"
+          class="logo fade-in-element"
           src="assets/rustic_logo_light.svg"
           alt="Our company logo in big letters it reads Rustic"
         />
         <img
-          class="logo for-dark"
+          class="logo for-dark fade-in-element"
           src="assets/rustic_gradient_logo_dark.svg"
           alt="Our company logo in big letters it reads Rustic"
         />
-        <h2 class="centered">
+        <h2 class="centered fade-in-element">
           <strong id="hero-zero">Information & Technology</strong>
         </h2>
-        <h2 class="centered" style="font-size: 3rem">
-          <strong>2022</strong>
+        <h2 class="centered fade-in-element" style="font-size: 3rem">
+          <strong>2025 Wrapped</strong>
         </h2>
-        <h2 class="centered hide" >
+        <h2 class="centered fade-in-element">
           Energías renovadas
         </h2>
-        <h2 class="centered hide" >
+        <h2 class="centered fade-in-element">
           Experiencias nuevas
         </h2>
-        <h2 class="centered hide" >
+        <h2 class="centered fade-in-element">
           Desafíos únicos
         </h2>
       </div>
@@ -108,18 +126,19 @@
     document.addEventListener("DOMContentLoaded", onPromoInit);
 
     function onPromoInit() {
-      const hidden = document.querySelectorAll("h2.hide");
-      console.log(hidden);
-      
-      let timeout = 0;
-      for (const i in hidden) {
-        const el = hidden[i]
-        timeout += 2000
-        console.log({el, timeout});
+      const hero = document.querySelector(".hero");
+      const fadeElements = document.querySelectorAll(".fade-in-element");
+
+      // Show the hero container immediately
+      hero.classList.remove("hide");
+
+      // Stagger the fade-in animation for each element
+      let delay = 500; // Start after 500ms
+      fadeElements.forEach((el, index) => {
         window.setTimeout(() => {
-          el.classList.remove("hide");
-        }, timeout);
-      }
+          el.classList.add("visible");
+        }, delay + (index * 600)); // 600ms between each element
+      });
     }
   </script>
 </html>
