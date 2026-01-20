@@ -9,3 +9,7 @@ static/admin/*.bundle.*
 yarn-error.log
 .vscode
 dist/
+
+# Vite
+.vite/
+*.local
