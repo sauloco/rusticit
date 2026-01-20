@@ -2,20 +2,25 @@
   "name": "rusticit",
   "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/621a3286-65c3-49ab-b9e6-a8e9447f735f/deploy-status)](https://app.netlify.com/sites/rusticit/deploys)",
   "version": "1.0.0",
+  "type": "module",
   "main": "src/index.html",
-  "dependencies": {
-    "parcel-bundler": "1.12.4"
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
+    "yarn": ">=1.22.0"
   },
   "devDependencies": {
-    "cssnano": "^4.1.10",
-    "parcel-plugin-robot": "^1.0.0",
-    "posthtml-expressions": "^1.7.1"
+    "vite": "^5.0.0",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-static-copy": "^3.1.2",
+    "@vitejs/plugin-legacy": "^5.0.0",
+    "cssnano": "^4.1.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rm -rf ./dist && mkdir dist && rm -rf ./.cache && mkdir .cache",
-    "build": "parcel build src/*.html src/presentador/*/*.html src/thanks/*.html src/refined-jw/*.html",
-    "dev": "parcel src/index.html src/thanks/index.html src/promo.html src/refined-jw/index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf ./dist ./.vite ./.cache"
   },
   "repository": {
     "type": "git",
