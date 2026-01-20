@@ -27,48 +27,11 @@ export default defineConfig({
         minifyURLs: true,
         minifySvg: false // Match .htmlnanorc setting
       },
-      pages: [
-        {
-          entry: 'index.html',
-          filename: 'index.html',
-          template: 'index.html',
-          injectOptions: {
-            data: {
-              CLOUDFLARE_TOKEN: process.env.CLOUDFLARE_TOKEN || ''
-            }
-          }
-        },
-        {
-          entry: 'promo.html',
-          filename: 'promo.html',
-          template: 'promo.html',
-          injectOptions: {
-            data: {
-              CLOUDFLARE_TOKEN: process.env.CLOUDFLARE_TOKEN || ''
-            }
-          }
-        },
-        {
-          entry: 'thanks/index.html',
-          filename: 'thanks/index.html',
-          template: 'thanks/index.html'
-        },
-        {
-          entry: 'presentador/archivo/index.html',
-          filename: 'presentador/archivo/index.html',
-          template: 'presentador/archivo/index.html'
-        },
-        {
-          entry: 'presentador/version/index.html',
-          filename: 'presentador/version/index.html',
-          template: 'presentador/version/index.html'
-        },
-        {
-          entry: 'refined-jw/index.html',
-          filename: 'refined-jw/index.html',
-          template: 'refined-jw/index.html'
+      inject: {
+        data: {
+          CLOUDFLARE_TOKEN: process.env.CLOUDFLARE_TOKEN || ''
         }
-      ]
+      }
     }),
 
     viteStaticCopy({
