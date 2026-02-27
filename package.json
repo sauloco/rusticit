@@ -1,45 +1,18 @@
 {
-  "name": "rusticit",
-  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/621a3286-65c3-49ab-b9e6-a8e9447f735f/deploy-status)](https://app.netlify.com/sites/rusticit/deploys)",
-  "version": "1.0.0",
+  "name": "rusticit-astro",
   "type": "module",
-  "main": "src/index.html",
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0",
-    "yarn": ">=1.22.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "vite-plugin-html": "^3.2.0",
-    "vite-plugin-static-copy": "^3.1.2",
-    "@vitejs/plugin-legacy": "^5.0.0",
-    "cssnano": "^4.1.10"
-  },
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "clean": "rm -rf ./dist ./.vite ./.cache"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sauloco/rusticit.git"
-  },
-  "keywords": [
-    "Rustic",
-    "IT",
-    "Landing",
-    "page"
-  ],
-  "author": "Rustic IT <contact@rusticit.com>",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/sauloco/rusticit/issues"
-  },
-  "homepage": "https://github.com/sauloco/rusticit#readme",
-  "browserslist": [
-    "since 2017-06"
-  ],
-  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.17.1",
+    "sharp": "^0.34.3"
+  }
 }
