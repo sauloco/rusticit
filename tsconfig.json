@@ -9,6 +9,15 @@
   ],
   "compilerOptions": {
     "strictNullChecks": true,
-    "jsx": "preserve"
+    "jsx": "react-jsx",
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@stores/*": [
+        "./src/stores/*"
+      ]
+    },
+    "jsxImportSource": "react"
   }
 }

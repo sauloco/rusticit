@@ -1,3 +1,25 @@
 ---
-$END$
+import { ChevronUp } from '@lucide/astro';
+import ServicesView from './vue/ServicesView.vue'
+import ButtonCTA from "./ButtonCTA.astro";
+
+const title = `What RusticIT does for B2B SaaS teams`
 ---
+<div id="services"
+     class="relative rounded-3xl h-[calc(100dvh_-_2rem)] w-full bg-offwhite/20 border border-offwhite/40 backdrop-blur-3xl z-10">
+    <div class="w-full flex flex-col items-center py-6 gap-1">
+        <div id="scroll-up-indicator" class="animate-bounce font-bold inline-flex gap-1">
+            <ChevronUp />
+            <span class="hidden md:inline">Scroll up to see case studies</span>
+            <span class="md:hidden">Swipe up</span>
+        </div>
+
+        <div id="services-inner" class="absolute inset-0 flex flex-col items-center py-32 md:py-48 md:gap-8 justify-between">
+            <h1 class="font-inter font-bold mx-auto text-3xl md:text-5xl text-shadow-lg/30 animate-fade-in-down animate-delay-200 px-8">
+                { title }
+            </h1>
+            <ServicesView client:only="vue"/>
+            <ButtonCTA />
+        </div>
+    </div>
+</div>

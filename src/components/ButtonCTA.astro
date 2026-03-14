@@ -1,3 +1,27 @@
 ---
-$END$
+import {Calendar} from "@lucide/astro";
+interface ButtonCTAProps {
+    showSocialProof?: boolean;
+    class?: string;
+}
+
+const {showSocialProof, class: className}: ButtonCTAProps = Astro.props;
+
+const callToActionText = `Book a 20-min intro`
+const socialProof = `We provide industrial-grade experience from engineering platforms from Germany.`
 ---
+
+<div class=`${className} flex flex-col gap-0`>
+    <a
+            role="button"
+            href="https://calendly.com/saulovargas"
+            class="button flex flex-row gap-2 items-center justify-center bg-offwhite/90 border border-offwhite text-charcoal font-bold px-6 py-4 rounded-full text-charcoal cursor-pointer text-xl pointer-events-auto"
+    >
+       <Calendar /> {callToActionText}
+    </a>
+    {showSocialProof &&
+            <p class="font-inter mx-8 px-8 py-4 border-t-0 rounded-b-2xl border border-offwhite/40 bg-offwhite/20">
+                {socialProof}
+            </p>
+    }
+</div>

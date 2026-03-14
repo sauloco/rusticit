@@ -1,9 +1,41 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import BlurText from '@components/vue/bits/BlurText/BlurText.vue'
+import CircularText from '@components/vue/bits/CircularText/CircularText.vue'
+import ButtonCTA from "./ButtonCTA.astro";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const title = `Frontend Architecture Services for Complex SaaS B2B`
 ---
-<div>
-    HERO
-</div>
+<section id="hero-section"
+         class="fixed inset-x-0 top-0 max-w-7xl mx-auto p-16 pt-48 md:pt-64 flex md:grid md:grid-cols-2 pointer-events-none">
+    <div class="flex flex-col gap-8">
+        <BlurText
+                text={title}
+                animate-by="words"
+                direction="top"
+                :delay="500"
+                class-name="hidden md:block font-inter font-bold text-5xl/7 md:text-7xl text-shadow-lg/30"
+                client:only="vue"
+        />
+        <h1 class="md:hidden block font-inter font-bold text-5xl md:text-7xl text-shadow-lg/30 animate-fade-in-down animate-delay-200">
+            {title}
+        </h1>
+        <ButtonCTA class="md:hidden animate-fade-in-down animate-delay-1000 pointer-events-auto"/>
+        <ol class="font-mono animate-fade-in-down animate-delay-800">
+            <li>Architecture + delivery</li>
+            <li>Dashboards, workflows, complex forms, real product logic</li>
+            <li>Contractor-friendly: plug into your team fast</li>
+        </ol>
+    </div>
+    <div class="hidden md:block ">
+        <div class="hidden md:flex overflow-clip animate-fade-in-left animate-delay-1000 pt-32 md:flex-col md:justify-between gap-16">
+            <ButtonCTA showSocialProof />
+            <CircularText
+                text="VUE ✦ REACT ✦ RUST ✦ TYPESCRIPT ✦ "
+                :spin-duration="20"
+                on-hover="slowDown"
+                class-name="font-rubik pointer-events-auto"
+                client:only="vue"
+            />
+        </div>
+    </div>
+</section>

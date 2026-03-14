@@ -1,0 +1,89 @@
+---
+const projects = [
+  {
+    name: "Public-Sector Health & Government Systems",
+    tagline: "Hospital information systems + multiple government platforms in production",
+    focus: "Architecture + Reliability",
+    role: "Led development, ongoing maintenance, and user enablement — training and feedback loops included.",
+    why: "Long-lived systems, high reliability expectations, real users, real operations.",
+    duration: "9+ years",
+    qualityChecks: null
+  },
+  {
+    name: "B2B Web Applications",
+    tagline: "TypeScript + Vue.js apps communicating complex information clearly",
+    focus: "Frontend + UX clarity",
+    role: "Full-stack execution with a frontend-first focus. Shipped features, improved UX clarity, kept the codebase maintainable.",
+    why: null,
+    duration: "Synphonyte",
+    qualityChecks: null
+  },
+  {
+    name: "Full-Stack JavaScript Platform",
+    tagline: "Production web applications with Vue.js + Node.js",
+    focus: "Full-stack delivery",
+    role: "Full-stack delivery including data layer work with Sequelize, focusing on solid and efficient solutions.",
+    why: null,
+    duration: "Ranker",
+    qualityChecks: null
+  },
+  {
+    name: "Embedded & Interfaces",
+    tagline: "Raspberry Pi / Arduino + Node.js — hardware meets software",
+    focus: "Embedded systems + web",
+    role: "Built practical systems combining hardware and software, delivering end-to-end solutions.",
+    why: null,
+    duration: "DLG Sistemas",
+    qualityChecks: null
+  },
+];
+---
+
+<div id="selected-work"
+     class="rounded-3xl bg-charcoal/20 border border-charcoal/40 backdrop-blur-3xl overflow-hidden">
+    <div class="flex flex-col items-center p-10 md:p-20 py-32 md:py-48 md:gap-8 justify-between">
+        <div class="flex flex-col gap-3 max-w-2xl">
+            <h2 class="font-inter font-bold text-3xl md:text-5xl">
+                Selected work
+                <span class="block font-normal text-xl md:text-2xl text-offwhite/60 mt-2">
+                    what we've actually helped teams achieve
+                </span>
+            </h2>
+            <p class="font-mono text-offwhite/50 mt-1">
+                A few examples of the kind of products and teams we've supported.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            {projects.map((project) => (
+                <div class="flex flex-col gap-4 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-6 hover:bg-offwhite/10 transition-colors duration-300">
+                    <div class="flex items-start justify-between gap-4">
+                        <h3 class="font-inter font-bold text-base text-offwhite">{project.name}</h3>
+                        <span class="shrink-0 font-mono text-offwhite/30 pt-0.5">{project.duration}</span>
+                    </div>
+
+                    <p class="text-offwhite/40 font-mono -mt-2">— {project.tagline}</p>
+
+                    <div class="flex flex-col gap-3 flex-1">
+                        <div>
+                            <span class="font-mono text-offwhite/30 uppercase tracking-widest">Focus</span>
+                            <p class="text-offwhite/70 mt-0.5">{project.focus}</p>
+                        </div>
+                        <div>
+                            <span class="font-mono text-offwhite/30 uppercase tracking-widest">My role</span>
+                            <p class="text-offwhite/70 mt-0.5">{project.role}</p>
+                        </div>
+                        {project.why && (
+                            <p class="text-offwhite/40 font-mono border-l border-offwhite/10 pl-3 mt-1">{project.why}</p>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <p class="font-mono text-offwhite/30 border-t border-offwhite/10 pt-6 w-full">
+            Common theme: we work best where the UI is complex, the system is real, and quality matters.
+        </p>
+
+    </div>
+</div>

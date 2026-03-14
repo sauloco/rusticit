@@ -1,0 +1,84 @@
+---
+const steps = [
+  { n: 1, title: "20-min intro call", desc: "Understand your product, constraints, and goals." },
+  { n: 2, title: "Quick audit (2–5 days)", desc: "Identify the highest-leverage fixes and risks before writing a line of code." },
+  { n: 3, title: "Execution", desc: "Ship improvements weekly with clear checkpoints. No surprises." },
+  { n: 4, title: "Handoff", desc: "Patterns documented, team enabled, no dependency trap." },
+];
+
+const models = [
+  { label: "Part-time contractor", detail: "10–20 h/week" },
+  { label: "Embedded", detail: "20–40 h/week" },
+  { label: "Short sprint", detail: "1–3 weeks — audits or stabilization" },
+];
+---
+
+<div id="about-section"
+     class="rounded-3xl bg-charcoal border border-offwhite/20 overflow-hidden">
+  <div class="grid md:grid-cols-2 gap-12 p-10 md:p-20 py-32 md:py-48">
+
+    <!-- How we work -->
+    <div class="flex flex-col gap-8">
+      <div>
+        <h2 class="font-inter font-bold text-3xl md:text-4xl">How we work</h2>
+        <p class="text-offwhite/50 font-mono  mt-1">fast, async, and senior-level</p>
+      </div>
+
+      <ol class="flex flex-col gap-5">
+        {steps.map((s) => (
+          <li class="flex gap-4 items-start">
+            <span class="shrink-0 flex items-center justify-center w-7 h-7 rounded-full border border-offwhite/20  font-mono text-offwhite/50">
+              {s.n}
+            </span>
+            <div>
+              <p class="font-inter font-semibold text-offwhite">{s.title}</p>
+              <p class="text-offwhite/60  font-mono mt-0.5">{s.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="flex flex-col gap-3">
+        <p class=" font-mono text-offwhite/40 uppercase tracking-widest">Engagement models</p>
+        <ul class="flex flex-col gap-2">
+          {models.map((m) => (
+            <li class="flex justify-between items-baseline border-b border-offwhite/10 pb-2">
+              <span class="text-offwhite font-inter ">{m.label}</span>
+              <span class="text-offwhite/40 font-mono ">{m.detail}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-offwhite/40 font-mono  mt-2">
+          No agency overhead, no junior rotation — direct senior execution.
+        </p>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="flex flex-col gap-8">
+      <div>
+        <h2 class="font-inter font-bold text-3xl md:text-4xl">About RusticIT</h2>
+      </div>
+
+      <div class="flex flex-col gap-5 font-inter text-offwhite/80 text-base leading-relaxed">
+        <p>
+          RusticIT is led by <strong class="text-offwhite">Saulo Vargas</strong>, a senior software engineer with 15+ years building production systems across public-sector platforms, B2B web applications, and full-stack JavaScript products.
+        </p>
+        <p>
+          I specialize in frontend-heavy applications — turning complex requirements into clear, maintainable interfaces using Vue, TypeScript, and React — and I'm comfortable owning delivery end-to-end when needed.
+        </p>
+        <p>
+          I'm at my best embedded with product teams: improving structure, reducing friction, and leaving the codebase better than I found it.
+        </p>
+      </div>
+
+      <div class="mt-auto pt-4">
+        <a href="/about"
+           class="inline-flex items-center gap-2  font-inter text-offwhite/50 hover:text-offwhite transition-colors duration-200">
+          More about me →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

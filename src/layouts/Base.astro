@@ -1,15 +1,26 @@
 ---
-import {getLangFromUrl} from '../i18n/utils';
 import BaseHead from "../components/BaseHead.astro";
 import {SITE_DESCRIPTION, SITE_TITLE} from "../consts";
+import Gradient from '@components/vue/Gradient.vue'
+import Header from "../components/Header.astro";
 
-const lang = getLangFromUrl(Astro.url);
+const lang = Astro.currentLocale ?? 'en';
 ---
 <html lang={lang}>
 <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 </head>
-<body>
-<slot/>
+<body class="text-offwhite">
+<div class="fixed inset-0">
+    <Gradient client:only="vue"></Gradient>
+</div>
+<div class="fixed inset-0 bg-offwhite/20 dark:bg-crimson/20 backdrop-blur-3xl hidden motion-reduce:block">
+</div>
+<div class="fixed inset-4 bg-offwhite dark:bg-charcoal blur-sm hidden motion-reduce:block">
+</div>
+<Header/>
+<div id="scroll-root" class="fixed inset-4 pt-16 md:pt-36 bottom-0 bg-transparent overflow-auto">
+    <slot/>
+</div>
 </body>
 </html>

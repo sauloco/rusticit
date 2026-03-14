@@ -2,15 +2,61 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import SelectedWork from "../components/SelectedWork.astro";
+import About from "../components/About.astro";
 import Base from "../layouts/Base.astro";
 ---
 <Base>
-    <Header/>
-    <Hero/>
-    <!--<Services />-->
+    <!--<Header />-->
+    <div class="h-[calc(100dvh-9rem)] md:h-[calc(100dvh-14rem)]">
+        <Hero/>
+    </div>
+    <div id="section-swap-outer" class="h-[calc(200dvh_-_4rem)] mb-4">
+        <div class="sticky -top-16 md:-top-36 h-[calc(100dvh_-_2rem)] relative">
+            <Services />
+        </div>
+    </div>
+    <SelectedWork />
+    <About />
     <!--<HowWeWork />-->
     <!--<CaseStudies />-->
     <!--<About />-->
     <!--<Contact />-->
-    <Footer/>
+    <!--<Footer />-->
 </Base>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const scroller = document.getElementById('scroll-root')!;
+
+ScrollTrigger.create({
+    trigger: '#services',
+    scroller,
+    start: 'top 70%',
+    onEnter: () => {
+        gsap.to('#scroll-up-indicator', { opacity: 0, duration: 0.4, ease: 'power2.out' });
+    },
+    onLeaveBack: () => {
+        gsap.to('#scroll-up-indicator', { opacity: 1, duration: 0.4, ease: 'power2.out' });
+    },
+});
+
+gsap.fromTo('#hero-section',
+    { opacity: 1 },
+    {
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+            scroller,
+            start: 0,
+            end: 800,
+            scrub: true,
+        },
+    }
+);
+</script>
