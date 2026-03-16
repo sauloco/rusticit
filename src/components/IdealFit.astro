@@ -1,0 +1,60 @@
+---
+const title = "Is RusticIT a fit for your team?";
+
+const greatFit = [
+    "You’re a funded EU B2B SaaS",
+    "Your product is dashboard-heavy or workflow-heavy",
+    "Frontend complexity is starting to slow delivery",
+    "You need senior-level support without hiring full-time yet"
+];
+
+const notAFit = [
+    "You need a cheap dev shop",
+    "You only need a marketing website",
+    "You want to outsource product thinking entirely"
+];
+---
+
+<section id="ideal-fit" class="py-24 md:py-32 w-full bg-offwhite/5 border-t border-b border-offwhite/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 md:px-16">
+        <h2 class="font-heading font-medium text-3xl md:text-5xl text-white mb-16 tracking-tight text-center">
+            {title}
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
+            
+            <div class="flex flex-col gap-6 bg-charcoal/50 border border-offwhite/10 p-8 rounded-3xl">
+                <div class="flex items-center gap-3 border-b border-offwhite/10 pb-4">
+                    <div class="w-8 h-8 rounded-full bg-purple-dark/30 flex items-center justify-center text-purple-light font-bold">✓</div>
+                    <h3 class="font-sans font-semibold text-xl text-white">Great fit if:</h3>
+                </div>
+                
+                <ul class="flex flex-col gap-4 mt-2">
+                    {greatFit.map(item => (
+                        <li class="flex items-start gap-3 text-offwhite/80 font-sans">
+                            <span class="text-purple-light mt-1 text-sm font-bold">→</span>
+                            <span class="leading-relaxed">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            
+            <div class="flex flex-col gap-6 bg-charcoal/50 border border-offwhite/10 p-8 rounded-3xl opacity-80">
+                <div class="flex items-center gap-3 border-b border-offwhite/10 pb-4">
+                    <div class="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center text-offwhite/50 font-bold border border-offwhite/10">✕</div>
+                    <h3 class="font-sans font-semibold text-xl text-offwhite/80">Not a fit if:</h3>
+                </div>
+                
+                <ul class="flex flex-col gap-4 mt-2">
+                    {notAFit.map(item => (
+                        <li class="flex items-start gap-3 text-offwhite/60 font-sans">
+                            <span class="text-offwhite/30 mt-1 text-xs">■</span>
+                            <span class="leading-relaxed">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>

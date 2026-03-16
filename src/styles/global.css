@@ -11,8 +11,8 @@
 @plugin "tailwindcss-animate";
 
 @theme {
-    --font-inter: "Inter", sans-serif;
-    --font-rubik: "Rubik", sans-serif;
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Rubik", sans-serif;
     --font-mono: "JetBrains Mono", monospace;
 
     --color-charcoal: #353535;
@@ -21,9 +21,6 @@
     --color-crimson: #FF073A;
     --color-yellow: #FFF707;
     --color-offwhite: #F7F7F7;
-
-    --gradient-fire: linear-gradient(to right, #FF073A 0%, #9C1DE7 50%, #581B98 100%);
-    --gradient-aurora: linear-gradient(to right, #9C1DE7 0%, #FF073A 50%, #FFF707 100%);
 }
 
 @font-face {
@@ -197,3 +194,22 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes float-slow {
+    0%   { transform: translateY(0) translateX(0); }
+    33%  { transform: translateY(-30px) translateX(20px); }
+    66%  { transform: translateY(20px) translateX(-30px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes pulse-slowglow {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50%      { opacity: 0.55; transform: scale(1.08); }
+}
+
+.animate-float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-pulse-slowglow {
+    animation: pulse-slowglow 14s ease-in-out infinite;
+}

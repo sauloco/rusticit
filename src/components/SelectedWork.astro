@@ -1,89 +1,83 @@
 ---
+import { LampContainer } from "@components/react/bits/ui/lamp";
+
 const projects = [
-  {
-    name: "Public-Sector Health & Government Systems",
-    tagline: "Hospital information systems + multiple government platforms in production",
-    focus: "Architecture + Reliability",
-    role: "Led development, ongoing maintenance, and user enablement — training and feedback loops included.",
-    why: "Long-lived systems, high reliability expectations, real users, real operations.",
-    duration: "9+ years",
-    qualityChecks: null
-  },
-  {
-    name: "B2B Web Applications",
-    tagline: "TypeScript + Vue.js apps communicating complex information clearly",
-    focus: "Frontend + UX clarity",
-    role: "Full-stack execution with a frontend-first focus. Shipped features, improved UX clarity, kept the codebase maintainable.",
-    why: null,
-    duration: "Synphonyte",
-    qualityChecks: null
-  },
-  {
-    name: "Full-Stack JavaScript Platform",
-    tagline: "Production web applications with Vue.js + Node.js",
-    focus: "Full-stack delivery",
-    role: "Full-stack delivery including data layer work with Sequelize, focusing on solid and efficient solutions.",
-    why: null,
-    duration: "Ranker",
-    qualityChecks: null
-  },
-  {
-    name: "Embedded & Interfaces",
-    tagline: "Raspberry Pi / Arduino + Node.js — hardware meets software",
-    focus: "Embedded systems + web",
-    role: "Built practical systems combining hardware and software, delivering end-to-end solutions.",
-    why: null,
-    duration: "DLG Sistemas",
-    qualityChecks: null
-  },
+    {
+        name: "Engineering Platforms for Industrial Compliance",
+        tagline: "Built web tools for German engineering workflows involving technical documentation, validation logic, and high-trust operational use.",
+        role: "Designed and implemented complex front-end flows for industrial platforms used to manage structured engineering data and compliance-related processes.",
+        why: "Helped turn highly technical requirements into reliable, usable interfaces for real-world industrial environments.",
+    },
+    {
+        name: "EntrenoLibre — Live Sports Event Platform",
+        tagline: "Built a product that helps clubs organize tournaments, manage match workflows, and share live results with their community.",
+        role: "Led product and development for event creation, registrations, match tracking, draws, and real-time result visibility.",
+        why: "A good example of workflow-heavy product design: multiple actors, live state, operational coordination, and a user-facing experience that had to stay simple.",
+    },
+    {
+        name: "Rusti.codes – Daily Rust Coding Challenges",
+        tagline: "A free platform delivering daily coding challenges in Rust, designed to help developers sharpen their skills and prepare for technical interviews.",
+        role: "Built and shipped the product end-to-end: challenge delivery system, email subscription flow, and a premium tier with complexity analysis and executable solutions.",
+        why: "Combines content-driven product design with a subscription model — a full vertical slice from idea to recurring user engagement.",
+    },
+    {
+        name: "Public-Sector Health & Government Systems",
+        tagline: "Hospital information systems and other production platforms with real operational impact.",
+        role: "Led development, long-term maintenance, and user-facing enablement in systems where reliability mattered.",
+        why: "Complex architecture and strict reliability requirements.",
+    },
+    {
+        name: "B2B Web Applications (Vue + TypeScript)",
+        tagline: "Production web apps built with Vue.js and TypeScript.",
+        role: "Strong focus on maintainable UI structure, clarity, and scalable product delivery.",
+        why: "Data-heavy interfaces required precise state management.",
+    },
+    {
+        name: "Full-Stack JavaScript Product Work",
+        tagline: "Shipped production features across frontend and backend systems.",
+        role: "Helped teams move faster while keeping code quality sustainable.",
+        why: "End-to-end ownership to unblock delivery bottlenecks.",
+    },
 ];
 ---
+<section id="work" class="py-24 md:py-32 w-full bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 md:px-16 flex flex-col gap-12 md:gap-16">
+        <div class="flex flex-col gap-4 max-w-3xl">
+                <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-white">
+                    Selected work
+                </h2>
 
-<div id="selected-work"
-     class="rounded-3xl bg-charcoal/20 border border-charcoal/40 backdrop-blur-3xl overflow-hidden">
-    <div class="flex flex-col items-center p-10 md:p-20 py-32 md:py-48 md:gap-8 justify-between">
-        <div class="flex flex-col gap-3 max-w-2xl">
-            <h2 class="font-inter font-bold text-3xl md:text-5xl">
-                Selected work
-                <span class="block font-normal text-xl md:text-2xl text-offwhite/60 mt-2">
-                    what we've actually helped teams achieve
-                </span>
-            </h2>
-            <p class="font-mono text-offwhite/50 mt-1">
-                A few examples of the kind of products and teams we've supported.
+            <p class="font-sans text-xl text-offwhite/80 leading-relaxed">
+                A few examples of the kind of systems and teams I’ve supported.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
             {projects.map((project) => (
-                <div class="flex flex-col gap-4 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-6 hover:bg-offwhite/10 transition-colors duration-300">
-                    <div class="flex items-start justify-between gap-4">
-                        <h3 class="font-inter font-bold text-base text-offwhite">{project.name}</h3>
-                        <span class="shrink-0 font-mono text-offwhite/30 pt-0.5">{project.duration}</span>
+                <div class="flex flex-col gap-6 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-8 hover:bg-offwhite/10 transition-colors duration-300">
+                    <div class="flex flex-col gap-2">
+                        <h3 class="font-sans font-semibold text-2xl text-white">{project.name}</h3>
+                        <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.tagline}</p>
                     </div>
 
-                    <p class="text-offwhite/40 font-mono -mt-2">— {project.tagline}</p>
-
-                    <div class="flex flex-col gap-3 flex-1">
-                        <div>
-                            <span class="font-mono text-offwhite/30 uppercase tracking-widest">Focus</span>
-                            <p class="text-offwhite/70 mt-0.5">{project.focus}</p>
+                    <div class="flex flex-col gap-5 flex-1 mt-2 lg:mt-6">
+                        <div class="flex flex-col gap-1">
+                            <span class="font-mono text-xs text-crimson uppercase tracking-widest font-bold">What we did</span>
+                            <p class="font-sans text-offwhite/90 text-sm md:text-base leading-relaxed">{project.role}</p>
                         </div>
-                        <div>
-                            <span class="font-mono text-offwhite/30 uppercase tracking-widest">My role</span>
-                            <p class="text-offwhite/70 mt-0.5">{project.role}</p>
+                        <div class="flex flex-col gap-1">
+                            <span class="font-mono text-xs text-purple-light uppercase tracking-widest font-bold">Why it mattered</span>
+                            <p class="font-sans text-offwhite/90 text-sm md:text-base leading-relaxed">{project.why}</p>
                         </div>
-                        {project.why && (
-                            <p class="text-offwhite/40 font-mono border-l border-offwhite/10 pl-3 mt-1">{project.why}</p>
-                        )}
                     </div>
                 </div>
             ))}
         </div>
 
-        <p class="font-mono text-offwhite/30 border-t border-offwhite/10 pt-6 w-full">
-            Common theme: we work best where the UI is complex, the system is real, and quality matters.
-        </p>
-
+        <div class="mt-8 pt-8 border-t border-offwhite/10 flex justify-center w-full">
+            <p class="font-mono text-sm uppercase tracking-widest text-offwhite/50 text-center">
+                Common theme: complex UI, real systems, long-lived codebases, and quality that matters.
+            </p>
+        </div>
     </div>
-</div>
+</section>

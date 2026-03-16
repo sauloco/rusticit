@@ -2,61 +2,55 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Hero from "../components/Hero.astro";
+import Problem from "../components/Problem.astro";
 import Services from "../components/Services.astro";
 import SelectedWork from "../components/SelectedWork.astro";
+import HowWeWork from "../components/HowWeWork.astro";
+import IdealFit from "../components/IdealFit.astro";
 import About from "../components/About.astro";
+import FinalCTA from "../components/FinalCTA.astro";
 import Base from "../layouts/Base.astro";
+import GradualBlur from "@components/vue/bits/GradualBlur/GradualBlur.vue";
 ---
 <Base>
-    <!--<Header />-->
-    <div class="h-[calc(100dvh-9rem)] md:h-[calc(100dvh-14rem)]">
-        <Hero/>
-    </div>
-    <div id="section-swap-outer" class="h-[calc(200dvh_-_4rem)] mb-4">
-        <div class="sticky -top-16 md:-top-36 h-[calc(100dvh_-_2rem)] relative">
-            <Services />
-        </div>
-    </div>
+    <Hero/>
+    <Problem />
+    <Services />
     <SelectedWork />
+    <HowWeWork />
+    <IdealFit />
     <About />
-    <!--<HowWeWork />-->
-    <!--<CaseStudies />-->
-    <!--<About />-->
-    <!--<Contact />-->
-    <!--<Footer />-->
+    <FinalCTA />
+    <Footer />
+
+    <!-- Fixed bottom blur that dissolves near the footer -->
+    <div id="page-blur-wrapper" class="fixed bottom-0 left-0 right-0 z-[1000] pointer-events-none transition-opacity duration-500">
+        <GradualBlur
+            client:load
+            position="bottom"
+            height="8rem"
+            strength={3}
+            curve="ease-out"
+            divCount={6}
+            target="parent"
+            style={{ position: 'relative' }}
+        />
+    </div>
 </Base>
 
 <script>
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    const wrapper = document.getElementById('page-blur-wrapper');
+    const footer = document.querySelector('footer');
 
-gsap.registerPlugin(ScrollTrigger);
-
-const scroller = document.getElementById('scroll-root')!;
-
-ScrollTrigger.create({
-    trigger: '#services',
-    scroller,
-    start: 'top 70%',
-    onEnter: () => {
-        gsap.to('#scroll-up-indicator', { opacity: 0, duration: 0.4, ease: 'power2.out' });
-    },
-    onLeaveBack: () => {
-        gsap.to('#scroll-up-indicator', { opacity: 1, duration: 0.4, ease: 'power2.out' });
-    },
-});
-
-gsap.fromTo('#hero-section',
-    { opacity: 1 },
-    {
-        opacity: 0,
-        ease: 'none',
-        scrollTrigger: {
-            scroller,
-            start: 0,
-            end: 800,
-            scrub: true,
-        },
+    if (wrapper && footer) {
+        const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                const opacity = Math.max(0, 1 - entry.intersectionRatio * 4);
+                wrapper.style.opacity = String(opacity);
+            },
+            { threshold: thresholds }
+        );
+        observer.observe(footer);
     }
-);
 </script>

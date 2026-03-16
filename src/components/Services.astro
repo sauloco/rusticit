@@ -1,25 +1,41 @@
 ---
-import { ChevronUp } from '@lucide/astro';
-import ServicesView from './vue/ServicesView.vue'
 import ButtonCTA from "./ButtonCTA.astro";
 
 const title = `What RusticIT does for B2B SaaS teams`
----
-<div id="services"
-     class="relative rounded-3xl h-[calc(100dvh_-_2rem)] w-full bg-offwhite/20 border border-offwhite/40 backdrop-blur-3xl z-10">
-    <div class="w-full flex flex-col items-center py-6 gap-1">
-        <div id="scroll-up-indicator" class="animate-bounce font-bold inline-flex gap-1">
-            <ChevronUp />
-            <span class="hidden md:inline">Scroll up to see case studies</span>
-            <span class="md:hidden">Swipe up</span>
-        </div>
 
-        <div id="services-inner" class="absolute inset-0 flex flex-col items-center py-32 md:py-48 md:gap-8 justify-between">
-            <h1 class="font-inter font-bold mx-auto text-3xl md:text-5xl text-shadow-lg/30 animate-fade-in-down animate-delay-200 px-8">
-                { title }
-            </h1>
-            <ServicesView client:only="vue"/>
-            <ButtonCTA />
+const services = [
+    {
+        title: "Frontend Architecture & Stabilization",
+        description: "Assess your current frontend, define clear patterns, and stabilize the codebase so new features stop breaking old ones."
+    },
+    {
+        title: "TypeScript Systems that Stay Consistent",
+        description: "Set up strong TypeScript conventions, component contracts, and shared utilities so the team stops re-inventing patterns."
+    },
+    {
+        title: "Data-heavy UI Performance",
+        description: "Speed up heavy tables, dashboards, and workflows—without rewriting the whole app."
+    },
+    {
+        title: "Modernization & Senior Embed",
+        description: "Incremental refactors, migrations, and tooling upgrades. Plug in as a senior engineer who can take ownership and raise frontend quality without hand-holding."
+    }
+];
+---
+<section id="services" class="py-24 md:py-32 w-full bg-charcoal">
+    <div class="max-w-7xl mx-auto px-4 md:px-16 flex flex-col items-center gap-16">
+        <h2 class="font-heading font-bold text-3xl md:text-5xl text-white tracking-tight text-center max-w-2xl">
+            {title}
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full auto-rows-fr">
+            {services.map((service) => (
+                <div class="bg-offwhite/5 border border-offwhite/10 p-8 rounded-2xl flex flex-col gap-4 hover:border-purple-light/50 transition-colors">
+                    <h3 class="font-sans font-semibold text-xl text-white tracking-tight">{service.title}</h3>
+                    <p class="font-sans text-offwhite/70 leading-relaxed text-sm md:text-base">{service.description}</p>
+                </div>
+            ))}
         </div>
+        
     </div>
-</div>
+</section>

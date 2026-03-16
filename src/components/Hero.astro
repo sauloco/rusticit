@@ -1,41 +1,94 @@
 ---
-import BlurText from '@components/vue/bits/BlurText/BlurText.vue'
-import CircularText from '@components/vue/bits/CircularText/CircularText.vue'
-import ButtonCTA from "./ButtonCTA.astro";
-
-const title = `Frontend Architecture Services for Complex SaaS B2B`
+import Topbar from "./Topbar.astro";
+const title = `Senior Frontend<br>Architecture for<br>Complex B2B SaaS`;
 ---
-<section id="hero-section"
-         class="fixed inset-x-0 top-0 max-w-7xl mx-auto p-16 pt-48 md:pt-64 flex md:grid md:grid-cols-2 pointer-events-none">
-    <div class="flex flex-col gap-8">
-        <BlurText
-                text={title}
-                animate-by="words"
-                direction="top"
-                :delay="500"
-                class-name="hidden md:block font-inter font-bold text-5xl/7 md:text-7xl text-shadow-lg/30"
-                client:only="vue"
-        />
-        <h1 class="md:hidden block font-inter font-bold text-5xl md:text-7xl text-shadow-lg/30 animate-fade-in-down animate-delay-200">
-            {title}
-        </h1>
-        <ButtonCTA class="md:hidden animate-fade-in-down animate-delay-1000 pointer-events-auto"/>
-        <ol class="font-mono animate-fade-in-down animate-delay-800">
-            <li>Architecture + delivery</li>
-            <li>Dashboards, workflows, complex forms, real product logic</li>
-            <li>Contractor-friendly: plug into your team fast</li>
-        </ol>
-    </div>
-    <div class="hidden md:block ">
-        <div class="hidden md:flex overflow-clip animate-fade-in-left animate-delay-1000 pt-32 md:flex-col md:justify-between gap-16">
-            <ButtonCTA showSocialProof />
-            <CircularText
-                text="VUE ✦ REACT ✦ RUST ✦ TYPESCRIPT ✦ "
-                :spin-duration="20"
-                on-hover="slowDown"
-                class-name="font-rubik pointer-events-auto"
-                client:only="vue"
-            />
+
+<section
+    id="hero-section"
+    class="relative w-full flex flex-col items-center justify-center min-h-[50vh] pb-16 overflow-visible"
+>
+    <!-- Animated Glow Background (extends under navbar) -->
+    <div class="absolute -top-32 left-0 right-0 bottom-0 pointer-events-none z-0 overflow-hidden">
+        <!-- Fine Noise Grain Overlay -->
+        <div
+            class="absolute inset-0 opacity-[0.03]"
+            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"
+        >
         </div>
+
+        <div
+            class="absolute -top-[20%] left-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"
+        >
+        </div>
+        <div
+            class="absolute top-[20%] right-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"
+        >
+        </div>
+    </div>
+
+    <div
+        class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-16"
+    >
+        <!-- Left: Copy -->
+        <div class="flex flex-col gap-6 items-start">
+            <Topbar />
+
+            <h1
+                class="font-heading font-bold text-5xl md:text-7xl tracking-tight text-white animate-fade-in-down"
+                set:html={title}
+            >
+            </h1>
+
+            <p
+                class="text-xl md:text-2xl text-offwhite/80 font-sans max-w-3xl leading-relaxed animate-fade-in-down animate-delay-200"
+            >
+                RusticIT helps growing SaaS teams stabilize, scale, and ship faster
+                on data-heavy frontends using Vue, React, and TypeScript.
+            </p>
+
+            <ul
+                class="font-mono text-sm md:text-base text-offwhite/70 space-y-3 mt-4 animate-fade-in-down animate-delay-300"
+            >
+                <li class="flex items-center gap-3">
+                    <span class="text-crimson">→</span> Architecture + delivery, not "just coding"
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-crimson">→</span> Dashboards, workflows, complex forms, real product logic
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="text-crimson">→</span> Contractor-friendly: plug into your team fast
+                </li>
+            </ul>
+
+            <div
+                class="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-down animate-delay-400"
+            >
+                <a
+                    href="https://calendly.com/saulovargas"
+                    target="_blank"
+                    class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wide text-white transition-all bg-crimson rounded-md hover:bg-crimson/90 ring-1 ring-inset ring-crimson/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson font-sans w-fit"
+                >
+                    Book a 20-min intro
+                </a>
+                <a
+                    href="#work"
+                    class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wide text-offwhite transition-all bg-charcoal rounded-md hover:bg-charcoal/80 ring-1 ring-inset ring-offwhite/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite font-sans w-fit"
+                >
+                    See selected work
+                </a>
+            </div>
+
+            <div
+                class="mt-12 pt-8 border-t border-offwhite/10 w-full animate-fade-in-down animate-delay-500"
+            >
+                <p
+                    class="font-mono text-xs text-offwhite/50 tracking-wider uppercase"
+                >
+                    Industrial-grade experience from engineering platforms built in
+                    Germany.
+                </p>
+            </div>
+        </div>
+
     </div>
 </section>

@@ -1,84 +1,65 @@
 ---
-const steps = [
-  { n: 1, title: "20-min intro call", desc: "Understand your product, constraints, and goals." },
-  { n: 2, title: "Quick audit (2–5 days)", desc: "Identify the highest-leverage fixes and risks before writing a line of code." },
-  { n: 3, title: "Execution", desc: "Ship improvements weekly with clear checkpoints. No surprises." },
-  { n: 4, title: "Handoff", desc: "Patterns documented, team enabled, no dependency trap." },
-];
+import ProfileCard from "./vue/bits/ProfileCard/ProfileCard.vue";
 
-const models = [
-  { label: "Part-time contractor", detail: "10–20 h/week" },
-  { label: "Embedded", detail: "20–40 h/week" },
-  { label: "Short sprint", detail: "1–3 weeks — audits or stabilization" },
-];
+// Use Astro's built-in image asset handling to get an optimized URL for the card
+import sauloAvatar from "../assets/profile-card/Saulo_Vargas_subject_only.png";
+import pattern from "../assets/profile-card/pattern.png";
+import grain from "../assets/profile-card/grain.webp";
+
 ---
+<section id="about" class="relative py-24 md:py-32 w-full bg-charcoal border-b border-offwhite/5 overflow-hidden">
+    <!-- Animated Glow Background -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div
+            class="absolute -top-[20%] right-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"
+        ></div>
+        <div
+            class="absolute bottom-[10%] left-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"
+        ></div>
+    </div>
 
-<div id="about-section"
-     class="rounded-3xl bg-charcoal border border-offwhite/20 overflow-hidden">
-  <div class="grid md:grid-cols-2 gap-12 p-10 md:p-20 py-32 md:py-48">
-
-    <!-- How we work -->
-    <div class="flex flex-col gap-8">
-      <div>
-        <h2 class="font-inter font-bold text-3xl md:text-4xl">How we work</h2>
-        <p class="text-offwhite/50 font-mono  mt-1">fast, async, and senior-level</p>
-      </div>
-
-      <ol class="flex flex-col gap-5">
-        {steps.map((s) => (
-          <li class="flex gap-4 items-start">
-            <span class="shrink-0 flex items-center justify-center w-7 h-7 rounded-full border border-offwhite/20  font-mono text-offwhite/50">
-              {s.n}
-            </span>
-            <div>
-              <p class="font-inter font-semibold text-offwhite">{s.title}</p>
-              <p class="text-offwhite/60  font-mono mt-0.5">{s.desc}</p>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-5xl mx-auto">
+            
+            <div class="flex flex-col gap-6 bg-offwhite/5 border border-offwhite/10 p-8 md:p-12 rounded-3xl h-full justify-center order-2 lg:order-1">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-2">About RusticIT</h2>
+                
+                <div class="flex flex-col gap-5 font-sans text-offwhite/80 text-lg leading-relaxed">
+                    <p>
+                        RusticIT is led by <strong class="text-white font-semibold">Saulo Vargas</strong>, a senior software engineer with 15+ years building production systems across public-sector software, B2B web applications, and full-stack JavaScript products.
+                    </p>
+                    <p>
+                        He specializes in frontend-heavy applications—turning complex requirements into clear, maintainable interfaces using Vue, TypeScript, and React—and is comfortable owning delivery end-to-end when needed.
+                    </p>
+                    <p>
+                        Best embedded with product teams, improving structure, reducing friction, and leaving the codebase better than he found it.
+                    </p>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-offwhite/10">
+                    <p class="font-mono text-xs uppercase tracking-widest text-offwhite/50">
+                        Experienced in industrial-grade engineering platforms and distributed teams.
+                    </p>
+                </div>
             </div>
-          </li>
-        ))}
-      </ol>
 
-      <div class="flex flex-col gap-3">
-        <p class=" font-mono text-offwhite/40 uppercase tracking-widest">Engagement models</p>
-        <ul class="flex flex-col gap-2">
-          {models.map((m) => (
-            <li class="flex justify-between items-baseline border-b border-offwhite/10 pb-2">
-              <span class="text-offwhite font-inter ">{m.label}</span>
-              <span class="text-offwhite/40 font-mono ">{m.detail}</span>
-            </li>
-          ))}
-        </ul>
-        <p class="text-offwhite/40 font-mono  mt-2">
-          No agency overhead, no junior rotation — direct senior execution.
-        </p>
-      </div>
+            <div class="flex justify-center w-full max-w-sm mx-auto lg:max-w-none order-1 lg:order-2">
+                <ProfileCard
+                    client:visible
+                    name="Saulo Vargas"
+                    title="Frontend Architect"
+                    handle="saulovargas"
+                    status="Available"
+                    contactText="Email Me"
+                    grainUrl={grain.src}
+                    iconUrl={pattern.src}
+                    avatarUrl={sauloAvatar.src}
+                    miniAvatarUrl={sauloAvatar.src}
+                    behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(280,100%,70%,var(--card-opacity)) 4%, hsla(280,50%,50%,calc(var(--card-opacity)*0.75)) 10%, hsla(280,25%,40%,calc(var(--card-opacity)*0.5)) 50%, hsla(280,0%,30%,0) 100%), radial-gradient(35% 52% at 55% 20%, #9C1DE7c4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #FF073Aff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #581B98ff 0%, #9C1DE7ff 40%, #FF073Aff 60%, #581B98ff 100%)"
+                    innerGradient="linear-gradient(145deg, #581B988c 0%, #FF073A44 100%)"
+                />
+            </div>
+
+        </div>
     </div>
-
-    <!-- About -->
-    <div class="flex flex-col gap-8">
-      <div>
-        <h2 class="font-inter font-bold text-3xl md:text-4xl">About RusticIT</h2>
-      </div>
-
-      <div class="flex flex-col gap-5 font-inter text-offwhite/80 text-base leading-relaxed">
-        <p>
-          RusticIT is led by <strong class="text-offwhite">Saulo Vargas</strong>, a senior software engineer with 15+ years building production systems across public-sector platforms, B2B web applications, and full-stack JavaScript products.
-        </p>
-        <p>
-          I specialize in frontend-heavy applications — turning complex requirements into clear, maintainable interfaces using Vue, TypeScript, and React — and I'm comfortable owning delivery end-to-end when needed.
-        </p>
-        <p>
-          I'm at my best embedded with product teams: improving structure, reducing friction, and leaving the codebase better than I found it.
-        </p>
-      </div>
-
-      <div class="mt-auto pt-4">
-        <a href="/about"
-           class="inline-flex items-center gap-2  font-inter text-offwhite/50 hover:text-offwhite transition-colors duration-200">
-          More about me →
-        </a>
-      </div>
-    </div>
-
-  </div>
-</div>
+</section>

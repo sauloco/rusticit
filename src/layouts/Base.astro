@@ -10,17 +10,10 @@ const lang = Astro.currentLocale ?? 'en';
 <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 </head>
-<body class="text-offwhite">
-<div class="fixed inset-0">
-    <Gradient client:only="vue"></Gradient>
-</div>
-<div class="fixed inset-0 bg-offwhite/20 dark:bg-crimson/20 backdrop-blur-3xl hidden motion-reduce:block">
-</div>
-<div class="fixed inset-4 bg-offwhite dark:bg-charcoal blur-sm hidden motion-reduce:block">
-</div>
-<Header/>
-<div id="scroll-root" class="fixed inset-4 pt-16 md:pt-36 bottom-0 bg-transparent overflow-auto">
-    <slot/>
-</div>
+<body class="text-offwhite bg-charcoal font-sans antialiased selection:bg-purple-light/30">
+    <Header/>
+    <main class="w-full relative pt-24 md:pt-32">
+        <slot/>
+    </main>
 </body>
 </html>
