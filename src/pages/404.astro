@@ -1,0 +1,39 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { BackgroundGradientAnimation } from "../components/react/BackgroundGradientAnimation";
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title="404 — You're lost" description="This page doesn't exist. Or maybe it does and we just can't find it. Either way, you're not supposed to be here." />
+    </head>
+    <body>
+        <Header />
+        <BackgroundGradientAnimation client:visible>
+            <div class="absolute z-50 inset-0 flex flex-col items-center justify-center text-center px-6 pointer-events-none gap-8">
+                <p class="font-mono text-xs uppercase tracking-[0.3em] text-offwhite/50">Error 404</p>
+                <h1 class="font-heading font-bold text-6xl md:text-8xl text-white drop-shadow-2xl">
+                    Oops.
+                </h1>
+                <p class="font-sans text-lg md:text-xl text-offwhite/80 max-w-md leading-relaxed">
+                    It's not you, it's us. The page you're looking for may be retired, or never existed, or there could be a typo in the link that you followed.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pointer-events-auto mt-2">
+                    <a
+                        href="/"
+                        class="inline-flex items-center justify-center bg-crimson text-white px-6 py-3 rounded-full text-sm font-bold tracking-wide hover:bg-crimson/90 transition-colors"
+                    >
+                        Go Back Home
+                    </a>
+                    <a
+                        href="/beyond-code"
+                        class="inline-flex items-center justify-center bg-offwhite/10 border border-offwhite/20 text-offwhite px-6 py-3 rounded-full text-sm font-bold tracking-wide hover:bg-offwhite/20 transition-colors backdrop-blur-sm"
+                    >
+                        Read Our Blog: Beyond Code
+                    </a>
+                </div>
+            </div>
+        </BackgroundGradientAnimation>
+    </body>
+</html>

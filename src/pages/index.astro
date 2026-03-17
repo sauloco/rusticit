@@ -1,6 +1,4 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import Hero from "../components/Hero.astro";
 import Problem from "../components/Problem.astro";
 import Services from "../components/Services.astro";
@@ -25,7 +23,7 @@ import GradualBlur from "@components/vue/bits/GradualBlur/GradualBlur.vue";
     <!-- Fixed bottom blur that dissolves near the footer -->
     <div id="page-blur-wrapper" class="fixed bottom-0 left-0 right-0 z-[1000] pointer-events-none transition-opacity duration-500">
         <GradualBlur
-            client:load
+            client:visible
             position="bottom"
             height="8rem"
             strength={3}

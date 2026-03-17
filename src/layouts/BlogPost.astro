@@ -98,7 +98,7 @@ function readingTime(text: string | undefined): string {
 
 				{heroImage && !video && (
 					<div class="mb-12 overflow-hidden rounded-2xl" transition:name={id ? `hero-${id}` : undefined}>
-						<Image width={1020} height={510} src={heroImage} alt="" class="w-full" />
+						<Image width={1020} height={510} src={heroImage} alt={title} class="w-full" />
 					</div>
 				)}
 
