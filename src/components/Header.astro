@@ -5,10 +5,10 @@ import HeaderLink from "./HeaderLink.astro";
 import logoDark from "../assets/rustic-logo-dark.svg";
 
 const links = [
-    { href: "#services", label: "Services" },
-    { href: "#work", label: "Selected Work" },
-    { href: "#how-we-work", label: "How we work" },
-    { href: "#about", label: "About" },
+    { href: "/#services", label: "Services" },
+    { href: "/#work", label: "Selected Work" },
+    { href: "/#how-we-work", label: "How we work" },
+    { href: "/#about", label: "About" },
     { href: "/beyond-code", label: "Beyond Code" },
 ];
 ---
@@ -18,7 +18,7 @@ const links = [
     class="fixed left-1/2 -translate-x-1/2 hidden md:block md:min-w-[600px] w-max px-6 py-3 animate-fade-in-down animate-delay-100 bg-charcoal/80 hover:bg-charcoal transition-all rounded-full z-[1000] my-6 backdrop-blur-md shadow-lg border border-offwhite/10"
 >
     <nav class="flex gap-8 flex-row justify-between items-center">
-        <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
+        <a href="/#" class="max-w-[100px]" aria-label="RusticIT homepage">
             <Image src={logoDark} alt={SITE_TITLE} />
         </a>
         <div class="flex flex-row gap-6 items-center text-sm font-sans font-medium">
@@ -50,7 +50,7 @@ const links = [
     <div class="mobile-nav-bar bg-charcoal/90 backdrop-blur-md border-b border-offwhite/10 px-4 py-3">
         <!-- Top row: logo + hamburger -->
         <div class="flex items-center justify-between">
-            <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
+            <a href="/#" class="max-w-[100px]" aria-label="RusticIT homepage">
                 <Image src={logoDark} alt={SITE_TITLE} />
             </a>
             <button
@@ -127,53 +127,54 @@ const links = [
 ></div>
 
 <script>
-    const btn = document.getElementById("mobile-menu-btn")!;
-    const menu = document.getElementById("mobile-menu")!;
-    const backdrop = document.getElementById("mobile-backdrop")!;
-    const iconOpen = document.getElementById("icon-open")!;
-    const iconClose = document.getElementById("icon-close")!;
-    const navLinks = document.querySelectorAll<HTMLElement>(".mobile-nav-link");
+    function initMobileMenu() {
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+        const backdrop = document.getElementById("mobile-backdrop");
+        const iconOpen = document.getElementById("icon-open");
+        const iconClose = document.getElementById("icon-close");
+        const navLinks = document.querySelectorAll<HTMLElement>(".mobile-nav-link");
 
-    let isOpen = false;
+        if (!btn || !menu || !backdrop || !iconOpen || !iconClose) return;
 
-    function toggle() {
-        isOpen = !isOpen;
-        btn.setAttribute("aria-expanded", String(isOpen));
+        let isOpen = false;
 
-        // Expand / collapse menu
-        menu.style.gridTemplateRows = isOpen ? "1fr" : "0fr";
+        function toggle() {
+            isOpen = !isOpen;
+            btn!.setAttribute("aria-expanded", String(isOpen));
 
-        // Swap icons
-        iconOpen.style.opacity = isOpen ? "0" : "1";
-        iconOpen.style.transform = isOpen ? "scale(0.75) rotate(90deg)" : "scale(1) rotate(0)";
-        iconClose.style.opacity = isOpen ? "1" : "0";
-        iconClose.style.transform = isOpen ? "scale(1) rotate(0)" : "scale(0.75) rotate(-90deg)";
+            menu!.style.gridTemplateRows = isOpen ? "1fr" : "0fr";
 
-        // Backdrop
-        backdrop.style.opacity = isOpen ? "1" : "0";
-        backdrop.style.pointerEvents = isOpen ? "auto" : "none";
+            iconOpen!.style.opacity = isOpen ? "0" : "1";
+            iconOpen!.style.transform = isOpen ? "scale(0.75) rotate(90deg)" : "scale(1) rotate(0)";
+            iconClose!.style.opacity = isOpen ? "1" : "0";
+            iconClose!.style.transform = isOpen ? "scale(1) rotate(0)" : "scale(0.75) rotate(-90deg)";
 
-        // Staggered fade-in / fade-out for links
+            backdrop!.style.opacity = isOpen ? "1" : "0";
+            backdrop!.style.pointerEvents = isOpen ? "auto" : "none";
+
+            navLinks.forEach((link) => {
+                if (isOpen) {
+                    link.style.opacity = "1";
+                    link.style.transform = "translateY(0)";
+                } else {
+                    link.style.opacity = "0";
+                    link.style.transform = "translateY(0.5rem)";
+                }
+            });
+        }
+
+        btn.addEventListener("click", toggle);
+        backdrop.addEventListener("click", toggle);
+
         navLinks.forEach((link) => {
-            if (isOpen) {
-                link.style.opacity = "1";
-                link.style.transform = "translateY(0)";
-            } else {
-                link.style.opacity = "0";
-                link.style.transform = "translateY(0.5rem)";
-            }
+            link.addEventListener("click", () => {
+                if (isOpen) toggle();
+            });
         });
     }
 
-    btn.addEventListener("click", toggle);
-    backdrop.addEventListener("click", toggle);
-
-    // Close menu when a link is tapped
-    navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            if (isOpen) toggle();
-        });
-    });
+    document.addEventListener("astro:page-load", initMobileMenu);
 </script>
 
 <style>

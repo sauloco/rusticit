@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import {SITE_DESCRIPTION, SITE_TITLE} from "../consts";
 import Gradient from '@components/vue/Gradient.vue'
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const lang = Astro.currentLocale ?? 'en';
 ---
@@ -15,5 +16,6 @@ const lang = Astro.currentLocale ?? 'en';
     <main class="w-full relative pt-24 md:pt-32">
         <slot/>
     </main>
+    <Footer />
 </body>
 </html>
