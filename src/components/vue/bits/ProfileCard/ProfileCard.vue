@@ -11,6 +11,8 @@
             class="avatar"
             :src="avatarUrl"
             :alt="`${name || 'User'} avatar`"
+            width="1024"
+            height="863"
             loading="lazy"
             @error="handleAvatarError"
           />
@@ -21,6 +23,8 @@
                 <img
                   :src="miniAvatarUrl || avatarUrl"
                   :alt="`${name || 'User'} mini avatar`"
+                  width="48"
+                  height="48"
                   loading="lazy"
                   @error="handleMiniAvatarError"
                 />

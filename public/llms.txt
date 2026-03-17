@@ -1,0 +1,23 @@
+# RusticIT
+
+> Senior frontend consulting for B2B SaaS teams.
+
+RusticIT is a consultancy led by Saulo Vargas, a senior software engineer with 15+ years of experience. We specialize in frontend architecture, TypeScript systems, and performance optimization for data-heavy B2B SaaS applications.
+
+## Services
+
+- Frontend Architecture & Stabilization
+- TypeScript Systems that Stay Consistent
+- Data-heavy UI Performance
+- Modernization & Senior Embed
+
+## Tech Stack
+
+Vue.js, React, TypeScript, Astro
+
+## Contact
+
+- Website: https://rusticit.com
+- Email: hello@rusticit.com
+- LinkedIn: https://linkedin.com/in/saulovargas
+- Booking: https://calendly.com/saulovargas

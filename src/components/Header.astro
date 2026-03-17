@@ -18,7 +18,7 @@ const links = [
     class="fixed left-1/2 -translate-x-1/2 hidden md:block md:min-w-[600px] w-max px-6 py-3 animate-fade-in-down animate-delay-100 bg-charcoal/80 hover:bg-charcoal transition-all rounded-full z-[1000] my-6 backdrop-blur-md shadow-lg border border-offwhite/10"
 >
     <nav class="flex gap-8 flex-row justify-between items-center">
-        <a href="/" class="max-w-[100px]">
+        <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
             <Image src={logoDark} alt={SITE_TITLE} />
         </a>
         <div class="flex flex-row gap-6 items-center text-sm font-sans font-medium">
@@ -34,6 +34,7 @@ const links = [
         <a
             href="https://calendly.com/saulovargas"
             target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex bg-crimson text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide hover:bg-crimson/90 transition-colors"
         >
             Book a 20-min intro
@@ -49,7 +50,7 @@ const links = [
     <div class="mobile-nav-bar bg-charcoal/90 backdrop-blur-md border-b border-offwhite/10 px-4 py-3">
         <!-- Top row: logo + hamburger -->
         <div class="flex items-center justify-between">
-            <a href="/" class="max-w-[100px]">
+            <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
                 <Image src={logoDark} alt={SITE_TITLE} />
             </a>
             <button
@@ -107,6 +108,7 @@ const links = [
                     <a
                         href="https://calendly.com/saulovargas"
                         target="_blank"
+                        rel="noopener noreferrer"
                         class="mobile-nav-link mt-3 inline-flex items-center justify-center bg-crimson text-white px-4 py-3 rounded-lg text-sm font-bold tracking-wide hover:bg-crimson/90 transition-all opacity-0 translate-y-2"
                         style={`transition-delay: ${links.length * 75}ms;`}
                     >
