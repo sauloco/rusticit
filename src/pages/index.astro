@@ -39,18 +39,20 @@ import GradualBlur from "@components/vue/bits/GradualBlur/GradualBlur.vue";
 </Base>
 
 <script>
-    const wrapper = document.getElementById('page-blur-wrapper');
-    const footer = document.querySelector('footer');
+    document.addEventListener('astro:page-load', () => {
+        const wrapper = document.getElementById('page-blur-wrapper');
+        const footer = document.querySelector('footer');
 
-    if (wrapper && footer) {
-        const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                const opacity = Math.max(0, 1 - entry.intersectionRatio * 4);
-                wrapper.style.opacity = String(opacity);
-            },
-            { threshold: thresholds }
-        );
-        observer.observe(footer);
-    }
+        if (wrapper && footer) {
+            const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    const opacity = Math.max(0, 1 - entry.intersectionRatio * 4);
+                    wrapper.style.opacity = String(opacity);
+                },
+                { threshold: thresholds }
+            );
+            observer.observe(footer);
+        }
+    });
 </script>

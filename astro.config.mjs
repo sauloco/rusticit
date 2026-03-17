@@ -13,10 +13,10 @@ import vue from '@astrojs/vue';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://rusticit.com',
   integrations: [mdx(), sitemap(), react(), vue()],
   i18n: {
-    locales: ['en', 'es'],
+    locales: ['en'],
     defaultLocale: 'en',
     routing: {
       prefixDefaultLocale: false,
