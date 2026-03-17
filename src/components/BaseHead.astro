@@ -3,7 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import FallbackImage from '../assets/rustic-og.jpg';
 
 interface Props {
@@ -101,7 +101,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 })} />
 
 <!-- View Transitions -->
-<ViewTransitions />
+<ClientRouter />
 
 <!-- Cloudflare Web Analytics -->
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d31c2e51930544688a340190e24570e2"}'></script>
