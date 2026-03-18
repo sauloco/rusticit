@@ -40,9 +40,16 @@ async function postToThread(webhookUrl, threadId, content) {
     }
 }
 
-function inferSummary(components, visitorStatus, previousThreadId) {
+function inferSummary(components, botDetection, visitorStatus, previousThreadId) {
     const c = components || {};
     const lines = [];
+
+    // --- Bot detection ---
+    if (botDetection) {
+        const isBot = botDetection.bot;
+        const kind = botDetection.botKind ? ` (${botDetection.botKind})` : "";
+        lines.push(`Bot detection: ${isBot ? `🤖 bot detected${kind}` : "✅ human"}`);
+    }
 
     // --- Device ---
     const platform = String(c.platform || "").toLowerCase();
@@ -178,7 +185,7 @@ export default async function handler(req, context) {
     }
 
     if (type === "visit") {
-        const {visitorId, page, referrer, components} = body;
+        const {visitorId, page, referrer, components, botDetection} = body;
 
         const ip =
             req.headers.get("cf-connecting-ip") ||
@@ -213,7 +220,7 @@ export default async function handler(req, context) {
         const geo = await getGeo(ip);
         const location = geo ? `${geo.city}, ${geo.country}` : "Unknown location";
         const shortId = visitorId ? visitorId.slice(0, 8) : "????????";
-        const summary = inferSummary(components, visitorStatus, previousThreadId);
+        const summary = inferSummary(components, botDetection, visitorStatus, previousThreadId);
 
         // --- Discord message ---
         const header = [

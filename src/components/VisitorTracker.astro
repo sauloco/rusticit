@@ -1,5 +1,6 @@
 <script>
   import FingerprintJS from "@fingerprintjs/fingerprintjs";
+  import Botd from "@fingerprintjs/botd";
 
   const API = "/.netlify/functions/visitor";
 
@@ -180,10 +181,11 @@
       return;
     }
 
-    // First visit in this tab — compute fingerprint
-    const fp = await FingerprintJS.load();
-    const result = await fp.get();
+    // First visit in this tab — compute fingerprint + bot detection in parallel
+    const [fp, botd] = await Promise.all([FingerprintJS.load(), Botd.load()]);
+    const [result, botResult] = await Promise.all([fp.get(), botd.detect()]);
     const visitorId = result.visitorId;
+    const botDetection = { bot: botResult.bot, botKind: (botResult as any).botKind ?? null };
     sessionStorage.setItem("v_fid", visitorId);
 
     // Strip duration, keep only values; drop verbose/unreadable signals
@@ -201,6 +203,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "visit",
+          botDetection,
           visitorId,
           page: window.location.pathname,
           referrer: document.referrer || undefined,
