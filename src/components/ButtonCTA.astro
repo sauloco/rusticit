@@ -1,26 +1,71 @@
 ---
-import {Calendar} from "@lucide/astro";
-interface ButtonCTAProps {
-    showSocialProof?: boolean;
-    class?: string;
+interface Props {
+    size?: 'sm' | 'md';
+    magnetic?: boolean;
+    fullWidth?: boolean;
 }
 
-const {showSocialProof, class: className}: ButtonCTAProps = Astro.props;
+const { size = 'md', magnetic = false, fullWidth = false } = Astro.props;
 
-const callToActionText = `Book a 20-min intro`
-const socialProof = `We provide industrial-grade experience from engineering platforms from Germany.`
+const href = "https://calendly.com/saulovargas";
+const label = "Book a 20-min intro";
+
+const smClasses = "px-4 py-2 text-xs font-bold rounded-full";
+const mdClasses = "px-8 py-4 text-sm font-medium rounded-md ring-1 ring-inset ring-crimson/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crimson";
+const sizeClasses = size === 'sm' ? smClasses : mdClasses;
+const widthClass = fullWidth ? "w-full sm:w-fit" : "w-fit";
 ---
 
-<div class=`${className} flex flex-col gap-0`>
-    <a
-            href="https://calendly.com/saulovargas"
-            class="button flex flex-row gap-2 items-center justify-center bg-offwhite/90 border border-offwhite text-charcoal font-bold px-6 py-4 rounded-full text-charcoal cursor-pointer text-xl pointer-events-auto"
-    >
-       <Calendar /> {callToActionText}
-    </a>
-    {showSocialProof &&
-            <p class="font-inter mx-8 px-8 py-4 border-t-0 rounded-b-2xl border border-offwhite/40 bg-offwhite/20">
-                {socialProof}
-            </p>
+<a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-magnetic-cta={magnetic ? "true" : undefined}
+    class={`inline-flex items-center justify-center tracking-wide text-white bg-crimson hover:bg-crimson/90 transition-colors font-sans ${sizeClasses} ${widthClass}`}
+>
+    {magnetic
+        ? <span data-magnetic-inner>{label}</span>
+        : label
     }
-</div>
+</a>
+
+{magnetic && (
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (isCoarse || reduced) return;
+
+        const MAX_OUTER = 3;
+        const MAX_INNER = 1;
+
+        document.querySelectorAll<HTMLElement>('[data-magnetic-cta]').forEach((cta) => {
+            const inner = cta.querySelector<HTMLElement>('[data-magnetic-inner]');
+            if (!inner) return;
+
+            cta.style.transition = 'transform 200ms ease-out';
+            inner.style.transition = 'transform 200ms ease-out';
+
+            cta.addEventListener('pointermove', (e: PointerEvent) => {
+                const rect = cta.getBoundingClientRect();
+                const nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                const ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+                cta.style.transform = `translate(${nx * MAX_OUTER}px, ${ny * MAX_OUTER}px)`;
+                inner.style.transform = `translate(${nx * MAX_INNER}px, ${ny * MAX_INNER}px)`;
+            });
+
+            cta.addEventListener('pointerenter', () => {
+                cta.style.transition = 'transform 200ms ease-out';
+                inner.style.transition = 'transform 200ms ease-out';
+            });
+
+            cta.addEventListener('pointerleave', () => {
+                cta.style.transition = 'transform 300ms ease-in-out';
+                inner.style.transition = 'transform 300ms ease-in-out';
+                cta.style.transform = 'translate(0px, 0px)';
+                inner.style.transform = 'translate(0px, 0px)';
+            });
+        });
+    });
+</script>
+)}

@@ -1,9 +1,35 @@
 ---
 const text = "For B2B SaaS teams in EU and UK · Async-friendly · Contractor-ready";
 ---
-<div class="inline-flex w-fit items-center rounded-full border border-offwhite/10 bg-offwhite/5 px-4 py-1.5 animate-fade-in-down">
+<div class="topbar-pill inline-flex w-fit items-center rounded-full border border-offwhite/10 bg-offwhite/5 px-4 py-1.5 animate-fade-in-down" tabindex="0" role="text">
     <span class="flex h-2 w-2 rounded-full bg-purple-light mr-3 animate-pulse"></span>
     <p class="font-sans text-xs md:text-sm font-medium text-offwhite/80 tracking-wide uppercase">
         {text}
     </p>
 </div>
+
+<style>
+    .topbar-pill {
+        transition: transform 140ms ease-out, box-shadow 140ms ease-out;
+        cursor: default;
+    }
+    .topbar-pill:hover,
+    .topbar-pill:focus-visible {
+        transform: translateY(-1px) scale(1.01);
+        box-shadow: 0 0 14px 0px rgba(156, 29, 231, 0.22);
+        outline: none;
+    }
+    .topbar-pill:not(:hover):not(:focus-visible) {
+        transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .topbar-pill,
+        .topbar-pill:hover,
+        .topbar-pill:focus-visible,
+        .topbar-pill:not(:hover):not(:focus-visible) {
+            transition: none;
+            transform: none;
+            box-shadow: none;
+        }
+    }
+</style>

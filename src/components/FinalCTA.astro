@@ -1,4 +1,5 @@
 ---
+import ButtonCTA from "./ButtonCTA.astro";
 const title = "Need senior frontend support for a product that's getting harder to ship?";
 const body = "If frontend complexity is starting to slow delivery, I can help you identify the main bottlenecks and work on the fixes that actually improve velocity, quality, and maintainability.";
 const supportingLine = "I'll reply personally and let you know quickly whether I'm the right fit.";
@@ -16,9 +17,7 @@ const supportingLine = "I'll reply personally and let you know quickly whether I
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
-            <a href="https://calendly.com/saulovargas" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold tracking-wide text-white transition-all bg-crimson rounded-md hover:bg-crimson/90 ring-1 ring-inset ring-crimson/20 font-sans w-full sm:w-fit">
-                Book a 20-min intro
-            </a>
+            <ButtonCTA fullWidth magnetic />
             <a href="mailto:hello@rusticit.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-medium tracking-wide text-offwhite transition-all bg-offwhite/5 rounded-md hover:bg-offwhite/10 ring-1 ring-inset ring-offwhite/20 font-sans w-full sm:w-fit">
                 Email me directly
             </a>
