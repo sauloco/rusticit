@@ -153,7 +153,10 @@ function inferSummary(components, botDetection, visitorStatus, previousThreadId)
 
     // --- Visitor status ---
     lines.push(`Visitor status: ${visitorStatus}`);
-    lines.push(`Previous Discord thread: ${previousThreadId || "none"}`);
+    const prevThread = previousThreadId
+        ? `https://discord.com/channels/739837377614184489/${previousThreadId}`
+        : "none";
+    lines.push(`Previous Discord thread: ${prevThread}`);
 
     return lines.join("\n");
 }
