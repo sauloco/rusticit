@@ -3,9 +3,10 @@ interface Props {
     size?: 'sm' | 'md';
     magnetic?: boolean;
     fullWidth?: boolean;
+    location?: string;
 }
 
-const { size = 'md', magnetic = false, fullWidth = false } = Astro.props;
+const { size = 'md', magnetic = false, fullWidth = false, location } = Astro.props;
 
 const href = "https://calendly.com/saulovargas";
 const label = "Book a 20-min intro";
@@ -21,6 +22,7 @@ const widthClass = fullWidth ? "w-full sm:w-fit" : "w-fit";
     target="_blank"
     rel="noopener noreferrer"
     data-magnetic-cta={magnetic ? "true" : undefined}
+    data-cta-location={location}
     class={`inline-flex items-center justify-center tracking-wide text-white bg-crimson hover:bg-crimson/90 transition-colors font-sans ${sizeClasses} ${widthClass}`}
 >
     {magnetic

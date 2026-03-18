@@ -1,0 +1,223 @@
+<script>
+  import FingerprintJS from "@fingerprintjs/fingerprintjs";
+
+  const API = "/.netlify/functions/visitor";
+
+  function post(body: object) {
+    fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).catch(() => {});
+  }
+
+  function setupCtaTracking(threadId: string | null) {
+    // Remove previous listeners by replacing elements with clones
+    if ((window as any)._ctaCleanup) (window as any)._ctaCleanup();
+
+    if (!threadId || threadId === "null") return;
+
+    const hoveredLocations: Set<string> = new Set(
+      JSON.parse(sessionStorage.getItem("v_cta_hovered") || "[]")
+    );
+
+    const cleanups: Array<() => void> = [];
+
+    document.querySelectorAll<HTMLElement>("[data-cta-location]").forEach((el) => {
+      const location = el.dataset.ctaLocation!;
+
+      const onMouseenter = () => {
+        if (hoveredLocations.has(location)) return;
+        hoveredLocations.add(location);
+        sessionStorage.setItem("v_cta_hovered", JSON.stringify([...hoveredLocations]));
+        post({ type: "thread", threadId, content: `🖱️ cta hover · ${location}` });
+      };
+
+      const onClick = () => {
+        post({ type: "thread", threadId, content: `🔴 cta click · ${location}` });
+      };
+
+      el.addEventListener("mouseenter", onMouseenter);
+      el.addEventListener("click", onClick);
+      cleanups.push(() => {
+        el.removeEventListener("mouseenter", onMouseenter);
+        el.removeEventListener("click", onClick);
+      });
+    });
+
+    (window as any)._ctaCleanup = () => cleanups.forEach((fn) => fn());
+  }
+
+  function beacon(body: object) {
+    navigator.sendBeacon(
+      API,
+      new Blob([JSON.stringify(body)], { type: "application/json" })
+    );
+  }
+
+  function setupFormAndAbandonTracking(threadId: string | null) {
+    if ((window as any)._abandonCleanup) (window as any)._abandonCleanup();
+    if (!threadId || threadId === "null") return;
+
+    const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+    let formTouched = false;
+    let formSubmitted = false;
+    let abandonSent = false;
+
+    function onAbandon() {
+      if (abandonSent) return;
+      abandonSent = true;
+
+      if (formTouched && !formSubmitted && form) {
+        const fields: Record<string, string> = {};
+        for (const [key, value] of new FormData(form).entries()) {
+          if (key !== "form-name" && String(value).trim())
+            fields[key] = String(value).slice(0, 300);
+        }
+        const lines = Object.entries(fields).map(([k, v]) => `**${k}**: ${v}`);
+        beacon({
+          type: "thread",
+          threadId,
+          content: `🚪 left · form abandoned\n${lines.length ? lines.join("\n") : "(no fields filled)"}`,
+        });
+      } else {
+        beacon({ type: "thread", threadId, content: "🚪 left the site" });
+      }
+    }
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") onAbandon();
+    };
+    window.addEventListener("beforeunload", onAbandon);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    const formCleanups: Array<() => void> = [];
+
+    if (form) {
+      const onInput = () => { formTouched = true; };
+      form.addEventListener("input", onInput, { once: true });
+
+      const submitBtn = form.querySelector<HTMLElement>('button[type="submit"]');
+      const onSubmitClick = () => {
+        post({ type: "thread", threadId, content: "📬 Send inquiry clicked" });
+      };
+      submitBtn?.addEventListener("click", onSubmitClick);
+
+      const onSubmit = () => {
+        formSubmitted = true;
+        const fields: Record<string, string> = {};
+        for (const [key, value] of new FormData(form).entries()) {
+          if (key !== "form-name" && String(value).trim())
+            fields[key] = String(value).slice(0, 300);
+        }
+        const lines = Object.entries(fields).map(([k, v]) => `**${k}**: ${v}`);
+        post({
+          type: "thread",
+          threadId,
+          content: `✅ contact form submitted\n${lines.join("\n")}`,
+        });
+      };
+      form.addEventListener("submit", onSubmit);
+
+      formCleanups.push(
+        () => form.removeEventListener("input", onInput),
+        () => submitBtn?.removeEventListener("click", onSubmitClick),
+        () => form.removeEventListener("submit", onSubmit)
+      );
+    }
+
+    (window as any)._abandonCleanup = () => {
+      window.removeEventListener("beforeunload", onAbandon);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      formCleanups.forEach((fn) => fn());
+    };
+  }
+
+  function setupSectionTracking(threadId: string | null) {
+    if (window._sectionObserver) {
+      (window._sectionObserver as IntersectionObserver).disconnect();
+    }
+
+    if (!threadId || threadId === "null") return;
+
+    const seen: Set<string> = new Set(
+      JSON.parse(sessionStorage.getItem("v_seen") || "[]")
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const id = (entry.target as HTMLElement).id;
+          if (!id || seen.has(id)) continue;
+          seen.add(id);
+          sessionStorage.setItem("v_seen", JSON.stringify([...seen]));
+          post({ type: "thread", threadId, content: `↓ scrolled to #${id}` });
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    document.querySelectorAll("section[id]").forEach((el) => observer.observe(el));
+    (window as any)._sectionObserver = observer;
+  }
+
+  document.addEventListener("astro:page-load", async () => {
+    const existingThreadId = sessionStorage.getItem("v_tid");
+
+    if (existingThreadId !== null) {
+      // Already visited — send navigation event if thread is valid
+      if (existingThreadId !== "null") {
+        post({
+          type: "thread",
+          threadId: existingThreadId,
+          content: `→ navigated to ${window.location.pathname}`,
+        });
+      }
+      setupSectionTracking(existingThreadId);
+      setupCtaTracking(existingThreadId);
+      setupFormAndAbandonTracking(existingThreadId);
+      return;
+    }
+
+    // First visit in this tab — compute fingerprint
+    const fp = await FingerprintJS.load();
+    const result = await fp.get();
+    const visitorId = result.visitorId;
+    sessionStorage.setItem("v_fid", visitorId);
+
+    // Strip duration, keep only values; drop verbose/unreadable signals
+    const OMIT = new Set(["fonts", "math", "fontPreferences", "plugins", "canvas"]);
+    const components = Object.fromEntries(
+      Object.entries(result.components)
+        .filter(([k]) => !OMIT.has(k))
+        .map(([k, v]) => [k, (v as any).value])
+    );
+
+    let threadId: string | null = null;
+    try {
+      const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "visit",
+          visitorId,
+          page: window.location.pathname,
+          referrer: document.referrer || undefined,
+          components,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        threadId = data.threadId ?? null;
+      }
+    } catch {
+      // fire-and-forget
+    }
+
+    sessionStorage.setItem("v_tid", threadId ?? "null");
+    setupSectionTracking(threadId);
+    setupCtaTracking(threadId);
+    setupFormAndAbandonTracking(threadId);
+  });
+</script>
