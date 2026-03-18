@@ -1,0 +1,28 @@
+---
+const title = "What better frontend structure should unlock";
+
+const outcomes = [
+    "Faster feature delivery with less regression risk",
+    "Clearer patterns across the codebase",
+    "Less time lost to fragile UI behavior",
+    "Better maintainability as the team grows",
+    "More confidence shipping on top of an existing product",
+];
+---
+
+<section id="outcomes" class="py-24 md:py-32 w-full bg-charcoal border-t border-offwhite/5">
+    <div class="max-w-7xl mx-auto px-4 md:px-16 flex flex-col items-center gap-12">
+        <h2 class="font-heading font-bold text-3xl md:text-5xl text-white tracking-tight text-center max-w-3xl">
+            {title}
+        </h2>
+
+        <ul class="flex flex-col gap-4 w-full max-w-2xl">
+            {outcomes.map(outcome => (
+                <li class="flex items-start gap-4 bg-offwhite/5 border border-offwhite/10 rounded-xl px-6 py-4 hover:border-purple-light/30 transition-colors">
+                    <span class="text-purple-light font-bold mt-0.5">→</span>
+                    <span class="font-sans text-offwhite/90 text-base md:text-lg leading-relaxed">{outcome}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+</section>

@@ -21,54 +21,33 @@ const today = new Date();
             </p>
         </div>
 
-        <!-- Column 2: Contact form -->
-        <div class="flex flex-col gap-3">
-            <p class="font-sans text-sm text-white font-semibold">Need help with a complex frontend?</p>
-            <p class="font-sans text-xs text-offwhite/50">Share a few details and we will get back to you.</p>
-            <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-3">
-                <input type="hidden" name="form-name" value="contact"/>
-                <label class="flex flex-col gap-1">
-                    <span class="font-sans text-xs text-white">What are you working on?</span>
-                    <textarea
-                            name="message"
-                            rows="3"
-                            required
-                            placeholder="What are you working on?"
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 resize-none transition-colors"
-                    ></textarea>
-                </label>
-                <label class="flex flex-col gap-1">
-                    <span class="font-sans text-xs text-white">Your email</span>
-                    <input
-                            type="email"
-                            name="email"
-                            required
-                            placeholder="Your email"
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-2.5 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
-                    />
-                </label>
-                <button
-                        type="submit"
-                        class="w-full self-start bg-crimson text-white px-4 py-2 rounded-md text-xs font-bold tracking-wide hover:bg-crimson/90 transition-colors"
-                >
-                    Send
-                </button>
-            </form>
-        </div>
-
-        <!-- Column 3: Know more -->
+        <!-- Column 2: Quick links -->
         <div class="flex flex-col gap-4">
-            <p class="font-sans text-sm text-white font-semibold">Know more about us</p>
+            <p class="font-sans text-sm text-white font-semibold">Quick links</p>
             <nav class="flex flex-col gap-2">
+                <a href="/#services" class="font-sans text-sm text-offwhite/70 hover:text-white transition-colors">
+                    Services
+                </a>
+                <a href="/#work" class="font-sans text-sm text-offwhite/70 hover:text-white transition-colors">
+                    Case Studies
+                </a>
                 <a href="/beyond-code" class="font-sans text-sm text-offwhite/70 hover:text-white transition-colors">
-                    Beyond Code
+                    Blog
+                </a>
+                <a href="/#contact" class="font-sans text-sm text-offwhite/70 hover:text-white transition-colors">
+                    Contact
                 </a>
                 <a href="https://calendly.com/saulovargas" target="_blank" rel="noopener noreferrer"
                    class="font-sans text-sm text-offwhite/70 hover:text-white transition-colors">
                     Book a 20-min intro
                 </a>
             </nav>
-            <div class="flex items-center gap-4 mt-2">
+        </div>
+
+        <!-- Column 3: Social -->
+        <div class="flex flex-col gap-4">
+            <p class="font-sans text-sm text-white font-semibold">Connect</p>
+            <div class="flex items-center gap-4">
                 <a href="https://linkedin.com/in/saulovargas" target="_blank" rel="noopener noreferrer"
                    class="text-offwhite/50 hover:text-white transition-colors" aria-label="LinkedIn">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

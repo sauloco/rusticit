@@ -1,30 +1,30 @@
 ---
-const title = "How we work";
+const title = "How I usually work with teams";
 
 const steps = [
     {
-        title: "20-min intro call",
-        description: "understand product, constraints, and goals",
+        title: "Intro and context",
+        description: "We align on product context, delivery friction, technical constraints, and the kind of support that would actually help.",
         number: "01"
     },
     {
         title: "Quick audit",
-        description: "identify highest-leverage fixes and risks",
+        description: "I identify the highest-leverage issues, the structural risks worth fixing first, and where better patterns would have the biggest impact.",
         number: "02"
     },
     {
         title: "Execution",
-        description: "ship improvements with clear checkpoints",
+        description: "I work directly inside the product to ship improvements with clear priorities and practical checkpoints.",
         number: "03"
     },
     {
-        title: "Handoff",
-        description: "patterns documented, team enabled, no dependency trap",
+        title: "Handoff and enablement",
+        description: "Important patterns get documented, the team gets more clarity, and the codebase becomes easier to work with after I step out.",
         number: "04"
     }
 ];
 
-const supportingLine = "No agency overhead, no junior rotation—direct senior execution.";
+const supportingLine = "Direct senior collaboration. No junior rotation, no dependency trap, no unnecessary process overhead.";
 ---
 
 <section id="how-we-work" class="py-24 md:py-32 max-w-7xl mx-auto px-4 md:px-16 flex flex-col items-center border-t border-offwhite/5 bg-charcoal">
@@ -32,7 +32,7 @@ const supportingLine = "No agency overhead, no junior rotation—direct senior e
         <h2 class="font-heading font-bold text-3xl md:text-5xl text-white mb-16 tracking-tight text-center">
             {title}
         </h2>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
             {steps.map((step) => (
                 <div class="flex flex-col gap-4 relative pl-4 md:pl-0">
@@ -40,14 +40,14 @@ const supportingLine = "No agency overhead, no junior rotation—direct senior e
                     <div class="hidden md:block h-px w-full bg-offwhite/10 mb-4 relative">
                         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-crimson"></div>
                     </div>
-                    
+
                     <span class="font-mono text-crimson font-bold text-sm">{step.number}</span>
                     <h3 class="font-sans font-semibold text-lg text-white">{step.title}</h3>
                     <p class="font-sans text-offwhite/70 text-sm leading-relaxed">{step.description}</p>
                 </div>
             ))}
         </div>
-        
+
         <div class="mt-20 text-center rounded-2xl bg-offwhite/5 border border-offwhite/10 p-6 md:p-8 w-fit mx-auto">
             <p class="font-mono text-sm md:text-base text-offwhite/90 font-medium">
                 {supportingLine}

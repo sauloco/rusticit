@@ -1,0 +1,71 @@
+---
+const title = "Tell me what your team is dealing with";
+const intro = "Share a bit of context about your product, your frontend bottlenecks, or the kind of support you need. I'll review it personally and get back to you.";
+---
+
+<section id="contact" class="py-24 md:py-32 w-full bg-charcoal border-t border-offwhite/10">
+    <div class="max-w-2xl mx-auto px-4 md:px-16 flex flex-col gap-8">
+        <div class="flex flex-col gap-4 text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-white tracking-tight">
+                {title}
+            </h2>
+            <p class="font-sans text-lg text-offwhite/70 leading-relaxed">
+                {intro}
+            </p>
+        </div>
+
+        <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-5">
+            <input type="hidden" name="form-name" value="contact" />
+
+            <label class="flex flex-col gap-1.5">
+                <span class="font-sans text-sm text-offwhite/80 font-medium">Your name</span>
+                <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                />
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="font-sans text-sm text-offwhite/80 font-medium">Work email</span>
+                <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="you@company.com"
+                    class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                />
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="font-sans text-sm text-offwhite/80 font-medium">Company</span>
+                <input
+                    type="text"
+                    name="company"
+                    placeholder="Your company"
+                    class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                />
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="font-sans text-sm text-offwhite/80 font-medium">What's slowing your frontend down right now?</span>
+                <textarea
+                    name="message"
+                    rows="4"
+                    required
+                    placeholder="Describe the main frontend issues your team is dealing with..."
+                    class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 resize-none transition-colors"
+                ></textarea>
+            </label>
+
+            <button
+                type="submit"
+                class="self-start bg-crimson text-white px-6 py-3 rounded-md text-sm font-bold tracking-wide hover:bg-crimson/90 transition-colors"
+            >
+                Send inquiry
+            </button>
+        </form>
+    </div>
+</section>

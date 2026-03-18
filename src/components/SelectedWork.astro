@@ -1,46 +1,28 @@
 ---
 const projects = [
     {
-        name: "Engineering Platforms for Industrial Compliance",
-        tagline: "Built web tools for German engineering workflows involving technical documentation, validation logic, and high-trust operational use.",
-        role: "Designed and implemented complex front-end flows for industrial platforms used to manage structured engineering data and compliance-related processes.",
-        why: "Helped turn highly technical requirements into reliable, usable interfaces for real-world industrial environments.",
+        name: "Industrial engineering platforms for compliance-sensitive workflows",
+        context: "Worked on browser-based tools used in German engineering environments with structured technical data, validation logic, and high-trust operational requirements.",
+        role: "Built and improved complex frontend flows for systems handling documentation, engineering logic, and production-critical workflows.",
+        why: "These were not marketing sites or simple CRUD apps. The interfaces had to translate highly technical requirements into usable, reliable product behavior.",
     },
     {
-        name: "Medical Visualization Platform",
-        tagline: "A Three.js + Vue.js web application for advanced dental and craniofacial scan analysis, from high-resolution endodontic scans to full-skull orthognathic planning workflows.",
-        role: "Helped design the architecture from scratch and lead development as one of Synphonyte's early employees. Built product features across visualization-heavy workflows, including UI capabilities, tree interactions, drag and drop, debugging tools, and custom QA infrastructure.",
-        why: "This was browser-based software operating at a much higher technical bar than a typical web app: real-time volume rendering, complex medical visualization, and a fully custom regression workflow spanning screenshots, diffing, Slack alerts, and bug triage across AWS, S3, and Trello.",
+        name: "Medical visualization platform",
+        context: "A Three.js + Vue application for advanced dental and craniofacial scan analysis, including high-resolution imaging and complex planning workflows.",
+        role: "Helped shape the architecture early, built product features across visualization-heavy flows, and contributed to debugging tools, drag-and-drop interactions, tree structures, and custom QA infrastructure.",
+        why: "The product operated at a much higher technical bar than a typical web app, combining complex rendering, advanced UI behavior, and a robust workflow for regression control.",
     },
     {
-        name: "EntrenoLibre — Live Sports Event Platform",
-        tagline: "Built a product that helps clubs organize tournaments, manage match workflows, and share live results with their community.",
-        role: "Led product and development for event creation, registrations, match tracking, draws, and real-time result visibility.",
-        why: "A good example of workflow-heavy product design: multiple actors, live state, operational coordination, and a user-facing experience that had to stay simple.",
+        name: "EntrenoLibre — live sports event platform",
+        context: "Built a workflow-heavy platform for clubs and organizers to manage tournaments, registrations, match progression, and live result visibility.",
+        role: "Led product and development across event creation, registrations, draws, match tracking, and real-time updates for participants and audiences.",
+        why: "A strong example of coordinating multiple actors, live state, operational flows, and user-facing simplicity in the same product.",
     },
     {
-        name: "Rusti.codes – Daily Rust Coding Challenges",
-        tagline: "A free platform delivering daily coding challenges in Rust, designed to help developers sharpen their skills and prepare for technical interviews.",
-        role: "Built and shipped the product end-to-end: challenge delivery system, email subscription flow, and a premium tier with complexity analysis and executable solutions.",
-        why: "Combines content-driven product design with a subscription model — a full vertical slice from idea to recurring user engagement.",
-    },
-    {
-        name: "Public-Sector Health & Government Systems",
-        tagline: "Hospital information systems and other production platforms with real operational impact.",
-        role: "Led development, long-term maintenance, and user-facing enablement in systems where reliability mattered.",
-        why: "Complex architecture and strict reliability requirements.",
-    },
-    {
-        name: "B2B Web Applications (Vue + TypeScript)",
-        tagline: "Production web apps built with Vue.js and TypeScript.",
-        role: "Strong focus on maintainable UI structure, clarity, and scalable product delivery.",
-        why: "Data-heavy interfaces required precise state management.",
-    },
-    {
-        name: "Full-Stack JavaScript Product Work",
-        tagline: "Shipped production features across frontend and backend systems.",
-        role: "Helped teams move faster while keeping code quality sustainable.",
-        why: "End-to-end ownership to unblock delivery bottlenecks.",
+        name: "Public-sector health systems",
+        context: "Worked on long-lived operational systems used in real service environments where reliability and continuity mattered.",
+        role: "Led development, maintenance, and user-facing system improvements across production platforms with real operational impact.",
+        why: "It built deep experience in shipping within constraints, maintaining trust in production systems, and improving software that people actually depend on.",
     },
 ];
 ---
@@ -52,7 +34,7 @@ const projects = [
                 </h2>
 
             <p class="font-sans text-xl text-offwhite/80 leading-relaxed text-center">
-                A few examples of the kind of systems and teams I’ve supported.
+                A few examples of the kind of systems and teams I've supported.
             </p>
         </div>
 
@@ -61,12 +43,12 @@ const projects = [
                 <div class="flex flex-col gap-6 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-8 hover:bg-offwhite/10 transition-colors duration-300">
                     <div class="flex flex-col gap-2">
                         <h3 class="font-sans font-semibold text-2xl text-white">{project.name}</h3>
-                        <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.tagline}</p>
+                        <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.context}</p>
                     </div>
 
                     <div class="flex flex-col gap-5 flex-1 mt-2 lg:mt-6">
                         <div class="flex flex-col gap-1">
-                            <span class="font-mono text-xs text-crimson uppercase tracking-widest font-bold">What we did</span>
+                            <span class="font-mono text-xs text-crimson uppercase tracking-widest font-bold">What I worked on</span>
                             <p class="font-sans text-offwhite/90 text-sm md:text-base leading-relaxed">{project.role}</p>
                         </div>
                         <div class="flex flex-col gap-1">
