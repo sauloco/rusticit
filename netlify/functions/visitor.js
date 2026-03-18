@@ -242,7 +242,8 @@ export default async function handler(req, context) {
         const humanLabel = botDetection?.bot ? "Bot" : "Human";
         const returningLabel = visitorStatus === "returning" ? "Returning" : "First Time";
         const locationSuffix = location !== "Unknown location" ? ` — ${location}` : "";
-        const threadName = `${humanLabel} · ${returningLabel} · ${shortId}${locationSuffix}`;
+        const vipPrefix = tracking && Object.keys(tracking).length > 0 ? "💎 VIP · " : "";
+        const threadName = `${vipPrefix}${humanLabel} · ${returningLabel} · ${shortId}${locationSuffix}`;
         const message = await postToWebhook(webhookUrl, {
             content: header.join("\n").slice(0, 2000),
             thread_name: threadName,
