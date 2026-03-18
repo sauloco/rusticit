@@ -1,0 +1,55 @@
+---
+import { Testimonial } from '@components/ui/clean-testimonial';
+import danteAvatar from '../assets/testimonials/dante-gallina.png';
+
+const testimonials = [
+    {
+        quote: 'Saulo is a versatile, responsible, and highly committed professional. He has led projects and coordinated teams across multiple languages and functional areas. His strongest qualities are his collaborative mindset, reliability, and genuine commitment to the company and its goals — and, more recently, a growing ability to work effectively with AI tools.',
+        author: 'Dante Gallina',
+        role: 'CEO',
+        company: 'DLG Sistemas & Asoc.',
+        avatar: danteAvatar.src,
+    },
+    {
+        quote: 'Saulo joined a messy product area and brought clarity fast. He understood the architecture, improved delivery confidence, and made complex frontend work feel much more manageable for the team.',
+        author: 'Ethan Walker',
+        role: 'Engineering Manager',
+        company: 'Northlane Systems',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    },
+    {
+        quote: 'What stood out most was ownership. Saulo did not wait for perfect specs — he asked the right questions, proposed solid technical decisions, and consistently delivered with very little oversight.',
+        author: 'Sophie Bennett',
+        role: 'Product Lead',
+        company: 'Clearpath Cloud',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
+    },
+    {
+        quote: 'Working with Saulo felt like adding a senior engineer who could also think in product terms. He communicated clearly, moved quickly, and helped us reduce friction in a frontend that had become difficult to scale.',
+        author: 'Marcus Reed',
+        role: 'CTO',
+        company: 'ForgeOps',
+        avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80',
+    },
+    {
+        quote: 'Saulo brought a rare mix of technical depth and calm execution. He was reliable in distributed work, thoughtful in architecture decisions, and someone we could trust with meaningful parts of the product.',
+        author: 'Isabella Hart',
+        role: 'Head of Product Engineering',
+        company: 'Brightlayer Labs',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80',
+    },
+];
+---
+
+<section class="testimonial-section relative w-full py-16 px-4 overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center mb-8">
+        <h2 class="font-heading font-bold text-4xl md:text-5xl text-offwhite leading-tight">
+            Proven track of satisfied clients
+        </h2>
+    </div>
+
+    <Testimonial
+        client:visible
+        testimonials={testimonials}
+    />
+</section>
