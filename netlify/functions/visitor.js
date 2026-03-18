@@ -188,7 +188,7 @@ export default async function handler(req, context) {
     }
 
     if (type === "visit") {
-        const {visitorId, page, referrer, components, botDetection} = body;
+        const {visitorId, page, referrer, components, botDetection, tracking} = body;
 
         const ip =
             req.headers.get("cf-connecting-ip") ||
@@ -232,6 +232,10 @@ export default async function handler(req, context) {
             `Start page: \`${page || "Homepage"}\``,
         ];
         if (referrer) header.push(`🔗 ${referrer}`);
+        if (tracking && Object.keys(tracking).length > 0) {
+            const trackingLines = Object.entries(tracking).map(([k, v]) => `  ${k}: ${v}`).join("\n");
+            header.push(`\n🔖 **Tracked link**\n${trackingLines}`);
+        }
         header.push("");
         header.push(summary);
 

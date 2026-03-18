@@ -4,6 +4,32 @@
 
   const API = "/.netlify/functions/visitor";
 
+  const TRACKING_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "to", "via", "src"];
+
+  function captureAndCleanTrackingParams(): Record<string, string> | null {
+    // Reuse params already captured in this tab
+    const stored = sessionStorage.getItem("v_tracking");
+    if (stored) return JSON.parse(stored);
+
+    const url = new URL(window.location.href);
+    const captured: Record<string, string> = {};
+
+    for (const [key, val] of url.searchParams.entries()) {
+      if (TRACKING_KEYS.includes(key) || key.startsWith("utm_")) {
+        captured[key] = val;
+      }
+    }
+
+    if (Object.keys(captured).length === 0) return null;
+
+    // Strip tracking params from URL immediately
+    for (const key of Object.keys(captured)) url.searchParams.delete(key);
+    history.replaceState({}, "", url.toString());
+
+    sessionStorage.setItem("v_tracking", JSON.stringify(captured));
+    return captured;
+  }
+
   function post(body: object) {
     fetch(API, {
       method: "POST",
@@ -164,6 +190,7 @@
   }
 
   document.addEventListener("astro:page-load", async () => {
+    const tracking = captureAndCleanTrackingParams();
     const existingThreadId = sessionStorage.getItem("v_tid");
 
     if (existingThreadId !== null) {
@@ -208,6 +235,7 @@
           page: window.location.pathname,
           referrer: document.referrer || undefined,
           components,
+          tracking: tracking ?? undefined,
         }),
       });
       if (res.ok) {
