@@ -1,0 +1,252 @@
+---
+import Base from "../layouts/Base.astro";
+const lastUpdated = "March 18, 2026";
+---
+<Base>
+    <div class="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+        <p class="text-sm text-offwhite/40 font-mono mb-12">Last updated: {lastUpdated}</p>
+
+        <div class="prose-legal">
+
+            <h2>1. Data Controller</h2>
+            <p>
+                The entity responsible for processing your personal data on this website is:
+            </p>
+            <address>
+                <strong>RusticIT LLC</strong><br/>
+                250 Wlshire Blvd<br/>
+                Casselberry, FL 32707<br/>
+                United States<br/>
+                Email: <a href="mailto:info@rusticit.com">info@rusticit.com</a><br/>
+                Responsible person: Saulo Gabriel Vargas
+            </address>
+
+            <h2>2. What Data We Collect and Why</h2>
+            <p>
+                We collect analytics data solely to understand how visitors interact with this site, improve our services,
+                and identify potential clients. We do <strong>not</strong> use cookies. The following data is collected
+                only after you provide explicit consent:
+            </p>
+
+            <h3>2.1 Analytics data (upon consent)</h3>
+            <ul>
+                <li><strong>IP address</strong> — used to derive approximate geographic location (city and country) via a geolocation service, then stored as collected.</li>
+                <li><strong>Browser fingerprint</strong> — a stable identifier derived from browser signals (device type, GPU, browser family, screen resolution, timezone, language settings, color gamut, touch support, storage APIs). Generated via FingerprintJS. Used to distinguish new from returning visitors.</li>
+                <li><strong>Page visited and referrer</strong> — which page you landed on and where you came from.</li>
+                <li><strong>UTM / tracking parameters</strong> — campaign tags present in the URL (e.g. <code>utm_source</code>, <code>ref</code>).</li>
+                <li><strong>Behavioral signals</strong> — which page sections you scrolled to, CTA elements you hovered or clicked, and whether you interacted with the contact form (including partially filled fields if you leave without submitting).</li>
+            </ul>
+
+            <h3>2.2 Contact form data</h3>
+            <p>
+                If you submit the contact form, we collect your name, email address, company name, and message.
+                This data is processed by Netlify Forms and used solely to respond to your inquiry.
+            </p>
+
+            <h2>3. Legal Basis (GDPR)</h2>
+            <p>
+                Analytics data (section 2.1) is processed on the basis of your <strong>explicit consent</strong> (Art. 6(1)(a) GDPR).
+                You can withdraw consent at any time (see section 7).
+            </p>
+            <p>
+                Contact form data is processed on the basis of <strong>legitimate interest</strong> (Art. 6(1)(f) GDPR) — specifically,
+                responding to a business inquiry you initiated.
+            </p>
+
+            <h2>4. Third-Party Processors</h2>
+            <p>Your data may be transmitted to the following third-party services:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Purpose</th>
+                        <th>Data shared</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Netlify</strong></td>
+                        <td>Website hosting, serverless functions, form processing, blob storage</td>
+                        <td>All data passing through the site</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ip-api.com</strong></td>
+                        <td>IP-based geolocation (city &amp; country)</td>
+                        <td>IP address</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discord</strong></td>
+                        <td>Internal analytics notifications</td>
+                        <td>Fingerprint ID, device signals, page, location, behavior</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Sheets</strong></td>
+                        <td>Internal analytics log</td>
+                        <td>Fingerprint ID, device signals, page, location, UTM data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FingerprintJS</strong></td>
+                        <td>Browser fingerprinting library (open-source, self-hosted)</td>
+                        <td>Runs client-side only; no data sent to FingerprintJS servers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cloudflare</strong></td>
+                        <td>Web analytics (cookieless, aggregate only)</td>
+                        <td>Anonymized traffic data</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>5. Data Retention</h2>
+            <ul>
+                <li><strong>Visitor records</strong> (Netlify Blobs): retained indefinitely until a deletion request is received.</li>
+                <li><strong>Analytics log</strong> (Google Sheets): retained indefinitely until a deletion request is received.</li>
+                <li><strong>Discord threads</strong>: retained per Discord's standard retention policy.</li>
+                <li><strong>Contact form submissions</strong>: retained as long as reasonably necessary to handle your inquiry.</li>
+            </ul>
+
+            <h2>6. Your Rights Under GDPR</h2>
+            <p>If you are located in the European Economic Area (EEA), you have the following rights:</p>
+            <ul>
+                <li><strong>Right of access</strong> (Art. 15) — request a copy of the personal data we hold about you.</li>
+                <li><strong>Right to rectification</strong> (Art. 16) — request correction of inaccurate data.</li>
+                <li><strong>Right to erasure</strong> (Art. 17) — request deletion of your personal data ("right to be forgotten").</li>
+                <li><strong>Right to restriction</strong> (Art. 18) — request that we limit the processing of your data.</li>
+                <li><strong>Right to data portability</strong> (Art. 20) — receive your data in a structured, machine-readable format.</li>
+                <li><strong>Right to object</strong> (Art. 21) — object to processing based on legitimate interest.</li>
+                <li><strong>Right to withdraw consent</strong> (Art. 7(3)) — withdraw your analytics consent at any time (see section 7).</li>
+                <li><strong>Right to lodge a complaint</strong> — you may contact the supervisory authority in your EU member state.</li>
+            </ul>
+            <p>
+                To exercise any of these rights, email us at <a href="mailto:info@rusticit.com">info@rusticit.com</a>.
+                We will respond within 30 days.
+            </p>
+
+            <h2>7. Withdrawing Consent</h2>
+            <p>
+                You can withdraw your analytics consent at any time by clearing your browser's local storage for this site,
+                or by clicking the button below. This will not affect the lawfulness of processing before withdrawal.
+            </p>
+            <div class="flex items-center gap-3 mt-2">
+                <button id="revoke-consent" class="text-sm font-semibold bg-crimson/10 border border-crimson/40 text-crimson px-4 py-2 rounded-lg hover:bg-crimson/20 transition-colors cursor-pointer">
+                    Withdraw analytics consent
+                </button>
+                <span id="revoke-msg" class="text-sm text-offwhite/50 hidden">Done — the consent banner will reappear below.</span>
+            </div>
+
+            <h2>8. International Data Transfers</h2>
+            <p>
+                RusticIT LLC is based in the United States. By using this site and consenting to analytics, you acknowledge
+                that your data may be transferred to and processed in the United States and other countries where our
+                third-party processors operate. Where required, we rely on Standard Contractual Clauses (SCCs) or equivalent
+                safeguards under Chapter V of the GDPR.
+            </p>
+
+            <h2>9. Changes to This Policy</h2>
+            <p>
+                We may update this policy from time to time. The "Last updated" date at the top of this page reflects the most
+                recent revision. Continued use of this site after changes constitutes acceptance of the updated policy.
+            </p>
+
+            <h2>10. Contact</h2>
+            <p>
+                For any privacy-related questions or requests, contact us at:
+                <a href="mailto:info@rusticit.com">info@rusticit.com</a>
+            </p>
+
+        </div>
+    </div>
+</Base>
+
+<script>
+    document.getElementById('revoke-consent')?.addEventListener('click', () => {
+        localStorage.removeItem('rusticit_consent');
+        document.getElementById('revoke-msg')?.classList.remove('hidden');
+        // Trigger the banner to reappear without a full reload
+        document.dispatchEvent(new Event('astro:page-load'));
+    });
+</script>
+
+<style>
+    .prose-legal {
+        color: rgb(247 247 247 / 0.75);
+        line-height: 1.75;
+        font-size: 0.9375rem;
+    }
+    .prose-legal h2 {
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+    .prose-legal h3 {
+        color: rgb(247 247 247 / 0.9);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .prose-legal p {
+        margin-bottom: 1rem;
+    }
+    .prose-legal ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+    .prose-legal address {
+        font-style: normal;
+        background: rgb(247 247 247 / 0.04);
+        border: 1px solid rgb(247 247 247 / 0.08);
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+    .prose-legal a {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .prose-legal a:hover {
+        color: rgb(247 247 247 / 0.7);
+    }
+    .prose-legal code {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: rgb(247 247 247 / 0.08);
+        padding: 0.15em 0.4em;
+        border-radius: 4px;
+    }
+    .prose-legal table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+    }
+    .prose-legal th {
+        text-align: left;
+        color: rgb(247 247 247 / 0.5);
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid rgb(247 247 247 / 0.1);
+    }
+    .prose-legal td {
+        padding: 0.6rem 0.75rem;
+        border-bottom: 1px solid rgb(247 247 247 / 0.06);
+        vertical-align: top;
+    }
+    .prose-legal tr:last-child td {
+        border-bottom: none;
+    }
+</style>

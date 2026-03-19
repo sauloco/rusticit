@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import {SITE_DESCRIPTION, SITE_TITLE} from "../consts";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
 
 const lang = Astro.currentLocale ?? 'en';
 ---
@@ -16,5 +17,6 @@ const lang = Astro.currentLocale ?? 'en';
         <slot/>
     </main>
     <Footer />
+    <ConsentBanner />
 </body>
 </html>

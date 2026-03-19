@@ -1,4 +1,4 @@
-import { getStore } from "@netlify/blobs";
+import {getStore} from "@netlify/blobs";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -24,7 +24,7 @@ async function getGeo(ip) {
 async function loadVisitor(visitorId) {
     if (!visitorId) return null;
     try {
-        return await getStore("visitors").get(visitorId, { type: "json" });
+        return await getStore("visitors").get(visitorId, {type: "json"});
     } catch {
         return null;
     }
@@ -34,7 +34,8 @@ async function saveVisitor(visitorId, record) {
     if (!visitorId) return;
     try {
         await getStore("visitors").setJSON(visitorId, record);
-    } catch { /* non-critical */ }
+    } catch { /* non-critical */
+    }
 }
 
 // ─── Inference ────────────────────────────────────────────────────────────────
@@ -94,10 +95,12 @@ function inferFields(components) {
         if (firstLang) {
             try {
                 const [langCode, region] = firstLang.split("-");
-                const langName = new Intl.DisplayNames(["en"], { type: "language" }).of(langCode);
+                const langName = new Intl.DisplayNames(["en"], {type: "language"}).of(langCode);
                 locale = region ? `browser in ${langName} (${region})` : `browser in ${langName}`;
                 if (languages.flat().length > 1) locale += " + others";
-            } catch { locale = firstLang; }
+            } catch {
+                locale = firstLang;
+            }
         }
     }
 
@@ -112,7 +115,7 @@ function inferFields(components) {
     if (c.indexedDB) storageList.push("indexedDB");
     const storage = storageList.length === 0 ? "restricted"
         : storageList.length === 3 ? `normal (${storageList.join(", ")})`
-        : storageList.join(", ");
+            : storageList.join(", ");
 
     // Color
     let color = "unknown";
@@ -159,7 +162,18 @@ function buildSummaryText(fields, botDetection, visitorStatus, previousThreadId)
 
 // ─── Discord ──────────────────────────────────────────────────────────────────
 
-async function notifyDiscord({ webhookUrl, location, ip, shortId, page, referrer, tracking, summary, botDetection, visitorStatus }) {
+async function notifyDiscord({
+                                 webhookUrl,
+                                 location,
+                                 ip,
+                                 shortId,
+                                 page,
+                                 referrer,
+                                 tracking,
+                                 summary,
+                                 botDetection,
+                                 visitorStatus
+                             }) {
     const header = [
         `Location | IP: **${location}** | \`${ip}\``,
         `ID: \`${shortId}\``,
@@ -180,7 +194,7 @@ async function notifyDiscord({ webhookUrl, location, ip, shortId, page, referrer
 
     const res = await fetch(`${webhookUrl}?wait=true`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
             content: header.join("\n").slice(0, 2000),
             thread_name: threadName,
@@ -197,8 +211,8 @@ async function notifyDiscord({ webhookUrl, location, ip, shortId, page, referrer
 async function postToThread(webhookUrl, threadId, content) {
     const res = await fetch(`${webhookUrl}?thread_id=${threadId}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content }),
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({content}),
     });
     if (!res.ok) {
         const text = await res.text();
@@ -208,8 +222,32 @@ async function postToThread(webhookUrl, threadId, content) {
 
 // ─── Google Sheets ────────────────────────────────────────────────────────────
 
-async function logToSheets({ sheetUrl, shortId, visitorStatus, botDetection, ip, geo, page, referrer, tracking, fields, discordThreadId, previousThreadId }) {
+async function logToSheets({
+                               sheetUrl,
+                               shortId,
+                               visitorStatus,
+                               botDetection,
+                               ip,
+                               geo,
+                               page,
+                               referrer,
+                               tracking,
+                               fields,
+                               discordThreadId,
+                               previousThreadId
+                           }) {
     const t = tracking || {};
+    console.log({
+        utm_source: t.utm_source || "",
+        utm_medium: t.utm_medium || "",
+        utm_campaign: t.utm_campaign || "",
+        utm_content: t.utm_content || "",
+        utm_term: t.utm_term || "",
+        to: t.to || "",
+        ref: t.ref || "",
+        via: t.via || "",
+        src: t.src || "",
+    })
     const payload = {
         shortId,
         visitorStatus,
@@ -243,42 +281,47 @@ async function logToSheets({ sheetUrl, shortId, visitorStatus, botDetection, ip,
     };
 
     try {
+        console.log({payload})
         await fetch(sheetUrl, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload),
         });
-    } catch { /* non-critical */ }
+    } catch { /* non-critical */
+    }
 }
 
 // ─── Handler ──────────────────────────────────────────────────────────────────
 
 export default async function handler(req) {
-    if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405 });
+    if (req.method !== "POST") return new Response("Method Not Allowed", {status: 405});
 
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
     const sheetUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
-    if (!webhookUrl) return new Response("Missing env vars", { status: 500 });
+    if (!webhookUrl) return new Response("Missing env vars", {status: 500});
 
     let body;
-    try { body = await req.json(); }
-    catch { return new Response("Bad Request", { status: 400 }); }
+    try {
+        body = await req.json();
+    } catch {
+        return new Response("Bad Request", {status: 400});
+    }
 
-    const { type } = body;
+    const {type} = body;
 
     if (type === "thread") {
-        const { threadId, content } = body;
-        if (!threadId || !content) return new Response("Bad Request", { status: 400 });
+        const {threadId, content} = body;
+        if (!threadId || !content) return new Response("Bad Request", {status: 400});
         await postToThread(webhookUrl, threadId, content);
-        return new Response(null, { status: 204 });
+        return new Response(null, {status: 204});
     }
 
     if (type === "visit") {
-        const { visitorId, page, referrer, components, botDetection, tracking } = body;
+        const {visitorId, page, referrer, components, botDetection, tracking} = body;
 
         const ip = req.headers.get("cf-connecting-ip") || req.headers.get("x-nf-client-connection-ip") || "";
         const allowLocalhost = process.env.ALLOW_LOCALHOST_ANALYTICS === "true";
-        if (!allowLocalhost && (PRIVATE_IP_RE.test(ip) || !ip)) return Response.json({ threadId: null });
+        if (!allowLocalhost && (PRIVATE_IP_RE.test(ip) || !ip)) return Response.json({threadId: null});
 
         // Load visitor record + geo in parallel
         const [visitorRecord, geo] = await Promise.all([
@@ -296,8 +339,32 @@ export default async function handler(req) {
 
         // Discord + Sheets in parallel
         const [threadId] = await Promise.all([
-            notifyDiscord({ webhookUrl, location, ip, shortId, page, referrer, tracking, summary, botDetection, visitorStatus }),
-            sheetUrl ? logToSheets({ sheetUrl, shortId, visitorStatus, botDetection, ip, geo, page, referrer, tracking, fields, discordThreadId: null, previousThreadId }) : Promise.resolve(),
+            notifyDiscord({
+                webhookUrl,
+                location,
+                ip,
+                shortId,
+                page,
+                referrer,
+                tracking,
+                summary,
+                botDetection,
+                visitorStatus
+            }),
+            sheetUrl ? logToSheets({
+                sheetUrl,
+                shortId,
+                visitorStatus,
+                botDetection,
+                ip,
+                geo,
+                page,
+                referrer,
+                tracking,
+                fields,
+                discordThreadId: null,
+                previousThreadId
+            }) : Promise.resolve(),
         ]);
 
         // Persist session + update Sheets row with threadId (fire and forget)
@@ -307,12 +374,12 @@ export default async function handler(req) {
             first_seen_at: visitorRecord?.first_seen_at || now,
             last_seen_at: now,
             visit_count: (visitorRecord?.visit_count || 0) + 1,
-            sessions: [...(visitorRecord?.sessions || []), { discord_thread_id: threadId, started_at: now, summary }],
+            sessions: [...(visitorRecord?.sessions || []), {discord_thread_id: threadId, started_at: now, summary}],
         };
         saveVisitor(visitorId, updated);
 
-        return Response.json({ threadId });
+        return Response.json({threadId});
     }
 
-    return new Response("Bad Request", { status: 400 });
+    return new Response("Bad Request", {status: 400});
 }
