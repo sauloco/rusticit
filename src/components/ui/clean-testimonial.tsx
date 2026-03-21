@@ -71,7 +71,11 @@ export function Testimonial({ testimonials }: TestimonialProps) {
   )
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length)
+    const nextIndex = (activeIndex + 1) % testimonials.length
+    setActiveIndex(nextIndex)
+    window.dispatchEvent(new CustomEvent('rusticit:proof-next', {
+      detail: { index: nextIndex, author: testimonials[nextIndex].author }
+    }))
   }
 
   const currentTestimonial = testimonials[activeIndex]

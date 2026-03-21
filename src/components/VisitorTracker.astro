@@ -166,8 +166,16 @@
         if (window._sectionObserver) {
             (window._sectionObserver as IntersectionObserver).disconnect();
         }
+        if ((window as any)._proofCleanup) (window as any)._proofCleanup();
 
         if (!threadId || threadId === "null") return;
+
+        const onProofNext = (e: Event) => {
+            const { index, author } = (e as CustomEvent).detail
+            post({ type: "thread", threadId, content: `💬 proof · viewed testimonial ${index + 1} · ${author}` })
+        }
+        window.addEventListener('rusticit:proof-next', onProofNext)
+        ;(window as any)._proofCleanup = () => window.removeEventListener('rusticit:proof-next', onProofNext)
 
         const seen: Set<string> = new Set(
             JSON.parse(sessionStorage.getItem("v_seen") || "[]")
