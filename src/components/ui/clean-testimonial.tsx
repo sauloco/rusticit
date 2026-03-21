@@ -239,7 +239,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         transition={{ duration: 0.3 }}
       >
         <span className="text-[10px] text-offwhite uppercase tracking-widest font-mono">
-          {isTouch ? "Tap to view next testimonial" : "Click anywhere"}
+          {isTouch ? "Tap to view next testimonial" : "Click to view next testimonial"}
         </span>
       </motion.div>
     </div>
