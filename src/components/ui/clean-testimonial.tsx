@@ -92,7 +92,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
           style={{x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%"}}
       >
         <motion.div
-            className="rounded-full bg-offwhite flex items-center justify-center"
+            className="hidden rounded-full bg-offwhite md:flex items-center justify-center"
             animate={{width: isHovered ? 80 : 0, height: isHovered ? 80 : 0, opacity: isHovered ? 1 : 0}}
             transition={{type: "spring", damping: 20, stiffness: 200}}
         >

@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import LogoR3D from "./react/LogoR3D";
+import R from '../assets/r-gradient.svg';
+---
+<div
+    class="hidden md:block fixed pointer-events-none z-10 logo-float"
+    style="width: 520px; height: 520px; top: 40%; left: 80%; transform: translate(-50%, -50%);"
+>
+    <!--<Image src={R} alt="R" />-->
+    <LogoR3D client:only="react" svgSrc={R.src}/>
+</div>
+
+<style>
+@keyframes logo-float {
+    0%, 100% { translate: 0 0px; }
+    50%       { translate: 0 -18px; }
+}
+.logo-float {
+    animation: logo-float 6s ease-in-out infinite;
+}
+</style>

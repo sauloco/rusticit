@@ -5,52 +5,54 @@ const title = `Senior frontend support for B2B SaaS teams with complex products`
 ---
 
 <section
-    id="hero-section"
-    class="relative w-full flex flex-col items-center justify-center min-h-[50vh] pb-16 overflow-visible"
+        id="hero-section"
+        class="relative w-full flex flex-col items-center justify-center min-h-[50vh] pb-16 overflow-visible"
 >
     <!-- Animated Glow Background (extends under navbar) -->
     <div class="absolute -top-32 left-0 right-0 bottom-0 pointer-events-none z-0 overflow-hidden">
         <!-- Fine Noise Grain Overlay -->
         <div
-            class="absolute inset-0 opacity-[0.03]"
-            style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"
+                class="absolute inset-0 opacity-[0.03]"
+                style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"
         >
         </div>
 
         <div
-            class="absolute -top-[20%] left-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"
+                class="absolute -top-[20%] left-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"
         >
         </div>
         <div
-            class="absolute top-[20%] right-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"
+                class="absolute top-[20%] right-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"
         >
         </div>
     </div>
 
     <div
-        class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-16"
+            class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-16"
     >
         <!-- Left: Copy -->
-        <div class="flex flex-col gap-6 items-start">
-            <Topbar />
+        <div class="flex flex-col gap-6 items-start max-w-2xl">
+            <Topbar/>
 
             <h1
-                class="font-heading font-bold text-5xl md:text-7xl tracking-tight text-white animate-fade-in-down"
-                set:html={title}
+                    class="font-heading font-bold text-5xl md:text-7xl tracking-tight text-white animate-fade-in-down"
+                    set:html={title}
             >
             </h1>
 
             <p
-                class="text-xl md:text-2xl text-offwhite/80 font-sans max-w-3xl leading-relaxed animate-fade-in-down animate-delay-200"
+                    class="text-xl md:text-2xl text-offwhite/80 font-sans max-w-3xl leading-relaxed animate-fade-in-down animate-delay-200"
             >
-                I help product teams fix the frontend issues that slow delivery down: fragile architecture, inconsistent patterns, UI complexity, and data-heavy screens that get harder to maintain every sprint.
+                I help product teams fix the frontend issues that slow delivery down: fragile architecture, inconsistent
+                patterns, UI complexity, and data-heavy screens that get harder to maintain every sprint.
             </p>
 
             <ul
-                class="font-mono text-sm md:text-base text-offwhite/70 space-y-3 mt-4 animate-fade-in-down animate-delay-300"
+                    class="font-mono text-sm md:text-base text-offwhite/70 space-y-3 mt-4 animate-fade-in-down animate-delay-300"
             >
                 <li class="flex items-center gap-3">
-                    <span class="text-crimson">→</span> Dashboards, workflows, complex forms, permissions, and product logic
+                    <span class="text-crimson">→</span> Dashboards, workflows, complex forms, permissions, and product
+                    logic
                 </li>
                 <li class="flex items-center gap-3">
                     <span class="text-crimson">→</span> Vue, React, and TypeScript
@@ -61,28 +63,29 @@ const title = `Senior frontend support for B2B SaaS teams with complex products`
             </ul>
 
             <div
-                class="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-down animate-delay-400"
+                    class="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-down animate-delay-400"
             >
-                <ButtonCTA magnetic location="hero" />
+                <ButtonCTA magnetic location="hero"/>
                 <a
-                    href="#work"
-                    class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wide text-offwhite transition-all bg-charcoal rounded-md hover:bg-charcoal/80 ring-1 ring-inset ring-offwhite/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite font-sans w-fit"
+                        href="#work"
+                        class="inline-flex items-center justify-center px-8 py-4 text-sm font-medium tracking-wide text-offwhite transition-all bg-charcoal rounded-md hover:bg-charcoal/80 ring-1 ring-inset ring-offwhite/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-offwhite font-sans w-fit"
                 >
                     See case studies
                 </a>
             </div>
 
             <div
-                class="mt-12 pt-8 border-t border-offwhite/10 w-full animate-fade-in-down animate-delay-500"
+                    class="mt-12 pt-8 border-t border-offwhite/10 w-full animate-fade-in-down animate-delay-500"
             >
                 <p
-                    class="font-mono text-xs text-offwhite/50 tracking-wider uppercase"
+                        class="font-mono text-xs text-offwhite/50 tracking-wider uppercase"
                 >
-                    15+ years building production software across regulated systems, complex workflows, and long-lived products
+                    15+ years building production software across regulated systems, complex workflows, and long-lived
+                    products
                 </p>
             </div>
         </div>
 
     </div>
-</section>
 
+</section>

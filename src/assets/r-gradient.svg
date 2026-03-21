@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+    <defs>
+        <linearGradient id="linear-gradient" y1="0.213" x2="0.736" y2="0.813" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ff073a"/>
+            <stop offset="0.485" stop-color="#9c1de7"/>
+            <stop offset="1" stop-color="#581b98"/>
+        </linearGradient>
+        <clipPath id="clip-R_10">
+            <rect width="500" height="500"/>
+        </clipPath>
+    </defs>
+    <g id="R_10" data-name="R – 10" clip-path="url(#clip-R_10)">
+        <g id="Group_1790" data-name="Group 1790" transform="translate(-1331.429 166.766)">
+            <path id="path14" d="M254.591,174.745l147.777,85.317v86.481l-69.746,40.22,69.746,40.366v85.534L254.591,427.346,254.58,345.5l72.63-42.034-72.619-41.877L184.18,302.242V468l-77.361,44.664v-252.6Z" transform="translate(1326.835 -260.47)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+        </g>
+    </g>
+</svg>
