@@ -1,59 +1,57 @@
 ---
 import ProfileCard from "./vue/bits/ProfileCard/ProfileCard.vue";
 
-// Use Astro's built-in image asset handling to get an optimized URL for the card
 import sauloAvatar from "../assets/profile-card/Saulo_Vargas_subject_only.webp";
 import pattern from "../assets/profile-card/pattern.png";
 import grain from "../assets/profile-card/grain.webp";
-
 ---
 <section id="about" class="relative z-30 py-24 md:py-32 w-full bg-charcoal border-b border-offwhite/5 overflow-hidden">
     <!-- Animated Glow Background -->
     <div class="absolute inset-0 pointer-events-none z-0">
-        <div
-            class="absolute -top-[20%] right-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"
-        ></div>
-        <div
-            class="absolute bottom-[10%] left-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"
-        ></div>
+        <div class="absolute -top-[20%] right-[5%] w-[50vw] h-[50vw] md:w-[40vw] md:h-[40vw] rounded-full bg-purple-dark blur-[100px] md:blur-[140px] animate-pulse-slowglow"></div>
+        <div class="absolute bottom-[10%] left-[5%] w-[40vw] h-[40vw] md:w-[35vw] md:h-[35vw] rounded-full bg-crimson/40 blur-[100px] md:blur-[140px] animate-float-slow"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-16">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-5xl mx-auto">
-            
             <div class="flex flex-col gap-6 bg-offwhite/5 border border-offwhite/10 p-8 md:p-12 rounded-3xl h-full justify-center order-2 lg:order-1">
                 <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-2">About Saulo</h2>
 
                 <div class="flex flex-col gap-5 font-sans text-offwhite/80 text-lg leading-relaxed">
                     <p>
-                        I’m <strong class="text-white font-semibold">Saulo Vargas</strong>, a senior software engineer with 15+ years building production systems across public-sector software, complex web applications, and long-lived product codebases.
+                        I’m <strong class="text-white font-semibold">Saulo Vargas</strong>, a senior software engineer
+                        with 15+ years building production systems across public-sector software, complex web
+                        applications, and long-lived product codebases.
                     </p>
                     <p>
-                        I work best embedded with product teams that need clearer frontend structure, less delivery friction, and direct senior execution inside complex systems.
+                        I work best embedded with product teams that need clearer frontend structure, less delivery
+                        friction, and direct senior execution inside complex systems.
                     </p>
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-offwhite/10 flex flex-col gap-3">
                     <p class="font-mono text-xs uppercase tracking-widest text-offwhite/50">
-                        <strong class="text-white font-semibold">RusticIT</strong> is my independent practice for working directly with teams on complex frontend systems.
+                        <strong class="text-white font-semibold">RusticIT</strong> is my independent practice for
+                        working directly with teams on complex frontend systems.
                     </p>
                 </div>
+
             </div>
 
             <div class="flex justify-center w-full max-w-sm mx-auto lg:max-w-none order-1 lg:order-2">
                 <ProfileCard
-                    client:visible
-                    name="Saulo Vargas"
-                    title="Frontend Architect"
-                    handle="saulovargas"
-                    status="Available"
-                    contactText="Email Me"
-                    grainUrl={grain.src}
-                    iconUrl={pattern.src}
-                    avatarUrl={sauloAvatar.src}
-                    miniAvatarUrl={sauloAvatar.src}
-                    behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(280,100%,70%,var(--card-opacity)) 4%, hsla(280,50%,50%,calc(var(--card-opacity)*0.75)) 10%, hsla(280,25%,40%,calc(var(--card-opacity)*0.5)) 50%, hsla(280,0%,30%,0) 100%), radial-gradient(35% 52% at 55% 20%, #9C1DE7c4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #FF073Aff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #581B98ff 0%, #9C1DE7ff 40%, #FF073Aff 60%, #581B98ff 100%)"
-                    innerGradient="linear-gradient(145deg, #581B988c 0%, #FF073A44 100%)"
+                        client:visible
+                        name="Saulo Vargas"
+                        title="Frontend Architect"
+                        handle="saulovargas"
+                        status="Available"
+                        contactText="Email Me"
+                        grainUrl={grain.src}
+                        iconUrl={pattern.src}
+                        avatarUrl={sauloAvatar.src}
+                        miniAvatarUrl={sauloAvatar.src}
+                        behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(280,100%,70%,var(--card-opacity)) 4%, hsla(280,50%,50%,calc(var(--card-opacity)*0.75)) 10%, hsla(280,25%,40%,calc(var(--card-opacity)*0.5)) 50%, hsla(280,0%,30%,0) 100%), radial-gradient(35% 52% at 55% 20%, #9C1DE7c4 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #FF073Aff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #581B98ff 0%, #9C1DE7ff 40%, #FF073Aff 60%, #581B98ff 100%)"
+                        innerGradient="linear-gradient(145deg, #581B988c 0%, #FF073A44 100%)"
                 />
             </div>
 
