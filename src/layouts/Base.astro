@@ -18,5 +18,9 @@ const lang = Astro.currentLocale ?? 'en';
     </main>
     <Footer />
     <ConsentBanner />
+    <script>
+        import { initScrollReveal } from '../lib/scroll-reveal';
+        document.addEventListener('astro:page-load', initScrollReveal);
+    </script>
 </body>
 </html>

@@ -4,6 +4,13 @@ description: 'One of the hardest challenges I worked on in municipal health soft
 pubDate: 'Dec 18 2017'
 tags: ['career', 'healthcare']
 heroImage: 'https://images.pexels.com/photos/19223147/pexels-photo-19223147.jpeg'
+keyInsights:
+  - number: '170,000'
+    description: 'Patient records'
+  - number: '4'
+    description: 'Databases unified'
+  - number: '0'
+    description: 'Downtime during transition'
 ---
 
 One of the most complex challenges I worked on during my years at the Municipality of Olavarría was helping design and implement a safe workflow for detecting and merging duplicated patient records inside a live public health system.

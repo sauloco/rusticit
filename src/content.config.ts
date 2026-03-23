@@ -13,6 +13,16 @@ const beyondCode = defineCollection({
 			private: z.boolean().optional(),
 			video: z.boolean().optional(),
 			tags: z.array(z.string()).optional(),
+			relatedPosts: z.array(z.string()).optional(),
+			keyInsights: z
+				.array(
+					z.object({
+						number: z.string(),
+						description: z.string(),
+					}),
+				)
+				.length(3)
+				.optional(),
 		}),
 });
 

@@ -17,8 +17,12 @@ const outcomes = [
         </h2>
 
         <ul class="flex flex-col gap-4 w-full max-w-2xl">
-            {outcomes.map(outcome => (
-                <li class="flex items-start gap-4 bg-offwhite/5 border border-offwhite/10 rounded-xl px-6 py-4 hover:border-purple-light/30 transition-colors">
+            {outcomes.map((outcome, i) => (
+                <li
+                    data-reveal="fade-right"
+                    data-reveal-delay={String(i * 100)}
+                    class="flex items-start gap-4 bg-offwhite/5 border border-offwhite/10 rounded-xl px-6 py-4 hover:border-purple-light/30 transition-colors"
+                >
                     <span class="text-purple-light font-bold mt-0.5">→</span>
                     <span class="font-sans text-offwhite/90 text-base md:text-lg leading-relaxed">{outcome}</span>
                 </li>

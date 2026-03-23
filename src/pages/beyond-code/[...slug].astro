@@ -6,15 +6,35 @@ export async function getStaticPaths() {
 	const posts = await getCollection('beyond-code', (post) => !post.data.private);
 	return posts.map((post) => ({
 		params: { slug: post.id },
-		props: post,
+		props: { post, allPosts: posts },
 	}));
 }
-type Props = CollectionEntry<'beyond-code'>;
 
-const post = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
+
+const otherPosts = allPosts.filter((p: CollectionEntry<'beyond-code'>) => p.id !== post.id);
+
+let relatedPosts: CollectionEntry<'beyond-code'>[];
+
+if (post.data.relatedPosts?.length) {
+	relatedPosts = post.data.relatedPosts
+		.map((id: string) => otherPosts.find((p: CollectionEntry<'beyond-code'>) => p.id === id))
+		.filter(Boolean) as CollectionEntry<'beyond-code'>[];
+} else {
+	const currentTags = post.data.tags ?? [];
+	relatedPosts = otherPosts
+		.map((p: CollectionEntry<'beyond-code'>) => {
+			const shared = (p.data.tags ?? []).filter((t: string) => currentTags.includes(t)).length;
+			return { post: p, shared };
+		})
+		.filter((r) => r.shared > 0)
+		.sort((a, b) => b.shared - a.shared || b.post.data.pubDate.getTime() - a.post.data.pubDate.getTime())
+		.slice(0, 3)
+		.map((r) => r.post);
+}
 ---
 
-<BlogPost {...post.data} id={post.id} body={post.body}>
+<BlogPost {...post.data} id={post.id} body={post.body} relatedPosts={relatedPosts}>
 	<Content />
 </BlogPost>

@@ -2,68 +2,49 @@
 const projects = [
     {
         name: "Industrial engineering platforms for compliance-sensitive workflows",
-        context: "Worked on browser-based tools used in German engineering environments with structured technical data, validation logic, and high-trust operational requirements.",
-        role: "Built and improved complex frontend flows for systems handling documentation, engineering logic, and production-critical workflows.",
-        why: "These were not marketing sites or simple CRUD apps. The interfaces had to translate highly technical requirements into usable, reliable product behavior.",
+        intro: "Browser-based tools used in German engineering environments with structured technical data, validation logic, and high-trust operational requirements.",
+        caseStudy: "",
     },
     {
         name: "Medical visualization platform",
-        context: "A Three.js + Vue application for advanced dental and craniofacial scan analysis, including high-resolution imaging and complex planning workflows.",
-        role: "Helped shape the architecture early, built product features across visualization-heavy flows, and contributed to debugging tools, drag-and-drop interactions, tree structures, and custom QA infrastructure.",
-        why: "The product operated at a much higher technical bar than a typical web app, combining complex rendering, advanced UI behavior, and a robust workflow for regression control.",
-    },
-    {
-        name: "EntrenoLibre — live sports event platform",
-        context: "Built a workflow-heavy platform for clubs and organizers to manage tournaments, registrations, match progression, and live result visibility.",
-        role: "Led product and development across event creation, registrations, draws, match tracking, and real-time updates for participants and audiences.",
-        why: "A strong example of coordinating multiple actors, live state, operational flows, and user-facing simplicity in the same product.",
+        intro: "A Three.js + Vue application for advanced dental and craniofacial scan analysis, high-resolution imaging, and complex planning workflows.",
+        caseStudy: "/beyond-code/2019_08_building-advanced-dental-imaging-software-on-the-web",
     },
     {
         name: "Public-sector health systems",
-        context: "Worked on long-lived operational systems used in real service environments where reliability and continuity mattered.",
-        role: "Led development, maintenance, and user-facing system improvements across production platforms with real operational impact.",
-        why: "It built deep experience in shipping within constraints, maintaining trust in production systems, and improving software that people actually depend on.",
+        intro: "Long-lived operational systems used in real service environments where reliability and continuity mattered.",
+        caseStudy: "/beyond-code/2017_12_designing-a-safe-merge-workflow-for-patient-records-in-a-live-public-health-system",
     },
 ];
 ---
 <section id="work" class="relative z-30 py-24 md:py-32 w-full bg-charcoal">
     <div class="max-w-7xl mx-auto px-4 md:px-16 flex flex-col gap-12 md:gap-16">
         <div class="flex flex-col gap-4 max-w-3xl mx-auto">
-                <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-white text-center">
-                    Selected work
-                </h2>
-
+            <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-white text-center">
+                Selected work
+            </h2>
             <p class="font-sans text-xl text-offwhite/80 leading-relaxed text-center">
                 A few examples of the kind of systems and teams I've supported.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {projects.map((project) => (
-                <div class="flex flex-col gap-6 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-8 hover:bg-offwhite/10 transition-colors duration-300">
-                    <div class="flex flex-col gap-2">
-                        <h3 class="font-sans font-semibold text-2xl text-white">{project.name}</h3>
-                        <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.context}</p>
-                    </div>
-
-                    <div class="flex flex-col gap-5 flex-1 mt-2 lg:mt-6">
-                        <div class="flex flex-col gap-1">
-                            <span class="font-mono text-xs text-crimson uppercase tracking-widest font-bold">What I worked on</span>
-                            <p class="font-sans text-offwhite/90 text-sm md:text-base leading-relaxed">{project.role}</p>
+                <div class="flex flex-col gap-4 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-8 hover:bg-offwhite/10 transition-colors duration-300">
+                    <h3 class="font-sans font-semibold text-xl text-white">{project.name}</h3>
+                    <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.intro}</p>
+                    {project.caseStudy && (
+                        <div class="mt-auto pt-2">
+                            <a
+                                href={project.caseStudy}
+                                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-offwhite border border-offwhite/20 rounded-md hover:border-offwhite/40 hover:text-white transition-colors duration-200"
+                            >
+                                Read the case study
+                            </a>
                         </div>
-                        <div class="flex flex-col gap-1">
-                            <span class="font-mono text-xs text-purple-light uppercase tracking-widest font-bold">Why it mattered</span>
-                            <p class="font-sans text-offwhite/90 text-sm md:text-base leading-relaxed">{project.why}</p>
-                        </div>
-                    </div>
+                    )}
                 </div>
             ))}
-        </div>
-
-        <div class="mt-8 pt-8 border-t border-offwhite/10 flex justify-center w-full">
-            <p class="font-mono text-sm uppercase tracking-widest text-offwhite/50 text-center">
-                Common theme: complex UI, real systems, long-lived codebases, and quality that matters.
-            </p>
         </div>
     </div>
 </section>
