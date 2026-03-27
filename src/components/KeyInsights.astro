@@ -79,9 +79,7 @@ const durations = [1.4, 1.0, 0.6];
 	.ki-card-0 { background: linear-gradient(to right, #9C1DE720, #581B9820); }
 	.ki-card-1 { background: linear-gradient(to right, #581B9820, #9C1DE720); }
 	.ki-card-2 { background: linear-gradient(to right, #9C1DE720, #FF073A20); }
-	@media (prefers-color-scheme: dark) {
-		.ki-card-0 { background: linear-gradient(to right, #4a2d7a, #3b4d9e); }
-		.ki-card-1 { background: linear-gradient(to right, #3b4d9e, #6b2d6e); }
-		.ki-card-2 { background: linear-gradient(to right, #6b2d6e, #8b2040); }
-	}
+	:global(.dark) .ki-card-0 { background: linear-gradient(to right, #4a2d7a, #3b4d9e); }
+	:global(.dark) .ki-card-1 { background: linear-gradient(to right, #3b4d9e, #6b2d6e); }
+	:global(.dark) .ki-card-2 { background: linear-gradient(to right, #6b2d6e, #8b2040); }
 </style>
