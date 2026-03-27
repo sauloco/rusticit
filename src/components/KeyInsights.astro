@@ -19,11 +19,7 @@ const isValid =
 
 if (!isValid) return;
 
-const gradients = [
-	'from-[#4a2d7a] to-[#3b4d9e]',
-	'from-[#3b4d9e] to-[#6b2d6e]',
-	'from-[#6b2d6e] to-[#8b2040]',
-];
+const gradients = ['ki-card-0', 'ki-card-1', 'ki-card-2'];
 
 function parseCountUp(raw: string): { from: number; to: number; suffix: string; separator: string; isStatic: boolean } {
 	const cleaned = raw.replace(/,/g, '');
@@ -53,14 +49,14 @@ const durations = [1.4, 1.0, 0.6];
 <div class="not-prose my-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
 	{cards.map((card, i) => (
 		<div
-			class={`relative overflow-hidden rounded-2xl bg-gradient-to-r ${card.gradient} p-6 flex flex-col justify-between min-h-[120px]`}
+			class={`relative overflow-hidden rounded-2xl ${card.gradient} p-6 flex flex-col justify-between min-h-[120px]`}
 			data-reveal="fade-up"
 			data-reveal-delay={String(i * 100)}
 		>
-			<span class="font-sans text-sm text-white/80 tracking-wide">
+			<span class="font-sans text-sm text-charcoal/80 dark:text-white/80 tracking-wide">
 				{card.description}
 			</span>
-			<span class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-white leading-none">
+			<span class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-charcoal dark:text-white leading-none">
 				{card.countUp.isStatic ? (
 					<span>{card.countUp.to}{card.countUp.suffix}</span>
 				) : (
@@ -78,3 +74,14 @@ const durations = [1.4, 1.0, 0.6];
 		</div>
 	))}
 </div>
+
+<style>
+	.ki-card-0 { background: linear-gradient(to right, #9C1DE720, #581B9820); }
+	.ki-card-1 { background: linear-gradient(to right, #581B9820, #9C1DE720); }
+	.ki-card-2 { background: linear-gradient(to right, #9C1DE720, #FF073A20); }
+	@media (prefers-color-scheme: dark) {
+		.ki-card-0 { background: linear-gradient(to right, #4a2d7a, #3b4d9e); }
+		.ki-card-1 { background: linear-gradient(to right, #3b4d9e, #6b2d6e); }
+		.ki-card-2 { background: linear-gradient(to right, #6b2d6e, #8b2040); }
+	}
+</style>

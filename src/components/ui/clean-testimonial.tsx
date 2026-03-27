@@ -118,7 +118,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         transition={{ delay: 0.5 }}
       >
         <motion.span
-          className="text-2xl font-light text-offwhite"
+          className="text-2xl font-light text-charcoal dark:text-offwhite"
           key={activeIndex}
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -126,8 +126,8 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         >
           {String(activeIndex + 1).padStart(2, "0")}
         </motion.span>
-        <span className="text-offwhite/40">/</span>
-        <span className="text-offwhite/40">{String(testimonials.length).padStart(2, "0")}</span>
+        <span className="text-charcoal/40 dark:text-offwhite/40">/</span>
+        <span className="text-charcoal/40 dark:text-offwhite/40">{String(testimonials.length).padStart(2, "0")}</span>
       </motion.div>
 
       {/* Stacked avatar previews */}
@@ -140,9 +140,9 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         {testimonials.map((t, i) => (
           <motion.div
             key={i}
-            className={`w-6 h-6 rounded-full border-2 border-charcoal overflow-hidden transition-all duration-300 ${
+            className={`w-6 h-6 rounded-full border-2 border-offwhite dark:border-charcoal overflow-hidden transition-all duration-300 ${
               i === activeIndex
-                ? "ring-1 ring-purple-light ring-offset-1 ring-offset-charcoal"
+                ? "ring-1 ring-purple-light ring-offset-1 ring-offset-offwhite dark:ring-offset-charcoal"
                 : "grayscale opacity-50"
             }`}
             whileHover={{ scale: 1.1, opacity: 1 }}
@@ -160,7 +160,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
-            className="text-xl md:text-2xl font-light leading-relaxed tracking-tight text-offwhite"
+            className="text-xl md:text-2xl font-light leading-relaxed tracking-tight text-charcoal dark:text-offwhite"
           >
             <SplitText text={currentTestimonial.quote} />
           </motion.blockquote>
@@ -209,10 +209,10 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                   transition={{ duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                   style={{ originY: 0 }}
                 />
-                <span className="block text-sm font-medium text-offwhite tracking-wide">
+                <span className="block text-sm font-medium text-charcoal dark:text-offwhite tracking-wide">
                   {currentTestimonial.author}
                 </span>
-                <span className="block text-xs text-offwhite/50 mt-0.5 font-mono uppercase tracking-widest">
+                <span className="block text-xs text-charcoal/50 dark:text-offwhite/50 mt-0.5 font-mono uppercase tracking-widest">
                   {currentTestimonial.role} — {currentTestimonial.company}
                 </span>
               </motion.div>
@@ -221,7 +221,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         </motion.div>
 
         {/* Progress bar — track in offwhite/10, fill in purple-light → crimson gradient */}
-        <div className="mt-16 h-px bg-offwhite/10 relative overflow-hidden">
+        <div className="mt-16 h-px bg-charcoal/10 dark:bg-offwhite/10 relative overflow-hidden">
           <motion.div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-purple-light to-crimson"
             initial={{ width: "0%" }}
@@ -238,7 +238,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         animate={{ opacity: isHovered ? 0.4 : 0.2 }}
         transition={{ duration: 0.3 }}
       >
-        <span className="text-[10px] text-offwhite uppercase tracking-widest font-mono">
+        <span className="text-[10px] text-charcoal dark:text-offwhite uppercase tracking-widest font-mono">
           {isTouch ? "Tap to view next testimonial" : "Click to view next testimonial"}
         </span>
       </motion.div>

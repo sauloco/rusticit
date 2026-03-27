@@ -3,8 +3,8 @@ import Base from "../layouts/Base.astro";
 ---
 <Base>
     <div class="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-2">Impressum</h1>
-        <p class="text-sm text-offwhite/40 font-mono mb-12">Legal Notice</p>
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-charcoal dark:text-white mb-2">Impressum</h1>
+        <p class="text-sm text-charcoal/40 dark:text-offwhite/40 font-mono mb-12">Legal Notice</p>
 
         <div class="prose-legal">
 
@@ -79,46 +79,3 @@ import Base from "../layouts/Base.astro";
         </div>
     </div>
 </Base>
-
-<style>
-    .prose-legal {
-        color: rgb(247 247 247 / 0.75);
-        line-height: 1.75;
-        font-size: 0.9375rem;
-    }
-    .prose-legal h2 {
-        color: #fff;
-        font-family: var(--font-heading);
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-top: 2.5rem;
-        margin-bottom: 0.75rem;
-    }
-    .prose-legal h3 {
-        color: rgb(247 247 247 / 0.9);
-        font-size: 1rem;
-        font-weight: 600;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-    .prose-legal p {
-        margin-bottom: 1rem;
-    }
-    .prose-legal address {
-        font-style: normal;
-        background: rgb(247 247 247 / 0.04);
-        border: 1px solid rgb(247 247 247 / 0.08);
-        border-radius: 0.75rem;
-        padding: 1rem 1.25rem;
-        margin-bottom: 1rem;
-        line-height: 1.8;
-    }
-    .prose-legal a {
-        color: #fff;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-    }
-    .prose-legal a:hover {
-        color: rgb(247 247 247 / 0.7);
-    }
-</style>

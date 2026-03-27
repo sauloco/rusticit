@@ -4,6 +4,8 @@ import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import ButtonCTA from "./ButtonCTA.astro";
 import logoDark from "../assets/rustic-logo-dark.svg";
+import logoLight from "../assets/rustic-logo-light.svg";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const links = [
     { href: "/#services", label: "Services" },
@@ -15,42 +17,52 @@ const links = [
 ---
 
 <!-- Desktop navbar -->
+<div class="fixed w-full z-50">
 <header
-    class="fixed left-1/2 -translate-x-1/2 hidden md:block md:min-w-[600px] w-max px-6 py-3 animate-fade-in-down animate-delay-100 bg-charcoal/80 hover:bg-charcoal transition-all rounded-full z-[1000] my-6 backdrop-blur-md shadow-lg border border-offwhite/10"
+    class="absolute left-1/2 -translate-x-1/2 hidden md:block md:min-w-[600px] w-max px-6 py-3 animate-fade-in-down animate-delay-100 bg-offwhite/80 hover:bg-offwhite dark:bg-charcoal/80 dark:hover:bg-charcoal transition-all rounded-full z-[1000] my-6 backdrop-blur-md shadow-lg border border-charcoal/10 dark:border-offwhite/10"
 >
     <nav class="flex gap-8 flex-row justify-between items-center">
         <a href="/#" class="max-w-[100px]" aria-label="RusticIT homepage">
-            <Image src={logoDark} alt={SITE_TITLE} />
+            <Image src={logoLight} alt={SITE_TITLE} class="dark:hidden" />
+            <Image src={logoDark} alt={SITE_TITLE} class="hidden dark:block" />
         </a>
         <div class="flex flex-row gap-6 items-center text-sm font-sans font-medium">
             {links.map((link) => (
                 <HeaderLink
                     href={link.href}
-                    class="text-offwhite/80 hover:text-white transition-colors"
+                    class="text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
                 >
                     {link.label}
                 </HeaderLink>
             ))}
         </div>
-        <ButtonCTA size="sm" magnetic location="navbar" />
+        <div class="flex items-center gap-3 animate-fade-in-right animate-delay-100">
+            <ButtonCTA size="sm" magnetic location="navbar" />
+        </div>
     </nav>
 </header>
 
+<ThemeToggle className="fixed right-4 mt-9"/>
+
+</div>
 <!-- Mobile navbar -->
 <header
     id="mobile-header"
     class="fixed top-0 left-0 right-0 md:hidden z-[1000] animate-fade-in-down animate-delay-100"
 >
-    <div class="mobile-nav-bar bg-charcoal/90 backdrop-blur-md border-b border-offwhite/10 px-4 py-3">
-        <!-- Top row: logo + hamburger -->
+    <div class="mobile-nav-bar bg-offwhite/90 dark:bg-charcoal/90 backdrop-blur-md border-b border-charcoal/10 dark:border-offwhite/10 px-4 py-3">
+        <!-- Top row: logo + theme toggle + hamburger -->
         <div class="flex items-center justify-between">
             <a href="/#" class="max-w-[100px]" aria-label="RusticIT homepage">
-                <Image src={logoDark} alt={SITE_TITLE} />
+                <Image src={logoLight} alt={SITE_TITLE} class="dark:hidden" />
+                <Image src={logoDark} alt={SITE_TITLE} class="hidden dark:block" />
             </a>
-            <button
+            <div class="flex items-center gap-2">
+                <ThemeToggle />
+                <button
                 id="mobile-menu-btn"
                 type="button"
-                class="relative w-10 h-10 flex items-center justify-center text-offwhite/80 hover:text-white transition-colors"
+                class="relative w-10 h-10 flex items-center justify-center text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
                 aria-label="Toggle menu"
                 aria-expanded="false"
             >
@@ -80,6 +92,7 @@ const links = [
                     <line x1="6" y1="18" x2="18" y2="6" />
                 </svg>
             </button>
+            </div>
         </div>
 
         <!-- Expandable menu links -->
@@ -93,7 +106,7 @@ const links = [
                     {links.map((link, i) => (
                         <a
                             href={link.href}
-                            class="mobile-nav-link text-offwhite/80 hover:text-white text-lg font-sans font-medium py-3 px-2 rounded-lg hover:bg-offwhite/5 transition-all opacity-0 translate-y-2"
+                            class="mobile-nav-link text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white text-lg font-sans font-medium py-3 px-2 rounded-lg hover:bg-charcoal/5 dark:hover:bg-offwhite/5 transition-all opacity-0 translate-y-2"
                             style={`transition-delay: ${i * 75}ms;`}
                         >
                             {link.label}
@@ -114,7 +127,7 @@ const links = [
 <!-- Backdrop overlay -->
 <div
     id="mobile-backdrop"
-    class="fixed inset-0 bg-charcoal/60 backdrop-blur-sm z-[999] opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"
+    class="fixed inset-0 bg-offwhite/60 dark:bg-charcoal/60 backdrop-blur-sm z-[999] opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"
 ></div>
 
 <script>

@@ -29,6 +29,9 @@ function readingTime(text: string | undefined): string {
 
 <html lang={Astro.currentLocale ?? 'en'}>
 	<head>
+		<script is:inline>
+			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+		</script>
 		<BaseHead title={title} description={description} />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
@@ -71,35 +74,35 @@ function readingTime(text: string | undefined): string {
 			]
 		})} />
 	</head>
-	<body class="bg-charcoal min-h-screen">
+	<body class="bg-offwhite dark:bg-charcoal min-h-screen">
 		<Header />
 		<main class="max-w-3xl mx-auto px-4 md:px-8 pt-32 pb-24">
 			<article>
 				<div class="mb-10 flex flex-col gap-4">
 					<a
 						href="/beyond-code"
-						class="font-mono text-xs text-offwhite/50 uppercase tracking-widest hover:text-crimson transition-colors"
+						class="font-mono text-xs text-charcoal/50 dark:text-offwhite/50 uppercase tracking-widest hover:text-crimson transition-colors"
 					>
 						&larr; Beyond Code
 					</a>
-					<h1 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-white leading-tight" transition:name={id ? `title-${id}` : undefined}>
+					<h1 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-charcoal dark:text-white leading-tight" transition:name={id ? `title-${id}` : undefined}>
 						{title}
 					</h1>
 					<div class="flex flex-wrap items-center gap-2" transition:name={id ? `date-${id}` : undefined}>
-						<span class="font-mono text-[10px] uppercase tracking-widest text-offwhite/50 border border-offwhite/20 rounded-full px-2.5 py-0.5">
+						<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/50 dark:text-offwhite/50 border border-charcoal/20 dark:border-offwhite/20 rounded-full px-2.5 py-0.5">
 							<FormattedDate date={pubDate} />
 						</span>
 						{updatedDate && (
-							<span class="font-mono text-[10px] uppercase tracking-widest text-offwhite/40 border border-offwhite/15 rounded-full px-2.5 py-0.5 italic">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5 italic">
 								Updated <FormattedDate date={updatedDate} />
 							</span>
 						)}
 						{tags?.map((tag) => (
-							<span class="font-mono text-[10px] uppercase tracking-widest text-offwhite/40 border border-offwhite/15 rounded-full px-2.5 py-0.5">
+							<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
 								{tag}
 							</span>
 						))}
-						<span class="font-mono text-[10px] uppercase tracking-widest text-offwhite/40 border border-offwhite/15 rounded-full px-2.5 py-0.5">
+						<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
 							{readingTime(body)}
 						</span>
 					</div>
@@ -119,8 +122,8 @@ function readingTime(text: string | undefined): string {
 			</article>
 
 			{relatedPosts && relatedPosts.length > 0 && (
-				<section class="mt-20 border-t border-offwhite/10 pt-12">
-					<h2 class="font-heading font-bold text-xl text-white mb-8 tracking-tight">Related posts</h2>
+				<section class="mt-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
+					<h2 class="font-heading font-bold text-xl text-charcoal dark:text-white mb-8 tracking-tight">Related posts</h2>
 					<div class="flex flex-col gap-6">
 						{relatedPosts.map((rp) => (
 							<PostCard post={rp} />

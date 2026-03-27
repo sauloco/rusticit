@@ -9,9 +9,12 @@ const lang = Astro.currentLocale ?? 'en';
 ---
 <html lang={lang}>
 <head>
+    <script is:inline>
+        (function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+    </script>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 </head>
-<body class="text-offwhite bg-charcoal font-sans antialiased selection:bg-purple-light/30">
+<body class="text-charcoal bg-offwhite dark:text-offwhite dark:bg-charcoal font-sans antialiased selection:bg-purple-light/30">
     <Header/>
     <main class="w-full relative pt-24 md:pt-32">
         <slot/>

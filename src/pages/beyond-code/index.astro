@@ -18,19 +18,22 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 <!doctype html>
 <html lang={Astro.currentLocale ?? 'en'}>
 	<head>
+		<script is:inline>
+			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+		</script>
 		<BaseHead title={`Beyond Code — ${SITE_TITLE}`} description="Thoughts on frontend engineering, product thinking, and the craft behind real-world software." />
 	</head>
-	<body class="bg-charcoal min-h-screen">
+	<body class="bg-offwhite dark:bg-charcoal min-h-screen">
 		<Header />
 		<main class="max-w-4xl mx-auto px-4 md:px-8 pt-32 pb-24">
 			<div class="flex flex-col gap-4 mb-16">
-				<h1 class="font-heading font-bold text-4xl md:text-5xl tracking-tight text-white">
+				<h1 class="font-heading font-bold text-4xl md:text-5xl tracking-tight text-charcoal dark:text-white">
 					Beyond Code
 				</h1>
-				<p class="font-sans text-lg text-offwhite/70 leading-relaxed max-w-2xl">
+				<p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed max-w-2xl">
 					Thoughts on frontend engineering, product thinking, and the craft behind real-world software.
 				</p>
-				<p class="font-sans text-lg text-offwhite/70 leading-relaxed max-w-2xl">
+				<p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed max-w-2xl">
 					No AI slop.
 				</p>
 			</div>
@@ -38,22 +41,22 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 			<!-- Filters -->
 			<div class="flex flex-col gap-4 mb-8">
 				<div class="flex flex-wrap gap-2 items-center">
-					<button data-filter="all" class="filter-btn active font-mono text-xs uppercase tracking-widest text-white border border-offwhite/30 bg-offwhite/10 rounded-full px-3 py-1 transition-colors">
+					<button data-filter="all" class="filter-btn active font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
 						All
 					</button>
 					{allYears.map((year) => (
-						<button data-filter="year" data-value={year} class="filter-btn font-mono text-xs uppercase tracking-widest text-offwhite/50 border border-offwhite/20 rounded-full px-3 py-1 hover:text-white hover:border-offwhite/40 transition-colors">
+						<button data-filter="year" data-value={year} class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
 							{year}
 						</button>
 					))}
-					<span class="w-px h-4 bg-offwhite/20 mx-1"></span>
+					<span class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1"></span>
 					{allTags.map((tag) => (
-						<button data-filter="tag" data-value={tag} class="filter-btn font-mono text-xs uppercase tracking-widest text-offwhite/50 border border-offwhite/20 rounded-full px-3 py-1 hover:text-white hover:border-offwhite/40 transition-colors">
+						<button data-filter="tag" data-value={tag} class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
 							{tag}
 						</button>
 					))}
 				</div>
-				<p id="post-count" class="font-mono text-xs text-offwhite/40">
+				<p id="post-count" class="font-mono text-xs text-charcoal/40 dark:text-offwhite/40">
 					{posts.length} articles
 				</p>
 			</div>
@@ -81,12 +84,8 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 
 		buttons.forEach((btn) => {
 			btn.addEventListener('click', () => {
-				buttons.forEach((b) => {
-					b.classList.remove('active', 'text-white', 'border-offwhite/30', 'bg-offwhite/10');
-					b.classList.add('text-offwhite/50', 'border-offwhite/20');
-				});
-				btn.classList.add('active', 'text-white', 'border-offwhite/30', 'bg-offwhite/10');
-				btn.classList.remove('text-offwhite/50', 'border-offwhite/20');
+				buttons.forEach((b) => b.classList.remove('active'));
+				btn.classList.add('active');
 
 				const filter = btn.dataset.filter;
 				const value = btn.dataset.value;
@@ -107,3 +106,32 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		});
 	});
 </script>
+<style>
+	.filter-btn {
+		color: rgb(53 53 53 / 0.5);
+		border-color: rgb(53 53 53 / 0.2);
+		background: transparent;
+	}
+	.filter-btn:hover {
+		color: rgb(53 53 53);
+		border-color: rgb(53 53 53 / 0.4);
+	}
+	.filter-btn.active {
+		color: rgb(53 53 53);
+		border-color: rgb(53 53 53 / 0.3);
+		background: rgb(53 53 53 / 0.1);
+	}
+	:global(.dark) .filter-btn {
+		color: rgb(247 247 247 / 0.5);
+		border-color: rgb(247 247 247 / 0.2);
+	}
+	:global(.dark) .filter-btn:hover {
+		color: rgb(247 247 247);
+		border-color: rgb(247 247 247 / 0.4);
+	}
+	:global(.dark) .filter-btn.active {
+		color: rgb(247 247 247);
+		border-color: rgb(247 247 247 / 0.3);
+		background: rgb(247 247 247 / 0.1);
+	}
+</style>

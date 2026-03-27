@@ -17,27 +17,27 @@ const projects = [
     },
 ];
 ---
-<section id="work" class="relative z-30 py-24 md:py-32 w-full bg-charcoal">
+<section id="work" class="relative z-30 py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal">
     <div class="max-w-7xl mx-auto px-4 md:px-16 flex flex-col gap-12 md:gap-16">
         <div class="flex flex-col gap-4 max-w-3xl mx-auto">
-            <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-white text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-charcoal dark:text-white text-center">
                 Selected work
             </h2>
-            <p class="font-sans text-xl text-offwhite/80 leading-relaxed text-center">
+            <p class="font-sans text-xl text-charcoal/80 dark:text-offwhite/80 leading-relaxed text-center">
                 A few examples of the kind of systems and teams I've supported.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {projects.map((project) => (
-                <div class="flex flex-col gap-4 rounded-2xl border border-offwhite/10 bg-offwhite/5 p-8 hover:bg-offwhite/10 transition-colors duration-300">
-                    <h3 class="font-sans font-semibold text-xl text-white">{project.name}</h3>
-                    <p class="font-sans text-offwhite/70 text-base leading-relaxed">{project.intro}</p>
+                <div class="flex flex-col gap-4 rounded-2xl border border-charcoal/10 dark:border-offwhite/10 bg-charcoal/5 dark:bg-offwhite/5 p-8 hover:bg-charcoal/10 dark:hover:bg-offwhite/10 transition-colors duration-300">
+                    <h3 class="font-sans font-semibold text-xl text-charcoal dark:text-white">{project.name}</h3>
+                    <p class="font-sans text-charcoal/70 dark:text-offwhite/70 text-base leading-relaxed">{project.intro}</p>
                     {project.caseStudy && (
                         <div class="mt-auto pt-2">
                             <a
                                 href={project.caseStudy}
-                                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-offwhite border border-offwhite/20 rounded-md hover:border-offwhite/40 hover:text-white transition-colors duration-200"
+                                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-charcoal dark:text-offwhite border border-charcoal/20 dark:border-offwhite/20 rounded-md hover:border-charcoal/40 dark:hover:border-offwhite/40 hover:text-charcoal dark:hover:text-white transition-colors duration-200"
                             >
                                 Read the case study
                             </a>

@@ -1,0 +1,132 @@
+---
+const {className} = Astro.props;
+---
+<div
+    id="theme-toggle"
+    class:list={[
+        className,
+        "flex items-center gap-0.5 rounded-full border border-charcoal/15 dark:border-offwhite/15 bg-charcoal/5 dark:bg-offwhite/5 p-0.5"
+    ]}
+    role="group"
+    aria-label="Color theme"
+>
+    <!-- Light -->
+    <button data-theme-btn="light" aria-label="Light mode"
+            class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="5"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="5" y2="12"/>
+            <line x1="19" y1="12" x2="22" y2="12"/>
+            <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/>
+            <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/>
+            <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/>
+            <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/>
+        </svg>
+    </button>
+    <!-- System -->
+    <button data-theme-btn="system" aria-label="System mode"
+            class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+    </button>
+    <!-- Dark -->
+    <button data-theme-btn="dark" aria-label="Dark mode"
+            class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
+</div>
+
+<script>
+    function getStoredTheme(): string {
+        try {
+            return localStorage.getItem('theme') ?? 'system';
+        } catch {
+            return 'system';
+        }
+    }
+
+    function applyTheme(pref: string): void {
+        const html = document.documentElement;
+        if (pref === 'dark') {
+            html.classList.add('dark');
+        } else if (pref === 'light') {
+            html.classList.remove('dark');
+        } else {
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? html.classList.add('dark')
+                : html.classList.remove('dark');
+        }
+    }
+
+    function initToggle(): void {
+        const pref = getStoredTheme();
+        applyTheme(pref);
+
+        const buttons = document.querySelectorAll<HTMLElement>('[data-theme-btn]');
+
+        function setActive(active: string): void {
+            buttons.forEach((btn) => {
+                btn.classList.toggle('theme-btn-active', btn.dataset.themeBtn === active);
+            });
+        }
+
+        setActive(pref);
+
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const newPref = btn.dataset.themeBtn!;
+                try {
+                    localStorage.setItem('theme', newPref);
+                } catch {
+                }
+                applyTheme(newPref);
+                setActive(newPref);
+            });
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (getStoredTheme() === 'system') applyTheme('system');
+        });
+    }
+
+    document.addEventListener('astro:page-load', initToggle);
+</script>
+
+<style>
+    .theme-btn {
+        transition: background-color 150ms ease, color 150ms ease;
+        color: rgb(53 53 53 / 0.35);
+    }
+
+    .theme-btn:hover {
+        color: rgb(53 53 53 / 0.65);
+    }
+
+    .theme-btn-active {
+        background-color: rgb(53 53 53);
+        color: rgb(247 247 247) !important;
+    }
+
+    :global(.dark) .theme-btn {
+        color: rgb(247 247 247 / 0.35);
+    }
+
+    :global(.dark) .theme-btn:hover {
+        color: rgb(247 247 247 / 0.65);
+    }
+
+    :global(.dark) .theme-btn-active {
+        background-color: rgb(247 247 247);
+        color: rgb(53 53 53) !important;
+    }
+</style>

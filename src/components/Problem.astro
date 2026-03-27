@@ -23,13 +23,13 @@ const cards = [
 ];
 ---
 
-<section id="problem" class="relative py-20 w-full md:py-28 mx-auto px-4 md:px-16 flex flex-col items-center z-100 bg-charcoal">
+<section id="problem" class="relative py-20 w-full md:py-28 mx-auto px-4 md:px-16 flex flex-col items-center z-30 bg-offwhite dark:bg-charcoal border-t border-charcoal/20">
     <div class="max-w-7xl w-full">
-        <h2 class="font-heading font-bold text-3xl md:text-5xl text-white mb-6 tracking-tight text-center">
+        <h2 class="font-heading font-bold text-3xl md:text-5xl text-charcoal dark:text-white mb-6 tracking-tight text-center">
             {title}
         </h2>
 
-        <p class="font-sans text-xl text-offwhite/70 leading-relaxed text-center mb-12 max-w-4xl mx-auto">
+        <p class="font-sans text-xl text-charcoal/70 dark:text-offwhite/70 leading-relaxed text-center mb-12 max-w-4xl mx-auto">
             {intro}
         </p>
 
@@ -38,17 +38,17 @@ const cards = [
                 <div
                     data-reveal="fade-down"
                     data-reveal-delay={String(i * 120)}
-                    class="bg-charcoal border border-offwhite/10 px-7 py-6 rounded-2xl flex flex-col gap-3 hover:border-offwhite/25 transition-colors"
+                    class="bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 px-7 py-6 rounded-2xl flex flex-col gap-3 hover:border-charcoal/25 dark:hover:border-offwhite/25 transition-colors"
                 >
-                    <h3 class="font-sans font-semibold text-lg text-offwhite">{card.title}</h3>
-                    <p class="font-sans text-offwhite/60 text-base leading-relaxed">{card.body}</p>
+                    <h3 class="font-sans font-semibold text-lg text-charcoal dark:text-offwhite">{card.title}</h3>
+                    <p class="font-sans text-charcoal/60 dark:text-offwhite/60 text-base leading-relaxed">{card.body}</p>
                 </div>
             ))}
         </div>
 
         <p
             data-reveal="fade-up"
-            class="font-sans text-lg text-offwhite/50 leading-relaxed text-center mt-10 max-w-3xl mx-auto"
+            class="font-sans text-lg text-charcoal/50 dark:text-offwhite/50 leading-relaxed text-center mt-10 max-w-3xl mx-auto"
         >
             {summary}
         </p>

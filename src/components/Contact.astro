@@ -3,17 +3,17 @@ const title = "Tell me what your team is dealing with";
 const intro = "Share a bit of context about your product, your frontend bottlenecks, or the kind of support you need. I'll review it personally and get back to you.";
 ---
 
-<section id="contact" class="py-24 md:py-32 w-full bg-charcoal border-t border-offwhite/10">
+<section id="contact" class="py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal border-t border-charcoal/10 dark:border-offwhite/10">
     <div
             class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-16"
     >
-        <div class="absolute bg-charcoal max-w-4xl blur-lg z-10 inset-0"></div>
+        <div class="absolute bg-offwhite dark:bg-charcoal max-w-4xl blur-lg z-10 inset-0"></div>
         <div class="relative flex flex-col gap-6 items-start max-w-2xl z-20">
             <div class="flex flex-col gap-4 text-center">
-                <h2 class="font-heading font-bold text-3xl md:text-4xl text-white tracking-tight">
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-charcoal dark:text-white tracking-tight">
                     {title}
                 </h2>
-                <p class="font-sans text-lg text-offwhite/70 leading-relaxed">
+                <p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed">
                     {intro}
                 </p>
             </div>
@@ -23,45 +23,45 @@ const intro = "Share a bit of context about your product, your frontend bottlene
                 <input type="hidden" name="form-name" value="contact"/>
 
                 <label class="flex flex-col gap-1.5">
-                    <span class="font-sans text-sm text-offwhite/80 font-medium">Your name</span>
+                    <span class="font-sans text-sm text-charcoal/80 dark:text-offwhite/80 font-medium">Your name</span>
                     <input
                             type="text"
                             name="name"
                             required
                             placeholder="Your name"
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                            class="w-full bg-charcoal/5 dark:bg-offwhite/5 border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-charcoal/90 dark:text-offwhite/90 placeholder:text-charcoal/30 dark:placeholder:text-offwhite/30 focus:outline-none focus:border-charcoal/30 dark:focus:border-offwhite/30 transition-colors"
                     />
                 </label>
 
                 <label class="flex flex-col gap-1.5">
-                    <span class="font-sans text-sm text-offwhite/80 font-medium">Work email</span>
+                    <span class="font-sans text-sm text-charcoal/80 dark:text-offwhite/80 font-medium">Work email</span>
                     <input
                             type="email"
                             name="email"
                             required
                             placeholder="you@company.com"
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                            class="w-full bg-charcoal/5 dark:bg-offwhite/5 border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-charcoal/90 dark:text-offwhite/90 placeholder:text-charcoal/30 dark:placeholder:text-offwhite/30 focus:outline-none focus:border-charcoal/30 dark:focus:border-offwhite/30 transition-colors"
                     />
                 </label>
 
                 <label class="flex flex-col gap-1.5">
-                    <span class="font-sans text-sm text-offwhite/80 font-medium">Company</span>
+                    <span class="font-sans text-sm text-charcoal/80 dark:text-offwhite/80 font-medium">Company</span>
                     <input
                             type="text"
                             name="company"
                             placeholder="Your company"
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 transition-colors"
+                            class="w-full bg-charcoal/5 dark:bg-offwhite/5 border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-charcoal/90 dark:text-offwhite/90 placeholder:text-charcoal/30 dark:placeholder:text-offwhite/30 focus:outline-none focus:border-charcoal/30 dark:focus:border-offwhite/30 transition-colors"
                     />
                 </label>
 
                 <label class="flex flex-col gap-1.5">
-                    <span class="font-sans text-sm text-offwhite/80 font-medium">What's slowing your frontend down right now?</span>
+                    <span class="font-sans text-sm text-charcoal/80 dark:text-offwhite/80 font-medium">What's slowing your frontend down right now?</span>
                     <textarea
                             name="message"
                             rows="4"
                             required
                             placeholder="Describe the main frontend issues your team is dealing with..."
-                            class="w-full bg-offwhite/5 border border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-offwhite/90 placeholder:text-offwhite/30 focus:outline-none focus:border-offwhite/30 resize-none transition-colors"
+                            class="w-full bg-charcoal/5 dark:bg-offwhite/5 border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-4 py-3 font-sans text-sm text-charcoal/90 dark:text-offwhite/90 placeholder:text-charcoal/30 dark:placeholder:text-offwhite/30 focus:outline-none focus:border-charcoal/30 dark:focus:border-offwhite/30 resize-none transition-colors"
                     ></textarea>
                 </label>
 
