@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-const lastUpdated = "March 18, 2026";
+const lastUpdated = "March 27, 2026";
 ---
 <Base>
     <div class="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-24">
@@ -30,12 +30,17 @@ const lastUpdated = "March 18, 2026";
             </p>
 
             <h3>2.1 Analytics data (upon consent)</h3>
+            <p>
+                We use Umami Analytics, a privacy-first, cookieless analytics platform. No personal identifiers,
+                no cross-site tracking, and no IP addresses are stored. The following data is collected only after
+                you provide explicit consent:
+            </p>
             <ul>
-                <li><strong>IP address</strong> — used to derive approximate geographic location (city and country) via a geolocation service, then stored as collected.</li>
-                <li><strong>Browser fingerprint</strong> — a stable identifier derived from browser signals (device type, GPU, browser family, screen resolution, timezone, language settings, color gamut, touch support, storage APIs). Generated via FingerprintJS. Used to distinguish new from returning visitors.</li>
-                <li><strong>Page visited and referrer</strong> — which page you landed on and where you came from.</li>
+                <li><strong>Page URL and referrer</strong> — which page you visited and where you came from.</li>
                 <li><strong>UTM / tracking parameters</strong> — campaign tags present in the URL (e.g. <code>utm_source</code>, <code>ref</code>).</li>
-                <li><strong>Behavioral signals</strong> — which page sections you scrolled to, CTA elements you hovered or clicked, and whether you interacted with the contact form (including partially filled fields if you leave without submitting).</li>
+                <li><strong>Browser, OS, and device type</strong> — derived from the user agent string; stored in aggregate, not linked to any individual.</li>
+                <li><strong>Country</strong> — derived from your IP address at the time of the request; the IP address itself is never stored.</li>
+                <li><strong>Interaction events</strong> — which page sections you scrolled to, CTA elements you hovered or clicked, and whether you engaged with the contact form (touch, submit, or abandonment). Event names and properties are anonymized; no form field values are transmitted.</li>
             </ul>
 
             <h3>2.2 Contact form data</h3>
@@ -68,28 +73,13 @@ const lastUpdated = "March 18, 2026";
                 <tbody>
                     <tr>
                         <td><strong>Netlify</strong></td>
-                        <td>Website hosting, serverless functions, form processing, blob storage</td>
+                        <td>Website hosting and form processing</td>
                         <td>All data passing through the site</td>
                     </tr>
                     <tr>
-                        <td><strong>ip-api.com</strong></td>
-                        <td>IP-based geolocation (city &amp; country)</td>
-                        <td>IP address</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Discord</strong></td>
-                        <td>Internal analytics notifications</td>
-                        <td>Fingerprint ID, device signals, page, location, behavior</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Google Sheets</strong></td>
-                        <td>Internal analytics log</td>
-                        <td>Fingerprint ID, device signals, page, location, UTM data</td>
-                    </tr>
-                    <tr>
-                        <td><strong>FingerprintJS</strong></td>
-                        <td>Browser fingerprinting library (open-source, self-hosted)</td>
-                        <td>Runs client-side only; no data sent to FingerprintJS servers</td>
+                        <td><strong>Umami</strong></td>
+                        <td>Cookieless analytics and event tracking (upon consent)</td>
+                        <td>Page URL, referrer, browser/OS/device type, country (IP not stored), interaction events</td>
                     </tr>
                     <tr>
                         <td><strong>Cloudflare</strong></td>
@@ -101,9 +91,7 @@ const lastUpdated = "March 18, 2026";
 
             <h2>5. Data Retention</h2>
             <ul>
-                <li><strong>Visitor records</strong> (Netlify Blobs): retained indefinitely until a deletion request is received.</li>
-                <li><strong>Analytics log</strong> (Google Sheets): retained indefinitely until a deletion request is received.</li>
-                <li><strong>Discord threads</strong>: retained per Discord's standard retention policy.</li>
+                <li><strong>Umami analytics data</strong>: retained per Umami's standard data retention policy. Because no personal identifiers are stored, individual deletion requests cannot be fulfilled for analytics data, but no data can be linked back to you.</li>
                 <li><strong>Contact form submissions</strong>: retained as long as reasonably necessary to handle your inquiry.</li>
             </ul>
 

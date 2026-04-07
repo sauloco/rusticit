@@ -1,53 +1,17 @@
 <script>
-    import FingerprintJS from "@fingerprintjs/fingerprintjs";
-    import Botd from "@fingerprintjs/botd";
-
-    const API = "/.netlify/functions/visitor";
-
-    const TRACKING_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "to", "via", "src"];
-
-    function captureAndCleanTrackingParams(): { params: Record<string, string> | null; fresh: boolean } {
-        // Always read URL first — a fresh UTM link must take priority over cache
-        const url = new URL(window.location.href);
-        const captured: Record<string, string> = {};
-
-        for (const [key, val] of url.searchParams.entries()) {
-            if (TRACKING_KEYS.includes(key) || key.startsWith("utm_")) {
-                captured[key] = val;
-            }
-        }
-
-        if (Object.keys(captured).length > 0) {
-            for (const key of Object.keys(captured)) url.searchParams.delete(key);
-            history.replaceState({}, "", url.toString());
-            sessionStorage.setItem("v_tracking", JSON.stringify(captured));
-            return {params: captured, fresh: true};
-        }
-
-        // Fall back to cached params from this tab session
-        const stored = sessionStorage.getItem("v_tracking");
-        return {params: stored ? JSON.parse(stored) : null, fresh: false};
+    // Safe wrapper — umami may not be loaded yet when the script runs
+    function track(event: string, data?: Record<string, string | number | boolean>) {
+        (window as any).umami?.track(event, data);
     }
 
-    function post(body: object) {
-        fetch(API, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(body),
-        }).catch(() => {
-        });
-    }
+    // ── CTA hover / click ─────────────────────────────────────────────────────
 
-    function setupCtaTracking(threadId: string | null) {
-        // Remove previous listeners by replacing elements with clones
+    function setupCtaTracking() {
         if ((window as any)._ctaCleanup) (window as any)._ctaCleanup();
 
-        if (!threadId || threadId === "null") return;
-
-        const hoveredLocations: Set<string> = new Set(
+        const hoveredLocations = new Set<string>(
             JSON.parse(sessionStorage.getItem("v_cta_hovered") || "[]")
         );
-
         const cleanups: Array<() => void> = [];
 
         document.querySelectorAll<HTMLElement>("[data-cta-location]").forEach((el) => {
@@ -57,127 +21,39 @@
                 if (hoveredLocations.has(location)) return;
                 hoveredLocations.add(location);
                 sessionStorage.setItem("v_cta_hovered", JSON.stringify([...hoveredLocations]));
-                post({type: "thread", threadId, content: `🖱️ cta hover · ${location}`});
+                track("cta_hover", { location });
             };
 
-            const onClick = () => {
-                post({type: "thread", threadId, content: `🔴 cta click · ${location}`});
-            };
+            const onClick = () => track("cta_click", { location });
 
             el.addEventListener("mouseenter", onMouseenter);
             el.addEventListener("click", onClick);
-            cleanups.push(() => {
-                el.removeEventListener("mouseenter", onMouseenter);
-                el.removeEventListener("click", onClick);
-            });
+            cleanups.push(
+                () => el.removeEventListener("mouseenter", onMouseenter),
+                () => el.removeEventListener("click", onClick)
+            );
         });
 
         (window as any)._ctaCleanup = () => cleanups.forEach((fn) => fn());
     }
 
-    function beacon(body: object) {
-        navigator.sendBeacon(
-            API,
-            new Blob([JSON.stringify(body)], {type: "application/json"})
-        );
-    }
+    // ── Section scroll-into-view ──────────────────────────────────────────────
 
-    function setupFormAndAbandonTracking(threadId: string | null) {
-        if ((window as any)._abandonCleanup) (window as any)._abandonCleanup();
-        if (!threadId || threadId === "null") return;
-
-        const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
-        let formTouched = false;
-        let formSubmitted = false;
-        let abandonSent = false;
-
-        function onAbandon() {
-            if (abandonSent) return;
-            abandonSent = true;
-
-            if (formTouched && !formSubmitted && form) {
-                const fields: Record<string, string> = {};
-                for (const [key, value] of new FormData(form).entries()) {
-                    if (key !== "form-name" && String(value).trim())
-                        fields[key] = String(value).slice(0, 300);
-                }
-                const lines = Object.entries(fields).map(([k, v]) => `**${k}**: ${v}`);
-                beacon({
-                    type: "thread",
-                    threadId,
-                    content: `🚪 left · form abandoned\n${lines.length ? lines.join("\n") : "(no fields filled)"}`,
-                });
-            } else {
-                beacon({type: "thread", threadId, content: "🚪 left the site"});
-            }
-        }
-
-        const onVisibilityChange = () => {
-            if (document.visibilityState === "hidden") onAbandon();
-        };
-        window.addEventListener("beforeunload", onAbandon);
-        document.addEventListener("visibilitychange", onVisibilityChange);
-
-        const formCleanups: Array<() => void> = [];
-
-        if (form) {
-            const onInput = () => {
-                formTouched = true;
-            };
-            form.addEventListener("input", onInput, {once: true});
-
-            const submitBtn = form.querySelector<HTMLElement>('button[type="submit"]');
-            const onSubmitClick = () => {
-                post({type: "thread", threadId, content: "📬 Send inquiry clicked"});
-            };
-            submitBtn?.addEventListener("click", onSubmitClick);
-
-            const onSubmit = () => {
-                formSubmitted = true;
-                const fields: Record<string, string> = {};
-                for (const [key, value] of new FormData(form).entries()) {
-                    if (key !== "form-name" && String(value).trim())
-                        fields[key] = String(value).slice(0, 300);
-                }
-                const lines = Object.entries(fields).map(([k, v]) => `**${k}**: ${v}`);
-                post({
-                    type: "thread",
-                    threadId,
-                    content: `✅ contact form submitted\n${lines.join("\n")}`,
-                });
-            };
-            form.addEventListener("submit", onSubmit);
-
-            formCleanups.push(
-                () => form.removeEventListener("input", onInput),
-                () => submitBtn?.removeEventListener("click", onSubmitClick),
-                () => form.removeEventListener("submit", onSubmit)
-            );
-        }
-
-        (window as any)._abandonCleanup = () => {
-            window.removeEventListener("beforeunload", onAbandon);
-            document.removeEventListener("visibilitychange", onVisibilityChange);
-            formCleanups.forEach((fn) => fn());
-        };
-    }
-
-    function setupSectionTracking(threadId: string | null) {
-        if (window._sectionObserver) {
-            (window._sectionObserver as IntersectionObserver).disconnect();
+    function setupSectionTracking() {
+        if ((window as any)._sectionObserver) {
+            (window as any)._sectionObserver.disconnect();
         }
         if ((window as any)._proofCleanup) (window as any)._proofCleanup();
 
-        if (!threadId || threadId === "null") return;
-
         const onProofNext = (e: Event) => {
-            const { index, author } = (e as CustomEvent).detail
-            post({ type: "thread", threadId, content: `💬 proof · viewed testimonial ${index + 1} · ${author}` })
-        }
-        window.addEventListener('rusticit:proof-next', onProofNext)
-        ;(window as any)._proofCleanup = () => window.removeEventListener('rusticit:proof-next', onProofNext)
+            const { index, author } = (e as CustomEvent).detail;
+            track("testimonial_view", { index, author });
+        };
+        window.addEventListener("rusticit:proof-next", onProofNext);
+        (window as any)._proofCleanup = () =>
+            window.removeEventListener("rusticit:proof-next", onProofNext);
 
-        const seen: Set<string> = new Set(
+        const seen = new Set<string>(
             JSON.parse(sessionStorage.getItem("v_seen") || "[]")
         );
 
@@ -189,88 +65,103 @@
                     if (!id || seen.has(id)) continue;
                     seen.add(id);
                     sessionStorage.setItem("v_seen", JSON.stringify([...seen]));
-                    post({type: "thread", threadId, content: `↓ scrolled to #${id}`});
+                    track("section_view", { section: id });
                 }
             },
-            {threshold: 0.35}
+            { threshold: 0.35 }
         );
 
         document.querySelectorAll("section[id]").forEach((el) => observer.observe(el));
         (window as any)._sectionObserver = observer;
     }
 
-    async function runTracking() {
-        const {params: tracking, fresh: freshTracking} = captureAndCleanTrackingParams();
-        const existingThreadId = sessionStorage.getItem("v_tid");
+    // ── Form interactions ─────────────────────────────────────────────────────
 
-        // Returning visitor without a fresh tracked link → normal navigation event
-        if (existingThreadId !== null && !freshTracking) {
-            if (existingThreadId !== "null") {
-                post({
-                    type: "thread",
-                    threadId: existingThreadId,
-                    content: `→ navigated to ${window.location.pathname}`,
-                });
-            }
-            setupSectionTracking(existingThreadId);
-            setupCtaTracking(existingThreadId);
-            setupFormAndAbandonTracking(existingThreadId);
-            return;
-        }
+    function setupFormTracking() {
+        if ((window as any)._formCleanup) (window as any)._formCleanup();
 
-        // Fresh tracked link → reset session so a new Discord thread + Sheets row is created
-        if (freshTracking) sessionStorage.removeItem("v_tid");
+        const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+        if (!form) return;
 
-        // First visit in this tab — compute fingerprint + bot detection in parallel
-        const [fp, botd] = await Promise.all([FingerprintJS.load(), Botd.load()]);
-        const [result, botResult] = await Promise.all([fp.get(), botd.detect()]);
-        const visitorId = result.visitorId;
-        const botDetection = {bot: botResult.bot, botKind: (botResult as any).botKind ?? null};
-        sessionStorage.setItem("v_fid", visitorId);
+        let touched = false;
+        let submitted = false;
+        let abandonSent = false;
 
-        // Strip duration, keep only values; drop verbose/unreadable signals
-        const OMIT = new Set(["fonts", "math", "fontPreferences", "plugins", "canvas"]);
-        const components = Object.fromEntries(
-            Object.entries(result.components)
-                .filter(([k]) => !OMIT.has(k))
-                .map(([k, v]) => [k, (v as any).value])
-        );
+        const onInput = () => {
+            if (touched) return;
+            touched = true;
+            track("form_touched");
+        };
 
-        let threadId: string | null = null;
-        try {
-            console.log({tracking, freshTracking})
-            const res = await fetch(API, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                    type: "visit",
-                    botDetection,
-                    visitorId,
-                    page: window.location.pathname,
-                    referrer: document.referrer || undefined,
-                    components,
-                    tracking: tracking ?? undefined,
-                }),
-            });
-            if (res.ok) {
-                const data = await res.json();
-                threadId = data.threadId ?? null;
-            }
-        } catch {
-            // fire-and-forget
-        }
+        const submitBtn = form.querySelector<HTMLElement>('button[type="submit"]');
+        const onSubmitClick = () => track("form_submit_click");
 
-        sessionStorage.setItem("v_tid", threadId ?? "null");
-        setupSectionTracking(threadId);
-        setupCtaTracking(threadId);
-        setupFormAndAbandonTracking(threadId);
+        const onSubmit = () => {
+            submitted = true;
+            track("form_submitted");
+        };
+
+        const onAbandon = () => {
+            if (abandonSent || !touched || submitted) return;
+            abandonSent = true;
+            track("form_abandoned");
+        };
+
+        const onVisibilityChange = () => {
+            if (document.visibilityState === "hidden") onAbandon();
+        };
+
+        form.addEventListener("input", onInput);
+        submitBtn?.addEventListener("click", onSubmitClick);
+        form.addEventListener("submit", onSubmit);
+        window.addEventListener("beforeunload", onAbandon);
+        document.addEventListener("visibilitychange", onVisibilityChange);
+
+        (window as any)._formCleanup = () => {
+            form.removeEventListener("input", onInput);
+            submitBtn?.removeEventListener("click", onSubmitClick);
+            form.removeEventListener("submit", onSubmit);
+            window.removeEventListener("beforeunload", onAbandon);
+            document.removeEventListener("visibilitychange", onVisibilityChange);
+        };
     }
 
-    document.addEventListener("astro:page-load", async () => {
+    // ── UTM param capture + clean ─────────────────────────────────────────────
+
+    const TRACKING_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "to", "via", "src"];
+
+    function captureAndCleanTrackingParams() {
+        const url = new URL(window.location.href);
+        const captured: Record<string, string> = {};
+
+        for (const [key, val] of url.searchParams.entries()) {
+            if (TRACKING_KEYS.includes(key) || key.startsWith("utm_")) captured[key] = val;
+        }
+
+        if (Object.keys(captured).length > 0) {
+            for (const key of Object.keys(captured)) url.searchParams.delete(key);
+            history.replaceState({}, "", url.toString());
+        }
+    }
+
+    // ── Main ──────────────────────────────────────────────────────────────────
+
+    function runTracking() {
+        captureAndCleanTrackingParams();
+
+        // Track the page view — umami.track() with no args records the current URL
+        (window as any).umami?.track();
+
+        setupCtaTracking();
+        setupSectionTracking();
+        setupFormTracking();
+    }
+
+    document.addEventListener("astro:page-load", () => {
         if (localStorage.getItem("rusticit_consent") === "granted") {
-            await runTracking();
+            runTracking();
         } else {
-            window.addEventListener("rusticit:consent-granted", () => runTracking(), {once: true});
+            window.addEventListener("rusticit:consent-granted", () => runTracking(), { once: true });
         }
     });
 </script>
