@@ -1,14 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /resume
 
 # AI Crawlers
 User-agent: GPTBot
 Allow: /
+Disallow: /resume
 User-agent: ClaudeBot
 Allow: /
+Disallow: /resume
 User-agent: Google-Extended
 Allow: /
+Disallow: /resume
 User-agent: PerplexityBot
 Allow: /
+Disallow: /resume
 
 Sitemap: https://rusticit.com/sitemap-index.xml

@@ -1,0 +1,239 @@
+---
+/*
+  Single source of truth: edit saulo-vargas-resume.md → page updates automatically.
+
+  PDF export (Chrome):
+    Cmd+P → Save as PDF → ☐ uncheck "Headers and footers" → Margins: None → Save
+*/
+import { Content, rawContent } from './saulo-vargas-resume.md';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import { ClientRouter } from 'astro:transitions';
+import '../../styles/global.css';
+const mdSource = rawContent();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Saulo Vargas — Senior Frontend Engineer</title>
+    <meta name="description" content="Senior Frontend Engineer with 15+ years of experience. TypeScript, Vue, React, Angular, Rust, WebAssembly." />
+    <link rel="canonical" href="https://rusticit.com/resume" />
+    <!-- Keep resume out of search indexes and AI training crawlers -->
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <ClientRouter />
+    <!-- Dark-mode detection before first paint — prevents flash -->
+    <script is:inline>
+        (function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+    </script>
+</head>
+
+<body class="bg-[#e4e4e4] dark:bg-[#2a2a2a] font-sans antialiased selection:bg-purple-light/30">
+
+    <!-- Toolbar — Tailwind classes directly; hidden in print -->
+    <nav class="fixed top-0 inset-x-0 z-10 flex items-center gap-3 px-5 py-2 bg-charcoal print:hidden">
+        <span class="font-heading text-sm font-medium text-offwhite mr-auto">Saulo Vargas — Resume</span>
+<button
+            id="copy-md-btn"
+            class="h-8 text-xs font-medium text-offwhite/90 bg-transparent border border-offwhite/20 rounded-full px-3 cursor-pointer hover:bg-offwhite/10 transition-colors"
+        >Copy .md</button>
+        <button
+            onclick="window.print()"
+            class="h-8 text-xs font-medium text-offwhite bg-purple-dark border border-purple-dark rounded-full px-3 cursor-pointer hover:bg-purple-light hover:border-purple-light transition-colors"
+        >Save as PDF</button>
+        <ThemeToggle />
+    </nav>
+
+    <!-- Page -->
+    <div class="max-w-[820px] mx-auto px-5 pt-14 pb-10">
+        <main class="bg-white dark:bg-[#1c1c1c] px-10 py-9 shadow-[0_2px_16px_rgba(0,0,0,0.10)] dark:shadow-[0_2px_24px_rgba(0,0,0,0.5)]">
+            <div class="resume-md">
+                <Content />
+            </div>
+        </main>
+    </div>
+
+    <script define:vars={{ mdSource }}>
+        const btn = document.getElementById('copy-md-btn');
+        if (btn) {
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(mdSource);
+                    const prev = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => { btn.textContent = prev; }, 1800);
+                } catch {
+                    btn.textContent = 'Failed';
+                    setTimeout(() => { btn.textContent = 'Copy .md'; }, 1800);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+<style is:global>
+/* Required by Tailwind v4: import theme defs without re-emitting their styles */
+@reference "../../styles/global.css";
+
+/*
+ * ThemeToggle overrides — toolbar is always charcoal, so buttons must
+ * always use light-on-dark colours regardless of the active theme.
+ */
+nav #theme-toggle {
+    border-color: rgba(247,247,247,0.18) !important;
+    background:   rgba(247,247,247,0.06) !important;
+}
+nav .theme-btn         { color: rgba(247,247,247,0.40) !important; }
+nav .theme-btn:hover   { color: rgba(247,247,247,0.75) !important; }
+nav .theme-btn-active  {
+    background-color: rgba(247,247,247,0.90) !important;
+    color: rgb(53,53,53) !important;
+}
+
+/*
+ * ══════════════════════════════════════════════════════════════════════════
+ *  RESUME CONTENT
+ *
+ *  Colors use --foreground / --muted-foreground CSS custom properties
+ *  defined in global.css for :root (light) and .dark.
+ *  They flip automatically — no extra dark: rules needed.
+ *
+ *  Layout: display:block only — no flex/grid inside .resume-md so the
+ *  PDF text extractor reads in exact DOM order (ATS-safe).
+ * ══════════════════════════════════════════════════════════════════════════
+ */
+
+/*
+ * ── CRITICAL ATS RULES ────────────────────────────────────────────────
+ *
+ * 1. NO opacity on any content element.
+ *    opacity < 1 creates a CSS stacking context. Chrome's print engine
+ *    flushes stacking contexts after normal flow, so all bullet lists
+ *    (opacity 0.85) appeared after all headings in the PDF text stream.
+ *    Use direct color values only.
+ *
+ * 2. NO letter-spacing on headings.
+ *    letter-spacing causes the PDF glyph engine to insert physical space
+ *    between characters, which text extractors read as "S U M M A R Y".
+ *
+ * 3. NO text-transform: uppercase on section headers.
+ *    Combined with letter-spacing it compounds ATS misreads.
+ *
+ * 4. NO ::first-line pseudo-element on paragraphs.
+ *    ::first-line may create a separate rendering box in some engines.
+ */
+
+/* ── Name ─────────────────────────────────────────────────────────────── */
+.resume-md h1 {
+    @apply font-heading text-[1.625rem] font-bold text-center mb-1;
+    color: var(--foreground);
+    /* No letter-spacing — was causing spaced glyphs in PDF */
+}
+
+/* ── Tagline ──────────────────────────────────────────────────────────── */
+.resume-md h1 + p {
+    @apply text-center text-[0.9rem] mb-1.5;
+    color: var(--muted-foreground);
+}
+
+/* ── Contact ──────────────────────────────────────────────────────────── */
+.resume-md h1 + p + p {
+    @apply text-center text-[0.8rem] mb-4;
+    color: var(--muted-foreground);
+    line-height: 1.8; /* breathing room for the labeled multi-line block */
+}
+
+/* ── Section header (h2) ──────────────────────────────────────────────── */
+.resume-md h2 {
+    @apply font-heading text-[0.8rem] font-bold border-b pb-0.5 mt-3.5 mb-2;
+    color: var(--foreground);
+    border-bottom-color: var(--color-purple-dark);
+    /* No uppercase, no letter-spacing — both caused "S U M M A R Y" in PDF */
+}
+
+/* First section (Summary) follows contact — no extra top margin */
+.resume-md h1 + p + p + h2 { margin-top: 0; }
+
+/* ── Company / degree (h3) ────────────────────────────────────────────── */
+.resume-md h3 {
+    @apply font-heading text-[0.9375rem] font-semibold mt-3 mb-0.5;
+    color: var(--foreground);
+}
+
+/* First h3 after a section h2 — no double gap */
+.resume-md h2 + h3 { margin-top: 0; }
+
+/* ── Job detail paragraph (title, dates, stack — lines via <br>) ─────── */
+.resume-md h3 + p {
+    @apply text-[0.825rem] leading-relaxed mb-1;
+    color: var(--muted-foreground);
+    /* No ::first-line — can create a separate paint box */
+}
+
+/* ── General paragraph (summary, education note, languages) ──────────── */
+.resume-md p {
+    display: block;
+    @apply text-[0.875rem] leading-relaxed mb-1.5;
+    color: var(--foreground);
+    /* No opacity — opacity creates stacking contexts that scramble PDF order */
+}
+
+/* ── Bullet lists ─────────────────────────────────────────────────────── */
+/* display:block — NOT flex — so PDF extractor reads each li in DOM order */
+.resume-md ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.resume-md li {
+    display: block;
+    @apply text-[0.875rem] leading-[1.5] pl-4 relative mb-1;
+    color: var(--foreground);
+    /* No opacity — was the primary cause of out-of-order PDF extraction */
+}
+.resume-md li:last-child { margin-bottom: 0; }
+.resume-md li::before {
+    content: "\2022";
+    @apply absolute left-1;
+    color: var(--muted-foreground);
+}
+
+/* ── Print ────────────────────────────────────────────────────────────── */
+@media print {
+    @page { size: letter; margin: 0.5in; }
+
+    html, body { background: #fff !important; font-size: 10pt; color: #000 !important; }
+
+    nav { display: none !important; }
+
+    /* Collapse page/card chrome */
+    body > div  { max-width: none !important; padding: 0 !important; }
+    main        { padding: 0 !important; box-shadow: none !important; background: #fff !important; }
+
+    .resume-md h1              { font-size: 15pt;  color: #000; margin-bottom: 1pt; }
+    .resume-md h1 + p          { font-size: 10pt;  color: #000; margin-bottom: 2pt; }
+    .resume-md h1 + p + p      { font-size: 9pt;   color: #000; margin-bottom: 5pt; line-height: 1.7; }
+
+    .resume-md h2 {
+        font-size: 8pt; font-weight: bold; color: #000;
+        border-bottom: 0.75pt solid #000;
+        margin-top: 6pt; margin-bottom: 3pt; padding-bottom: 1pt;
+        /* No letter-spacing, no uppercase */
+    }
+    .resume-md h1 + p + p + h2 { margin-top: 0; }
+
+    .resume-md h3           { font-size: 10pt; color: #000; margin-top: 4.5pt; margin-bottom: 0; }
+    .resume-md h2 + h3      { margin-top: 0; }
+
+    .resume-md h3 + p       { font-size: 8.5pt; color: #333; line-height: 1.5; margin-bottom: 2pt; }
+    .resume-md h3 + p::first-line { font-style: italic; }
+
+    .resume-md p            { font-size: 9.5pt; line-height: 1.4; color: #000; margin-bottom: 2pt; }
+    .resume-md li           { font-size: 9.5pt; line-height: 1.4; color: #000; margin-bottom: 1pt; }
+    .resume-md li::before   { color: #555; }
+}
+</style>

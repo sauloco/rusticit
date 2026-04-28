@@ -14,7 +14,14 @@ import vue from '@astrojs/vue';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://rusticit.com',
-  integrations: [mdx(), sitemap(), react(), vue()],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/resume'),
+    }),
+    react(),
+    vue(),
+  ],
   i18n: {
     locales: ['en'],
     defaultLocale: 'en',
