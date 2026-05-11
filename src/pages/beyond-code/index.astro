@@ -21,7 +21,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		<script is:inline>
 			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
 		</script>
-		<BaseHead title={`Beyond Code — ${SITE_TITLE}`} description="Thoughts on frontend engineering, product thinking, and the craft behind real-world software." />
+		<BaseHead title={`Beyond Code — ${SITE_TITLE}`} description="Thoughts on full-stack product engineering, product thinking, and the craft behind real-world software." />
 	</head>
 	<body class="bg-offwhite dark:bg-charcoal min-h-screen">
 		<Header />
@@ -31,7 +31,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 					Beyond Code
 				</h1>
 				<p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed max-w-2xl">
-					Thoughts on frontend engineering, product thinking, and the craft behind real-world software.
+					Thoughts on full-stack product engineering, product thinking, and the craft behind real-world software.
 				</p>
 				<p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed max-w-2xl">
 					No AI slop.

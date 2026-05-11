@@ -40,7 +40,9 @@
     function init() {
         const banner = document.getElementById('consent-banner');
 
-        if (!banner || localStorage.getItem(CONSENT_KEY) !== null) {
+        if (!banner) return;
+        if (localStorage.getItem(CONSENT_KEY) !== null) {
+            banner.remove();
             return;
         }
 

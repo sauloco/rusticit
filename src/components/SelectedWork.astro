@@ -1,19 +1,29 @@
 ---
 const projects = [
     {
+        name: "Cross-platform rewrite for the world's most translated digital platforms",
+        intro: "Complete rewrite of a 14-year-old cross-platform study app — unifying separate iOS, Android, and desktop codebases into a single modern frontend serving 1,000+ languages and tens of millions of users. Contributed atomic UI components, end-to-end user workflows, and a deep research interface, in close collaboration from design spec to production.",
+        caseStudy: "/beyond-code/2026_05_what-contributing-to-a-global-scale-platform-taught-me",
+    },
+    {
         name: "Industrial engineering platforms for compliance-sensitive workflows",
-        intro: "Browser-based tools used in German engineering environments with structured technical data, validation logic, and high-trust operational requirements.",
+        intro: "Browser-based tools used in German engineering environments with structured technical data, validation logic, backend workflows, production data, release automation, and high-trust operational requirements.",
         caseStudy: "",
     },
     {
         name: "Medical visualization platform",
-        intro: "A Three.js + Vue application for advanced dental and craniofacial scan analysis, high-resolution imaging, and complex planning workflows.",
+        intro: "A Three.js + Vue application for advanced dental and craniofacial scan analysis, high-resolution imaging, complex planning workflows, and production-grade user interaction around heavy visual data.",
         caseStudy: "/beyond-code/2019_08_building-advanced-dental-imaging-software-on-the-web",
     },
     {
         name: "Public-sector health systems",
-        intro: "Long-lived operational systems used in real service environments where reliability and continuity mattered.",
+        intro: "Long-lived public-sector health systems with real operational pressure: patient records, databases, reporting tools, internal workflows, user training, and continuity requirements.",
         caseStudy: "/beyond-code/2017_12_designing-a-safe-merge-workflow-for-patient-records-in-a-live-public-health-system",
+    },
+    {
+        name: "Sports event platform",
+        intro: "A product-led sports platform for tournament organization, live results, sponsor visibility, AI-assisted event promotion, and community engagement — built across product, frontend, backend, content, and operations.",
+        caseStudy: "/beyond-code/2026_03_entrenolibre-from-startup-recognition-to-a-clearer-product",
     },
 ];
 ---
@@ -24,11 +34,11 @@ const projects = [
                 Selected work
             </h2>
             <p class="font-sans text-xl text-charcoal/80 dark:text-offwhite/80 leading-relaxed text-center">
-                A few examples of the kind of systems and teams I've supported.
+                A few examples of the kind of products, systems, and teams I've supported across the stack.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {projects.map((project) => (
                 <div class="flex flex-col gap-4 rounded-2xl border border-charcoal/10 dark:border-offwhite/10 bg-charcoal/5 dark:bg-offwhite/5 p-8 hover:bg-charcoal/10 dark:hover:bg-offwhite/10 transition-colors duration-300">
                     <h3 class="font-sans font-semibold text-xl text-charcoal dark:text-white">{project.name}</h3>

@@ -3,7 +3,7 @@ title: 'Building advanced dental imaging software on the web'
 description: 'At Synphonyte, I helped design and lead the development of Canaray Voxel, a Three.js and Vue-based web application for high-resolution dental and craniofacial scan analysis, collaborative workflows, and clinical reporting.'
 pubDate: 'Aug 15 2019'
 tags: ['career', 'remote', 'healthcare']
-heroImage: 'https://images.pexels.com/photos/4834142/pexels-photo-4834142.jpeg'
+heroImage: '../../assets/selected-work/dental-imaging.png'
 ---
 
 When people think about browser-based software, they often imagine dashboards, forms, and standard CRUD applications.
