@@ -54,7 +54,7 @@ TypeScript, Vue ecosystem, React, Strapi, Astro, GSAP
 - Founded and led a full-stack product engineering company creating customer portals, SaaS-style platforms, internal tools, marketing websites, and digital products for international clients.
 - Worked across product discovery, frontend implementation, backend development, CMS integration, API design, deployment, support, and client communication.
 - Grew and coordinated a team of up to seven people, including developers and contractors.
-- Completed 18+ projects per year for clients across 5 countries: Spain, the United Kingdom, Germany, Israel, and Argentina.
+- Completed 15+ projects per year for clients across 5 countries: Spain, the United Kingdom, Germany, Israel, and Argentina.
 - Created EntrenoLibre as an in-house sports-tech product covering tournament organization, live match tracking, real-time scoring, AI-assisted content generation, and shareable sports content.
 
 ### Full Stack Web Developer at Synphonyte
