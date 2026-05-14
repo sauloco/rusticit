@@ -143,7 +143,7 @@ nav .theme-btn-active  {
 .resume-md h1 + p + p {
     @apply text-center text-[0.8rem] mb-4;
     color: var(--muted-foreground);
-    line-height: 1.8; /* breathing room for the labeled multi-line block */
+    line-height: 1.5;
 }
 
 /* ── Section header (h2) ──────────────────────────────────────────────── */
@@ -157,21 +157,47 @@ nav .theme-btn-active  {
 /* First section (Summary) follows contact — no extra top margin */
 .resume-md h1 + p + p + h2 { margin-top: 0; }
 
-/* ── Company / degree (h3) ────────────────────────────────────────────── */
-.resume-md h3 {
-    @apply font-heading text-[0.9375rem] font-semibold mt-3 mb-0.5;
+/* ── Entry header rows (two-column job/education layout) ──────────────── */
+.resume-md .entry-header {
+    margin-top: 0.75rem;
+    margin-bottom: 0.125rem;
+}
+.resume-md h2 + .entry-header { margin-top: 0; }
+/*
+ * ── CRITICAL: display:block + float, NOT flex ─────────────────────────
+ * display:flex creates an isolated formatting context that Chrome's print
+ * engine flushes separately from surrounding block content — same root
+ * cause as the opacity/stacking-context bug. Float-right keeps the date
+ * and location in normal block flow so text extraction stays in DOM order.
+ */
+.resume-md .entry-title-row,
+.resume-md .entry-sub-row {
+    display: block;
+    overflow: hidden; /* clearfix — does NOT create a stacking context */
+}
+.resume-md .entry-title-row strong {
+    font-size: 0.9375rem;
+    font-weight: 600;
     color: var(--foreground);
+    line-height: 1.4;
 }
-
-/* First h3 after a section h2 — no double gap */
-.resume-md h2 + h3 { margin-top: 0; }
-
-/* ── Job detail paragraph (title, dates, stack — lines via <br>) ─────── */
-.resume-md h3 + p {
-    @apply text-[0.825rem] leading-relaxed mb-1;
+.resume-md .entry-title-row strong:last-child {
+    float: right;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+.resume-md .entry-sub-row { margin-top: 0.0625rem; }
+.resume-md .entry-sub-row em {
+    font-size: 0.825rem;
+    font-style: italic;
     color: var(--muted-foreground);
-    /* No ::first-line — can create a separate paint box */
+    line-height: 1.4;
 }
+.resume-md .entry-sub-row em:last-child {
+    float: right;
+    font-size: 0.8rem;
+}
+.resume-md .entry-header + ul { margin-top: 0.25rem; }
 
 /* ── General paragraph (summary, education note, languages) ──────────── */
 .resume-md p {
@@ -216,7 +242,7 @@ nav .theme-btn-active  {
 
     .resume-md h1              { font-size: 15pt;  color: #000; margin-bottom: 1pt; }
     .resume-md h1 + p          { font-size: 10pt;  color: #000; margin-bottom: 2pt; }
-    .resume-md h1 + p + p      { font-size: 9pt;   color: #000; margin-bottom: 5pt; line-height: 1.7; }
+    .resume-md h1 + p + p      { font-size: 9pt;   color: #000; margin-bottom: 5pt; line-height: 1.4; }
 
     .resume-md h2 {
         font-size: 8pt; font-weight: bold; color: #000;
@@ -226,11 +252,16 @@ nav .theme-btn-active  {
     }
     .resume-md h1 + p + p + h2 { margin-top: 0; }
 
-    .resume-md h3           { font-size: 10pt; color: #000; margin-top: 4.5pt; margin-bottom: 0; }
-    .resume-md h2 + h3      { margin-top: 0; }
-
-    .resume-md h3 + p       { font-size: 8.5pt; color: #333; line-height: 1.5; margin-bottom: 2pt; }
-    .resume-md h3 + p::first-line { font-style: italic; }
+    .resume-md .entry-header      { margin-top: 5pt; margin-bottom: 1pt; }
+    .resume-md h2 + .entry-header { margin-top: 0; }
+    .resume-md .entry-title-row,
+    .resume-md .entry-sub-row     { display: block; overflow: hidden; }
+    .resume-md .entry-title-row strong { font-size: 10pt; font-weight: bold; color: #000; line-height: 1.3; }
+    .resume-md .entry-title-row strong:last-child { float: right; font-size: 9pt; font-weight: bold; }
+    .resume-md .entry-sub-row     { margin-top: 0; }
+    .resume-md .entry-sub-row em  { font-size: 8.5pt; font-style: italic; color: #333; line-height: 1.3; }
+    .resume-md .entry-sub-row em:last-child { float: right; font-size: 8.5pt; }
+    .resume-md .entry-header + ul { margin-top: 2pt; }
 
     .resume-md p            { font-size: 9.5pt; line-height: 1.4; color: #000; margin-bottom: 2pt; }
     .resume-md li           { font-size: 9.5pt; line-height: 1.4; color: #000; margin-bottom: 1pt; }
