@@ -1,6 +1,12 @@
 ---
 const projects = [
     {
+        name: "Sports event platform with an in-product AI coach",
+        intro: "A product-led sports platform for tournament organization, live results, sponsor visibility, and community engagement. Includes Match Flow, a live match tracker with an AI coach that reads the momentum of a tennis or padel match and gives players real-time insight while they play — LLM integration, live data flows, and sport-specific prompt design built into a production feature.",
+        caseStudy: "/beyond-code/2026_06_shipping-an-ai-coach-into-a-live-tennis-match",
+        matchFlowUrl: "https://entrenolibre.com/match-flow",
+    },
+    {
         name: "Cross-platform rewrite for the world's most translated digital platforms",
         intro: "Complete rewrite of a 14-year-old cross-platform study app — unifying separate iOS, Android, and desktop codebases into a single modern frontend serving 1,000+ languages and tens of millions of users. Contributed atomic UI components, end-to-end user workflows, and a deep research interface, in close collaboration from design spec to production.",
         caseStudy: "/beyond-code/2026_05_what-contributing-to-a-global-scale-platform-taught-me",
@@ -20,11 +26,6 @@ const projects = [
         intro: "Long-lived public-sector health systems with real operational pressure: patient records, databases, reporting tools, internal workflows, user training, and continuity requirements.",
         caseStudy: "/beyond-code/2017_12_designing-a-safe-merge-workflow-for-patient-records-in-a-live-public-health-system",
     },
-    {
-        name: "Sports event platform",
-        intro: "A product-led sports platform for tournament organization, live results, sponsor visibility, AI-assisted event promotion, and community engagement — built across product, frontend, backend, content, and operations.",
-        caseStudy: "/beyond-code/2026_03_entrenolibre-from-startup-recognition-to-a-clearer-product",
-    },
 ];
 ---
 <section id="case-studies" class="relative z-30 py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal">
@@ -43,14 +44,26 @@ const projects = [
                 <div class="flex flex-col gap-4 rounded-2xl border border-charcoal/10 dark:border-offwhite/10 bg-charcoal/5 dark:bg-offwhite/5 p-8 hover:bg-charcoal/10 dark:hover:bg-offwhite/10 transition-colors duration-300">
                     <h3 class="font-sans font-semibold text-xl text-charcoal dark:text-white">{project.name}</h3>
                     <p class="font-sans text-charcoal/70 dark:text-offwhite/70 text-base leading-relaxed">{project.intro}</p>
-                    {project.caseStudy && (
-                        <div class="mt-auto pt-2">
-                            <a
-                                href={project.caseStudy}
-                                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-charcoal dark:text-offwhite border border-charcoal/20 dark:border-offwhite/20 rounded-md hover:border-charcoal/40 dark:hover:border-offwhite/40 hover:text-charcoal dark:hover:text-white transition-colors duration-200"
-                            >
-                                Read the case study
-                            </a>
+                    {(project.caseStudy || project.matchFlowUrl) && (
+                        <div class="mt-auto pt-2 flex flex-wrap gap-2">
+                            {project.matchFlowUrl && (
+                                <a
+                                    href={project.matchFlowUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-charcoal dark:text-offwhite border border-charcoal/20 dark:border-offwhite/20 rounded-md hover:border-charcoal/40 dark:hover:border-offwhite/40 hover:text-charcoal dark:hover:text-white transition-colors duration-200"
+                                >
+                                    Try Match Flow
+                                </a>
+                            )}
+                            {project.caseStudy && (
+                                <a
+                                    href={project.caseStudy}
+                                    class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-charcoal dark:text-offwhite border border-charcoal/20 dark:border-offwhite/20 rounded-md hover:border-charcoal/40 dark:hover:border-offwhite/40 hover:text-charcoal dark:hover:text-white transition-colors duration-200"
+                                >
+                                    Read the case study
+                                </a>
+                            )}
                         </div>
                     )}
                 </div>
