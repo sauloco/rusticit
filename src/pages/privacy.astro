@@ -152,22 +152,32 @@ const lastUpdated = "March 27, 2026";
 </Base>
 
 <script>
-    document.getElementById('revoke-consent')?.addEventListener('click', () => {
-        localStorage.removeItem('rusticit_consent');
-        const banner = document.getElementById('consent-banner');
-        const message = document.getElementById('revoke-msg');
+    function initConsentWithdrawal() {
+        const button = document.getElementById('revoke-consent');
 
-        if (message) {
-            message.textContent = banner
-                ? 'Done — the consent banner will reappear below.'
-                : 'Done — reloading this page to show the consent banner again.';
-            message.classList.remove('hidden');
-        }
+        if (!button || button.dataset.revokeInitialized === 'true') return;
+        button.dataset.revokeInitialized = 'true';
 
-        if (banner) {
-            document.dispatchEvent(new Event('astro:page-load'));
-        } else {
-            setTimeout(() => window.location.reload(), 500);
-        }
-    });
+        button.addEventListener('click', () => {
+            localStorage.removeItem('rusticit_consent');
+            const banner = document.getElementById('consent-banner');
+            const message = document.getElementById('revoke-msg');
+
+            if (message) {
+                message.textContent = banner
+                    ? 'Done — the consent banner will reappear below.'
+                    : 'Done — reloading this page to show the consent banner again.';
+                message.classList.remove('hidden');
+            }
+
+            if (banner) {
+                document.dispatchEvent(new Event('astro:page-load'));
+            } else {
+                setTimeout(() => window.location.reload(), 500);
+            }
+        });
+    }
+
+    initConsentWithdrawal();
+    document.addEventListener('astro:page-load', initConsentWithdrawal);
 </script>
