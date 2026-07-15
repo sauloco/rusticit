@@ -1,11 +1,11 @@
 ---
 /*
-  Single source of truth: edit saulo-vargas-resume.md → page updates automatically.
+  Single source of truth: edit src/data/saulo-vargas-resume.md -> page updates automatically.
 
   PDF export (Chrome):
     Cmd+P → Save as PDF → ☐ uncheck "Headers and footers" → Margins: None → Save
 */
-import { Content, rawContent } from './saulo-vargas-resume.md';
+import { Content, rawContent } from '../../data/saulo-vargas-resume.md';
 import ThemeToggle from '../../components/ThemeToggle.astro';
 import { ClientRouter } from 'astro:transitions';
 import '../../styles/global.css';
