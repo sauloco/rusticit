@@ -8,7 +8,7 @@ heroImage: https://images.pexels.com/photos/1337372/pexels-photo-1337372.jpeg
 
 Long before I was thinking about product strategy, frontend architecture, or engineering platforms, I was already learning one of the most important lessons software could teach me:
 
-technology matters most when it helps someone participate more fully in the world.
+Technology matters most when it helps someone participate more fully in the world.
 
 In 2007, I was part of the team behind **ABC+**, a software project developed at Escuela Técnica N.º 2 “Luciano Fortabat” in Olavarría. The project focused on accessibility for people with disabilities, and I worked on the module aimed at deaf users and Argentine Sign Language.
 

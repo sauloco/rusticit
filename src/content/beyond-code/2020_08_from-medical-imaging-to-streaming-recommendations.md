@@ -63,7 +63,7 @@ Both required strong frontend thinking. Just in different ways.
 
 Working on Watchworthy reinforced an important lesson:
 
-good frontend work is not defined by the domain. It is defined by how well the product helps people do what they came to do.
+Good frontend work is not defined by the domain. It is defined by how well the product helps people do what they came to do.
 
 In a medical imaging platform, that might mean making complex tools usable.
 

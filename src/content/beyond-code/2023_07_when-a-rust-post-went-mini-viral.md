@@ -36,7 +36,7 @@ Not because I claimed to be an expert.
 
 But maybe because the post reflected something people respond to:
 
-genuine learning in public.
+Genuine learning in public.
 
 ## Learning in public creates a different kind of signal
 
@@ -80,7 +80,7 @@ A public checkpoint.
 
 That moment reminded me of something simple:
 
-sometimes the market notices direction before it notices mastery.
+Sometimes the market notices direction before it notices mastery.
 
 A small post can reveal where your energy is moving.
 A public response can confirm that the path you are taking is legible to others.

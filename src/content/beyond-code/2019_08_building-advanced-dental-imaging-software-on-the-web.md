@@ -110,6 +110,6 @@ Not as “UI implementation,” but as a combination of:
 
 It also reinforced something I still believe strongly:
 
-some of the best frontend work happens in products where the browser is being asked to do something genuinely hard.
+Some of the best frontend work happens in products where the browser is being asked to do something genuinely hard.
 
 And when that happens, architecture, tooling, communication, and product thinking matter just as much as code.

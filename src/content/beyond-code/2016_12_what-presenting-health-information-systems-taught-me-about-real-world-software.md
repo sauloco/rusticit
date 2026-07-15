@@ -12,7 +12,7 @@ In 2016, I was part of a team from Olavarría connected to digital government wo
 
 At that point, I was no stranger to software. But speaking about these systems in a public setting made something clearer to me:
 
-software is very easy to talk about in technical terms, and much harder to explain in terms of real impact.
+Software is very easy to talk about in technical terms, and much harder to explain in terms of real impact.
 
 Health information systems make that impossible to ignore.
 
@@ -33,7 +33,7 @@ That has stayed with me ever since.
 
 Years later, whether I am working on engineering platforms, product experiences, or sports software, I still carry the same idea with me:
 
-good software should not only function correctly. It should make important work easier to understand, easier to trust, and easier to move forward.
+Good software should not only function correctly. It should make important work easier to understand, easier to trust, and easier to move forward.
 
 Looking back, that experience was not just about presenting a project.
 
