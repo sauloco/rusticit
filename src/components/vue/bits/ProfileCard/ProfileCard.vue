@@ -8,6 +8,7 @@
 
         <div class="pc-content pc-avatar-content">
           <img
+            v-if="avatarUrl"
             class="avatar"
             :src="avatarUrl"
             :alt="`Portrait of ${name || 'the user'}`"
@@ -19,8 +20,8 @@
           />
 
           <div v-if="showUserInfo" class="pc-user-info">
-            <div class="pc-user-details">
-              <div class="pc-mini-avatar">
+            <div v-if="handle || status || miniAvatarUrl || avatarUrl" class="pc-user-details">
+              <div v-if="miniAvatarUrl || avatarUrl" class="pc-mini-avatar">
                 <img
                   :src="miniAvatarUrl || avatarUrl"
                   alt=""
@@ -34,9 +35,9 @@
               </div>
 
               <div class="pc-user-text">
-                <div class="pc-handle">@{{ handle }}</div>
+                <div v-if="handle" class="pc-handle">@{{ handle }}</div>
 
-                <div class="pc-status">{{ status }}</div>
+                <div v-if="status" class="pc-status">{{ status }}</div>
               </div>
             </div>
 
@@ -67,7 +68,7 @@
           <div class="pc-details">
             <h3>{{ name }}</h3>
 
-            <p>{{ title }}</p>
+            <p v-if="title">{{ title }}</p>
           </div>
         </div>
       </div>
@@ -98,19 +99,19 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  avatarUrl: '<Placeholder for avatar URL>',
-  iconUrl: '<Placeholder for icon URL>',
-  grainUrl: '<Placeholder for grain URL>',
+  avatarUrl: undefined,
+  iconUrl: undefined,
+  grainUrl: undefined,
   behindGradient: undefined,
   innerGradient: undefined,
   showBehindGradient: true,
   className: '',
   enableTilt: true,
   miniAvatarUrl: undefined,
-  name: 'Javi A. Torres',
-  title: 'Software Engineer',
-  handle: 'javicodes',
-  status: 'Online',
+  name: 'Profile',
+  title: '',
+  handle: '',
+  status: '',
   contactText: 'Contact',
   contactHref: '',
   showUserInfo: true
@@ -260,7 +261,11 @@ const handleAvatarError = (event: Event) => {
 const handleMiniAvatarError = (event: Event) => {
   const target = event.target as HTMLImageElement;
   target.style.opacity = '0.5';
-  target.src = props.avatarUrl;
+  if (props.avatarUrl) {
+    target.src = props.avatarUrl;
+  } else {
+    target.style.display = 'none';
+  }
 };
 
 onMounted(() => {
