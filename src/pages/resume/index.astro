@@ -57,26 +57,40 @@ const mdSource = rawContent();
     </div>
 
     <script define:vars={{ mdSource }}>
-        const btn = document.getElementById('copy-md-btn');
-        const printBtn = document.getElementById('print-resume-btn');
+        function initResumeToolbar() {
+            const btn = document.getElementById('copy-md-btn');
+            const printBtn = document.getElementById('print-resume-btn');
 
-        if (btn) {
-            btn.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(mdSource);
-                    const prev = btn.textContent;
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => { btn.textContent = prev; }, 1800);
-                } catch {
-                    btn.textContent = 'Failed';
-                    setTimeout(() => { btn.textContent = 'Copy .md'; }, 1800);
-                }
-            });
+            if (btn && btn.dataset.resumeToolbarInitialized !== 'true') {
+                btn.dataset.resumeToolbarInitialized = 'true';
+
+                btn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(mdSource);
+                        const prev = btn.textContent;
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => { btn.textContent = prev; }, 1800);
+                    } catch {
+                        btn.textContent = 'Failed';
+                        setTimeout(() => { btn.textContent = 'Copy .md'; }, 1800);
+                    }
+                });
+            }
+
+            if (printBtn && printBtn.dataset.resumeToolbarInitialized !== 'true') {
+                printBtn.dataset.resumeToolbarInitialized = 'true';
+
+                printBtn.addEventListener('click', () => {
+                    window.print();
+                });
+            }
         }
 
-        printBtn?.addEventListener('click', () => {
-            window.print();
-        });
+        initResumeToolbar();
+        if (document.documentElement.dataset.resumeToolbarPageLoadInitialized !== 'true') {
+            document.documentElement.dataset.resumeToolbarPageLoadInitialized = 'true';
+            document.addEventListener('astro:page-load', initResumeToolbar);
+        }
     </script>
 
 </body>
