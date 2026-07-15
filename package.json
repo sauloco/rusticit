@@ -2,7 +2,7 @@
 	"name": "rusticit",
 	"type": "module",
 	"version": "0.0.1",
-	"description": "Rustic IT",
+	"description": "RusticIT",
 	"author": "Saulo Vargas <saulo@rusticit.com>",
 	"license": "MIT",
 	"private": true,
