@@ -41,22 +41,28 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 
 			<!-- Filters -->
 			<div class="flex flex-col gap-4 mb-8">
-				<div class="flex flex-wrap gap-2 items-center">
-					<button type="button" data-filter="all" aria-pressed="true" class="filter-btn active font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-						All
-					</button>
+				<ul class="flex flex-wrap gap-2 items-center list-none p-0">
+					<li>
+						<button type="button" data-filter="all" aria-pressed="true" class="filter-btn active font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+							All
+						</button>
+					</li>
 					{allYears.map((year) => (
-						<button type="button" data-filter="year" data-value={year} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-							{year}
-						</button>
+						<li>
+							<button type="button" data-filter="year" data-value={year} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+								{year}
+							</button>
+						</li>
 					))}
-					<span class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1" aria-hidden="true"></span>
+					<li class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1" aria-hidden="true"></li>
 					{allTags.map((tag) => (
-						<button type="button" data-filter="tag" data-value={tag} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-							{tag}
-						</button>
+						<li>
+							<button type="button" data-filter="tag" data-value={tag} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+								{tag}
+							</button>
+						</li>
 					))}
-				</div>
+				</ul>
 				<p id="post-count" aria-live="polite" aria-atomic="true" class="font-mono text-xs text-charcoal/40 dark:text-offwhite/40">
 					{posts.length} articles
 				</p>
