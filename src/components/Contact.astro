@@ -3,14 +3,14 @@ const title = "Tell me what your team is dealing with";
 const intro = "Share a bit of context about your product, your stack, the delivery bottlenecks you're dealing with, or the kind of support you need. I'll review it personally and get back to you.";
 ---
 
-<section id="contact" class="py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal border-t border-charcoal/10 dark:border-offwhite/10">
+<section id="contact" aria-labelledby="contact-title" class="py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal border-t border-charcoal/10 dark:border-offwhite/10">
     <div
             class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-16"
     >
         <div class="absolute bg-offwhite dark:bg-charcoal max-w-4xl blur-lg z-10 inset-0"></div>
         <div class="relative flex flex-col gap-6 items-start max-w-2xl z-20">
             <div class="flex flex-col gap-4 text-center">
-                <h2 class="font-heading font-bold text-3xl md:text-4xl text-charcoal dark:text-white tracking-tight">
+                <h2 id="contact-title" class="font-heading font-bold text-3xl md:text-4xl text-charcoal dark:text-white tracking-tight">
                     {title}
                 </h2>
                 <p class="font-sans text-lg text-charcoal/70 dark:text-offwhite/70 leading-relaxed">
@@ -18,7 +18,7 @@ const intro = "Share a bit of context about your product, your stack, the delive
                 </p>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col gap-5 w-full relative z-20">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Contact inquiry" class="flex flex-col gap-5 w-full relative z-20">
 
                 <input type="hidden" name="form-name" value="contact"/>
                 <p class="hidden" aria-hidden="true">
