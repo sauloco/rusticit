@@ -132,6 +132,7 @@ const links = [
 <div
     id="mobile-backdrop"
     class="fixed inset-0 bg-offwhite/60 dark:bg-charcoal/60 backdrop-blur-sm z-[999] opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden"
+    aria-hidden="true"
 ></div>
 
 <script>
@@ -147,8 +148,8 @@ const links = [
 
         let isOpen = false;
 
-        function toggle() {
-            isOpen = !isOpen;
+        function setMenuOpen(nextOpen: boolean) {
+            isOpen = nextOpen;
             btn!.setAttribute("aria-expanded", String(isOpen));
 
             menu!.style.gridTemplateRows = isOpen ? "1fr" : "0fr";
@@ -174,12 +175,23 @@ const links = [
             });
         }
 
+        function toggle() {
+            setMenuOpen(!isOpen);
+        }
+
         btn.addEventListener("click", toggle);
-        backdrop.addEventListener("click", toggle);
+        backdrop.addEventListener("click", () => setMenuOpen(false));
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && isOpen) {
+                setMenuOpen(false);
+                btn.focus();
+            }
+        });
 
         navLinks.forEach((link) => {
             link.addEventListener("click", () => {
-                if (isOpen) toggle();
+                if (isOpen) setMenuOpen(false);
             });
         });
     }
