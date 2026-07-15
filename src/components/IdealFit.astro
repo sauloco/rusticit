@@ -29,14 +29,14 @@ const notAFit = [
 
             <div class="flex flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl">
                 <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
-                    <div class="w-8 h-8 rounded-full bg-purple-dark/20 dark:bg-purple-dark/30 flex items-center justify-center text-purple-light font-bold">✓</div>
+                    <div class="w-8 h-8 rounded-full bg-purple-dark/20 dark:bg-purple-dark/30 flex items-center justify-center text-purple-light font-bold" aria-hidden="true">✓</div>
                     <h3 class="font-sans font-semibold text-xl text-charcoal dark:text-white">Great fit if:</h3>
                 </div>
 
                 <ul class="flex flex-col gap-4 mt-2">
                     {greatFit.map(item => (
                         <li class="flex items-start gap-3 text-charcoal/80 dark:text-offwhite/80 font-sans">
-                            <span class="text-purple-light mt-1 text-sm font-bold">→</span>
+                            <span class="text-purple-light mt-1 text-sm font-bold" aria-hidden="true">→</span>
                             <span class="leading-relaxed">{item}</span>
                         </li>
                     ))}
@@ -45,14 +45,14 @@ const notAFit = [
 
             <div class="flex flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl opacity-80">
                 <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
-                    <div class="w-8 h-8 rounded-full bg-offwhite dark:bg-charcoal flex items-center justify-center text-charcoal/50 dark:text-offwhite/50 font-bold border border-charcoal/10 dark:border-offwhite/10">✕</div>
+                    <div class="w-8 h-8 rounded-full bg-offwhite dark:bg-charcoal flex items-center justify-center text-charcoal/50 dark:text-offwhite/50 font-bold border border-charcoal/10 dark:border-offwhite/10" aria-hidden="true">✕</div>
                     <h3 class="font-sans font-semibold text-xl text-charcoal/80 dark:text-offwhite/80">Probably not the right fit:</h3>
                 </div>
 
                 <ul class="flex flex-col gap-4 mt-2">
                     {notAFit.map(item => (
                         <li class="flex items-start gap-3 text-charcoal/60 dark:text-offwhite/60 font-sans">
-                            <span class="text-charcoal/30 dark:text-offwhite/30 mt-1 text-xs">■</span>
+                            <span class="text-charcoal/30 dark:text-offwhite/30 mt-1 text-xs" aria-hidden="true">■</span>
                             <span class="leading-relaxed">{item}</span>
                         </li>
                     ))}

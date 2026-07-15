@@ -50,7 +50,7 @@ const useCases = [
                         data-reveal-delay={String(i * 80)}
                         class="flex items-start gap-4 bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-6 py-5 hover:border-purple-light/30 transition-colors"
                     >
-                        <span class="text-purple-light font-bold mt-0.5 shrink-0">→</span>
+                        <span class="text-purple-light font-bold mt-0.5 shrink-0" aria-hidden="true">→</span>
                         <div class="flex flex-col gap-1">
                             <span class="font-sans font-semibold text-charcoal dark:text-white text-base">{item.label}</span>
                             <span class="font-sans text-charcoal/60 dark:text-offwhite/60 text-sm leading-relaxed">{item.body}</span>
