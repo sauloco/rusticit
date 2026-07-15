@@ -25,40 +25,44 @@ const notAFit = [
             {title}
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
 
-            <article class="flex flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl" aria-labelledby="great-fit-title">
-                <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
-                    <div class="w-8 h-8 rounded-full bg-purple-dark/20 dark:bg-purple-dark/30 flex items-center justify-center text-purple-light font-bold" aria-hidden="true">✓</div>
-                    <h3 id="great-fit-title" class="font-sans font-semibold text-xl text-charcoal dark:text-white">Great fit if:</h3>
-                </div>
+            <li>
+                <article class="flex h-full flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl" aria-labelledby="great-fit-title">
+                    <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
+                        <div class="w-8 h-8 rounded-full bg-purple-dark/20 dark:bg-purple-dark/30 flex items-center justify-center text-purple-light font-bold" aria-hidden="true">✓</div>
+                        <h3 id="great-fit-title" class="font-sans font-semibold text-xl text-charcoal dark:text-white">Great fit if:</h3>
+                    </div>
 
-                <ul class="flex flex-col gap-4 mt-2">
-                    {greatFit.map(item => (
-                        <li class="flex items-start gap-3 text-charcoal/80 dark:text-offwhite/80 font-sans">
-                            <span class="text-purple-light mt-1 text-sm font-bold" aria-hidden="true">→</span>
-                            <span class="leading-relaxed">{item}</span>
-                        </li>
-                    ))}
-                </ul>
-            </article>
+                    <ul class="flex flex-col gap-4 mt-2">
+                        {greatFit.map(item => (
+                            <li class="flex items-start gap-3 text-charcoal/80 dark:text-offwhite/80 font-sans">
+                                <span class="text-purple-light mt-1 text-sm font-bold" aria-hidden="true">→</span>
+                                <span class="leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </article>
+            </li>
 
-            <article class="flex flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl opacity-80" aria-labelledby="not-a-fit-title">
-                <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
-                    <div class="w-8 h-8 rounded-full bg-offwhite dark:bg-charcoal flex items-center justify-center text-charcoal/50 dark:text-offwhite/50 font-bold border border-charcoal/10 dark:border-offwhite/10" aria-hidden="true">✕</div>
-                    <h3 id="not-a-fit-title" class="font-sans font-semibold text-xl text-charcoal/80 dark:text-offwhite/80">Probably not the right fit:</h3>
-                </div>
+            <li>
+                <article class="flex h-full flex-col gap-6 bg-offwhite dark:bg-charcoal/50 border border-charcoal/10 dark:border-offwhite/10 p-8 rounded-3xl opacity-80" aria-labelledby="not-a-fit-title">
+                    <div class="flex items-center gap-3 border-b border-charcoal/10 dark:border-offwhite/10 pb-4">
+                        <div class="w-8 h-8 rounded-full bg-offwhite dark:bg-charcoal flex items-center justify-center text-charcoal/50 dark:text-offwhite/50 font-bold border border-charcoal/10 dark:border-offwhite/10" aria-hidden="true">✕</div>
+                        <h3 id="not-a-fit-title" class="font-sans font-semibold text-xl text-charcoal/80 dark:text-offwhite/80">Probably not the right fit:</h3>
+                    </div>
 
-                <ul class="flex flex-col gap-4 mt-2">
-                    {notAFit.map(item => (
-                        <li class="flex items-start gap-3 text-charcoal/60 dark:text-offwhite/60 font-sans">
-                            <span class="text-charcoal/30 dark:text-offwhite/30 mt-1 text-xs" aria-hidden="true">■</span>
-                            <span class="leading-relaxed">{item}</span>
-                        </li>
-                    ))}
-                </ul>
-            </article>
+                    <ul class="flex flex-col gap-4 mt-2">
+                        {notAFit.map(item => (
+                            <li class="flex items-start gap-3 text-charcoal/60 dark:text-offwhite/60 font-sans">
+                                <span class="text-charcoal/30 dark:text-offwhite/30 mt-1 text-xs" aria-hidden="true">■</span>
+                                <span class="leading-relaxed">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </article>
+            </li>
 
-        </div>
+        </ul>
     </div>
 </section>
