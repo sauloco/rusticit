@@ -35,10 +35,12 @@ const mdSource = rawContent();
     <nav class="fixed top-0 inset-x-0 z-10 flex items-center gap-3 px-5 py-2 bg-charcoal print:hidden">
         <span class="font-heading text-sm font-medium text-offwhite mr-auto">Saulo Vargas — Resume</span>
 <button
+            type="button"
             id="copy-md-btn"
             class="h-8 text-xs font-medium text-offwhite/90 bg-transparent border border-offwhite/20 rounded-full px-3 cursor-pointer hover:bg-offwhite/10 transition-colors"
         >Copy .md</button>
         <button
+            type="button"
             onclick="window.print()"
             class="h-8 text-xs font-medium text-offwhite bg-purple-dark border border-purple-dark rounded-full px-3 cursor-pointer hover:bg-purple-light hover:border-purple-light transition-colors"
         >Save as PDF</button>
