@@ -389,6 +389,8 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
     const errorEl    = document.getElementById('form-error');
 
     if (!form || !formBlock || !booking || !errorEl) return;
+    if (form.dataset.introInitialized === 'true') return;
+    form.dataset.introInitialized = 'true';
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
