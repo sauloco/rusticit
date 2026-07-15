@@ -93,7 +93,7 @@ export const BackgroundGradientAnimation = ({
                 containerClassName
             )}
         >
-            <svg className="hidden">
+            <svg className="hidden" aria-hidden="true" focusable="false">
                 <defs>
                     <filter id="blurMe">
                         <feGaussianBlur
