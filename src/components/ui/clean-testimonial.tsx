@@ -162,7 +162,13 @@ export function Testimonial({ testimonials }: TestimonialProps) {
             }`}
             whileHover={{ scale: 1.1, opacity: 1 }}
           >
-            <img src={t.avatar} alt="" className="w-full h-full object-cover" />
+            <img
+              src={t.avatar}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         ))}
       </motion.div>
@@ -200,6 +206,8 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                     src={t.avatar}
                     alt={i === activeIndex ? `Portrait of ${t.author}` : ""}
                     aria-hidden={i !== activeIndex}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
                     animate={{ opacity: i === activeIndex ? 1 : 0, zIndex: i === activeIndex ? 1 : 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
