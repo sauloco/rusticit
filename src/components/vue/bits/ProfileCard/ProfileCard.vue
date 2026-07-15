@@ -37,7 +37,18 @@
               </div>
             </div>
 
+            <a
+              v-if="contactHref"
+              class="pc-contact-btn"
+              :href="contactHref"
+              style="pointer-events: auto"
+              :aria-label="`Contact ${name || 'user'}`"
+            >
+              {{ contactText }}
+            </a>
+
             <button
+              v-else
               class="pc-contact-btn"
               @click="handleContactClick"
               style="pointer-events: auto"
@@ -79,6 +90,7 @@ interface Props {
   handle?: string;
   status?: string;
   contactText?: string;
+  contactHref?: string;
   showUserInfo?: boolean;
 }
 
@@ -97,6 +109,7 @@ const props = withDefaults(defineProps<Props>(), {
   handle: 'javicodes',
   status: 'Online',
   contactText: 'Contact',
+  contactHref: '',
   showUserInfo: true
 });
 
