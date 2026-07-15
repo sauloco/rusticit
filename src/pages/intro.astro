@@ -79,6 +79,8 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
   </header>
 
   <main class="relative z-10 px-6 pb-24">
+    <BookerIframe client:only="react" targetId="cal-booking-root" />
+
     <div class="max-w-3xl mx-auto">
 
       <!-- ── Hero ──────────────────────────────────────────────────────── -->
@@ -249,9 +251,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
             bg-charcoal/[0.03] dark:bg-offwhite/[0.03]
             p-10 flex flex-col items-center justify-center text-center gap-4
             min-h-[360px] relative
-          ">
-            <BookerIframe client:only="react" />
-          </div>
+          " id="cal-booking-root"></div>
         </div>
 
       </section>
