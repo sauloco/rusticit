@@ -178,12 +178,12 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={activeIndex}
-            aria-label={currentTestimonial.quote}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="text-xl md:text-2xl font-light leading-relaxed tracking-tight text-charcoal dark:text-offwhite"
           >
+            <span className="sr-only">{currentTestimonial.quote}</span>
             <SplitText text={currentTestimonial.quote} />
           </motion.blockquote>
         </AnimatePresence>
