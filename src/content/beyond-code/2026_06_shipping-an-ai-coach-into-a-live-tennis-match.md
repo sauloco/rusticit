@@ -43,7 +43,7 @@ The layers that made this manageable:
 - **Rate limiting at the policy layer** — 20 requests per IP per hour, enforced in a Strapi policy before the request ever reaches the model. A real match generates a bounded, predictable number of points; anything wildly outside that pattern isn't a tennis player.
 - **Hard input cap** — user messages are truncated to 500 characters server-side before they touch the prompt assembly pipeline. The app builds the prompt from structured match state; the user's free-text field is a small, bounded surface.
 - **Hard output cap** — `max_tokens: 150`. The model can't produce a thousand-token essay no matter what the user asks.
-- **Server-side everything** — the Cerebras API key lives in the server side and never touches the client. The server decides what constitutes a valid request. Obvious, and yet a remarkable number of public AI features skip it.
+- **Server-side everything** — the Cerebras API key lives on the server and never touches the client. The server decides what constitutes a valid request. Obvious, and yet a remarkable number of public AI features skip it.
 - **Cost alarms before cost surprises** — usage monitoring with thresholds, so anomalies show up as an alert, not as an invoice.
 
 The mental shift for teams: stop thinking "how do I add AI?" and start thinking "I'm about to run a metered public utility — who's allowed to draw from it, how much, and how do I know when something's wrong?"
