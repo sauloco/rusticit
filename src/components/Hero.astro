@@ -5,6 +5,7 @@ import ButtonCTA from "./ButtonCTA.astro";
 
 <section
         id="hero-section"
+        aria-labelledby="hero-title"
         class="relative w-full flex flex-col items-center justify-center min-h-[50vh] pb-16 overflow-visible"
 >
     <!-- Animated Glow Background (extends under navbar) -->
@@ -34,6 +35,7 @@ import ButtonCTA from "./ButtonCTA.astro";
             <Topbar/>
 
             <h1
+                    id="hero-title"
                     class="font-heading font-bold text-5xl md:text-7xl tracking-tight text-charcoal dark:text-white animate-fade-in-down"
             >
                 <span class="whitespace-nowrap">Senior full-stack</span> <span class="whitespace-nowrap">product engineering</span> for B2B SaaS teams with complex products
