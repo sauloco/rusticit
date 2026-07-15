@@ -14,6 +14,7 @@
             width="1024"
             height="863"
             loading="lazy"
+            decoding="async"
             @error="handleAvatarError"
           />
 
@@ -27,6 +28,7 @@
                   width="48"
                   height="48"
                   loading="lazy"
+                  decoding="async"
                   @error="handleMiniAvatarError"
                 />
               </div>
