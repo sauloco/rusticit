@@ -50,7 +50,7 @@ It is a way of reducing uncertainty.
 
 And a voice-based reporting tool is not just a convenience feature.
 
-It is a way of helping clinical information get captured more naturally and with less resistance from daily workload.
+It is a way of helping clinical information get captured more naturally and with less resistance from the daily workload.
 
 Both belong to the same broader idea:
 
