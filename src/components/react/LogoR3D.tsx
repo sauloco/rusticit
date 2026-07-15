@@ -90,7 +90,7 @@ function RLogo() {
 function Loader({svgSrc}: { svgSrc: string }) {
     return (
         <Html center>
-            <img src={svgSrc} alt="loader" style={{width: '100%', height: '100%', objectFit: 'contain'}}/>
+            <img src={svgSrc} alt="Loading RusticIT 3D logo" style={{width: '100%', height: '100%', objectFit: 'contain'}}/>
         </Html>
     )
 }
