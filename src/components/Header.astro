@@ -65,6 +65,7 @@ const links = [
                 type="button"
                 class="relative w-10 h-10 flex items-center justify-center text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
                 aria-label="Toggle menu"
+                aria-controls="mobile-menu"
                 aria-expanded="false"
             >
                 <!-- Hamburger icon -->
@@ -101,6 +102,8 @@ const links = [
             id="mobile-menu"
             class="grid transition-[grid-template-rows] duration-500 ease-out"
             style="grid-template-rows: 0fr;"
+            aria-hidden="true"
+            inert
         >
             <div class="overflow-hidden">
                 <div class="flex flex-col gap-1 pt-4 pb-2">
@@ -128,7 +131,7 @@ const links = [
 <!-- Backdrop overlay -->
 <div
     id="mobile-backdrop"
-    class="fixed inset-0 bg-offwhite/60 dark:bg-charcoal/60 backdrop-blur-sm z-[999] opacity-0 pointer-events-none transition-opacity duration-500 md:hidden"
+    class="fixed inset-0 bg-offwhite/60 dark:bg-charcoal/60 backdrop-blur-sm z-[999] opacity-0 pointer-events-none transition-opacity duration-500 lg:hidden"
 ></div>
 
 <script>
@@ -149,6 +152,8 @@ const links = [
             btn!.setAttribute("aria-expanded", String(isOpen));
 
             menu!.style.gridTemplateRows = isOpen ? "1fr" : "0fr";
+            menu!.setAttribute("aria-hidden", String(!isOpen));
+            menu!.inert = !isOpen;
 
             iconOpen!.style.opacity = isOpen ? "0" : "1";
             iconOpen!.style.transform = isOpen ? "scale(0.75) rotate(90deg)" : "scale(1) rotate(0)";
