@@ -2,10 +2,9 @@
 const {className} = Astro.props;
 ---
 <div
-    id="theme-toggle"
     class:list={[
         className,
-        "flex items-center gap-0.5 rounded-full border border-charcoal/15 dark:border-offwhite/15 bg-charcoal/5 dark:bg-offwhite/5 p-0.5"
+        "theme-toggle flex items-center gap-0.5 rounded-full border border-charcoal/15 dark:border-offwhite/15 bg-charcoal/5 dark:bg-offwhite/5 p-0.5"
     ]}
     role="group"
     aria-label="Color theme"
