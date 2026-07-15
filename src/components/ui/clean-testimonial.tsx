@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react"
+import { useState, useCallback, useRef, useEffect, useMemo } from "react"
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
 
 export interface TestimonialItem {
@@ -46,12 +46,13 @@ export function Testimonial({ testimonials }: TestimonialProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const testimonialImages = useMemo(() => testimonials.map((t) => t.avatar), [testimonials])
 
   useEffect(() => {
     setIsTouch(window.matchMedia("(pointer: coarse)").matches)
   }, [])
 
-  usePreloadImages(testimonials.map((t) => t.avatar))
+  usePreloadImages(testimonialImages)
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
