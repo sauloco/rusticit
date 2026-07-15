@@ -45,6 +45,8 @@
             banner.remove();
             return;
         }
+        if (banner.dataset.consentInitialized === 'true') return;
+        banner.dataset.consentInitialized = 'true';
 
         showBanner(banner);
 
