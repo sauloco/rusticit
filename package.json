@@ -14,7 +14,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
-		"check:spelling": "npx cspell --no-progress --no-summary \"src/**/*.{astro,md,ts,js,tsx,vue}\" \"public/*.{txt,svg}\" README.md package.json astro.config.mjs cspell.json",
+		"check:spelling": "npx cspell --no-progress --no-summary \"src/**/*.{astro,md,ts,js,tsx,vue}\" \"public/*.{txt,svg}\" README.md package.json astro.config.mjs cspell.json components.json jsrepo.config.ts tsconfig.json tailwind.config.js netlify.toml",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
