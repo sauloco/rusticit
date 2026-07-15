@@ -228,6 +228,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                 {/* Crimson accent line */}
                 <motion.div
                   className="absolute left-0 top-0 bottom-0 w-px bg-crimson"
+                  aria-hidden="true"
                   initial={{ scaleY: 0 }}
                   animate={{ scaleY: 1 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -245,7 +246,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         </motion.div>
 
         {/* Progress bar — track in offwhite/10, fill in purple-light → crimson gradient */}
-        <div className="mt-16 h-px bg-charcoal/10 dark:bg-offwhite/10 relative overflow-hidden">
+        <div className="mt-16 h-px bg-charcoal/10 dark:bg-offwhite/10 relative overflow-hidden" aria-hidden="true">
           <motion.div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-purple-light to-crimson"
             initial={{ width: "0%" }}

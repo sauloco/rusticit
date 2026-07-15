@@ -50,7 +50,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 							{year}
 						</button>
 					))}
-					<span class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1"></span>
+					<span class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1" aria-hidden="true"></span>
 					{allTags.map((tag) => (
 						<button type="button" data-filter="tag" data-value={tag} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
 							{tag}
