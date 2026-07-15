@@ -26,7 +26,6 @@ src/
 │   ├── Problem.astro
 │   ├── Outcomes.astro
 │   ├── AIIntegration.astro
-│   ├── Services.astro
 │   ├── SelectedWork.astro
 │   ├── Proof.astro
 │   ├── HowWeWork.astro
