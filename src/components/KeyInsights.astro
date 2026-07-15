@@ -54,11 +54,18 @@ function escapeHtml(text: string): string {
 		.replace(/'/g, '&#39;');
 }
 
+function isAllowedHref(href: string): boolean {
+	return href.startsWith('/') || href.startsWith('#') || /^https?:\/\//i.test(href) || /^mailto:/i.test(href);
+}
+
 function inlineMarkdown(text: string): string {
 	return escapeHtml(text)
+		.replace(/\[(.+?)\]\((.+?)\)/g, (_, label: string, href: string) => {
+			const trimmedHref = href.trim();
+			return isAllowedHref(trimmedHref) ? `<a href="${trimmedHref}">${label}</a>` : label;
+		})
 		.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-		.replace(/\*(.+?)\*/g, '<em>$1</em>')
-		.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+		.replace(/\*(.+?)\*/g, '<em>$1</em>');
 }
 ---
 
