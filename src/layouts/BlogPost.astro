@@ -19,7 +19,11 @@ type Props = CollectionEntry<'beyond-code'>['data'] & {
 };
 
 const { title, description, pubDate, updatedDate, heroImage, id, video, tags, body, relatedPosts, keyInsights } = Astro.props;
-const structuredDataImage = heroImage ? new URL(heroImage.src, Astro.site).href : undefined;
+const structuredDataImage = heroImage
+	? typeof heroImage === 'string'
+		? heroImage
+		: new URL(heroImage.src, Astro.site).href
+	: undefined;
 
 function readingTime(text: string | undefined): string {
 	if (!text) return '1 min';
