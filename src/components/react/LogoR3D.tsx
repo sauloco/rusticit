@@ -100,23 +100,33 @@ function Loader({svgSrc}: { svgSrc: string }) {
     )
 }
 
-export default function LogoR3D({svgSrc}: { svgSrc: string }) {
+interface LogoR3DProps {
+    svgSrc: string;
+    wrapperClassName?: string;
+}
+
+export default function LogoR3D({svgSrc, wrapperClassName}: LogoR3DProps) {
     return (
-        <Canvas
-            style={{background: 'transparent'}}
-            camera={{position: [0, 0, 5], fov: 45}}
-            gl={{alpha: true, antialias: true}}
-            dpr={[1, 1.5]}
+        <div
+            className={wrapperClassName}
+            style={{width: 520, height: 520, top: '40%', left: '80%', transform: 'translate(-50%, -50%)'}}
         >
-            <Suspense fallback={<Loader svgSrc={svgSrc}/>}>
-                <RLogo/>
-                <ambientLight intensity={3} color="#FFF707"/>
-                <directionalLight intensity={3.0} position={[0, 8, -10]} color="#f7f7f7"/>
-                <directionalLight intensity={3.0} position={[0, -8, 10]} color="#f7f7f7"/>
-                <directionalLight intensity={6.0} position={[-4, 4, 5]} color="#9c1de7"/>
-                <directionalLight intensity={5.0} position={[4, 4, 5]} color="#ff073a"/>
-                <Environment preset={"dawn"} backgroundBlurriness={100} environmentIntensity={0.5}/>
-            </Suspense>
-        </Canvas>
+            <Canvas
+                style={{background: 'transparent'}}
+                camera={{position: [0, 0, 5], fov: 45}}
+                gl={{alpha: true, antialias: true}}
+                dpr={[1, 1.5]}
+            >
+                <Suspense fallback={<Loader svgSrc={svgSrc}/>}>
+                    <RLogo/>
+                    <ambientLight intensity={3} color="#FFF707"/>
+                    <directionalLight intensity={3.0} position={[0, 8, -10]} color="#f7f7f7"/>
+                    <directionalLight intensity={3.0} position={[0, -8, 10]} color="#f7f7f7"/>
+                    <directionalLight intensity={6.0} position={[-4, 4, 5]} color="#9c1de7"/>
+                    <directionalLight intensity={5.0} position={[4, 4, 5]} color="#ff073a"/>
+                    <Environment preset={"dawn"} backgroundBlurriness={100} environmentIntensity={0.5}/>
+                </Suspense>
+            </Canvas>
+        </div>
     )
 }
