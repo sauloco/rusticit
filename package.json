@@ -23,7 +23,6 @@
 		"@astrojs/rss": "^4.0.15",
 		"@astrojs/sitemap": "^3.7.0",
 		"@astrojs/vue": "^5.1.4",
-		"@calcom/atoms": "^2.3.8",
 		"@calcom/embed-react": "^1.5.3",
 		"@lucide/astro": "^0.575.0",
 		"@mesh-gradient/vue": "^1.5.0",
