@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { SITE_TITLE } from "../consts";
 import HeaderLink from "./HeaderLink.astro";
 import ButtonCTA from "./ButtonCTA.astro";
 import logoDark from "../assets/rustic-logo-dark.svg";
@@ -25,8 +24,8 @@ const links = [
 >
     <nav class="flex gap-8 flex-row justify-between items-center">
         <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
-            <Image src={logoLight} alt={SITE_TITLE} class="dark:hidden" />
-            <Image src={logoDark} alt={SITE_TITLE} class="hidden dark:block" />
+            <Image src={logoLight} alt="" class="dark:hidden" />
+            <Image src={logoDark} alt="" class="hidden dark:block" />
         </a>
         <div class="flex flex-row gap-6 items-center text-sm font-sans font-medium">
             {links.map((link) => (
@@ -56,8 +55,8 @@ const links = [
         <!-- Top row: logo + theme toggle + hamburger -->
         <div class="flex items-center justify-between">
             <a href="/" class="max-w-[100px]" aria-label="RusticIT homepage">
-                <Image src={logoLight} alt={SITE_TITLE} class="dark:hidden" />
-                <Image src={logoDark} alt={SITE_TITLE} class="hidden dark:block" />
+                <Image src={logoLight} alt="" class="dark:hidden" />
+                <Image src={logoDark} alt="" class="hidden dark:block" />
             </a>
             <div class="flex items-center gap-2">
                 <ThemeToggle />
