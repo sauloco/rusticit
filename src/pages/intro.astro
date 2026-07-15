@@ -398,6 +398,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       errorEl.textContent = '';
       form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
       form.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
+      form.querySelectorAll('[aria-describedby="form-error"]').forEach(el => el.removeAttribute('aria-describedby'));
 
       // Validate text + email inputs
       const textInputs = form.querySelectorAll<HTMLInputElement>('input[type="text"][required], input[type="email"][required]');
@@ -409,6 +410,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
         if (empty || invalidEmail) {
           field.classList.add('invalid');
           field.setAttribute('aria-invalid', 'true');
+          field.setAttribute('aria-describedby', 'form-error');
           if (!firstInvalid) firstInvalid = field;
         }
       });
@@ -424,6 +426,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       if (missingRadio) {
         form.querySelectorAll<HTMLInputElement>(`input[name="${missingRadio}"]`).forEach(field => {
           field.setAttribute('aria-invalid', 'true');
+          field.setAttribute('aria-describedby', 'form-error');
         });
       }
 
@@ -467,6 +470,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       const clearInvalidState = () => {
         field.classList.remove('invalid');
         field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
       };
       field.addEventListener('input', clearInvalidState);
       field.addEventListener('change', clearInvalidState);
@@ -476,6 +480,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       field.addEventListener('change', () => {
         form.querySelectorAll<HTMLInputElement>(`input[name="${field.name}"]`).forEach(groupField => {
           groupField.removeAttribute('aria-invalid');
+          groupField.removeAttribute('aria-describedby');
         });
       });
     });
