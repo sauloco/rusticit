@@ -85,6 +85,9 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		}
 
 		buttons.forEach((btn) => {
+			if (btn.dataset.filterInitialized === 'true') return;
+			btn.dataset.filterInitialized = 'true';
+
 			btn.addEventListener('click', () => {
 				buttons.forEach((b) => {
 					b.classList.remove('active');
