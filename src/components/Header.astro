@@ -150,6 +150,8 @@ const links = [
         const navLinks = document.querySelectorAll<HTMLElement>(".mobile-nav-link");
 
         if (!btn || !menu || !backdrop || !iconOpen || !iconClose) return;
+        if (btn.dataset.mobileMenuInitialized === "true") return;
+        btn.dataset.mobileMenuInitialized = "true";
 
         let isOpen = false;
 
