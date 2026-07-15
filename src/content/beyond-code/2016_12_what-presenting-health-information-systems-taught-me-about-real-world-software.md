@@ -41,4 +41,4 @@ It was about learning to see software as part of a bigger system — one made of
 
 For me, that lesson never stopped being relevant.
 
-Backlink: [Olavarría en las Jornadas Universitarias de Sistemas de Información en Salud](https://lu32.com.ar/locales/olavarria-en-las-jornadas-universitarias-de-sistemas-de-informacion-en-salud_a6837af927af5dba70a5f0b1d)
+Source: [Olavarría en las Jornadas Universitarias de Sistemas de Información en Salud](https://lu32.com.ar/locales/olavarria-en-las-jornadas-universitarias-de-sistemas-de-informacion-en-salud_a6837af927af5dba70a5f0b1d)
