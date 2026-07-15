@@ -105,7 +105,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
         <ul class="flex flex-col gap-5">
           {trustSignals.map(item => (
             <li class="flex items-start gap-4">
-              <span class="font-mono text-[10px] text-purple-light mt-[5px] shrink-0 leading-none">{item.icon}</span>
+              <span class="font-mono text-[10px] text-purple-light mt-[5px] shrink-0 leading-none" aria-hidden="true">{item.icon}</span>
               <span class="text-charcoal/80 dark:text-offwhite/75 text-sm md:text-base leading-snug">{item.text}</span>
             </li>
           ))}
@@ -229,7 +229,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
         <div id="booking-block" class="hidden">
           <div class="mb-8">
             <div class="flex items-center gap-3 mb-4">
-              <span class="w-6 h-6 rounded-full bg-crimson/15 flex items-center justify-center text-crimson text-xs font-bold">✓</span>
+              <span class="w-6 h-6 rounded-full bg-crimson/15 flex items-center justify-center text-crimson text-xs font-bold" aria-hidden="true">✓</span>
               <span class="font-heading font-semibold text-lg text-charcoal dark:text-offwhite">Thanks — pick a time that works for you.</span>
             </div>
             <p class="text-charcoal/55 dark:text-offwhite/50 text-sm pl-9">
