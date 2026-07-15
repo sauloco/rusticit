@@ -21,7 +21,7 @@ function usePreloadImages(images: string[]) {
 function SplitText({ text }: { text: string }) {
   const words = text.split(" ")
   return (
-    <span className="inline">
+    <span className="inline" aria-hidden="true">
       {words.map((word, i) => (
         <motion.span
           key={i}
@@ -178,6 +178,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={activeIndex}
+            aria-label={currentTestimonial.quote}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
