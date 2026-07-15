@@ -2,7 +2,7 @@
 title: 'Before product, frontend, and engineering platforms, there was accessibility'
 description: 'One of my earliest experiences with software was helping build accessibility-focused tools for people with disabilities — an experience that shaped how I think about communication, inclusion, and real-world product design.'
 pubDate: 'Dec 10 2007'
-tags: ['student', 'ASL']
+tags: ['student', 'LSA']
 heroImage: https://images.pexels.com/photos/1337372/pexels-photo-1337372.jpeg
 ---
 
