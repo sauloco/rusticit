@@ -82,10 +82,10 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
     <div class="max-w-3xl mx-auto">
 
       <!-- ── Hero ──────────────────────────────────────────────────────── -->
-      <section class="pt-16 pb-20 md:pt-24 md:pb-28">
+      <section class="pt-16 pb-20 md:pt-24 md:pb-28" aria-labelledby="intro-hero-title">
 
 
-        <h1 class="font-heading font-black leading-[1.05] tracking-tight text-charcoal dark:text-offwhite mb-6" style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
+        <h1 id="intro-hero-title" class="font-heading font-black leading-[1.05] tracking-tight text-charcoal dark:text-offwhite mb-6" style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
           Product complexity is<br/>
           <span class="relative inline-block">
             slowing delivery
@@ -101,7 +101,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       </section>
 
       <!-- ── Trust signals ──────────────────────────────────────────────── -->
-      <section class="pb-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
+      <section class="pb-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12" aria-label="Trust signals">
         <ul class="flex flex-col gap-5">
           {trustSignals.map(item => (
             <li class="flex items-start gap-4">
@@ -113,11 +113,11 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       </section>
 
       <!-- ── Qualifier form ─────────────────────────────────────────────── -->
-      <section id="qualifier" class="scroll-mt-8">
+      <section id="qualifier" class="scroll-mt-8" aria-labelledby="qualifier-title">
 
         <div id="form-block">
           <div class="mb-10">
-            <h2 class="font-heading font-bold text-2xl md:text-3xl text-charcoal dark:text-offwhite mb-2">
+            <h2 id="qualifier-title" class="font-heading font-bold text-2xl md:text-3xl text-charcoal dark:text-offwhite mb-2">
               Tell me about your situation
             </h2>
             <p class="text-charcoal/55 dark:text-offwhite/50 text-sm">
