@@ -167,7 +167,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
       </motion.div>
 
       {/* Main content */}
-      <div className="relative">
+      <div className="relative" aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={activeIndex}
