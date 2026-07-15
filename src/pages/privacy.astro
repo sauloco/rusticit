@@ -149,35 +149,35 @@ const lastUpdated = "March 27, 2026";
 
         </div>
     </div>
+
+    <script>
+        function initConsentWithdrawal() {
+            const button = document.getElementById('revoke-consent');
+
+            if (!button || button.dataset.revokeInitialized === 'true') return;
+            button.dataset.revokeInitialized = 'true';
+
+            button.addEventListener('click', () => {
+                localStorage.removeItem('rusticit_consent');
+                const banner = document.getElementById('consent-banner');
+                const message = document.getElementById('revoke-msg');
+
+                if (message) {
+                    message.textContent = banner
+                        ? 'Done — the consent banner will reappear below.'
+                        : 'Done — reloading this page to show the consent banner again.';
+                    message.classList.remove('hidden');
+                }
+
+                if (banner) {
+                    document.dispatchEvent(new Event('astro:page-load'));
+                } else {
+                    setTimeout(() => window.location.reload(), 500);
+                }
+            });
+        }
+
+        initConsentWithdrawal();
+        document.addEventListener('astro:page-load', initConsentWithdrawal);
+    </script>
 </Base>
-
-<script>
-    function initConsentWithdrawal() {
-        const button = document.getElementById('revoke-consent');
-
-        if (!button || button.dataset.revokeInitialized === 'true') return;
-        button.dataset.revokeInitialized = 'true';
-
-        button.addEventListener('click', () => {
-            localStorage.removeItem('rusticit_consent');
-            const banner = document.getElementById('consent-banner');
-            const message = document.getElementById('revoke-msg');
-
-            if (message) {
-                message.textContent = banner
-                    ? 'Done — the consent banner will reappear below.'
-                    : 'Done — reloading this page to show the consent banner again.';
-                message.classList.remove('hidden');
-            }
-
-            if (banner) {
-                document.dispatchEvent(new Event('astro:page-load'));
-            } else {
-                setTimeout(() => window.location.reload(), 500);
-            }
-        });
-    }
-
-    initConsentWithdrawal();
-    document.addEventListener('astro:page-load', initConsentWithdrawal);
-</script>
