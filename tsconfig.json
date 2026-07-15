@@ -13,9 +13,6 @@
     "paths": {
       "@components/*": [
         "./src/components/*"
-      ],
-      "@stores/*": [
-        "./src/stores/*"
       ]
     },
     "jsxImportSource": "react"
