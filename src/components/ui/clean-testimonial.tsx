@@ -78,17 +78,30 @@ export function Testimonial({ testimonials }: TestimonialProps) {
     }))
   }
 
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key !== "Enter" && e.key !== " ") return
+      e.preventDefault()
+      handleNext()
+    },
+    [activeIndex, testimonials],
+  )
+
   const currentTestimonial = testimonials[activeIndex]
 
   return (
     <div
       ref={containerRef}
+      role="button"
+      tabIndex={0}
+      aria-label="View next testimonial"
       className="relative w-full max-w-xl mx-auto py-20 px-8"
       style={{ cursor: "none" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleNext}
+      onKeyDown={handleKeyDown}
     >
       {/* Custom magnetic cursor — offwhite bubble, mix-blend flips it on dark bg */}
       {!isTouch && <motion.div
