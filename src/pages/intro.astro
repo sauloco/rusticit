@@ -464,8 +464,20 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
 
     // Live-clear invalid state on input
     form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('.field-input').forEach(field => {
-      field.addEventListener('input', () => field.classList.remove('invalid'));
-      field.addEventListener('change', () => field.classList.remove('invalid'));
+      const clearInvalidState = () => {
+        field.classList.remove('invalid');
+        field.removeAttribute('aria-invalid');
+      };
+      field.addEventListener('input', clearInvalidState);
+      field.addEventListener('change', clearInvalidState);
+    });
+
+    form.querySelectorAll<HTMLInputElement>('input[type="radio"][required]').forEach(field => {
+      field.addEventListener('change', () => {
+        form.querySelectorAll<HTMLInputElement>(`input[name="${field.name}"]`).forEach(groupField => {
+          groupField.removeAttribute('aria-invalid');
+        });
+      });
     });
   }
 </script>
