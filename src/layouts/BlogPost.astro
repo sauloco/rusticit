@@ -96,24 +96,24 @@ function readingTime(text: string | undefined): string {
 					<h1 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-charcoal dark:text-white leading-tight" transition:name={id ? `title-${id}` : undefined}>
 						{title}
 					</h1>
-					<div class="flex flex-wrap items-center gap-2" transition:name={id ? `date-${id}` : undefined}>
-						<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/50 dark:text-offwhite/50 border border-charcoal/20 dark:border-offwhite/20 rounded-full px-2.5 py-0.5">
+					<ul class="flex flex-wrap items-center gap-2 list-none p-0" transition:name={id ? `date-${id}` : undefined}>
+						<li class="font-mono text-[10px] uppercase tracking-widest text-charcoal/50 dark:text-offwhite/50 border border-charcoal/20 dark:border-offwhite/20 rounded-full px-2.5 py-0.5">
 							<FormattedDate date={pubDate} />
-						</span>
+						</li>
 						{updatedDate && (
-							<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5 italic">
+							<li class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5 italic">
 								Updated <FormattedDate date={updatedDate} />
-							</span>
+							</li>
 						)}
 						{tags?.map((tag) => (
-							<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
+							<li class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
 								{tag}
-							</span>
+							</li>
 						))}
-						<span class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
+						<li class="font-mono text-[10px] uppercase tracking-widest text-charcoal/40 dark:text-offwhite/40 border border-charcoal/15 dark:border-offwhite/15 rounded-full px-2.5 py-0.5">
 							{readingTime(body)}
-						</span>
-					</div>
+						</li>
+					</ul>
 				</div>
 
 				{heroImage && !video && (
