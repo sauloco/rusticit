@@ -64,7 +64,7 @@ const links = [
                 id="mobile-menu-btn"
                 type="button"
                 class="relative w-10 h-10 flex items-center justify-center text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
-                aria-label="Toggle menu"
+                aria-label="Open menu"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
             >
@@ -151,6 +151,7 @@ const links = [
         function setMenuOpen(nextOpen: boolean) {
             isOpen = nextOpen;
             btn!.setAttribute("aria-expanded", String(isOpen));
+            btn!.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 
             menu!.style.gridTemplateRows = isOpen ? "1fr" : "0fr";
             menu!.setAttribute("aria-hidden", String(!isOpen));
