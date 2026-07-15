@@ -155,25 +155,29 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
             <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
               <fieldset>
                 <legend class="field-label mb-4">Your role <span class="text-crimson">*</span></legend>
-                <div class="flex flex-wrap gap-3">
+                <ul class="flex flex-wrap gap-3">
                   {roles.map(opt => (
-                    <label class="radio-pill">
-                      <input type="radio" name="role" value={opt.value} required class="sr-only radio-input" />
-                      <span class="radio-label">{opt.label}</span>
-                    </label>
+                    <li>
+                      <label class="radio-pill">
+                        <input type="radio" name="role" value={opt.value} required class="sr-only radio-input" />
+                        <span class="radio-label">{opt.label}</span>
+                      </label>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </fieldset>
               <fieldset>
                 <legend class="field-label mb-4">Team size <span class="text-crimson">*</span></legend>
-                <div class="flex flex-wrap gap-3">
+                <ul class="flex flex-wrap gap-3">
                   {teamSizes.map(opt => (
-                    <label class="radio-pill">
-                      <input type="radio" name="team_size" value={opt.value} required class="sr-only radio-input" />
-                      <span class="radio-label">{opt.label}</span>
-                    </label>
+                    <li>
+                      <label class="radio-pill">
+                        <input type="radio" name="team_size" value={opt.value} required class="sr-only radio-input" />
+                        <span class="radio-label">{opt.label}</span>
+                      </label>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </fieldset>
             </div>
 
@@ -190,14 +194,16 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
             <!-- Timeline -->
             <fieldset>
               <legend class="field-label mb-4">When do you need help? <span class="text-crimson">*</span></legend>
-              <div class="flex flex-wrap gap-3">
+              <ul class="flex flex-wrap gap-3">
                 {timelines.map(opt => (
-                  <label class="radio-pill">
-                    <input type="radio" name="timeline" value={opt.value} required class="sr-only radio-input" />
-                    <span class="radio-label">{opt.label}</span>
-                  </label>
+                  <li>
+                    <label class="radio-pill">
+                      <input type="radio" name="timeline" value={opt.value} required class="sr-only radio-input" />
+                      <span class="radio-label">{opt.label}</span>
+                    </label>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </fieldset>
 
             <!-- Error message -->
