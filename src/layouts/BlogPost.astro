@@ -130,8 +130,8 @@ function readingTime(text: string | undefined): string {
 			</article>
 
 			{relatedPosts && relatedPosts.length > 0 && (
-				<section class="mt-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
-					<h2 class="font-heading font-bold text-xl text-charcoal dark:text-white mb-8 tracking-tight">Related articles</h2>
+				<section aria-labelledby="related-articles-title" class="mt-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
+					<h2 id="related-articles-title" class="font-heading font-bold text-xl text-charcoal dark:text-white mb-8 tracking-tight">Related articles</h2>
 					<div class="flex flex-col gap-6">
 						{relatedPosts.map((rp) => (
 							<PostCard post={rp} />
