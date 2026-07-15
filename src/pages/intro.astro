@@ -417,20 +417,23 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
 
       // Radio group checks
       const radioGroups = ['role', 'team_size', 'timeline'];
-      const missingRadio = radioGroups.find(
-        name => !form.querySelector(`input[name="${name}"]:checked`)
-      );
-      if (missingRadio && !firstInvalid) {
-        firstInvalid = form.querySelector(`input[name="${missingRadio}"]`);
-      }
-      if (missingRadio) {
-        form.querySelectorAll<HTMLInputElement>(`input[name="${missingRadio}"]`).forEach(field => {
+      let hasMissingRadio = false;
+      radioGroups.forEach((name) => {
+        const missingRadio = !form.querySelector(`input[name="${name}"]:checked`);
+        if (!missingRadio) return;
+
+        hasMissingRadio = true;
+        if (!firstInvalid) {
+          firstInvalid = form.querySelector(`input[name="${name}"]`);
+        }
+
+        form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`).forEach(field => {
           field.setAttribute('aria-invalid', 'true');
           field.setAttribute('aria-describedby', 'form-error');
         });
-      }
+      });
 
-      if (firstInvalid || missingRadio) {
+      if (firstInvalid || hasMissingRadio) {
         errorEl.textContent = 'Please fill in all required fields.';
         errorEl.classList.remove('hidden');
         (firstInvalid as HTMLElement | null)?.focus();
