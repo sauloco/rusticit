@@ -21,6 +21,7 @@ const widthClass = fullWidth ? "w-full sm:w-fit" : "w-fit";
     href={href}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label={`${label} (opens in a new tab)`}
     data-magnetic-cta={magnetic ? "true" : undefined}
     data-cta-location={location}
     class={`inline-flex items-center justify-center tracking-wide text-white bg-crimson hover:bg-crimson/90 transition-colors font-sans ${sizeClasses} ${widthClass}`}
