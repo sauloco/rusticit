@@ -18,7 +18,7 @@ Here are 10 things I've learned from implementing AI and observability in Entren
 
 ---
 
-## 1. AI features are only useful if they fit naturally into the product flow
+## Lesson 1: AI features are only useful if they fit naturally into the product flow
 
 One of the biggest mistakes teams make with AI is treating it like a separate layer.
 
@@ -39,7 +39,7 @@ The lesson is simple: **AI should feel embedded, not bolted on**.
 
 ---
 
-## 2. Good AI product design starts with data shape, not prompt creativity
+## Lesson 2: Good AI product design starts with data shape, not prompt creativity
 
 People love talking about prompts.
 
@@ -62,7 +62,7 @@ The better the structure, the better the output.
 
 ---
 
-## 3. Constraints make AI features better
+## Lesson 3: Constraints make AI features better
 
 A lot of weak AI products fail because they allow too much.
 
@@ -82,7 +82,7 @@ More freedom is not always a better UX.
 
 ---
 
-## 4. Observability should start before scale, not after problems appear
+## Lesson 4: Observability should start before scale, not after problems appear
 
 A lot of teams postpone analytics and error monitoring because they think they're "not there yet."
 
@@ -107,7 +107,7 @@ It is one of the fastest ways to make a product less blind.
 
 ---
 
-## 5. Not all errors deserve the same attention
+## Lesson 5: Not all errors deserve the same attention
 
 This one sounds obvious, but many teams still get it wrong.
 
@@ -128,7 +128,7 @@ The takeaway: **instrumentation without curation creates noise, not clarity**.
 
 ---
 
-## 6. Abuse appears faster than most teams expect
+## Lesson 6: Abuse appears faster than most teams expect
 
 One thing this sprint reinforced is how quickly a public product starts attracting unwanted behavior.
 
@@ -142,7 +142,7 @@ The lesson is simple: **the moment your product is public, abuse prevention and 
 
 ---
 
-## 7. Public forms are attack surfaces, even in small products
+## Lesson 7: Public forms are attack surfaces, even in small products
 
 It's easy to think spam protection can wait.
 
@@ -167,7 +167,7 @@ And boring discipline is underrated.
 
 ---
 
-## 8. Framework conventions are helpful until product reality pushes back
+## Lesson 8: Framework conventions are helpful until product reality pushes back
 
 One subtle but important detail in the form work was this: Strapi's core controller validates request bodies against the schema and rejects unknown keys.
 
@@ -185,7 +185,7 @@ That's where judgment matters more than dogma.
 
 ---
 
-## 9. Product analytics are only valuable when events map to real intent
+## Lesson 9: Product analytics are only valuable when events map to real intent
 
 I'm not a fan of analytics for analytics' sake.
 
@@ -214,7 +214,7 @@ When teams get that right, analytics becomes a decision tool instead of a report
 
 ---
 
-## 10. Backward compatibility is part of shipping discipline
+## Lesson 10: Backward compatibility is part of shipping discipline
 
 One of the quieter lessons in product work is that users don't care which version of your assumptions they are carrying.
 
