@@ -16,8 +16,6 @@
 		"ATEX",
 		"Babson",
 		"backoffice",
-		"Bento",
-		"bento",
 		"bgrotate",
 		"Cáceres",
 		"calcom",
@@ -41,16 +39,13 @@
 		"Exi's",
 		"Escuela",
 		"Firstmate",
-		"fract",
 		"Fortabat",
 		"frontmatter",
 		"Gallina",
 		"Gelmi",
 		"GLTF",
-		"Grainient",
 		"GSAP",
 		"Héctor",
-		"highp",
 		"Impressum",
 		"Información",
 		"ISIV",
@@ -63,7 +58,6 @@
 		"lerp",
 		"Leptos",
 		"leptos",
-		"luma",
 		"maccesch",
 		"Martín",
 		"Matías",
@@ -110,7 +104,6 @@
 		"Wilshire",
 		"workstreams",
 		"worktree",
-		"xlink",
-		"yoyo"
+		"xlink"
 	]
 }

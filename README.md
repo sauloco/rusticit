@@ -9,7 +9,7 @@ Built with **Astro 5**, **Tailwind CSS v4**, **Vue 3**, and **React 19**.
 - **Framework:** Astro 5 (SSG)
 - **Styling:** Tailwind CSS v4 via `@tailwindcss/vite`
 - **UI Frameworks:** Vue 3, React 19
-- **Animations:** Framer Motion, Motion-V, GSAP
+- **Animations:** Framer Motion
 - **3D:** Three.js, React Three Fiber
 - **Content:** Markdown/MDX with Astro content collections
 - **i18n:** English
