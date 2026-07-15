@@ -69,9 +69,9 @@ function inlineMarkdown(text: string): string {
 }
 ---
 
-<div class="not-prose my-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<ul class="not-prose my-12 grid grid-cols-1 sm:grid-cols-3 gap-4 list-none p-0">
 	{cards.map((card, i) => (
-		<div
+		<li
 			class={`relative overflow-hidden rounded-2xl ${card.gradient} p-6 flex flex-col justify-between min-h-[120px]`}
 			data-reveal="fade-up"
 			data-reveal-delay={String(i * 100)}
@@ -92,9 +92,9 @@ function inlineMarkdown(text: string): string {
 					</span>
 				)}
 			</span>
-		</div>
+		</li>
 	))}
-</div>
+</ul>
 
 <style>
 	.ki-card-0 { background: linear-gradient(to right, #9C1DE720, #581B9820); }
