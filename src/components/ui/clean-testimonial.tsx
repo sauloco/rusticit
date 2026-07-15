@@ -146,6 +146,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
       {/* Stacked avatar previews */}
       <motion.div
         className="absolute top-8 left-8 flex -space-x-2"
+        aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 0.6 }}
@@ -160,7 +161,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
             }`}
             whileHover={{ scale: 1.1, opacity: 1 }}
           >
-            <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+            <img src={t.avatar} alt="" className="w-full h-full object-cover" />
           </motion.div>
         ))}
       </motion.div>
@@ -196,7 +197,8 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                   <motion.img
                     key={t.avatar}
                     src={t.avatar}
-                    alt={t.author}
+                    alt={i === activeIndex ? `Portrait of ${t.author}` : ""}
+                    aria-hidden={i !== activeIndex}
                     className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
                     animate={{ opacity: i === activeIndex ? 1 : 0, zIndex: i === activeIndex ? 1 : 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
