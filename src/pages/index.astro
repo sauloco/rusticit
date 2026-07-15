@@ -51,6 +51,9 @@ import Logo3D from "../components/Logo3D.astro";
         const footer = document.querySelector('footer');
 
         if (wrapper && footer) {
+            if (wrapper.dataset.blurObserverInitialized === 'true') return;
+            wrapper.dataset.blurObserverInitialized = 'true';
+
             const thresholds = Array.from({ length: 21 }, (_, i) => i / 20);
             const observer = new IntersectionObserver(
                 ([entry]) => {
