@@ -1,6 +1,6 @@
 # Rustic IT
 
-Personal portfolio and blog site for Saulo Vargas — frontend developer.
+Site for Rustic IT — Saulo Vargas' senior full-stack product engineering & AI integration practice for B2B SaaS.
 
 Built with **Astro 5**, **Tailwind CSS v4**, **Vue 3**, and **React 19**.
 
@@ -10,32 +10,35 @@ Built with **Astro 5**, **Tailwind CSS v4**, **Vue 3**, and **React 19**.
 - **Styling:** Tailwind CSS v4 via `@tailwindcss/vite`
 - **UI Frameworks:** Vue 3, React 19
 - **Animations:** Framer Motion, Motion-V, GSAP
-- **3D:** Three.js, React Three Fiber
-- **Blog:** Markdown/MDX with content collections
-- **i18n:** English (default) + Spanish
+- **3D:** Three.js, React Three Fiber, TresJS
+- **Content:** Markdown/MDX via content collections (`beyond-code`)
+- **Locale:** English only
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── react/bits/     # React components (Lamp, MagnetLines, etc.)
-│   ├── vue/bits/       # Vue components (ProfileCard, GradualBlur, etc.)
+│   ├── react/          # React components (BookerIframe, etc.)
+│   ├── vue/bits/        # Vue components (BlurText, Carousel, ProfileCard, etc.)
+│   ├── ui/               # Shared UI primitives
 │   ├── Hero.astro
 │   ├── Problem.astro
-│   ├── Services.astro
+│   ├── Outcomes.astro
+│   ├── AIIntegration.astro
 │   ├── SelectedWork.astro
+│   ├── Proof.astro
 │   ├── HowWeWork.astro
 │   ├── IdealFit.astro
 │   ├── About.astro
 │   ├── FinalCTA.astro
+│   ├── Contact.astro
 │   ├── Header.astro
 │   └── Footer.astro
-├── content/blog/       # Blog posts (.md / .mdx)
-├── i18n/               # Translation strings and helpers
-├── layouts/            # Base.astro, BlogPost.astro
-├── pages/              # Routes (index, blog, RSS)
-└── styles/global.css   # Global styles and @font-face declarations
+├── content/beyond-code/  # Long-form posts (.md / .mdx)
+├── layouts/              # Base.astro, BlogPost.astro
+├── pages/                # Routes: index, beyond-code, resume, presentador, refined-jw, RSS
+└── styles/global.css     # Global styles and @font-face declarations
 ```
 
 ## Commands
@@ -50,7 +53,7 @@ src/
 
 ## Landing Page Sections
 
-Hero → Problem → Services → Selected Work → How We Work → Ideal Fit → About → Final CTA → Footer
+Hero → Problem → Outcomes → AI Integration → Selected Work → Proof → How We Work → Ideal Fit → About → Final CTA → Contact → Footer
 
 ## License
 
