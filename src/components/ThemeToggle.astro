@@ -84,6 +84,9 @@ const {className} = Astro.props;
         setActive(pref);
 
         buttons.forEach((btn) => {
+            if (btn.dataset.themeInitialized === 'true') return;
+            btn.dataset.themeInitialized = 'true';
+
             btn.addEventListener('click', () => {
                 const newPref = btn.dataset.themeBtn!;
                 try {
@@ -95,9 +98,12 @@ const {className} = Astro.props;
             });
         });
 
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            if (getStoredTheme() === 'system') applyTheme('system');
-        });
+        if (!(window as any).__themeMediaListenerInitialized) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (getStoredTheme() === 'system') applyTheme('system');
+            });
+            (window as any).__themeMediaListenerInitialized = true;
+        }
     }
 
     document.addEventListener('astro:page-load', initToggle);
