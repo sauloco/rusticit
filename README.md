@@ -31,8 +31,8 @@ src/
 │   ├── HowWeWork.astro
 │   ├── IdealFit.astro
 │   ├── About.astro
-│   ├── Contact.astro
 │   ├── FinalCTA.astro
+│   ├── Contact.astro
 │   ├── Header.astro
 │   └── Footer.astro
 ├── content/beyond-code/ # Beyond Code posts (.md / .mdx)
@@ -55,7 +55,7 @@ src/
 
 ## Landing Page Sections
 
-Hero -> Problem -> Outcomes -> AI Integration -> Selected Work -> Proof -> How We Work -> Ideal Fit -> About -> Final CTA -> Contact -> Footer
+Hero -> Problem -> Outcomes -> AI Integration -> Selected Work -> Proof -> How I Work -> Ideal Fit -> About -> Final CTA -> Contact -> Footer
 
 ## License
 
