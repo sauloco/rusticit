@@ -62,11 +62,13 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 				</p>
 			</div>
 
-			<div class="flex flex-col gap-6" id="posts-list">
+			<ul class="flex flex-col gap-6 list-none p-0" id="posts-list">
 				{posts.map((post) => (
-					<PostCard post={post} />
+					<li>
+						<PostCard post={post} />
+					</li>
 				))}
-			</div>
+			</ul>
 			</main>
 			<Footer />
 			<ConsentBanner />
