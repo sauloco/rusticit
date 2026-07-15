@@ -160,8 +160,19 @@
     document.addEventListener("astro:page-load", () => {
         if (localStorage.getItem("rusticit_consent") === "granted") {
             runTracking();
-        } else {
-            window.addEventListener("rusticit:consent-granted", () => runTracking(), { once: true });
+            return;
         }
+
+        if ((window as any)._visitorTrackerConsentListenerInitialized) return;
+        (window as any)._visitorTrackerConsentListenerInitialized = true;
+
+        window.addEventListener(
+            "rusticit:consent-granted",
+            () => {
+                (window as any)._visitorTrackerConsentListenerInitialized = false;
+                runTracking();
+            },
+            { once: true }
+        );
     });
 </script>

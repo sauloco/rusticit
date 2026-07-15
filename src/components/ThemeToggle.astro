@@ -2,19 +2,18 @@
 const {className} = Astro.props;
 ---
 <div
-    id="theme-toggle"
     class:list={[
         className,
-        "flex items-center gap-0.5 rounded-full border border-charcoal/15 dark:border-offwhite/15 bg-charcoal/5 dark:bg-offwhite/5 p-0.5"
+        "theme-toggle flex items-center gap-0.5 rounded-full border border-charcoal/15 dark:border-offwhite/15 bg-charcoal/5 dark:bg-offwhite/5 p-0.5"
     ]}
     role="group"
     aria-label="Color theme"
 >
     <!-- Light -->
-    <button data-theme-btn="light" aria-label="Light mode"
+    <button type="button" data-theme-btn="light" aria-label="Light mode" aria-pressed="false"
             class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-             stroke-linecap="round">
+             stroke-linecap="round" aria-hidden="true" focusable="false">
             <circle cx="12" cy="12" r="4"/>
             <line x1="12" y1="2" x2="12" y2="5"/>
             <line x1="12" y1="19" x2="12" y2="22"/>
@@ -27,20 +26,20 @@ const {className} = Astro.props;
         </svg>
     </button>
     <!-- System -->
-    <button data-theme-btn="system" aria-label="System mode"
+    <button type="button" data-theme-btn="system" aria-label="System mode" aria-pressed="false"
             class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-             stroke-linecap="round">
+             stroke-linecap="round" aria-hidden="true" focusable="false">
             <rect x="2" y="3" width="20" height="14" rx="2"/>
             <line x1="8" y1="21" x2="16" y2="21"/>
             <line x1="12" y1="17" x2="12" y2="21"/>
         </svg>
     </button>
     <!-- Dark -->
-    <button data-theme-btn="dark" aria-label="Dark mode"
+    <button type="button" data-theme-btn="dark" aria-label="Dark mode" aria-pressed="false"
             class="theme-btn w-7 h-7 rounded-full flex items-center justify-center">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-             stroke-linecap="round">
+             stroke-linecap="round" aria-hidden="true" focusable="false">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
     </button>
@@ -76,13 +75,18 @@ const {className} = Astro.props;
 
         function setActive(active: string): void {
             buttons.forEach((btn) => {
-                btn.classList.toggle('theme-btn-active', btn.dataset.themeBtn === active);
+                const isActive = btn.dataset.themeBtn === active;
+                btn.classList.toggle('theme-btn-active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
             });
         }
 
         setActive(pref);
 
         buttons.forEach((btn) => {
+            if (btn.dataset.themeInitialized === 'true') return;
+            btn.dataset.themeInitialized = 'true';
+
             btn.addEventListener('click', () => {
                 const newPref = btn.dataset.themeBtn!;
                 try {
@@ -94,9 +98,12 @@ const {className} = Astro.props;
             });
         });
 
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-            if (getStoredTheme() === 'system') applyTheme('system');
-        });
+        if (!(window as any).__themeMediaListenerInitialized) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                if (getStoredTheme() === 'system') applyTheme('system');
+            });
+            (window as any).__themeMediaListenerInitialized = true;
+        }
     }
 
     document.addEventListener('astro:page-load', initToggle);

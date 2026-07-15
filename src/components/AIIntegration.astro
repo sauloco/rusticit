@@ -19,16 +19,16 @@ const useCases = [
 ];
 ---
 
-<section id="ai-integration" class="relative z-30 py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal border-t border-charcoal/5 dark:border-offwhite/5 overflow-hidden">
+<section id="ai-integration" aria-labelledby="ai-integration-title" class="relative z-30 py-24 md:py-32 w-full bg-offwhite dark:bg-charcoal border-t border-charcoal/5 dark:border-offwhite/5 overflow-hidden">
     <!-- Subtle glow -->
-    <div class="absolute inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
         <div class="absolute top-[10%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-purple-dark opacity-20 dark:opacity-60 blur-[120px]"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-16 flex flex-col gap-12">
 
         <div class="flex flex-col gap-4 max-w-3xl">
-            <h2 class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-charcoal dark:text-white">
+            <h2 id="ai-integration-title" class="font-heading font-bold text-3xl md:text-5xl tracking-tight text-charcoal dark:text-white">
                 AI integrated into your product and processes
             </h2>
             <p class="font-sans text-xl text-charcoal/80 dark:text-offwhite/80 leading-relaxed">
@@ -43,21 +43,24 @@ const useCases = [
             <p class="font-mono text-xs uppercase tracking-widest text-charcoal/50 dark:text-offwhite/50">
                 Where AI usually pays off in B2B SaaS
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((item, i) => (
-                    <div
-                        data-reveal="fade-right"
-                        data-reveal-delay={String(i * 80)}
-                        class="flex items-start gap-4 bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-6 py-5 hover:border-purple-light/30 transition-colors"
-                    >
-                        <span class="text-purple-light font-bold mt-0.5 shrink-0">→</span>
-                        <div class="flex flex-col gap-1">
-                            <span class="font-sans font-semibold text-charcoal dark:text-white text-base">{item.label}</span>
-                            <span class="font-sans text-charcoal/60 dark:text-offwhite/60 text-sm leading-relaxed">{item.body}</span>
-                        </div>
-                    </div>
+                    <li class="h-full">
+                        <article
+                            aria-labelledby={`ai-use-case-${i + 1}-title`}
+                            data-reveal="fade-right"
+                            data-reveal-delay={String(i * 80)}
+                            class="flex h-full items-start gap-4 bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-6 py-5 hover:border-purple-light/30 transition-colors"
+                        >
+                            <span class="text-purple-light font-bold mt-0.5 shrink-0" aria-hidden="true">→</span>
+                            <div class="flex flex-col gap-1">
+                                <h3 id={`ai-use-case-${i + 1}-title`} class="font-sans font-semibold text-charcoal dark:text-white text-base">{item.label}</h3>
+                                <span class="font-sans text-charcoal/60 dark:text-offwhite/60 text-sm leading-relaxed">{item.body}</span>
+                            </div>
+                        </article>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
 
     </div>

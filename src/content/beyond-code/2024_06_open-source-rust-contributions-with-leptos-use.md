@@ -80,10 +80,10 @@ It reflected the same kind of thinking I value in product work: solve real probl
 
 This contribution was an important milestone for me because it made one thing much more concrete:
 
-my Rust experience had moved beyond curiosity and into proven collaboration.
+My Rust experience had moved beyond curiosity and into proven collaboration.
 
 Not only in private projects, but also in open source work that lives in public and contributes back to the ecosystem.
 
 That is the kind of experience I want more of:
 
-practical, well-grounded, ecosystem-aware work that creates value both for products and for the developers building them.
+Practical, well-grounded, ecosystem-aware work that creates value both for products and for the developers building them.

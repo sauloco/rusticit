@@ -1,8 +1,8 @@
 ---
 const text = "For B2B SaaS teams in EU, UK, and US · Async-friendly · Contractor-ready";
 ---
-<div class="topbar-pill inline-flex w-fit items-center rounded-full border border-charcoal/10 dark:border-offwhite/10 bg-charcoal/5 dark:bg-offwhite/5 px-4 py-1.5 animate-fade-in-down" tabindex="0" role="text">
-    <span class="flex h-2 w-2 rounded-full bg-purple-light mr-3 animate-pulse"></span>
+<div class="topbar-pill inline-flex w-fit items-center rounded-full border border-charcoal/10 dark:border-offwhite/10 bg-charcoal/5 dark:bg-offwhite/5 px-4 py-1.5 animate-fade-in-down">
+    <span class="flex h-2 w-2 rounded-full bg-purple-light mr-3 animate-pulse" aria-hidden="true"></span>
     <p class="font-sans text-xs md:text-sm font-medium text-charcoal/80 dark:text-offwhite/80 tracking-wide uppercase">
         {text}
     </p>
@@ -13,20 +13,18 @@ const text = "For B2B SaaS teams in EU, UK, and US · Async-friendly · Contract
         transition: transform 140ms ease-out, box-shadow 140ms ease-out;
         cursor: default;
     }
-    .topbar-pill:hover,
-    .topbar-pill:focus-visible {
+    .topbar-pill:hover {
         transform: translateY(-1px) scale(1.01);
         box-shadow: 0 0 14px 0px rgba(156, 29, 231, 0.22);
         outline: none;
     }
-    .topbar-pill:not(:hover):not(:focus-visible) {
+    .topbar-pill:not(:hover) {
         transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
     }
     @media (prefers-reduced-motion: reduce) {
         .topbar-pill,
         .topbar-pill:hover,
-        .topbar-pill:focus-visible,
-        .topbar-pill:not(:hover):not(:focus-visible) {
+        .topbar-pill:not(:hover) {
             transition: none;
             transform: none;
             box-shadow: none;

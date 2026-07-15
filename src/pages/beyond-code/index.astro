@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
+import ConsentBanner from '../../components/ConsentBanner.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import PostCard from '../../components/PostCard.astro';
-import { SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('beyond-code', (post) => !post.data.private)).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -21,7 +21,7 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		<script is:inline>
 			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
 		</script>
-		<BaseHead title={`Beyond Code — ${SITE_TITLE}`} description="Thoughts on full-stack product engineering, product thinking, and the craft behind real-world software." />
+		<BaseHead title="Beyond Code — RusticIT" description="Thoughts on full-stack product engineering, product thinking, and the craft behind real-world software." />
 	</head>
 	<body class="bg-offwhite dark:bg-charcoal min-h-screen">
 		<Header />
@@ -40,36 +40,43 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 
 			<!-- Filters -->
 			<div class="flex flex-col gap-4 mb-8">
-				<div class="flex flex-wrap gap-2 items-center">
-					<button data-filter="all" class="filter-btn active font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-						All
-					</button>
+				<ul class="flex flex-wrap gap-2 items-center list-none p-0">
+					<li>
+						<button type="button" data-filter="all" aria-pressed="true" class="filter-btn active font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+							All
+						</button>
+					</li>
 					{allYears.map((year) => (
-						<button data-filter="year" data-value={year} class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-							{year}
-						</button>
+						<li>
+							<button type="button" data-filter="year" data-value={year} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+								{year}
+							</button>
+						</li>
 					))}
-					<span class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1"></span>
+					<li class="w-px h-4 bg-charcoal/20 dark:bg-offwhite/20 mx-1" aria-hidden="true"></li>
 					{allTags.map((tag) => (
-						<button data-filter="tag" data-value={tag} class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
-							{tag}
-						</button>
+						<li>
+							<button type="button" data-filter="tag" data-value={tag} aria-pressed="false" class="filter-btn font-mono text-xs uppercase tracking-widest border rounded-full px-3 py-1 transition-colors">
+								{tag}
+							</button>
+						</li>
 					))}
-				</div>
-				<p id="post-count" class="font-mono text-xs text-charcoal/40 dark:text-offwhite/40">
+				</ul>
+				<p id="post-count" aria-live="polite" aria-atomic="true" class="font-mono text-xs text-charcoal/40 dark:text-offwhite/40">
 					{posts.length} articles
 				</p>
 			</div>
 
-			<div class="flex flex-col gap-6" id="posts-list">
+			<ul class="flex flex-col gap-6 list-none p-0" id="posts-list">
 				{posts.map((post) => (
-					<PostCard post={post} />
+					<li>
+						<PostCard post={post} />
+					</li>
 				))}
-			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+			</ul>
+			</main>
+			<Footer />
+			<ConsentBanner />
 
 <script>
 	document.addEventListener('astro:page-load', () => {
@@ -83,9 +90,16 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		}
 
 		buttons.forEach((btn) => {
+			if (btn.dataset.filterInitialized === 'true') return;
+			btn.dataset.filterInitialized = 'true';
+
 			btn.addEventListener('click', () => {
-				buttons.forEach((b) => b.classList.remove('active'));
+				buttons.forEach((b) => {
+					b.classList.remove('active');
+					b.setAttribute('aria-pressed', 'false');
+				});
 				btn.classList.add('active');
+				btn.setAttribute('aria-pressed', 'true');
 
 				const filter = btn.dataset.filter;
 				const value = btn.dataset.value;
@@ -135,3 +149,5 @@ const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 		background: rgb(247 247 247 / 0.1);
 	}
 </style>
+		</body>
+	</html>

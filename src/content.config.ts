@@ -6,10 +6,11 @@ const beyondCode = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
+			seoTitle: z.string().optional(),
 			description: z.string(),
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			heroImage: image().optional(),
+			heroImage: z.union([image(), z.string().url()]).optional(),
 			private: z.boolean().optional(),
 			video: z.boolean().optional(),
 			tags: z.array(z.string()).optional(),

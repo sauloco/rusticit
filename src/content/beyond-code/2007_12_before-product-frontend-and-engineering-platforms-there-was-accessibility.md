@@ -1,14 +1,15 @@
 ---
 title: 'Before product, frontend, and engineering platforms, there was accessibility'
+seoTitle: 'Before product and frontend, there was accessibility'
 description: 'One of my earliest experiences with software was helping build accessibility-focused tools for people with disabilities — an experience that shaped how I think about communication, inclusion, and real-world product design.'
 pubDate: 'Dec 10 2007'
-tags: ['student', 'ASL']
+tags: ['student', 'LSA']
 heroImage: https://images.pexels.com/photos/1337372/pexels-photo-1337372.jpeg
 ---
 
 Long before I was thinking about product strategy, frontend architecture, or engineering platforms, I was already learning one of the most important lessons software could teach me:
 
-technology matters most when it helps someone participate more fully in the world.
+Technology matters most when it helps someone participate more fully in the world.
 
 In 2007, I was part of the team behind **ABC+**, a software project developed at Escuela Técnica N.º 2 “Luciano Fortabat” in Olavarría. The project focused on accessibility for people with disabilities, and I worked on the module aimed at deaf users and Argentine Sign Language.
 

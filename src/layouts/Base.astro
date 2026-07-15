@@ -5,14 +5,21 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ConsentBanner from "../components/ConsentBanner.astro";
 
+interface Props {
+    title?: string;
+    description?: string;
+}
+
 const lang = Astro.currentLocale ?? 'en';
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
+<!doctype html>
 <html lang={lang}>
 <head>
     <script is:inline>
         (function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
     </script>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <BaseHead title={title} description={description}/>
 </head>
 <body class="text-charcoal bg-offwhite dark:text-offwhite dark:bg-charcoal font-sans antialiased selection:bg-purple-light/30">
     <Header/>

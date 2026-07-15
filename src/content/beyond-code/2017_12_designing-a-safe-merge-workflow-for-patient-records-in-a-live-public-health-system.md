@@ -1,5 +1,6 @@
 ---
 title: 'Designing a safe merge workflow for patient records in a live public health system'
+seoTitle: 'Designing a safe patient-record merge workflow'
 description: 'One of the hardest challenges I worked on in municipal health software was designing and implementing a safe workflow to detect, review, and merge duplicated patient records without downtime or data loss.'
 pubDate: 'Dec 18 2017'
 tags: ['career', 'healthcare']

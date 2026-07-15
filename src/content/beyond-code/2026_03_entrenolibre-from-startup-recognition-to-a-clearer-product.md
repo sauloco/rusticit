@@ -8,7 +8,7 @@ tags: ['founder', 'sports']
 
 [EntrenoLibre](https://entrenolibre.com) did not begin exactly as it exists today.
 
-Its first version was broader, more exploratory, and more startup-shaped. The idea at that stage was to build a sports-tech platform connecting trainers, clubs, and users through a mobile-first experience. That earlier phase ran actively from 2017 to 2021 and was recognized by Santander X, earning a place at Babson College’s StartUp JumpStart program. The public project summary on Darío Schmidt’s site also describes a 3-person team and explicitly lists [Darío Schmidt](https://darioschmidt.com), [Matías Cáceres](https://www.instagram.com/caceres_matias/), and Saulo Vargas as collaborators.  
+Its first version was broader, more exploratory, and more startup-shaped. The idea at that stage was to build a sports-tech platform connecting trainers, clubs, and users through a mobile-first experience. That earlier phase ran actively from 2017 to 2021 and was recognized by Santander X, earning a place at Babson College’s StartUp JumpStart program. The public project summary on Darío Schmidt’s site also describes a 3-person team and explicitly lists [Darío Schmidt](https://darioschmidt.com), [Matías Cáceres](https://www.instagram.com/caceres_matias/), and Saulo Vargas as collaborators.
 
 That stage mattered a lot.
 

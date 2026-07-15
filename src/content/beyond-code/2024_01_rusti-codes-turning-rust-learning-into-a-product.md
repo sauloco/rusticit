@@ -14,7 +14,7 @@ That is the spirit behind [**rusti.codes**](https://rusti.codes/).
 
 The idea was simple: turn daily coding practice into something lightweight, consistent, and directly useful for developers who want to improve their problem-solving skills while also getting better with Rust.
 
-Today, the site presents rusti.codes as a platform for **free daily Rust coding challenges**, delivered by email, with a **premium** option that includes full solutions, complexity analysis, and ready-to-run code. It is clearly positioned around helping people prepare for technical interviews through steady practice.  
+Today, the site presents rusti.codes as a platform for **free daily Rust coding challenges**, delivered by email, with a **premium** option that includes full solutions, complexity analysis, and ready-to-run code. It is clearly positioned around helping people prepare for technical interviews through steady practice.
 
 ## Why Rust
 
@@ -28,7 +28,7 @@ And it helps build a deeper mental model of how software actually works.
 
 That makes it a great language not only for systems programming, but also for sharpening the kind of thinking that technical interviews often reveal: problem decomposition, tradeoff awareness, and correctness under constraints.
 
-That is also why rusti.codes uses Rust as its core language. The site itself explains that choice in practical terms: Rust is presented as a readable and powerful language whose lessons can transfer to other languages, while also being widely used by major tech companies and valued in interviews.  
+That is also why rusti.codes uses Rust as its core language. The site itself explains that choice in practical terms: Rust is presented as a readable and powerful language whose lessons can transfer to other languages, while also being widely used by major tech companies and valued in interviews.
 
 ## A product built around consistency
 

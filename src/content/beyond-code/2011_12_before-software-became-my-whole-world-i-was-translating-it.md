@@ -2,7 +2,7 @@
 title: 'Before software became my whole world, I was translating it'
 description: 'How an early experience as a sign language interpreter shaped the way I think about communication, accessibility, and building software for real people.'
 pubDate: 'Dec 15 2011'
-tags: ['ASL']
+tags: ['LSA']
 heroImage: 'https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg'
 ---
 

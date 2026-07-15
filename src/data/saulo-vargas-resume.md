@@ -1,17 +1,17 @@
 # SAULO VARGAS
 
-Full Stack Web Developer — Product Engineering
+Full-Stack Web Developer — Product Engineering
 
 saulo@rusticit.com • +5492284556483 • Olavarría, Argentina • linkedin.com/in/saulovargas
 
 ## SUMMARY
 
-Full Stack Web Developer with 18+ years of experience building production software across industrial compliance, healthcare, dental imaging, SaaS, consumer, sports tech, and global-scale cross-platform applications. Deep frontend expertise in TypeScript, Vue, React, and Angular, with practical backend, database, API, and deployment experience. Most valuable in teams needing a senior hands-on engineer who can own implementation across the stack.
+Full-Stack Web Developer with 18+ years of experience building production software across industrial compliance, healthcare, dental imaging, SaaS, consumer, sports tech, and global-scale cross-platform applications. Deep frontend expertise in TypeScript, Vue, React, and Angular, with practical backend, database, API, and deployment experience. Most valuable in teams needing a senior hands-on engineer who can own implementation across the stack.
 
 ## EXPERIENCE
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full Stack Software Developer – Volunteer</strong><strong>November 2024 - Present</strong></div>
+<div class="entry-title-row"><strong>Full-Stack Software Developer – Volunteer</strong><strong>November 2024 - Present</strong></div>
 <div class="entry-sub-row"><em>Global Religious Organization — Confidential</em><em>US, Remote</em></div>
 </div>
 
@@ -20,7 +20,7 @@ Full Stack Web Developer with 18+ years of experience building production softwa
 - Shipping features for a platform in 1,120+ languages reaching tens of millions of users globally, within strict accessibility, i18n, and quality standards on a large distributed team.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full Stack Software Developer</strong><strong>December 2024 - April 2026</strong></div>
+<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>December 2024 - April 2026</strong></div>
 <div class="entry-sub-row"><em>Rösberg</em><em>Germany, Remote</em></div>
 </div>
 
@@ -29,16 +29,16 @@ Full Stack Web Developer with 18+ years of experience building production softwa
 - Built 20+ custom Angular item types for the LiveFORMS.web viewer, covering dates, photos, formulas, and other structured inputs.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Founder and Full Stack Web Developer</strong><strong>August 2019 - Present</strong></div>
+<div class="entry-title-row"><strong>Founder and Full-Stack Web Developer</strong><strong>August 2019 - Present</strong></div>
 <div class="entry-sub-row"><em>RusticIT</em><em>Argentina</em></div>
 </div>
 
 - Founded and led a product engineering company building customer portals, SaaS platforms, internal tools, and marketing websites for international clients.
 - Delivered 15+ projects per year across 5 countries; grew and coordinated a team of up to 7 people.
-- Built EntrenoLibre, an in-house sports-tech product for tournament organization, live scoring, and AI-assisted content generation.
+- Built EntrenoLibre, an in-house sports-tech product for tournament organization, live scoring, and an in-product AI coach for live tennis and padel matches.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full Stack Software Developer</strong><strong>April 2023 - December 2024</strong></div>
+<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>April 2023 - December 2024</strong></div>
 <div class="entry-sub-row"><em>Synphonyte</em><em>Germany, Remote</em></div>
 </div>
 
@@ -46,16 +46,16 @@ Full Stack Web Developer with 18+ years of experience building production softwa
 - Contributed to Leptos-Use, Synphonyte's open-source Rust/Leptos utility library for the broader Leptos ecosystem.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full Stack Software Developer</strong><strong>March 2022 - March 2023</strong></div>
+<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>March 2022 - March 2023</strong></div>
 <div class="entry-sub-row"><em>Ranker</em><em>US, Remote</em></div>
 </div>
 
-- Delivered pixel-perfect, animation-heavy features for WatchWorthy, a consumer mobile app for personalized TV and streaming recommendations.
+- Delivered pixel-perfect, animation-heavy features for Watchworthy, a consumer mobile app for personalized TV and streaming recommendations.
 - Implemented 10+ onboarding and recommendation features across Vue, Nuxt, Node.js, Sequelize, and Cytoscape.js.
 - Maintained design fidelity and consistent behavior across Android screen sizes and resolutions.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full Stack Software Developer</strong><strong>June 2018 - February 2022</strong></div>
+<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>June 2018 - February 2022</strong></div>
 <div class="entry-sub-row"><em>Synphonyte</em><em>Germany, Remote</em></div>
 </div>
 
@@ -64,7 +64,7 @@ Full Stack Web Developer with 18+ years of experience building production softwa
 - Created an internal Chrome extension to inspect rendered-view data flow, improving debugging and developer onboarding.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Lead Full Stack Developer</strong><strong>November 2008 - August 2018</strong></div>
+<div class="entry-title-row"><strong>Lead Full-Stack Developer</strong><strong>November 2008 - August 2018</strong></div>
 <div class="entry-sub-row"><em>Municipality of Olavarría</em><em>Olavarría, Argentina</em></div>
 </div>
 

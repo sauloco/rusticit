@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import BaseHead from "../components/BaseHead.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import LogoDark from '../assets/rustic-logo-dark.svg'
 import Logo from '../assets/rustic-logo-light.svg'
@@ -25,7 +26,7 @@ const timelines = [
 ];
 
 const trustSignals = [
-  { icon: "◆", text: "Senior frontend specialist — Vue, React, TypeScript" },
+  { icon: "◆", text: "Senior full-stack product engineer — Vue, React, TypeScript, Node.js, APIs, and AI integration" },
   { icon: "◆", text: "Experience on German engineering platforms, medical visualization, public-sector systems" },
   { icon: "◆", text: "No juniors. No agency layers. Direct collaboration." },
 ];
@@ -40,10 +41,9 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
   <script is:inline>
     (function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
   </script>
-  <title>{title}</title>
   <BaseHead
     title={title}
-    description="RusticIT helps B2B SaaS teams unblock frontend delivery. Senior execution, no layers, no guesswork. Book your free intro call today."
+    description="RusticIT helps B2B SaaS teams unblock full-stack product delivery. Senior execution, no layers, no guesswork. Book your free intro call today."
   />
 </head>
 
@@ -68,10 +68,10 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
   <!-- ── Top bar ─────────────────────────────────────────────────────────── -->
   <header class="relative z-10 px-6 py-5 flex items-center justify-between gap-4 max-w-3xl mx-auto">
     <div class="flex items-center gap-4">
-      <Image src={Logo} alt="RusticIT Logo" width={120} class="block dark:hidden"></Image>
-      <Image src={LogoDark} alt="RusticIT Logo" width={120} class="hidden dark:block"></Image>
+      <Image src={Logo} alt="RusticIT" width={120} class="block dark:hidden"></Image>
+      <Image src={LogoDark} alt="RusticIT" width={120} class="hidden dark:block"></Image>
       <div class="font-mono text-xs tracking-widest text-crimson mt-4 uppercase flex items-center gap-3">
-        <span class="w-8 h-px bg-crimson inline-block"></span>
+        <span class="w-8 h-px bg-crimson inline-block" aria-hidden="true"></span>
         Book your free 20-min intro call
       </div>
     </div>
@@ -79,19 +79,21 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
   </header>
 
   <main class="relative z-10 px-6 pb-24">
+    <BookerIframe client:only="react" targetId="cal-booking-root" />
+
     <div class="max-w-3xl mx-auto">
 
       <!-- ── Hero ──────────────────────────────────────────────────────── -->
-      <section class="pt-16 pb-20 md:pt-24 md:pb-28">
+      <section class="pt-16 pb-20 md:pt-24 md:pb-28" aria-labelledby="intro-hero-title">
 
 
-        <h1 class="font-heading font-black leading-[1.05] tracking-tight text-charcoal dark:text-offwhite mb-6" style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
-          Your frontend is<br/>
+        <h1 id="intro-hero-title" class="font-heading font-black leading-[1.05] tracking-tight text-charcoal dark:text-offwhite mb-6" style="font-size: clamp(2.4rem, 6vw, 4.5rem);">
+          Product complexity is<br/>
           <span class="relative inline-block">
-            slowing your
-            <span class="underline-grow absolute bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-crimson from-[90%] to-purple-light rounded-full opacity-80 -z-10"></span>
+            slowing delivery
+            <span class="underline-grow absolute bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-crimson from-[90%] to-purple-light rounded-full opacity-80 -z-10" aria-hidden="true"></span>
           </span><br/>
-          product down.
+          down.
         </h1>
 
         <p class="text-charcoal/65 dark:text-offwhite/60 font-sans text-lg md:text-xl leading-relaxed max-w-xl mb-12">
@@ -101,11 +103,11 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       </section>
 
       <!-- ── Trust signals ──────────────────────────────────────────────── -->
-      <section class="pb-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
+      <section class="pb-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12" aria-label="Trust signals">
         <ul class="flex flex-col gap-5">
           {trustSignals.map(item => (
             <li class="flex items-start gap-4">
-              <span class="font-mono text-[10px] text-purple-light mt-[5px] shrink-0 leading-none">{item.icon}</span>
+              <span class="font-mono text-[10px] text-purple-light mt-[5px] shrink-0 leading-none" aria-hidden="true">{item.icon}</span>
               <span class="text-charcoal/80 dark:text-offwhite/75 text-sm md:text-base leading-snug">{item.text}</span>
             </li>
           ))}
@@ -113,11 +115,11 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       </section>
 
       <!-- ── Qualifier form ─────────────────────────────────────────────── -->
-      <section id="qualifier" class="scroll-mt-8">
+      <section id="qualifier" class="scroll-mt-8" aria-labelledby="qualifier-title">
 
         <div id="form-block">
           <div class="mb-10">
-            <h2 class="font-heading font-bold text-2xl md:text-3xl text-charcoal dark:text-offwhite mb-2">
+            <h2 id="qualifier-title" class="font-heading font-bold text-2xl md:text-3xl text-charcoal dark:text-offwhite mb-2">
               Tell me about your situation
             </h2>
             <p class="text-charcoal/55 dark:text-offwhite/50 text-sm">
@@ -155,49 +157,55 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
             <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
               <fieldset>
                 <legend class="field-label mb-4">Your role <span class="text-crimson">*</span></legend>
-                <div class="flex flex-wrap gap-3">
+                <ul class="flex flex-wrap gap-3">
                   {roles.map(opt => (
-                    <label class="radio-pill">
-                      <input type="radio" name="role" value={opt.value} required class="sr-only radio-input" />
-                      <span class="radio-label">{opt.label}</span>
-                    </label>
+                    <li>
+                      <label class="radio-pill">
+                        <input type="radio" name="role" value={opt.value} required class="sr-only radio-input" />
+                        <span class="radio-label">{opt.label}</span>
+                      </label>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </fieldset>
               <fieldset>
                 <legend class="field-label mb-4">Team size <span class="text-crimson">*</span></legend>
-                <div class="flex flex-wrap gap-3">
+                <ul class="flex flex-wrap gap-3">
                   {teamSizes.map(opt => (
-                    <label class="radio-pill">
-                      <input type="radio" name="team_size" value={opt.value} required class="sr-only radio-input" />
-                      <span class="radio-label">{opt.label}</span>
-                    </label>
+                    <li>
+                      <label class="radio-pill">
+                        <input type="radio" name="team_size" value={opt.value} required class="sr-only radio-input" />
+                        <span class="radio-label">{opt.label}</span>
+                      </label>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </fieldset>
             </div>
 
             <!-- Challenge -->
             <div class="field-group">
               <label for="challenge" class="field-label">
-                Biggest frontend challenge right now <span class="text-crimson">*</span>
+                Biggest product delivery challenge right now <span class="text-crimson">*</span>
               </label>
               <input id="challenge" name="challenge" type="text" required
-                     placeholder="e.g. slow delivery, unmaintainable codebase, no TypeScript…"
+                     placeholder="e.g. slow delivery, fragile APIs, messy workflows..."
                      class="field-input" />
             </div>
 
             <!-- Timeline -->
             <fieldset>
               <legend class="field-label mb-4">When do you need help? <span class="text-crimson">*</span></legend>
-              <div class="flex flex-wrap gap-3">
+              <ul class="flex flex-wrap gap-3">
                 {timelines.map(opt => (
-                  <label class="radio-pill">
-                    <input type="radio" name="timeline" value={opt.value} required class="sr-only radio-input" />
-                    <span class="radio-label">{opt.label}</span>
-                  </label>
+                  <li>
+                    <label class="radio-pill">
+                      <input type="radio" name="timeline" value={opt.value} required class="sr-only radio-input" />
+                      <span class="radio-label">{opt.label}</span>
+                    </label>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </fieldset>
 
             <!-- Error message -->
@@ -217,7 +225,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
                         transition-all duration-150
                       ">
                 Continue to booking
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
@@ -226,26 +234,24 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
         </div>
 
         <!-- ── Booking widget (hidden until form submit) ──────────────── -->
-        <div id="booking-block" class="hidden">
+        <div id="booking-block" class="hidden" tabindex="-1" aria-labelledby="booking-heading">
           <div class="mb-8">
             <div class="flex items-center gap-3 mb-4">
-              <span class="w-6 h-6 rounded-full bg-crimson/15 flex items-center justify-center text-crimson text-xs font-bold">✓</span>
-              <span class="font-heading font-semibold text-lg text-charcoal dark:text-offwhite">Thanks — pick a time that works for you.</span>
+              <span class="w-6 h-6 rounded-full bg-crimson/15 flex items-center justify-center text-crimson text-xs font-bold" aria-hidden="true">✓</span>
+              <h2 id="booking-heading" class="font-heading font-semibold text-lg text-charcoal dark:text-offwhite">Thanks — pick a time that works for you.</h2>
             </div>
             <p class="text-charcoal/55 dark:text-offwhite/50 text-sm pl-9">
               20 minutes. No pitch deck, no fluff — just a direct conversation about your situation.
             </p>
           </div>
 
-          <!-- Cal.com embed placeholder -->
+          <!-- Cal.com booking embed -->
           <div class="
             rounded-xl border border-charcoal/10 dark:border-offwhite/10
             bg-charcoal/[0.03] dark:bg-offwhite/[0.03]
             p-10 flex flex-col items-center justify-center text-center gap-4
             min-h-[360px] relative
-          ">
-            <BookerIframe client:only="react" />
-          </div>
+          " id="cal-booking-root"></div>
         </div>
 
       </section>
@@ -258,7 +264,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
   <footer class="relative z-10 px-6 py-8 border-t border-charcoal/8 dark:border-offwhite/8">
     <div class="max-w-3xl mx-auto flex items-center justify-between gap-4 flex-wrap">
       <span class="font-mono text-xs text-charcoal/35 dark:text-offwhite/30">
-        © {new Date().getFullYear()} RusticIT · <a href="/privacy" class="hover:text-crimson transition-colors">Privacy</a>
+        © {new Date().getFullYear()} RusticIT · <a href="/privacy/" class="hover:text-crimson transition-colors">Privacy</a>
       </span>
       <a href="/" class="font-mono text-xs text-charcoal/35 dark:text-offwhite/30 hover:text-crimson dark:hover:text-crimson transition-colors">
         ← Back to rusticit.com
@@ -266,8 +272,7 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
     </div>
   </footer>
 
-</body>
-</html>
+  <ConsentBanner />
 
 <style>
   /* ── Underline grow animation ────────────────────────────────────────── */
@@ -387,6 +392,8 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
     const errorEl    = document.getElementById('form-error');
 
     if (!form || !formBlock || !booking || !errorEl) return;
+    if (form.dataset.introInitialized === 'true') return;
+    form.dataset.introInitialized = 'true';
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -395,6 +402,8 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       errorEl.classList.add('hidden');
       errorEl.textContent = '';
       form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+      form.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
+      form.querySelectorAll('[aria-describedby="form-error"]').forEach(el => el.removeAttribute('aria-describedby'));
 
       // Validate text + email inputs
       const textInputs = form.querySelectorAll<HTMLInputElement>('input[type="text"][required], input[type="email"][required]');
@@ -405,20 +414,31 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
         const invalidEmail = field.type === 'email' && field.value && !field.validity.valid;
         if (empty || invalidEmail) {
           field.classList.add('invalid');
+          field.setAttribute('aria-invalid', 'true');
+          field.setAttribute('aria-describedby', 'form-error');
           if (!firstInvalid) firstInvalid = field;
         }
       });
 
       // Radio group checks
       const radioGroups = ['role', 'team_size', 'timeline'];
-      const missingRadio = radioGroups.find(
-        name => !form.querySelector(`input[name="${name}"]:checked`)
-      );
-      if (missingRadio && !firstInvalid) {
-        firstInvalid = form.querySelector(`input[name="${missingRadio}"]`);
-      }
+      let hasMissingRadio = false;
+      radioGroups.forEach((name) => {
+        const missingRadio = !form.querySelector(`input[name="${name}"]:checked`);
+        if (!missingRadio) return;
 
-      if (firstInvalid || missingRadio) {
+        hasMissingRadio = true;
+        if (!firstInvalid) {
+          firstInvalid = form.querySelector(`input[name="${name}"]`);
+        }
+
+        form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`).forEach(field => {
+          field.setAttribute('aria-invalid', 'true');
+          field.setAttribute('aria-describedby', 'form-error');
+        });
+      });
+
+      if (firstInvalid || hasMissingRadio) {
         errorEl.textContent = 'Please fill in all required fields.';
         errorEl.classList.remove('hidden');
         (firstInvalid as HTMLElement | null)?.focus();
@@ -449,13 +469,31 @@ const title = "Book a Free 20-Min Intro Call — RusticIT"
       // Show booking widget
       formBlock.classList.add('hidden');
       booking.classList.remove('hidden');
+      booking.focus({ preventScroll: true });
       booking.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // Live-clear invalid state on input
     form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('.field-input').forEach(field => {
-      field.addEventListener('input', () => field.classList.remove('invalid'));
-      field.addEventListener('change', () => field.classList.remove('invalid'));
+      const clearInvalidState = () => {
+        field.classList.remove('invalid');
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+      };
+      field.addEventListener('input', clearInvalidState);
+      field.addEventListener('change', clearInvalidState);
+    });
+
+    form.querySelectorAll<HTMLInputElement>('input[type="radio"][required]').forEach(field => {
+      field.addEventListener('change', () => {
+        form.querySelectorAll<HTMLInputElement>(`input[name="${field.name}"]`).forEach(groupField => {
+          groupField.removeAttribute('aria-invalid');
+          groupField.removeAttribute('aria-describedby');
+        });
+      });
     });
   }
 </script>
+
+</body>
+</html>

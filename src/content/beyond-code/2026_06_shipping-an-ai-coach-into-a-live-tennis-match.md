@@ -1,5 +1,6 @@
 ---
 title: "Shipping an AI coach into a live tennis match: speed, guardrails, and knowing when to stop talking"
+seoTitle: 'Shipping an AI coach into a live tennis match'
 description: "What building the Match Flow AI coach taught me about putting LLMs in front of the public — where latency, cost, abuse, and human emotions are all part of the spec."
 pubDate: 'Jun 11 2026'
 heroImage: '../../assets/beyond-code/coach-2026.webp'
@@ -20,7 +21,7 @@ Most AI features die somewhere between the demo and production. The demo is easy
 
 That context — real time, public-facing, free, emotionally charged — forced a set of engineering decisions that I think are relatable to any team putting AI in front of users they don't control. Here's what mattered.
 
-## 1. Real time means designing around the model, not waiting for it
+## Lesson 1: Real time means designing around the model, not waiting for it
 
 In a match, the useful window for advice is the changeover or the seconds between points. If the insight arrives 20 seconds late, it's worthless. So latency wasn't a nice-to-have; it was the feature.
 
@@ -34,7 +35,7 @@ What worked:
 
 **Degrade gracefully.** If the Cerebras call fails for any reason, the UI shows "Coach connection lost. Try again later." and the match tracker keeps working normally. The core product never depends on the AI. That separation — *the AI is an enhancement, not a dependency* — is the single most underrated reliability pattern for AI features.
 
-## 2. Public + free + LLM = someone will try to abuse it
+## Lesson 2: Public + free + LLM = someone will try to abuse it
 
 The moment you expose an LLM in a free public app, you've effectively published an API to a paid resource. People will try to use your coach as their general-purpose chatbot, script requests against it, or just generate traffic you pay for.
 
@@ -43,12 +44,12 @@ The layers that made this manageable:
 - **Rate limiting at the policy layer** — 20 requests per IP per hour, enforced in a Strapi policy before the request ever reaches the model. A real match generates a bounded, predictable number of points; anything wildly outside that pattern isn't a tennis player.
 - **Hard input cap** — user messages are truncated to 500 characters server-side before they touch the prompt assembly pipeline. The app builds the prompt from structured match state; the user's free-text field is a small, bounded surface.
 - **Hard output cap** — `max_tokens: 150`. The model can't produce a thousand-token essay no matter what the user asks.
-- **Server-side everything** — the Cerebras API key lives in the server side and never touches the client. The server decides what constitutes a valid request. Obvious, and yet a remarkable number of public AI features skip it.
+- **Server-side everything** — the Cerebras API key lives on the server and never touches the client. The server decides what constitutes a valid request. Obvious, and yet a remarkable number of public AI features skip it.
 - **Cost alarms before cost surprises** — usage monitoring with thresholds, so anomalies show up as an alert, not as an invoice.
 
 The mental shift for teams: stop thinking "how do I add AI?" and start thinking "I'm about to run a metered public utility — who's allowed to draw from it, how much, and how do I know when something's wrong?"
 
-## 3. Guardrails are product scope, enforced
+## Lesson 3: Guardrails are product scope, enforced
 
 An AI coach inside a sports app should talk about the match. Not write essays, not give medical advice, not debate politics. Drift isn't just embarrassing — it's where cost, liability, and trust problems live.
 
@@ -62,7 +63,7 @@ The approach that held up:
 
 **Make the boundary part of the personality.** When something clearly out of scope comes up, the coach redirects naturally — back to the match — instead of producing a robotic refusal. Guardrails that feel like character get respected; guardrails that feel like a wall get adversarially probed.
 
-## 4. The hardest requirement: emotional support with a hard stop
+## Lesson 4: The hardest requirement: emotional support with a hard stop
 
 This is the part most AI feature plans never write down, and the part I'd argue matters most.
 
@@ -97,4 +98,4 @@ That's the real gap I see in most "we should add AI" conversations: not model ch
 
 ---
 
-*If you're trying to get an AI feature out of demo mode and into a real product — with real users, real costs, and real failure modes — that's exactly the kind of work I do. [Book a 20-min intro](https://cal.com/rusticit/20min) or [email me](mailto:saulo@rusticit.com).*
+*If you're trying to get an AI feature out of demo mode and into a real product — with real users, real costs, and real failure modes — that's exactly the kind of work I do. [Book a 20-min intro](https://cal.com/rusticit/20min) or [email me](mailto:info@rusticit.com).*

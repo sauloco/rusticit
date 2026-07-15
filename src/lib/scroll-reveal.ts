@@ -82,7 +82,7 @@ function injectStyles() {
 export function initScrollReveal() {
     injectStyles();
 
-    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]:not(.revealed)');
+    const elements = document.querySelectorAll<HTMLElement>('[data-reveal]:not(.revealed):not([data-reveal-observed])');
     if (!elements.length) return;
 
     // Group elements by threshold so we create fewer observers
@@ -93,6 +93,7 @@ export function initScrollReveal() {
         const anim = ANIMATIONS[type];
         if (!anim) return;
 
+        el.dataset.revealObserved = 'true';
         el.style.setProperty('--reveal-name', anim.keyframes);
         const delay = el.dataset.revealDelay || '0';
         el.style.setProperty('--reveal-delay', `${delay}ms`);

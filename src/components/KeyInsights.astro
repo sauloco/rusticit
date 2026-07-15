@@ -1,6 +1,4 @@
 ---
-import CountUp from './vue/bits/CountUp/CountUp.vue';
-
 interface Insight {
 	number: string;
 	description: string;
@@ -45,40 +43,120 @@ const cards = insights.map((insight, i) => ({
 
 const durations = [1.4, 1.0, 0.6];
 
-function inlineMarkdown(text: string): string {
+function escapeHtml(text: string): string {
 	return text
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+function isAllowedHref(href: string): boolean {
+	return href.startsWith('/') || href.startsWith('#') || /^https?:\/\//i.test(href) || /^mailto:/i.test(href);
+}
+
+function inlineMarkdown(text: string): string {
+	return escapeHtml(text)
+		.replace(/\[(.+?)\]\((.+?)\)/g, (_, label: string, href: string) => {
+			const trimmedHref = href.trim();
+			return isAllowedHref(trimmedHref) ? `<a href="${trimmedHref}">${label}</a>` : label;
+		})
 		.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-		.replace(/\*(.+?)\*/g, '<em>$1</em>')
-		.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+		.replace(/\*(.+?)\*/g, '<em>$1</em>');
 }
 ---
 
-<div class="not-prose my-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+<ul class="not-prose my-12 grid grid-cols-1 sm:grid-cols-3 gap-4 list-none p-0">
 	{cards.map((card, i) => (
-		<div
+		<li
 			class={`relative overflow-hidden rounded-2xl ${card.gradient} p-6 flex flex-col justify-between min-h-[120px]`}
 			data-reveal="fade-up"
 			data-reveal-delay={String(i * 100)}
 		>
 			<span class="font-sans text-sm text-charcoal/80 dark:text-white/80 tracking-wide" set:html={inlineMarkdown(card.description)} />
-			<span class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-charcoal dark:text-white leading-none">
+			<div class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-charcoal dark:text-white leading-none">
 				{card.countUp.isStatic ? (
 					<span>{card.countUp.to}{card.countUp.suffix}</span>
 				) : (
-					<span>
-						<CountUp
-							client:visible
-							from={card.countUp.from}
-							to={card.countUp.to}
-							duration={durations[i]}
-							separator={card.countUp.separator}
-						/>{card.countUp.suffix}
+					<span
+						data-count-up
+						data-from={card.countUp.from}
+						data-to={card.countUp.to}
+						data-duration={durations[i]}
+						data-separator={card.countUp.separator}
+						data-suffix={card.countUp.suffix}
+					>
+						{card.countUp.to.toLocaleString('en-US')}{card.countUp.suffix}
 					</span>
 				)}
-			</span>
-		</div>
+			</div>
+		</li>
 	))}
-</div>
+</ul>
+
+<script>
+	function initCountUps() {
+		const counters = document.querySelectorAll<HTMLElement>('[data-count-up]');
+		if (counters.length === 0) return;
+
+		const formatNumber = (value: number, separator: string) => {
+			const formatted = Math.round(value).toLocaleString('en-US');
+			return separator ? formatted.replace(/,/g, separator) : formatted.replace(/,/g, '');
+		};
+
+		const animateCounter = (counter: HTMLElement) => {
+			if (counter.dataset.countUpStarted === 'true') return;
+
+			const from = Number(counter.dataset.from ?? 0);
+			const to = Number(counter.dataset.to ?? 0);
+			const duration = Number(counter.dataset.duration ?? 1) * 1000;
+			const separator = counter.dataset.separator ?? '';
+			const suffix = counter.dataset.suffix ?? '';
+			const startTime = performance.now();
+
+			counter.dataset.countUpStarted = 'true';
+			counter.textContent = `${formatNumber(from, separator)}${suffix}`;
+
+			const step = (now: number) => {
+				const progress = Math.min((now - startTime) / duration, 1);
+				const eased = 1 - Math.pow(1 - progress, 3);
+				const value = from + (to - from) * eased;
+
+				counter.textContent = `${formatNumber(value, separator)}${suffix}`;
+
+				if (progress < 1) {
+					requestAnimationFrame(step);
+				} else {
+					counter.textContent = `${formatNumber(to, separator)}${suffix}`;
+				}
+			};
+
+			requestAnimationFrame(step);
+		};
+
+		if (!('IntersectionObserver' in window)) {
+			counters.forEach(animateCounter);
+			return;
+		}
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+				animateCounter(entry.target as HTMLElement);
+				observer.unobserve(entry.target);
+			});
+		});
+
+		counters.forEach((counter) => {
+			if (counter.dataset.countUpObserved === 'true') return;
+			counter.dataset.countUpObserved = 'true';
+			observer.observe(counter);
+		});
+	}
+
+	document.addEventListener('astro:page-load', initCountUps);
+</script>
 
 <style>
 	.ki-card-0 { background: linear-gradient(to right, #9C1DE720, #581B9820); }

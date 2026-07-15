@@ -4,12 +4,26 @@ import type { HTMLAttributes } from 'astro/types';
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const subPath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subPath?.[0] || '');
+const rawHref = String(href ?? '');
+const basePath = import.meta.env.BASE_URL;
+const currentPathname = basePath !== '/' && Astro.url.pathname.startsWith(basePath)
+	? `/${Astro.url.pathname.slice(basePath.length)}`
+	: Astro.url.pathname;
+
+function normalizePath(path: string) {
+	const [pathname = '/'] = path.split(/[?#]/);
+	return pathname.length > 1 ? pathname.replace(/\/+$/, '') : '/';
+}
+
+const currentPath = normalizePath(currentPathname);
+const linkPath = normalizePath(rawHref);
+const isSectionLink = rawHref.includes('#');
+const isActive = !isSectionLink && (
+	linkPath === currentPath || (linkPath !== '/' && currentPath.startsWith(`${linkPath}/`))
+);
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} aria-current={isActive ? 'page' : undefined} class:list={[className, { active: isActive }]} {...props}>
 	<slot />
 </a>
 <style>

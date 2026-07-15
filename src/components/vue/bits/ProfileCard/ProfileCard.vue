@@ -1,6 +1,6 @@
 <template>
   <div ref="wrapRef" :class="`pc-card-wrapper ${className}`.trim()" :style="cardStyle">
-    <section ref="cardRef" class="pc-card">
+    <article ref="cardRef" class="pc-card" :aria-label="`Profile card for ${name || 'the user'}`">
       <div class="pc-inside">
         <div class="pc-shine" />
 
@@ -8,36 +8,51 @@
 
         <div class="pc-content pc-avatar-content">
           <img
+            v-if="avatarUrl"
             class="avatar"
             :src="avatarUrl"
-            :alt="`${name || 'User'} avatar`"
+            :alt="`Portrait of ${name || 'the user'}`"
             width="1024"
             height="863"
             loading="lazy"
+            decoding="async"
             @error="handleAvatarError"
           />
 
           <div v-if="showUserInfo" class="pc-user-info">
-            <div class="pc-user-details">
-              <div class="pc-mini-avatar">
+            <div v-if="handle || status || miniAvatarUrl || avatarUrl" class="pc-user-details">
+              <div v-if="miniAvatarUrl || avatarUrl" class="pc-mini-avatar">
                 <img
                   :src="miniAvatarUrl || avatarUrl"
-                  :alt="`${name || 'User'} mini avatar`"
+                  alt=""
+                  aria-hidden="true"
                   width="48"
                   height="48"
                   loading="lazy"
+                  decoding="async"
                   @error="handleMiniAvatarError"
                 />
               </div>
 
               <div class="pc-user-text">
-                <div class="pc-handle">@{{ handle }}</div>
+                <div v-if="handle" class="pc-handle">@{{ handle }}</div>
 
-                <div class="pc-status">{{ status }}</div>
+                <div v-if="status" class="pc-status">{{ status }}</div>
               </div>
             </div>
 
+            <a
+              v-if="contactHref"
+              class="pc-contact-btn"
+              :href="contactHref"
+              style="pointer-events: auto"
+              :aria-label="`Contact ${name || 'user'}`"
+            >
+              {{ contactText }}
+            </a>
+
             <button
+              v-else
               class="pc-contact-btn"
               @click="handleContactClick"
               style="pointer-events: auto"
@@ -53,11 +68,11 @@
           <div class="pc-details">
             <h3>{{ name }}</h3>
 
-            <p>{{ title }}</p>
+            <p v-if="title">{{ title }}</p>
           </div>
         </div>
       </div>
-    </section>
+    </article>
   </div>
 </template>
 
@@ -79,24 +94,26 @@ interface Props {
   handle?: string;
   status?: string;
   contactText?: string;
+  contactHref?: string;
   showUserInfo?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  avatarUrl: '<Placeholder for avatar URL>',
-  iconUrl: '<Placeholder for icon URL>',
-  grainUrl: '<Placeholder for grain URL>',
+  avatarUrl: undefined,
+  iconUrl: undefined,
+  grainUrl: undefined,
   behindGradient: undefined,
   innerGradient: undefined,
   showBehindGradient: true,
   className: '',
   enableTilt: true,
   miniAvatarUrl: undefined,
-  name: 'Javi A. Torres',
-  title: 'Software Engineer',
-  handle: 'javicodes',
-  status: 'Online',
+  name: 'Profile',
+  title: '',
+  handle: '',
+  status: '',
   contactText: 'Contact',
+  contactHref: '',
   showUserInfo: true
 });
 
@@ -244,7 +261,11 @@ const handleAvatarError = (event: Event) => {
 const handleMiniAvatarError = (event: Event) => {
   const target = event.target as HTMLImageElement;
   target.style.opacity = '0.5';
-  target.src = props.avatarUrl;
+  if (props.avatarUrl) {
+    target.src = props.avatarUrl;
+  } else {
+    target.style.display = 'none';
+  }
 };
 
 onMounted(() => {

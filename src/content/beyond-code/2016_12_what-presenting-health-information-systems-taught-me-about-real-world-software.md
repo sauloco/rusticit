@@ -1,5 +1,6 @@
 ---
 title: 'What presenting health information systems taught me about real-world software'
+seoTitle: 'What health information systems taught me about software'
 description: 'In 2016, presenting work on health information systems helped me see software in a different way: not as isolated features, but as infrastructure that affects real people, real workflows, and real decisions.'
 pubDate: 'Nov 12 2016'
 tags: ['speaker', 'career', 'healthcare']
@@ -12,7 +13,7 @@ In 2016, I was part of a team from Olavarría connected to digital government wo
 
 At that point, I was no stranger to software. But speaking about these systems in a public setting made something clearer to me:
 
-software is very easy to talk about in technical terms, and much harder to explain in terms of real impact.
+Software is very easy to talk about in technical terms, and much harder to explain in terms of real impact.
 
 Health information systems make that impossible to ignore.
 
@@ -33,7 +34,7 @@ That has stayed with me ever since.
 
 Years later, whether I am working on engineering platforms, product experiences, or sports software, I still carry the same idea with me:
 
-good software should not only function correctly. It should make important work easier to understand, easier to trust, and easier to move forward.
+Good software should not only function correctly. It should make important work easier to understand, easier to trust, and easier to move forward.
 
 Looking back, that experience was not just about presenting a project.
 
@@ -41,4 +42,4 @@ It was about learning to see software as part of a bigger system — one made of
 
 For me, that lesson never stopped being relevant.
 
-Backlink: [Olavarría en las Jornadas Universitarias de Sistemas de Información en Salud](https://lu32.com.ar/locales/olavarria-en-las-jornadas-universitarias-de-sistemas-de-informacion-en-salud_a6837af927af5dba70a5f0b1d)
+Source: [Olavarría en las Jornadas Universitarias de Sistemas de Información en Salud](https://lu32.com.ar/locales/olavarria-en-las-jornadas-universitarias-de-sistemas-de-informacion-en-salud_a6837af927af5dba70a5f0b1d)

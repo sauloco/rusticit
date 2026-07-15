@@ -1,5 +1,6 @@
 ---
 title: 'What contributing to a global-scale religious platform taught me about high standards and love'
+seoTitle: 'What a global-scale platform taught me'
 description: 'Working on a cross-platform rewrite serving 1,000+ languages and tens of millions of users changed how I think about code quality, engineering standards, and what it means to build software people actually feel.'
 pubDate: 'May 11 2026'
 tags: ['career', 'frontend', 'scale']

@@ -1,5 +1,6 @@
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface CalPrefill {
     name: string;
@@ -34,7 +35,12 @@ function CalEmbed({ prefill }: { prefill: CalPrefill }) {
     );
 }
 
-export default function BookerIframe() {
+interface BookerIframeProps {
+    targetId?: string;
+}
+
+export default function BookerIframe({ targetId }: BookerIframeProps) {
+    const [target, setTarget] = useState<HTMLElement | null>(null);
     const [prefill, setPrefill] = useState<CalPrefill | null>(() => {
         try {
             const stored = sessionStorage.getItem("cal_prefill");
@@ -43,6 +49,10 @@ export default function BookerIframe() {
             return null;
         }
     });
+
+    useEffect(() => {
+        setTarget(targetId ? document.getElementById(targetId) : null);
+    }, [targetId]);
 
     useEffect(() => {
         const handler = (e: Event) => {
@@ -54,5 +64,7 @@ export default function BookerIframe() {
 
     if (!prefill) return null;
 
-    return <CalEmbed prefill={prefill} />;
+    const embed = <CalEmbed prefill={prefill} />;
+
+    return target ? createPortal(embed, target) : embed;
 }

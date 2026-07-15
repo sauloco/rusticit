@@ -26,7 +26,7 @@ Two examples capture that idea well.
 
 One was a [**medical report transcription tool**](https://www.olavarria.gov.ar/hospital/informes/), published by the municipality as part of the local hospital system. The interface was built around voice input and included features such as dictation, correction of the current dictation, correction of the full document, voice commands, and medical abbreviations. Even from the public interface alone, its purpose is clear: help practitioners work faster and make clinical reporting easier to complete.
 
-The other was a [**health center finder**](https://www.olavarria.gov.ar/aps_salud/cerca/) for citizens, also published by the municipality. That tool allowed people to enter their address or use their device location in order to identify the appropriate nearby institution. The public interface explicitly asks for the user’s current address or device location and offers to show the closest institution, making access to the right point of care easier in situations where orientation matters.
+The other was a [**health center finder**](https://www.olavarria.gov.ar/aps_salud/cerca/) for citizens, also published by the municipality. That tool allowed people to enter their address or use their device location to identify the appropriate nearby institution. The public interface explicitly asks for the user’s current address or device location and offers to show the closest institution, making access to the right point of care easier in situations where orientation matters.
 
 On the surface, these may look like small tools.
 
@@ -50,7 +50,7 @@ It is a way of reducing uncertainty.
 
 And a voice-based reporting tool is not just a convenience feature.
 
-It is a way of helping clinical information get captured more naturally and with less resistance from daily workload.
+It is a way of helping clinical information get captured more naturally and with less resistance from the daily workload.
 
 Both belong to the same broader idea:
 

@@ -82,7 +82,7 @@ We did not only build products. We also worked on visibility.
 
 That included creating content for social media, both for RusticIT itself and for clients. That side of the work mattered because it reinforced something I still believe strongly:
 
-a good product is not only something that works well. It also needs to be presented clearly, positioned correctly, and explained in a way people can connect with.
+A good product is not only something that works well. It also needs to be presented clearly, positioned correctly, and explained in a way people can connect with.
 
 That combination of software and communication became part of the company’s DNA.
 

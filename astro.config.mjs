@@ -41,7 +41,6 @@ export default defineConfig({
       alias: {
         '@': path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src'),
         '@components': path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src/components'),
-        '@stores': path.resolve(path.dirname(fileURLToPath(import.meta.url)), 'src/stores'),
       },
     },
   },

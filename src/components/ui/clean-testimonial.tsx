@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react"
+import { useState, useCallback, useRef, useEffect, useMemo } from "react"
 import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion"
 
 export interface TestimonialItem {
@@ -21,7 +21,7 @@ function usePreloadImages(images: string[]) {
 function SplitText({ text }: { text: string }) {
   const words = text.split(" ")
   return (
-    <span className="inline">
+    <span className="inline" aria-hidden="true">
       {words.map((word, i) => (
         <motion.span
           key={i}
@@ -45,13 +45,14 @@ export function Testimonial({ testimonials }: TestimonialProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLButtonElement>(null)
+  const testimonialImages = useMemo(() => testimonials.map((t) => t.avatar), [testimonials])
 
   useEffect(() => {
     setIsTouch(window.matchMedia("(pointer: coarse)").matches)
   }, [])
 
-  usePreloadImages(testimonials.map((t) => t.avatar))
+  usePreloadImages(testimonialImages)
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -81,9 +82,11 @@ export function Testimonial({ testimonials }: TestimonialProps) {
   const currentTestimonial = testimonials[activeIndex]
 
   return (
-    <div
+    <button
       ref={containerRef}
-      className="relative w-full max-w-xl mx-auto py-20 px-8"
+      type="button"
+      aria-label="View next testimonial"
+      className="relative block w-full max-w-xl mx-auto py-20 px-8 appearance-none border-0 bg-transparent text-left"
       style={{ cursor: "none" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
@@ -133,6 +136,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
       {/* Stacked avatar previews */}
       <motion.div
         className="absolute top-8 left-8 flex -space-x-2"
+        aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 0.6 }}
@@ -147,13 +151,19 @@ export function Testimonial({ testimonials }: TestimonialProps) {
             }`}
             whileHover={{ scale: 1.1, opacity: 1 }}
           >
-            <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
+            <img
+              src={t.avatar}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         ))}
       </motion.div>
 
       {/* Main content */}
-      <div className="relative">
+      <div className="relative" aria-live="polite" aria-atomic="true">
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={activeIndex}
@@ -162,6 +172,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="text-xl md:text-2xl font-light leading-relaxed tracking-tight text-charcoal dark:text-offwhite"
           >
+            <span className="sr-only">{currentTestimonial.quote}</span>
             <SplitText text={currentTestimonial.quote} />
           </motion.blockquote>
         </AnimatePresence>
@@ -183,7 +194,10 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                   <motion.img
                     key={t.avatar}
                     src={t.avatar}
-                    alt={t.author}
+                    alt={i === activeIndex ? `Portrait of ${t.author}` : ""}
+                    aria-hidden={i !== activeIndex}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-[filter] duration-500"
                     animate={{ opacity: i === activeIndex ? 1 : 0, zIndex: i === activeIndex ? 1 : 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -204,6 +218,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
                 {/* Crimson accent line */}
                 <motion.div
                   className="absolute left-0 top-0 bottom-0 w-px bg-crimson"
+                  aria-hidden="true"
                   initial={{ scaleY: 0 }}
                   animate={{ scaleY: 1 }}
                   transition={{ duration: 0.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -221,7 +236,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
         </motion.div>
 
         {/* Progress bar — track in offwhite/10, fill in purple-light → crimson gradient */}
-        <div className="mt-16 h-px bg-charcoal/10 dark:bg-offwhite/10 relative overflow-hidden">
+        <div className="mt-16 h-px bg-charcoal/10 dark:bg-offwhite/10 relative overflow-hidden" aria-hidden="true">
           <motion.div
             className="absolute inset-y-0 left-0 bg-gradient-to-r from-purple-light to-crimson"
             initial={{ width: "0%" }}
@@ -242,6 +257,6 @@ export function Testimonial({ testimonials }: TestimonialProps) {
           {isTouch ? "Tap to view next testimonial" : "Click to view next testimonial"}
         </span>
       </motion.div>
-    </div>
+    </button>
   )
 }
