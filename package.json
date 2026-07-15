@@ -14,6 +14,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
+		"check:spelling": "npx cspell --no-progress --no-summary \"src/**/*.{astro,md,ts,js,tsx,vue}\" \"public/*.{txt,svg}\" README.md package.json astro.config.mjs cspell.json",
 		"preview": "astro preview",
 		"astro": "astro"
 	},

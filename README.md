@@ -49,6 +49,7 @@ src/
 | `yarn install` | Install dependencies |
 | `yarn dev` | Start dev server at `localhost:4321` |
 | `yarn build` | Build production site to `./dist/` |
+| `yarn check:spelling` | Check project-authored source and metadata with cspell |
 | `yarn preview` | Preview production build locally |
 | `yarn astro` | Run Astro CLI commands |
 
