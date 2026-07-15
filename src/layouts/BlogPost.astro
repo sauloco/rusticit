@@ -18,7 +18,7 @@ type Props = CollectionEntry<'beyond-code'>['data'] & {
 	keyInsights?: { number: string; description: string }[];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, id, video, tags, body, relatedPosts, keyInsights } = Astro.props;
+const { title, seoTitle, description, pubDate, updatedDate, heroImage, id, video, tags, body, relatedPosts, keyInsights } = Astro.props;
 const structuredDataImage = heroImage
 	? typeof heroImage === 'string'
 		? heroImage
@@ -39,7 +39,7 @@ function readingTime(text: string | undefined): string {
 		<script is:inline>
 			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
 		</script>
-		<BaseHead title={title} description={description} image={heroImage} ogType="article" />
+		<BaseHead title={seoTitle ?? title} description={description} image={heroImage} ogType="article" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",

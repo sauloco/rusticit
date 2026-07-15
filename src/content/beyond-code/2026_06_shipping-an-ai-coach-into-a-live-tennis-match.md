@@ -1,5 +1,6 @@
 ---
 title: "Shipping an AI coach into a live tennis match: speed, guardrails, and knowing when to stop talking"
+seoTitle: 'Shipping an AI coach into a live tennis match'
 description: "What building the Match Flow AI coach taught me about putting LLMs in front of the public — where latency, cost, abuse, and human emotions are all part of the spec."
 pubDate: 'Jun 11 2026'
 heroImage: '../../assets/beyond-code/coach-2026.webp'

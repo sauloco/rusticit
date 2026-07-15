@@ -1,5 +1,6 @@
 ---
 title: 'What presenting health information systems taught me about real-world software'
+seoTitle: 'What health information systems taught me about software'
 description: 'In 2016, presenting work on health information systems helped me see software in a different way: not as isolated features, but as infrastructure that affects real people, real workflows, and real decisions.'
 pubDate: 'Nov 12 2016'
 tags: ['speaker', 'career', 'healthcare']

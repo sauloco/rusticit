@@ -1,5 +1,6 @@
 ---
 title: "From Developer to Director: Leveling Up My Agentic Workflow in EntrenoLibre"
+seoTitle: 'From developer to director with agentic workflows'
 description: 'I implemented the agentic coding practices from a video that changed how I work with AI, and now I run a small fleet of agents instead of typing every line myself. Here is what actually changed in EntrenoLibre.'
 pubDate: 'Jul 14 2026'
 tags: ['ai', 'agentic-workflow', 'engineering', 'entrenolibre', 'claude-code']

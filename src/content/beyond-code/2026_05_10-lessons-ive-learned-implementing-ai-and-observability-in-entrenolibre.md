@@ -1,5 +1,6 @@
 ---
 title: "10 Lessons I've Learned by Implementing AI and Observability in EntrenoLibre"
+seoTitle: '10 lessons from AI and observability in EntrenoLibre'
 description: 'Shipping AI features in a real product with real users, forms, analytics, failures, and monitoring is a different story. Here are 10 lessons from implementing AI coaching, observability, and security in EntrenoLibre.'
 pubDate: 'May 21 2026'
 tags: ['ai', 'observability', 'product', 'engineering', 'entrenolibre']
