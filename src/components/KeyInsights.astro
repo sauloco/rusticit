@@ -77,11 +77,11 @@ function inlineMarkdown(text: string): string {
 			data-reveal-delay={String(i * 100)}
 		>
 			<span class="font-sans text-sm text-charcoal/80 dark:text-white/80 tracking-wide" set:html={inlineMarkdown(card.description)} />
-			<span class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-charcoal dark:text-white leading-none">
+			<div class="mt-3 text-right font-heading font-bold text-4xl md:text-5xl text-charcoal dark:text-white leading-none">
 				{card.countUp.isStatic ? (
 					<span>{card.countUp.to}{card.countUp.suffix}</span>
 				) : (
-					<span>
+					<div>
 						<CountUp
 							client:visible
 							from={card.countUp.from}
@@ -89,9 +89,9 @@ function inlineMarkdown(text: string): string {
 							duration={durations[i]}
 							separator={card.countUp.separator}
 						/>{card.countUp.suffix}
-					</span>
+					</div>
 				)}
-			</span>
+			</div>
 		</li>
 	))}
 </ul>
