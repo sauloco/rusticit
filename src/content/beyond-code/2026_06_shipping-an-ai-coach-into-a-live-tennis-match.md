@@ -97,4 +97,4 @@ That's the real gap I see in most "we should add AI" conversations: not model ch
 
 ---
 
-*If you're trying to get an AI feature out of demo mode and into a real product — with real users, real costs, and real failure modes — that's exactly the kind of work I do. [Book a 20-min intro](https://cal.com/rusticit/20min) or [email me](mailto:saulo@rusticit.com).*
+*If you're trying to get an AI feature out of demo mode and into a real product — with real users, real costs, and real failure modes — that's exactly the kind of work I do. [Book a 20-min intro](https://cal.com/rusticit/20min) or [email me](mailto:info@rusticit.com).*
