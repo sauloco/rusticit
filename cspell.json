@@ -6,6 +6,7 @@
 		".vite",
 		"dist",
 		"node_modules",
+		"public/fonts",
 		"yarn.lock"
 	],
 	"words": [
@@ -36,6 +37,7 @@
 		"Darío",
 		"Entreno",
 		"entrenolibre",
+		"evenodd",
 		"Exi's",
 		"Escuela",
 		"Firstmate",
@@ -55,6 +57,7 @@
 		"Italiano",
 		"Javi",
 		"javicodes",
+		"jsrepo",
 		"Jornadas",
 		"Krqa",
 		"lerp",
@@ -71,6 +74,7 @@
 		"noarchive",
 		"offwhite",
 		"Olavarría",
+		"opsz",
 		"orthognathic",
 		"padel",
 		"Premio",
@@ -92,17 +96,21 @@
 		"sunpillar",
 		"Synphonyte",
 		"Técnica",
+		"tresjs",
 		"Topbar",
 		"topbar",
 		"umami",
 		"Universitarias",
 		"Uteam",
 		"Valentina",
+		"vueuse",
 		"Watchworthy",
 		"watchlist",
+		"wght",
 		"Wilshire",
 		"workstreams",
 		"worktree",
+		"xlink",
 		"yoyo"
 	]
 }
