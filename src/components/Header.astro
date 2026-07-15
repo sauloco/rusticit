@@ -27,16 +27,18 @@ const links = [
             <Image src={logoLight} alt="" class="dark:hidden" />
             <Image src={logoDark} alt="" class="hidden dark:block" />
         </a>
-        <div class="flex flex-row gap-6 items-center text-sm font-sans font-medium">
+        <ul class="flex flex-row gap-6 items-center text-sm font-sans font-medium list-none p-0 m-0">
             {links.map((link) => (
-                <HeaderLink
-                    href={link.href}
-                    class="text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
-                >
-                    {link.label}
-                </HeaderLink>
+                <li>
+                    <HeaderLink
+                        href={link.href}
+                        class="text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white transition-colors"
+                    >
+                        {link.label}
+                    </HeaderLink>
+                </li>
             ))}
-        </div>
+        </ul>
         <div class="flex items-center gap-3 animate-fade-in-right animate-delay-100">
             <ButtonCTA size="sm" magnetic location="navbar" />
         </div>
@@ -111,23 +113,27 @@ const links = [
             inert
         >
             <div class="overflow-hidden">
-                <div class="flex flex-col gap-1 pt-4 pb-2">
+                <ul class="flex flex-col gap-1 pt-4 pb-2 list-none px-0 m-0">
                     {links.map((link, i) => (
-                        <a
-                            href={link.href}
-                            class="mobile-nav-link text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white text-lg font-sans font-medium py-3 px-2 rounded-lg hover:bg-charcoal/5 dark:hover:bg-offwhite/5 transition-all opacity-0 translate-y-2"
+                        <li
+                            class="mobile-nav-link transition-all opacity-0 translate-y-2"
                             style={`transition-delay: ${i * 75}ms;`}
                         >
-                            {link.label}
-                        </a>
+                            <a
+                                href={link.href}
+                                class="block text-charcoal/80 hover:text-charcoal dark:text-offwhite/80 dark:hover:text-white text-lg font-sans font-medium py-3 px-2 rounded-lg hover:bg-charcoal/5 dark:hover:bg-offwhite/5 transition-colors"
+                            >
+                                {link.label}
+                            </a>
+                        </li>
                     ))}
-                    <span
+                    <li
                         class="mobile-nav-link mt-3 opacity-0 translate-y-2"
                         style={`transition-delay: ${links.length * 75}ms;`}
                     >
                         <ButtonCTA size="sm" location="navbar" />
-                    </span>
-                </div>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
