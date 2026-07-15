@@ -32,7 +32,7 @@ function readingTime(text: string | undefined): string {
 		<script is:inline>
 			(function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
 		</script>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage} ogType="article" />
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "BlogPosting",
