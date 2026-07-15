@@ -10,7 +10,7 @@
           <img
             class="avatar"
             :src="avatarUrl"
-            :alt="`${name || 'User'} avatar`"
+            :alt="`Portrait of ${name || 'the user'}`"
             width="1024"
             height="863"
             loading="lazy"
@@ -22,7 +22,8 @@
               <div class="pc-mini-avatar">
                 <img
                   :src="miniAvatarUrl || avatarUrl"
-                  :alt="`${name || 'User'} mini avatar`"
+                  alt=""
+                  aria-hidden="true"
                   width="48"
                   height="48"
                   loading="lazy"
