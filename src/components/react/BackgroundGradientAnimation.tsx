@@ -1,6 +1,7 @@
 "use client";
 import {cn} from "../../lib/utils";
 import {useEffect, useRef, useState} from "react";
+import type {CSSProperties} from "react";
 
 export const BackgroundGradientAnimation = ({
                                                 gradientBackgroundStart = "rgb(0,0,0)",
@@ -39,24 +40,19 @@ export const BackgroundGradientAnimation = ({
     const [curY, setCurY] = useState(0);
     const [tgX, setTgX] = useState(0);
     const [tgY, setTgY] = useState(0);
-    useEffect(() => {
-        document.body.style.setProperty(
-            "--gradient-background-start",
-            gradientBackgroundStart
-        );
-        document.body.style.setProperty(
-            "--gradient-background-end",
-            gradientBackgroundEnd
-        );
-        document.body.style.setProperty("--first-color", firstColor);
-        document.body.style.setProperty("--second-color", secondColor);
-        document.body.style.setProperty("--third-color", thirdColor);
-        document.body.style.setProperty("--fourth-color", fourthColor);
-        document.body.style.setProperty("--fifth-color", fifthColor);
-        document.body.style.setProperty("--pointer-color", pointerColor);
-        document.body.style.setProperty("--size", size);
-        document.body.style.setProperty("--blending-value", blendingValue);
-    }, []);
+
+    const gradientStyle = {
+        "--gradient-background-start": gradientBackgroundStart,
+        "--gradient-background-end": gradientBackgroundEnd,
+        "--first-color": firstColor,
+        "--second-color": secondColor,
+        "--third-color": thirdColor,
+        "--fourth-color": fourthColor,
+        "--fifth-color": fifthColor,
+        "--pointer-color": pointerColor,
+        "--size": size,
+        "--blending-value": blendingValue,
+    } as CSSProperties;
 
     useEffect(() => {
         function move() {
@@ -92,6 +88,7 @@ export const BackgroundGradientAnimation = ({
                 "h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
                 containerClassName
             )}
+            style={gradientStyle}
         >
             <svg className="hidden" aria-hidden="true" focusable="false">
                 <defs>
