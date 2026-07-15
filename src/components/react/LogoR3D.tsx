@@ -1,6 +1,6 @@
 import {Suspense, useRef, useMemo, useEffect} from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
-import {MeshTransmissionMaterial, useGLTF, Environment, useProgress, Html} from '@react-three/drei'
+import {MeshTransmissionMaterial, useGLTF, Environment, Html} from '@react-three/drei'
 import * as THREE from 'three'
 
 
