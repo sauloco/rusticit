@@ -74,10 +74,6 @@
 }
 
 :root {
-    --mesh-gradient-color-1: var(--color-purple-dark);
-    --mesh-gradient-color-2: var(--color-purple-light);
-    --mesh-gradient-color-3: var(--color-crimson);
-    --mesh-gradient-color-4: var(--color-purple-light);
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -110,10 +106,6 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-    --mesh-gradient-color-4: var(--color-purple-dark);
 }
 
 @theme inline {
