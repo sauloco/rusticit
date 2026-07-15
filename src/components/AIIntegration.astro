@@ -45,17 +45,18 @@ const useCases = [
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {useCases.map((item, i) => (
-                    <div
+                    <article
+                        aria-labelledby={`ai-use-case-${i + 1}-title`}
                         data-reveal="fade-right"
                         data-reveal-delay={String(i * 80)}
                         class="flex items-start gap-4 bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 rounded-xl px-6 py-5 hover:border-purple-light/30 transition-colors"
                     >
                         <span class="text-purple-light font-bold mt-0.5 shrink-0" aria-hidden="true">→</span>
                         <div class="flex flex-col gap-1">
-                            <span class="font-sans font-semibold text-charcoal dark:text-white text-base">{item.label}</span>
+                            <h3 id={`ai-use-case-${i + 1}-title`} class="font-sans font-semibold text-charcoal dark:text-white text-base">{item.label}</h3>
                             <span class="font-sans text-charcoal/60 dark:text-offwhite/60 text-sm leading-relaxed">{item.body}</span>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
         </div>
