@@ -18,9 +18,15 @@ const intro = "Share a bit of context about your product, your stack, the delive
                 </p>
             </div>
 
-            <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-5 w-full relative z-20">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col gap-5 w-full relative z-20">
 
                 <input type="hidden" name="form-name" value="contact"/>
+                <p class="hidden" aria-hidden="true">
+                    <label>
+                        Do not fill this out if you are human:
+                        <input name="bot-field" tabindex="-1" autocomplete="off" />
+                    </label>
+                </p>
 
                 <label class="flex flex-col gap-1.5">
                     <span class="font-sans text-sm text-charcoal/80 dark:text-offwhite/80 font-medium">Your name</span>
