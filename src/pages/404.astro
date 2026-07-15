@@ -8,6 +8,9 @@ import { BackgroundGradientAnimation } from "../components/react/BackgroundGradi
 <!doctype html>
 <html lang="en">
     <head>
+        <script is:inline>
+            (function(){try{var p=localStorage.getItem('theme');if(p==='dark'||((!p||p==='system')&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+        </script>
         <BaseHead title="404 — You're lost" description="This page doesn't exist. Or maybe it does and we just can't find it. Either way, you're not supposed to be here." />
     </head>
     <body>
