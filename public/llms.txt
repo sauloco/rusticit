@@ -73,7 +73,7 @@ Direct senior collaboration across the stack. No junior rotation, no dependency 
 - **Industrial engineering platforms** — browser-based tools used in German engineering environments with structured technical data, validation logic, backend workflows, production data, release automation, and high-trust operational requirements
 - **Medical visualization platform** — a Three.js + Vue application for advanced dental and craniofacial scan analysis, high-resolution imaging, complex planning workflows, and production-grade user interaction around heavy visual data
 - **Public-sector health systems** — long-lived systems with real operational pressure: patient records, databases, reporting tools, internal workflows, user training, and continuity requirements
-- **Sports event platform** — a product-led sports platform for tournament organization, live results, sponsor visibility, AI-assisted event promotion, and community engagement, built across product, frontend, backend, content, and operations
+- **Sports event platform with an in-product AI coach** — a product-led sports platform for tournament organization, live results, sponsor visibility, and community engagement, including Match Flow: a live match tracker with an AI coach, LLM integration, live data flows, and sport-specific prompt design
 
 ---
 
