@@ -1,6 +1,6 @@
 <template>
   <div ref="wrapRef" :class="`pc-card-wrapper ${className}`.trim()" :style="cardStyle">
-    <section ref="cardRef" class="pc-card">
+    <article ref="cardRef" class="pc-card" :aria-label="`Profile card for ${name || 'the user'}`">
       <div class="pc-inside">
         <div class="pc-shine" />
 
@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </article>
   </div>
 </template>
 
