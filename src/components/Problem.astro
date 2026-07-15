@@ -33,19 +33,21 @@ const cards = [
             {intro}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-6">
+        <ul class="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-6">
             {cards.map((card, i) => (
-                <article
-                    aria-labelledby={`challenge-card-${i + 1}-title`}
-                    data-reveal="fade-down"
-                    data-reveal-delay={String(i * 120)}
-                    class="bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 px-7 py-6 rounded-2xl flex flex-col gap-3 hover:border-charcoal/25 dark:hover:border-offwhite/25 transition-colors"
-                >
-                    <h3 id={`challenge-card-${i + 1}-title`} class="font-sans font-semibold text-lg text-charcoal dark:text-offwhite">{card.title}</h3>
-                    <p class="font-sans text-charcoal/60 dark:text-offwhite/60 text-base leading-relaxed">{card.body}</p>
-                </article>
+                <li>
+                    <article
+                        aria-labelledby={`challenge-card-${i + 1}-title`}
+                        data-reveal="fade-down"
+                        data-reveal-delay={String(i * 120)}
+                        class="h-full bg-offwhite dark:bg-charcoal border border-charcoal/10 dark:border-offwhite/10 px-7 py-6 rounded-2xl flex flex-col gap-3 hover:border-charcoal/25 dark:hover:border-offwhite/25 transition-colors"
+                    >
+                        <h3 id={`challenge-card-${i + 1}-title`} class="font-sans font-semibold text-lg text-charcoal dark:text-offwhite">{card.title}</h3>
+                        <p class="font-sans text-charcoal/60 dark:text-offwhite/60 text-base leading-relaxed">{card.body}</p>
+                    </article>
+                </li>
             ))}
-        </div>
+        </ul>
 
         <p
             data-reveal="fade-up"
