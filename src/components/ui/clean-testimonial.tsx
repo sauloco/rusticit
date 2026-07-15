@@ -45,7 +45,7 @@ export function Testimonial({ testimonials }: TestimonialProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const [isTouch, setIsTouch] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLButtonElement>(null)
   const testimonialImages = useMemo(() => testimonials.map((t) => t.avatar), [testimonials])
 
   useEffect(() => {
@@ -79,30 +79,19 @@ export function Testimonial({ testimonials }: TestimonialProps) {
     }))
   }
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (e.key !== "Enter" && e.key !== " ") return
-      e.preventDefault()
-      handleNext()
-    },
-    [activeIndex, testimonials],
-  )
-
   const currentTestimonial = testimonials[activeIndex]
 
   return (
-    <div
+    <button
       ref={containerRef}
-      role="button"
-      tabIndex={0}
+      type="button"
       aria-label="View next testimonial"
-      className="relative w-full max-w-xl mx-auto py-20 px-8"
+      className="relative block w-full max-w-xl mx-auto py-20 px-8 appearance-none border-0 bg-transparent text-left"
       style={{ cursor: "none" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleNext}
-      onKeyDown={handleKeyDown}
     >
       {/* Custom magnetic cursor — offwhite bubble, mix-blend flips it on dark bg */}
       {!isTouch && <motion.div
@@ -268,6 +257,6 @@ export function Testimonial({ testimonials }: TestimonialProps) {
           {isTouch ? "Tap to view next testimonial" : "Click to view next testimonial"}
         </span>
       </motion.div>
-    </div>
+    </button>
   )
 }
