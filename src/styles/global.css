@@ -10,8 +10,6 @@
     display: none;
 }
 
-@plugin "tailwindcss-animate";
-
 @theme {
     --font-sans: "Inter", sans-serif;
     --font-heading: "Rubik", sans-serif;
