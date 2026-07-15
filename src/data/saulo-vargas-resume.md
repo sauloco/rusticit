@@ -35,7 +35,7 @@ Full-Stack Web Developer with 18+ years of experience building production softwa
 
 - Founded and led a product engineering company building customer portals, SaaS platforms, internal tools, and marketing websites for international clients.
 - Delivered 15+ projects per year across 5 countries; grew and coordinated a team of up to 7 people.
-- Built EntrenoLibre, an in-house sports-tech product for tournament organization, live scoring, and AI-assisted content generation.
+- Built EntrenoLibre, an in-house sports-tech product for tournament organization, live scoring, and an in-product AI coach for live tennis and padel matches.
 
 <div class="entry-header">
 <div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>April 2023 - December 2024</strong></div>
