@@ -21,7 +21,7 @@
 	"dependencies": {
 		"@astrojs/mdx": "^4.3.13",
 		"@astrojs/react": "^4.4.2",
-		"@astrojs/rss": "^4.0.15",
+		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.0",
 		"@astrojs/vue": "^5.1.4",
 		"@calcom/embed-react": "^1.5.3",
