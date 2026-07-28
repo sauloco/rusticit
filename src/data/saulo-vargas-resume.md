@@ -41,7 +41,7 @@ Senior product engineer with 18+ years delivering production software across ind
 <div class="entry-sub-row"><em>Ranker</em><em>US, Remote</em></div>
 </div>
 
-- Delivered pixel-perfect, animation-heavy features for WatchWorthy, a consumer mobile app for personalized TV and streaming recommendations.
+- Delivered pixel-perfect, animation-heavy features for Watchworthy, a consumer mobile app for personalized TV and streaming recommendations.
 - Implemented 10+ onboarding and recommendation features across Vue, Nuxt, Node.js, Sequelize, and Cytoscape.js.
 - Maintained design fidelity and consistent behavior across Android screen sizes and resolutions.
 
