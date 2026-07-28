@@ -1,52 +1,43 @@
 # SAULO VARGAS
 
-Full-Stack Web Developer — Product Engineering
+Senior Product Engineer | Full-Stack TypeScript
 
-saulo@rusticit.com • +5492284556483 • Olavarría, Argentina • linkedin.com/in/saulovargas
+saulo@rusticit.com • +54 9 2284 55-6483 • Olavarría, Argentina • linkedin.com/in/saulovargas
 
 ## SUMMARY
 
-Full-Stack Web Developer with 18+ years of experience building production software across industrial compliance, healthcare, dental imaging, SaaS, consumer, sports tech, and global-scale cross-platform applications. Deep frontend expertise in TypeScript, Vue, React, and Angular, with practical backend, database, API, and deployment experience. Most valuable in teams needing a senior hands-on engineer who can own implementation across the stack.
+Senior product engineer with 18+ years delivering production software across industrial compliance, healthcare, SaaS, sports technology, and global-scale applications. Deep frontend expertise in TypeScript, Vue, and Angular, complemented by hands-on React, Node.js, APIs, databases, and deployment. Contributed to software serving tens of millions of users across 1,120+ languages and led end-to-end delivery for international clients. Brings strong product judgment, implementation ownership, and cross-stack execution.
 
 ## EXPERIENCE
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full-Stack Software Developer – Volunteer</strong><strong>November 2024 - Present</strong></div>
-<div class="entry-sub-row"><em>Global Religious Organization — Confidential</em><em>US, Remote</em></div>
+<div class="entry-title-row"><strong>Software Engineer. Volunteer, Part-Time</strong><strong>November 2025 - Present</strong></div>
+<div class="entry-sub-row"><em>Confidential Global Nonprofit Organization</em><em>US, Remote</em></div>
 </div>
 
 - Contributing to a complete rewrite of a cross-platform study app, unifying Windows, iOS, Android, and web codebases into a single modern frontend.
-- Building atomic UI components per Figma specs — inputs, base primitives, and multi-state workflows.
-- Shipping features for a platform in 1,120+ languages reaching tens of millions of users globally, within strict accessibility, i18n, and quality standards on a large distributed team.
+- Building atomic UI components from Figma specifications, including inputs, base primitives, and multi-state workflows.
+- Shipping features for a platform available in 1,120+ languages and used by tens of millions globally, within strict accessibility, internationalization, and quality standards.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>December 2024 - April 2026</strong></div>
+<div class="entry-title-row"><strong>Full Stack Software Engineer. Contract, Part-Time</strong><strong>December 2024 - April 2026</strong></div>
 <div class="entry-sub-row"><em>Rösberg</em><em>Germany, Remote</em></div>
 </div>
 
-- Owned most of SmartExi's implementation — a browser app using tRPC, Prisma, and PostgreSQL for ATEX safety calculations, explosion-protection compliance workflows, and PDF certificate generation.
+- Owned most of SmartExi's implementation—a browser application using tRPC, Prisma, and PostgreSQL for ATEX safety calculations, explosion-protection workflows, and PDF certificate generation.
 - Delivered UI flows, data models, safety logic, and release automation across the full stack, accelerating the product to release readiness.
 - Built 20+ custom Angular item types for the LiveFORMS.web viewer, covering dates, photos, formulas, and other structured inputs.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Founder and Full-Stack Web Developer</strong><strong>August 2019 - Present</strong></div>
-<div class="entry-sub-row"><em>RusticIT</em><em>Argentina</em></div>
-</div>
-
-- Founded and led a product engineering company building customer portals, SaaS platforms, internal tools, and marketing websites for international clients.
-- Delivered 15+ projects per year across 5 countries; grew and coordinated a team of up to 7 people.
-- Built EntrenoLibre, an in-house sports-tech product for tournament organization, live scoring, and an in-product AI coach for live tennis and padel matches.
-
-<div class="entry-header">
-<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>April 2023 - December 2024</strong></div>
+<div class="entry-title-row"><strong>Full Stack Software Engineer. Contract</strong><strong>April 2023 - December 2024</strong></div>
 <div class="entry-sub-row"><em>Synphonyte</em><em>Germany, Remote</em></div>
 </div>
 
-- Learned Rust and Leptos to contribute to PlantMyTree, implementing image upload, gallery browsing, and plantation-growth tracking.
-- Contributed to Leptos-Use, Synphonyte's open-source Rust/Leptos utility library for the broader Leptos ecosystem.
+- Implemented image upload, gallery browsing, and plantation-growth tracking in Rust and Leptos for PlantMyTree.
+- Contributed reusable utilities to Leptos-Use, Synphonyte's open-source library for the broader Leptos ecosystem.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>March 2022 - March 2023</strong></div>
+<div class="entry-title-row"><strong>Full Stack Software Engineer. Contract</strong><strong>March 2022 - March 2023</strong></div>
 <div class="entry-sub-row"><em>Ranker</em><em>US, Remote</em></div>
 </div>
 
@@ -55,7 +46,7 @@ Full-Stack Web Developer with 18+ years of experience building production softwa
 - Maintained design fidelity and consistent behavior across Android screen sizes and resolutions.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Full-Stack Software Developer</strong><strong>June 2018 - February 2022</strong></div>
+<div class="entry-title-row"><strong>Full Stack Software Engineer. Contract</strong><strong>June 2018 - February 2022</strong></div>
 <div class="entry-sub-row"><em>Synphonyte</em><em>Germany, Remote</em></div>
 </div>
 
@@ -64,7 +55,16 @@ Full-Stack Web Developer with 18+ years of experience building production softwa
 - Created an internal Chrome extension to inspect rendered-view data flow, improving debugging and developer onboarding.
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>Lead Full-Stack Developer</strong><strong>November 2008 - August 2018</strong></div>
+<div class="entry-title-row"><strong>Founder & Principal Engineer. Independent Practice</strong><strong>June 2018 - Present</strong></div>
+<div class="entry-sub-row"><em>RusticIT</em><em>Argentina</em></div>
+</div>
+
+- Founded and led an independent product engineering practice building customer portals, SaaS platforms, internal tools, and marketing websites for international clients.
+- Delivered 15+ projects per year across 5 countries; grew and coordinated a team of up to 7 people.
+- Designed and shipped EntrenoLibre, including an LLM-powered coach that interprets live match state and delivers contextual guidance inside tennis and padel tracking workflows.
+
+<div class="entry-header">
+<div class="entry-title-row"><strong>Lead Full Stack Software Engineer</strong><strong>November 2008 - August 2018</strong></div>
 <div class="entry-sub-row"><em>Municipality of Olavarría</em><em>Olavarría, Argentina</em></div>
 </div>
 
@@ -75,20 +75,21 @@ Full-Stack Web Developer with 18+ years of experience building production softwa
 ## EDUCATION
 
 <div class="entry-header">
-<div class="entry-title-row"><strong>ISIV</strong><strong>2014 - 2017</strong></div>
-<div class="entry-sub-row"><em>Systems Analyst</em><em>Olavarría, Argentina</em></div>
+<div class="entry-title-row"><strong>Systems Analyst</strong><strong>2014 - 2017</strong></div>
+<div class="entry-sub-row"><em>Instituto Superior de Informática Virasoro</em><em>Olavarría, Argentina</em></div>
 </div>
-
-<div class="entry-header">
-<div class="entry-title-row"><strong>EET 2 Luciano Fortabat</strong><strong>2003 - 2007</strong></div>
-<div class="entry-sub-row"><em>Technician in Personal and Professional Informatics</em><em>Olavarría, Argentina</em></div>
-</div>
-
-Built accessibility-focused software recognized with the Argentine Presidential Prize.
 
 ## SKILLS
 
-**Technical Skills:** TypeScript, Vue, React, Vite, Strapi, Astro, GSAP, Angular, JavaScript, Node.js, Sequelize, Cytoscape.js, tRPC, Prisma, PostgreSQL, deployment automation, Java, JSP, jQuery, Visual FoxPro, SQL Server, MySQL, Android
+**Product Engineering:** End-to-End Ownership, System Design, Accessibility, Internationalization, Cross-Platform Development, Technical Leadership.
+
+**Frontend:** TypeScript, Vue, Nuxt, React, Angular, Three.js, Vite, GSAP.
+
+**Backend & Data:** Node.js, tRPC, Prisma, PostgreSQL, Sequelize, MySQL, SQL Server, Strapi.
+
+**Delivery & Quality:** Git, GitLab CI/CD, Deployment Automation, Visual Regression Testing.
+
+**Additional:** Rust, Leptos, Java.
 
 ## LANGUAGES
 

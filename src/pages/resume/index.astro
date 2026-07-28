@@ -2,14 +2,15 @@
 /*
   Single source of truth: edit src/data/saulo-vargas-resume.md -> page updates automatically.
 
-  PDF export (Chrome):
-    Cmd+P → Save as PDF → ☐ uncheck "Headers and footers" → Margins: None → Save
+  PDF: static asset served from public/resume/ — regenerate it manually and
+  drop the replacement in place when the resume content changes meaningfully.
 */
 import { Content, rawContent } from '../../data/saulo-vargas-resume.md';
 import ThemeToggle from '../../components/ThemeToggle.astro';
 import { ClientRouter } from 'astro:transitions';
 import '../../styles/global.css';
 const mdSource = rawContent();
+const resumePdfHref = '/resume/Saulo%20Vargas%20-%20Resume%20-%202026.pdf';
 ---
 
 <!DOCTYPE html>
@@ -17,8 +18,8 @@ const mdSource = rawContent();
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Saulo Vargas — Full-Stack Web Developer – Product Engineering</title>
-    <meta name="description" content="Senior Full-Stack Engineer with 18+ years of experience. TypeScript, Vue, React, Angular, Rust, WebAssembly." />
+    <title>Saulo Vargas — Senior Product Engineer | Full-Stack TypeScript</title>
+    <meta name="description" content="Senior Product Engineer with 18+ years of experience. TypeScript, Vue, Angular, React, Node.js." />
     <link rel="canonical" href="https://rusticit.com/resume/" />
     <!-- Keep resume out of search indexes and AI training crawlers -->
     <meta name="robots" content="noindex, nofollow, noarchive" />
@@ -39,11 +40,12 @@ const mdSource = rawContent();
             id="copy-md-btn"
             class="h-8 text-xs font-medium text-offwhite/90 bg-transparent border border-offwhite/20 rounded-full px-3 cursor-pointer hover:bg-offwhite/10 transition-colors"
         >Copy .md</button>
-        <button
-            type="button"
-            id="print-resume-btn"
-            class="h-8 text-xs font-medium text-offwhite bg-purple-dark border border-purple-dark rounded-full px-3 cursor-pointer hover:bg-purple-light hover:border-purple-light transition-colors"
-        >Save as PDF</button>
+        <a
+            href={resumePdfHref}
+            download
+            id="download-pdf-btn"
+            class="h-8 flex items-center text-xs font-medium text-offwhite bg-purple-dark border border-purple-dark rounded-full px-3 cursor-pointer hover:bg-purple-light hover:border-purple-light transition-colors"
+        >Download PDF</a>
         <ThemeToggle />
     </nav>
 
@@ -59,7 +61,6 @@ const mdSource = rawContent();
     <script define:vars={{ mdSource }}>
         function initResumeToolbar() {
             const btn = document.getElementById('copy-md-btn');
-            const printBtn = document.getElementById('print-resume-btn');
 
             if (btn && btn.dataset.resumeToolbarInitialized !== 'true') {
                 btn.dataset.resumeToolbarInitialized = 'true';
@@ -74,14 +75,6 @@ const mdSource = rawContent();
                         btn.textContent = 'Failed';
                         setTimeout(() => { btn.textContent = 'Copy .md'; }, 1800);
                     }
-                });
-            }
-
-            if (printBtn && printBtn.dataset.resumeToolbarInitialized !== 'true') {
-                printBtn.dataset.resumeToolbarInitialized = 'true';
-
-                printBtn.addEventListener('click', () => {
-                    window.print();
                 });
             }
         }
