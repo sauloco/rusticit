@@ -15,6 +15,8 @@ function readingTime(body: string | undefined): string {
 	const minutes = Math.max(1, Math.round(words / 200));
 	return `${minutes} min`;
 }
+
+const { heroImage } = post.data;
 ---
 
 <a
@@ -23,17 +25,31 @@ function readingTime(body: string | undefined): string {
 	data-year={post.data.pubDate.getFullYear()}
 	data-tags={JSON.stringify(post.data.tags ?? [])}
 >
-	{post.data.heroImage && (
+	{heroImage && (
 		<div class="md:w-48 md:h-32 flex-shrink-0 overflow-hidden rounded-xl" transition:name={`hero-${post.id}`}>
-			<Image
-				width={384}
-				height={256}
-				src={post.data.heroImage}
-				alt=""
-				loading="lazy"
-				decoding="async"
-				class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-			/>
+			{typeof heroImage === 'string'
+				? (
+					<Image
+						width={384}
+						height={256}
+						src={heroImage}
+						alt=""
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+					/>
+				)
+				: (
+					<Image
+						width={384}
+						height={256}
+						src={heroImage}
+						alt=""
+						loading="lazy"
+						decoding="async"
+						class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+					/>
+				)}
 		</div>
 	)}
 	<div class="flex flex-col gap-2 justify-center">

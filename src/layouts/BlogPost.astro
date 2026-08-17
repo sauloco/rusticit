@@ -14,11 +14,11 @@ type Props = CollectionEntry<'beyond-code'>['data'] & {
 	video?: boolean;
 	tags?: string[];
 	body?: string;
-	relatedPosts?: CollectionEntry<'beyond-code'>[];
+	resolvedRelatedPosts?: CollectionEntry<'beyond-code'>[];
 	keyInsights?: { number: string; description: string }[];
 };
 
-const { title, seoTitle, description, pubDate, updatedDate, heroImage, id, video, tags, body, relatedPosts, keyInsights } = Astro.props;
+const { title, seoTitle, description, pubDate, updatedDate, heroImage, id, video, tags, body, resolvedRelatedPosts, keyInsights } = Astro.props;
 const structuredDataImage = heroImage
 	? typeof heroImage === 'string'
 		? heroImage
@@ -118,7 +118,9 @@ function readingTime(text: string | undefined): string {
 
 				{heroImage && !video && (
 					<div class="mb-12 overflow-hidden rounded-2xl" transition:name={id ? `hero-${id}` : undefined}>
-						<Image width={1020} height={510} src={heroImage} alt={title} decoding="async" class="w-full" />
+						{typeof heroImage === 'string'
+							? <Image width={1020} height={510} src={heroImage} alt={title} decoding="async" class="w-full" />
+							: <Image width={1020} height={510} src={heroImage} alt={title} decoding="async" class="w-full" />}
 					</div>
 				)}
 
@@ -129,11 +131,11 @@ function readingTime(text: string | undefined): string {
 				</div>
 			</article>
 
-			{relatedPosts && relatedPosts.length > 0 && (
+			{resolvedRelatedPosts && resolvedRelatedPosts.length > 0 && (
 				<section aria-labelledby="related-articles-title" class="mt-20 border-t border-charcoal/10 dark:border-offwhite/10 pt-12">
 					<h2 id="related-articles-title" class="font-heading font-bold text-xl text-charcoal dark:text-white mb-8 tracking-tight">Related articles</h2>
 					<ul class="flex flex-col gap-6 list-none p-0">
-						{relatedPosts.map((rp) => (
+						{resolvedRelatedPosts.map((rp) => (
 							<li>
 								<PostCard post={rp} />
 							</li>

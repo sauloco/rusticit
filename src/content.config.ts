@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const beyondCode = defineCollection({
@@ -14,7 +14,7 @@ const beyondCode = defineCollection({
 			private: z.boolean().optional(),
 			video: z.boolean().optional(),
 			tags: z.array(z.string()).optional(),
-			relatedPosts: z.array(z.string()).optional(),
+			relatedPosts: z.array(reference('beyond-code')).optional(),
 			keyInsights: z
 				.array(
 					z.object({

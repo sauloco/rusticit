@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { type CollectionEntry, getCollection, getEntries, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
@@ -18,9 +18,9 @@ const otherPosts = allPosts.filter((p: CollectionEntry<'beyond-code'>) => p.id !
 let relatedPosts: CollectionEntry<'beyond-code'>[];
 
 if (post.data.relatedPosts?.length) {
-	relatedPosts = post.data.relatedPosts
-		.map((id: string) => otherPosts.find((p: CollectionEntry<'beyond-code'>) => p.id === id))
-		.filter(Boolean) as CollectionEntry<'beyond-code'>[];
+	relatedPosts = (await getEntries(post.data.relatedPosts)).filter(
+		(p) => p.id !== post.id && !p.data.private,
+	);
 } else {
 	const currentTags = post.data.tags ?? [];
 	relatedPosts = otherPosts
@@ -35,6 +35,6 @@ if (post.data.relatedPosts?.length) {
 }
 ---
 
-<BlogPost {...post.data} id={post.id} body={post.body} relatedPosts={relatedPosts}>
+<BlogPost {...post.data} id={post.id} body={post.body} resolvedRelatedPosts={relatedPosts}>
 	<Content />
 </BlogPost>
