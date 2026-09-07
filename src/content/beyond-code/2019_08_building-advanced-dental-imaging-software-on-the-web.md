@@ -14,17 +14,11 @@ It was a web application built to handle everything from small-field, high-resol
 
 I joined Synphonyte as its fourth employee while the product was still being shaped, and I helped design the architecture from scratch and lead the development of the web application.
 
-From the beginning, this was not just about rendering images in a browser.
-
-It was about making highly specialized medical imaging workflows usable, performant, and reliable inside a modern web stack.
+From the beginning, this was about making highly specialized medical imaging workflows usable, performant, and reliable inside a modern web stack, not just rendering images in a browser.
 
 ## The stack
 
-The application was primarily built with **Vue.js** and **Three.js**, with more and more logic later moving into **Rust compiled to WebAssembly**.
-
-That combination mattered.
-
-It allowed us to push the browser much further than typical line-of-business applications, especially in areas like:
+The application was primarily built with Vue.js and Three.js, with more and more logic later moving into Rust compiled to WebAssembly. That combination let us push the browser much further than typical line-of-business applications, especially in areas like:
 
 - real-time volume rendering
 - advanced 2D and 3D visualization
@@ -59,23 +53,11 @@ I also worked on developer tools to debug parts of the rendering pipeline and ot
 
 ## My first international contractor experience
 
-This project was also a major milestone in my career for a different reason: it was my **first experience working as a contractor for a German company**.
+This project was also a major milestone in my career for a different reason: it was my first experience working as a contractor for a German company. It was the first time I was operating in a fully international environment, with the expectations, communication standards, and autonomy that come with that kind of work.
 
-That mattered a lot.
+The team was fully distributed. Communication happened in spoken English day to day, and I also had direct contact with the client as part of the job. That changed the experience significantly: it wasn't only about shipping features, but also about discussing requirements clearly, aligning expectations across people in different locations, and representing the company professionally in front of the client when needed.
 
-It was the first time I was operating in a fully international environment with the expectations, communication standards, and autonomy that come with that kind of work.
-
-The team was fully distributed. Communication happened in **spoken English**, day to day, and I also had direct contact with the client as part of the job.
-
-That changed the experience significantly.
-
-It was not only about shipping features. It was also about discussing requirements clearly, aligning expectations across people in different locations, and representing the company professionally in front of the client when needed.
-
-At times, when the company founders or team leads were on vacation, I had to step into that responsibility myself and act as a direct representative of the company in those conversations.
-
-That experience helped me grow in a different dimension.
-
-It pushed me to become more comfortable in international communication, more precise in how I explained technical work, and more reliable in situations where trust and autonomy mattered as much as implementation.
+At times, when the company founders or team leads were on vacation, I had to step into that responsibility myself and act as a direct representative of the company in those conversations. That pushed me to become more comfortable in international communication, more precise in how I explained technical work, and more reliable in situations where trust and autonomy mattered as much as implementation.
 
 ## Why this project mattered
 
@@ -90,9 +72,7 @@ It combined several things at once:
 - collaborative analysis and reporting
 - custom QA and debugging infrastructure
 
-That mix forced a higher standard.
-
-It was not enough for the app to look modern or feel smooth. It had to help professionals interact with complex scan data in a way that felt precise, efficient, and trustworthy.
+That mix forced a higher standard: it wasn't enough for the app to look modern or feel smooth. It had to help professionals interact with complex scan data in a way that felt precise, efficient, and trustworthy.
 
 It also became a milestone in my career beyond the technical side: it was the first time I combined deep frontend engineering, distributed teamwork, English-first communication, direct client exposure, and contractor responsibility for a German company all in the same role.
 

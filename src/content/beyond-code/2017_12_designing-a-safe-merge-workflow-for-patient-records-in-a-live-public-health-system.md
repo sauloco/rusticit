@@ -16,15 +16,13 @@ keyInsights:
 
 One of the most complex challenges I worked on during my years at the Municipality of Olavarría was helping design and implement a safe workflow for detecting and merging duplicated patient records inside a live public health system.
 
-This was not just a database cleanup.
-
-It was a real operational problem inside a hospital environment, where duplicated identities could affect admission, continuity of care, statistics, and trust in the clinical record itself.
+This was not just a database cleanup. It was a real operational problem inside a hospital environment, where duplicated identities could affect admission, continuity of care, statistics, and trust in the clinical record itself.
 
 The municipal health system had grown across multiple databases and processes over time. As a result, the same patient could appear more than once under slightly different identities: names written differently, missing or inconsistent ID numbers, typing errors, married and maiden surnames mixed together, or cases where a maternal surname had been used instead of the paternal one.
 
 In that context, duplication was not a minor inconvenience.
 
-If handled incorrectly, it could mean losing information or, even worse, associating clinical results with the wrong person — a type of error the patient could not easily detect and the operator could not safely correct without proper system support.
+If handled incorrectly, it could mean losing information or, even worse, associating clinical results with the wrong person: a type of error the patient could not easily detect and the operator could not safely correct without proper system support.
 
 That is why the merge process became such a critical part of the project.
 
@@ -70,27 +68,19 @@ This made the process faster and more focused, but never fully automatic.
 
 ## Human validation was required
 
-The system did not merge records on its own.
-
-Instead, it presented possible duplicate cases to the operator, together with all relevant fields, suggested matches, and coincident values. If multiple records appeared to refer to the same person, the operator reviewed the information directly with the patient present and decided which values were correct.
+The system did not merge records on its own. Instead, it presented possible duplicate cases to the operator, together with all relevant fields, suggested matches, and coincident values. If multiple records appeared to refer to the same person, the operator reviewed the information directly with the patient present and decided which values were correct.
 
 The system could automatically suggest keeping coincident fields such as name, surname, ID number, address, or phone number when they matched, but the final authority always belonged to the user.
 
 Once validated, a new unified record was confirmed, the previous duplicated records were marked as obsolete, and all associated information was redirected to the validated identity.
 
-That was essential.
-
-The system had to support the operator, not replace judgment in a context where a mistake could have serious consequences.
+That was essential: the system had to support the operator, not replace judgment, in a context where a mistake could have serious consequences.
 
 ## Beyond the database
 
-The merge process was not limited to patient data stored digitally.
+The merge process was not limited to patient data stored digitally. It also included **PDF documents** and generated a workflow for the **Statistics office** to unify physical records as well. The process preserved the history of which clinical record IDs had been unified, leaving traceability across both digital and physical supports.
 
-It also included **PDF documents** and generated a workflow for the **Statistics office** to unify physical records as well. The process preserved the history of which clinical record IDs had been unified, leaving traceability across both digital and physical supports.
-
-This mattered because the patient record was not just one row in one table.
-
-It was a broader institutional reality made up of administrative data, medical history, related documentation, and historical records that still existed outside the database.
+This mattered because the patient record was not just one row in one table. It was a broader institutional reality made up of administrative data, medical history, related documentation, and historical records that still existed outside the database.
 
 ## How the workflow operated
 
@@ -111,11 +101,7 @@ The same validation logic was also used during new patient registration to reduc
 
 ## Audit and control
 
-Every operator decision was audited by the system and later reviewed by the Audit office.
-
-This was a necessary part of the process.
-
-In a hospital environment, the problem is not only whether a workflow works technically. It is whether decisions can be traced, reviewed, and trusted over time.
+Every operator decision was audited by the system and later reviewed by the Audit office. This was a necessary part of the process: in a hospital environment, the problem is not only whether a workflow works technically, but whether decisions can be traced, reviewed, and trusted over time.
 
 That auditability made the merge workflow safer and helped support a broader culture of quality around patient admission and record management.
 
@@ -125,6 +111,4 @@ The official project documentation describes the larger context behind this work
 
 Looking back, this was one of the clearest examples in my career of how difficult real-world software can be when the system cannot stop, the data is imperfect, and the cost of being wrong is too high.
 
-It was not only about code.
-
-It was about designing a process that people could use safely, that different hospital areas could collaborate around, and that could improve the reliability of the whole system without ever asking reality to pause.
+It was not only about code. It was about designing a process that people could use safely, that different hospital areas could collaborate around, and that could improve the reliability of the whole system without ever asking reality to pause.

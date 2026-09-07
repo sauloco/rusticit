@@ -230,7 +230,7 @@ It gives me a way to arrive with better questions.
 
 So, does the future of the developer depend on programming better or on becoming more than a programmer?
 
-My answer, for now, is both—but technical ability alone will not be enough.
+My answer, for now, is both, but technical ability alone will not be enough.
 
 We will need to become better at solving problems.
 

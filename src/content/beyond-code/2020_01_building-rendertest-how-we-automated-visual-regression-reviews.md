@@ -16,7 +16,7 @@ That exact problem led me to build **RenderTest** while working at Synphonyte.
 
 The goal wasn't simply to compare screenshots. We wanted a workflow that fit naturally into the development process, minimized manual QA, and helped the entire team decide whether a visual change was expected or a regression.
 
-## The Problem
+## The problem
 
 As our frontend applications grew, every Merge Request introduced a risk of visual side effects.
 
@@ -26,7 +26,7 @@ Even small CSS changes, component updates, or dependency upgrades could unintent
 
 Reviewing every page manually after every deployment simply didn't scale.
 
-## The Idea
+## The idea
 
 Instead of asking developers or QA engineers to inspect every screen, we decided to automate the entire process.
 
@@ -36,7 +36,7 @@ The important part wasn't taking screenshots.
 
 It was turning those screenshots into an actionable workflow.
 
-## How RenderTest Worked
+## How RenderTest worked
 
 The pipeline looked something like this:
 
@@ -49,7 +49,7 @@ The pipeline looked something like this:
 
 At that point, the review process became collaborative instead of manual.
 
-## Human in the Loop
+## Human in the loop
 
 One design decision I'm still happy with was avoiding automatic assumptions.
 
@@ -69,7 +69,7 @@ If the change was unexpected:
 
 That small decision transformed RenderTest from a screenshot generator into part of our engineering workflow.
 
-## Why It Worked
+## Why it worked
 
 Looking back, I don't think the biggest achievement was the image comparison algorithm.
 
@@ -83,7 +83,7 @@ QA didn't need to repeat the same visual checks every release.
 
 The pipeline surfaced only the changes that deserved attention and made it easy to decide what should happen next.
 
-## Lessons Learned
+## Lessons learned
 
 Building RenderTest reinforced something I've seen many times since.
 
@@ -97,4 +97,4 @@ That's the difference between building a tool and building a system.
 
 Today, AI is changing how we write software, but I still believe the biggest engineering wins come from designing workflows that help people make better decisions with less effort.
 
-RenderTest was one of the first projects that taught me that lesson, and it still influences how I build developer tooling today.
+RenderTest was one of the first projects that taught me that lesson.

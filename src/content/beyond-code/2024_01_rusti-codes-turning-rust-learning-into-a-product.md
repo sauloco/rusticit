@@ -28,7 +28,7 @@ And it helps build a deeper mental model of how software actually works.
 
 That makes it a great language not only for systems programming, but also for sharpening the kind of thinking that technical interviews often reveal: problem decomposition, tradeoff awareness, and correctness under constraints.
 
-That is also why rusti.codes uses Rust as its core language. The site itself explains that choice in practical terms: Rust is presented as a readable and powerful language whose lessons can transfer to other languages, while also being widely used by major tech companies and valued in interviews.
+That is also why rusti.codes uses Rust as its core language. The site explains that choice in practical terms: Rust is readable and powerful, its lessons transfer to other languages, and it is widely used by major tech companies and valued in interviews.
 
 ## A product built around consistency
 
@@ -52,31 +52,16 @@ A daily format reduces that friction.
 
 ## Why this project matters to me
 
-rusti.codes sits at the intersection of several things I care about:
+rusti.codes sits at the intersection of several things I care about: Rust, developer growth, practical learning systems, and products that reduce friction through repetition.
 
-- Rust
-- developer growth
-- practical learning systems
-- products that reduce friction through repetition
-
-It also reflects something that has become a recurring pattern in my work:
-taking something that is personally meaningful and turning it into a more usable experience for other people.
+It is also part of a pattern in my work: taking something that is personally meaningful and turning it into a more usable experience for other people.
 
 In this case, that meant taking the energy around learning Rust and shaping it into a product that could help others stay engaged, build momentum, and prepare for real technical opportunities.
 
 ## What I still like about the idea
 
-Even as a small product, rusti.codes represents something I respect a lot:
-
-**useful learning infrastructure**
-
-Not content for the sake of content.
-Not hype for the sake of hype.
+Even as a small product, rusti.codes is something I respect a lot: useful learning infrastructure, not content for the sake of content or hype for the sake of hype.
 
 Just a focused tool trying to help developers practice consistently and get better, one challenge at a time.
 
-And for me, that is part of what makes the project worth talking about.
-
-It is not only about Rust.
-
-It is about building systems that help people improve in a way they can actually sustain.
+That is part of what makes the project worth talking about. It is not only about Rust. It is about building systems that help people improve in a way they can actually sustain.

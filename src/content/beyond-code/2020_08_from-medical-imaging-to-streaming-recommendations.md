@@ -69,9 +69,7 @@ In a medical imaging platform, that might mean making complex tools usable.
 
 In a consumer streaming app, that might mean reducing friction, helping users make faster decisions, and making personalization feel natural.
 
-Different product categories. Same core principle.
-
-Build software that helps people move forward with less effort and more confidence.
+Different product categories, same core principle: build software that helps people move forward with less effort and more confidence.
 
 That experience also gave me another important signal in my career: I could work not only with European companies in deeply technical environments, but also with **US companies building consumer products at scale**.
 

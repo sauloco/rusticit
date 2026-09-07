@@ -14,7 +14,7 @@ But some of the most meaningful work I did during my years building software for
 
 It focused on tools made directly for citizens.
 
-Not software designed only to help the institution operate better, but software designed to help people understand where to go, how to act, and how to access public health services with less friction.
+It was software designed to help people understand where to go, how to act, and how to access public health services with less friction, not just software to help the institution operate better.
 
 That distinction matters.
 
@@ -32,7 +32,7 @@ On the surface, these may look like small tools.
 
 They were not.
 
-They represent a way of thinking about government software that I still believe in strongly: useful digital tools should meet people where they are, in language and workflows that make sense in the moment they need them.
+They reflect a way of thinking about government software that I still believe in strongly: useful digital tools should meet people where they are, in language and workflows that make sense in the moment they need them.
 
 ## Software as public guidance
 
@@ -44,13 +44,9 @@ People do not always know where they should go. Staff do not always have time to
 
 That is why I find these kinds of tools so meaningful.
 
-A public health center finder is not just a map.
+A public health center finder does more than show a map. It reduces uncertainty.
 
-It is a way of reducing uncertainty.
-
-And a voice-based reporting tool is not just a convenience feature.
-
-It is a way of helping clinical information get captured more naturally and with less resistance from the daily workload.
+A voice-based reporting tool does more than add convenience. It helps clinical information get captured more naturally and with less resistance from the daily workload.
 
 Both belong to the same broader idea:
 
@@ -74,4 +70,4 @@ That shift is one of the most valuable things public-sector software taught me.
 
 Because sometimes the best digital tool is not the most complex one.
 
-It is the one that quietly helps someone move forward with less confusion than before.
+It is the one that helps someone move forward with less confusion than before.

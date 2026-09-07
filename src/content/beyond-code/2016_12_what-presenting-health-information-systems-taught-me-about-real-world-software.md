@@ -38,7 +38,7 @@ Good software should not only function correctly. It should make important work 
 
 Looking back, that experience was not just about presenting a project.
 
-It was about learning to see software as part of a bigger system — one made of people, processes, responsibility, and communication.
+It was about learning to see software as part of a bigger system, made of people, processes, responsibility, and communication.
 
 For me, that lesson never stopped being relevant.
 

@@ -55,7 +55,7 @@ It raised my personal standard for what good code actually looks like.
 
 The team behind this is large, distributed across the globe, and genuinely multi-disciplinary.
 
-Different countries, different backgrounds, different areas of expertise — engineering, design, quality assurance, localization, accessibility — all coordinating around a shared standard of quality.
+Different countries, different backgrounds, different areas of expertise (engineering, design, quality assurance, localization, accessibility), all coordinating around a shared standard of quality.
 
 The feedback in PR reviews is specific, respectful, and genuinely useful. Not rubber-stamping. Not nitpicking for the sake of it. Real engagement with what you built and why.
 
@@ -73,7 +73,7 @@ But in the way a feature feels when it works exactly as expected. In the way acc
 
 Someone will notice.
 
-That framing changed how I thought about the components I was building — the atomic inputs, the research interface, the user workflows that move through several states and edge cases.
+That framing changed how I thought about the components I was building: the atomic inputs, the research interface, the user workflows that move through several states and edge cases.
 
 Every small decision carries weight when the audience is tens of millions of people.
 
@@ -85,6 +85,6 @@ It changes what you think normal engineering looks like.
 
 It raises the floor for what counts as careful, what counts as finished, and what counts as ready to ship.
 
-That is the kind of experience I bring to any project now — regardless of size. Because the habits formed in a high-standard environment do not disappear when the scope gets smaller.
+That is the kind of experience I bring to any project now, regardless of size, because the habits formed in a high-standard environment do not disappear when the scope gets smaller.
 
 They become the baseline.

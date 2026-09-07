@@ -40,7 +40,7 @@ Over time, the project became more concrete.
 
 Instead of staying broad as a general sports-tech concept, EntrenoLibre evolved into a much more focused product: a platform for organizing sports events, managing registrations and matches, sharing live results, and giving clubs and organizers better visibility with their communities.
 
-That current positioning is clearly reflected on the site today, where EntrenoLibre is presented around:
+That current positioning shows on the site today, where EntrenoLibre is presented around:
 
 - creating sports events
 - managing registrations, matches, brackets, and scores

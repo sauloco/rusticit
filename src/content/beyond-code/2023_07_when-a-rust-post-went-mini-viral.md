@@ -20,7 +20,7 @@ And unexpectedly, it went mini-viral.
 
 According to the post analytics, it reached **28,801 impressions**, with **84 reactions**, **3 comments**, and **2 reposts**.
 
-That may not be “internet viral,” but it was more than enough to stand out as a meaningful moment in my own path.
+That may not be "internet viral," but it was more than enough to stand out as a meaningful moment in my own path.
 
 ## Why it mattered
 
@@ -50,11 +50,9 @@ A public trace of curiosity becoming direction.
 
 That is what I think that post captured.
 
-It was not “look how much I know.”
+It was not "look how much I know."
 
-It was closer to:
-
-**I am taking this seriously, and this is becoming part of where I’m headed.**
+It was closer to: I am taking this seriously, and this is becoming part of where I'm headed.
 
 That kind of signal tends to resonate.
 
@@ -66,7 +64,7 @@ It brings strong guarantees, a different level of precision, and a mindset that 
 
 So that post was also part of a bigger shift.
 
-It marked a moment where learning Rust stopped being private exploration and started becoming a visible part of my trajectory.
+It was the moment learning Rust stopped being private exploration and started becoming a visible part of my trajectory.
 
 Later, that path would connect with real work:
 open source contributions, collaboration with teams that value Rust deeply, and practical use in frontend-oriented projects through tools like Leptos.

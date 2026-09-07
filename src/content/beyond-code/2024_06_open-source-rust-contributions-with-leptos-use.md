@@ -33,7 +33,7 @@ This was not only an OSS contribution.
 
 It was also a signal in my own career.
 
-Coming back to Synphonyte for new work meant continuing a relationship with a company that operates at a high technical level and has a real affinity for Rust. Contributing there again — this time with open source visibility — reinforced that I could create value not only in JavaScript-heavy environments, but also in a Rust-based frontend ecosystem.
+Coming back to Synphonyte for new work meant continuing a relationship with a company that operates at a high technical level and has a real affinity for Rust. Contributing there again, this time with open source visibility, reinforced that I could create value in a Rust-based frontend ecosystem, not just in JavaScript-heavy environments.
 
 That is an important distinction.
 
@@ -53,9 +53,7 @@ By that point in my career, I had already worked across:
 - consumer applications for the US market
 - industrial platforms for German clients
 
-Contributing to **leptos-use** added another layer to that range:
-
-**frontend engineering with Rust, in public, inside a real ecosystem**
+Contributing to **leptos-use** added another layer to that range: frontend engineering with Rust, in public, inside a real ecosystem.
 
 That matters because it connects two things I care about deeply:
 
@@ -74,15 +72,13 @@ It means the code is not just written to work once. It is written to become usef
 
 That is also why this project felt like such a natural fit.
 
-It reflected the same kind of thinking I value in product work: solve real problems, remove friction, and build things that help other people move faster with more confidence.
+It came from the same kind of thinking I value in product work: solve real problems, remove friction, and build things that help other people move faster with more confidence.
 
 ## Looking back
 
 This contribution was an important milestone for me because it made one thing much more concrete:
 
-My Rust experience had moved beyond curiosity and into proven collaboration.
-
-Not only in private projects, but also in open source work that lives in public and contributes back to the ecosystem.
+My Rust experience had moved beyond curiosity and into proven collaboration, in private projects and in open source work that lives in public and contributes back to the ecosystem.
 
 That is the kind of experience I want more of:
 

@@ -18,7 +18,7 @@ It wasn’t.
 
 That experience taught me something I still carry into every product, interface, and system I build: communication is only real when it reaches the other person clearly.
 
-Interpreting is not just about converting words. It is about understanding intent, context, rhythm, tone, and meaning — then rebuilding that meaning in a way that actually works for someone else. In many ways, great software design is the same exercise.
+Interpreting means understanding intent, context, rhythm, tone, and meaning, then rebuilding that meaning in a way that actually works for someone else. In many ways, great software design is the same exercise.
 
 You can have a powerful system, a smart architecture, or a polished interface. But if people can’t understand it, trust it, or move through it naturally, the job is unfinished.
 
@@ -29,7 +29,7 @@ It shaped the way I think about accessibility.
 It shaped the way I value clarity over noise.  
 And it shaped the kind of builder I wanted to become.
 
-Years later, I would go on to work on health information systems, engineering platforms, and sports software. I would also speak publicly about health information systems and their challenges and opportunities. But this earlier experience already contained the seed of something important: the idea that technology is never just about systems — it is also about people, understanding, and access.
+Years later, I would go on to work on health information systems, engineering platforms, and sports software. I would also speak publicly about health information systems and their challenges and opportunities. But this earlier experience already contained the seed of something important: technology is also about people and understanding, not just systems.
 
 That is probably why I still care so much about making complex things feel usable.
 
