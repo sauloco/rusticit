@@ -15,7 +15,7 @@ Senior product engineer with 18+ years delivering production software across ind
 <div class="entry-sub-row"><em>Confidential Global Nonprofit Organization</em><em>US, Remote</em></div>
 </div>
 
-- Contributing to a complete rewrite of a cross-platform study app, unifying Windows, iOS, Android, and web codebases into a single modern frontend.
+- Contributing to a cross-platform study app for Windows, iOS, Android using web technologies and Rust.
 - Building atomic UI components from Figma specifications, including inputs, base primitives, and multi-state workflows.
 - Shipping features for a platform available in 1,120+ languages and used by tens of millions globally, within strict accessibility, internationalization, and quality standards.
 
