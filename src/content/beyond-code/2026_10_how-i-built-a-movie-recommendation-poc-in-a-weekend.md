@@ -1,7 +1,7 @@
 ---
 title: 'How I Built a Movie Recommendation PoC Web App in a Weekend (Powered by AI)'
 seoTitle: 'Building a movie recommendation PoC with AI'
-description: 'I built a Nuxt and Vue movie recommender for a client challenge in nine pull requests, and the engineering decisions behind it show which work belongs to a crew of agents, which to an adversarial review pipeline, and which to me.'
+description: 'I built a Nuxt and Vue movie recommender for a client challenge in fifteen pull requests, ending with a CI pipeline, and the engineering decisions behind it show which work belongs to a crew of agents, which to an adversarial review pipeline, and which to me.'
 pubDate: 'Oct 19 2026'
 tags: ['ai', 'nuxt', 'vue', 'agentic-workflow', 'engineering']
 heroImage: '../../assets/beyond-code/movies-room-yuki-ja.webp'
@@ -10,8 +10,8 @@ keyInsights:
     description: 'Users in the supplied dataset, against only **70 movies**. Enough overlap to learn from, small enough to evaluate honestly on every user.'
   - number: '0.60'
     description: 'Popularity damping the evaluation script selected, in an algorithm I delegated. Plain cosine (0.50) scored higher on hit@5, **0.545 vs 0.504**, but recommended blockbusters to everyone. The popularity baseline scores 0.487.'
-  - number: '9'
-    description: 'Pull requests, all merged, from a planned Nuxt foundation to a six-line translation fix. Each one went through a different path depending on how much judgment it needed.'
+  - number: '15'
+    description: 'Pull requests, all merged, from a planned Nuxt foundation to a GitHub Actions pipeline. Each one went through a different path depending on how much judgment it needed.'
 relatedPosts: ['2026_07_from-developer-to-director-leveling-up-my-agentic-workflow', '2026_08_code-is-no-longer-our-priority']
 ---
 
@@ -19,7 +19,7 @@ The brief fit in four lines.
 
 A file with 70 movies. About 800 users and the movies each of them liked. Build something that works like Amazon's "people who liked these also liked": the visitor picks a few titles, the app recommends others from what the rest of the users did. Plan it first, find a free source for the movie data, follow Vue and Nuxt best practices, and test every component and endpoint end to end.
 
-I started on Friday at 11 p.m. By Saturday afternoon I had a working recommender, a themed UI, a movie page with a shared-element transition, four user profiles, analytics, and a deploy config. The part that made it feel like mine took until Monday lunch.
+I started on Friday at 11 p.m. By Saturday afternoon I had a working recommender, a themed UI, a movie page with a shared-element transition, four user profiles, analytics, and a deploy config. The part that made it feel like mine took until Monday lunch, and the part that makes it safe to keep changing took until Monday afternoon.
 
 The code is [public](https://github.com/sauloco/truefirestudios-movies-challenge). This post is about the decisions, in the order they happened, and about who made each one.
 
@@ -201,6 +201,80 @@ I left one thing out on purpose. A fresh page load doesn't reapply the profile l
 Even the translation work needed a human pass. After the crew's PR merged, I noticed the wall headings were still in English in Japanese and Spanish. That was PR #8, six lines. It's the only kind of mistake a pipeline checking "do the tests pass" wouldn't see.
 
 **A mechanical task is only mechanical until someone looks at the result.**
+
+## Monday afternoon: the same checks, on a clean machine
+
+Once the room merged, a short run of small PRs followed: a favicon, the logo before the title in the header search, and two fixes. Neither fix was a typo.
+
+The first was a bug that only existed in production. Search result posters rendered at full row width, pushed the text out of view and added a horizontal scrollbar. Two scoped styles with the same specificity targeted the same property, so stylesheet order decided which one won, and that order is different in dev and in a production build. Nesting the selector removed the dependency on order.
+
+The second was the app title. The English locale said "My Movie Room". Spanish and Japanese still said "Movies RusticIT". It is the same class of mistake as the untranslated wall headings.
+
+These went out as quick branches, without the review pipeline. The PR descriptions say so plainly: checked with ESLint, not verified in a browser. That was the right amount of process for a favicon, and a reminder that I was now relying on my own attention for everything the pipeline wasn't looking at.
+
+Then I looked at the test suite, and it didn't pass.
+
+The room rewrite had changed how the viewer is stored and added the loading overlay, and the specs were written for the app as it was on Saturday. Fixing them found two real bugs, not only stale tests:
+
+- After picking a movie in the search, the menu's backdrop stayed on screen and blocked clicks.
+- The `recommendations-shown` analytics event could fire more than once, instead of once for the settled viewer.
+
+With the suite green locally, I added a GitHub Actions workflow with two jobs, on every pull request and every push to `main`:
+
+1. **Lint and typecheck:** ESLint and `nuxt typecheck`.
+2. **E2E tests:** installs Chromium and runs the whole Playwright suite against a real Nuxt server.
+
+It needs no secrets, which is a Friday decision paying off on Monday. The catalog is committed and poster requests are intercepted, so the tests never reach TMDB.
+
+The first run failed in 15 seconds. `npm ci` rejected the lockfile, which had been generated by a newer npm than the one on the runner. That is exactly what a pipeline on a clean machine is for: my laptop had been quietly agreeing with itself all weekend. I regenerated the lockfile, and the next run passed in four minutes.
+
+Four minutes is a long time to wait on every PR, so I also changed the read-only room and search specs to share one loaded page. Locally that took the suite from about 128 seconds to about 96.
+
+The last step was a branch rule: `main` now requires both checks and an up-to-date branch before a PR can merge. Admins can bypass it, and I'm one, so I still decide when a trivial change doesn't need the ceremony. But the default no longer depends on me remembering.
+
+There are now two gates, and they do different jobs. no-mistakes runs on my machine before I push and asks an adversarial question: what did the author miss? CI runs after, on a machine that has never seen my code, and asks a duller one: does this work from scratch?
+
+**A local gate proves it works on your machine. CI proves it works on a clean one.**
+
+## The same bug, twice
+
+Right after that, production gave me a reason to doubt both gates.
+
+I opened a movie page directly, on the deployed site, and the page stayed behind the "Loading Sam Okafor's profile" overlay. When it finally went away, the hero was broken: the poster stretched to the full width of the page and the white title text disappeared against the background.
+
+The overlay is the feature I asked for on Saturday, the one that prevents the jump when the app boots as Sam and switches to someone else. It had a bug of its own.
+
+PR #15 fixed two things, and the pipeline's report is more honest about them than I'd be:
+
+- **The poster was the cascade bug again.** The poster component sets `width: 100%`, the page's hero rule had equal specificity, and on a direct load the stylesheet order let the wrong one win. It is the same mistake as the search results, and the same fix: raise the specificity so order stops mattering. I had fixed one instance of it earlier and not looked for the pattern.
+- **The overlay got a failsafe, not a diagnosis.** The agent couldn't reproduce the stuck overlay. So the fix force-hides it after 5 seconds, and the PR says outright that the root cause is unconfirmed. I'd rather read "deliberately a guard, cause unknown" than a confident explanation that isn't earned.
+
+The most useful moment was inside the pipeline. The first attempt at a related fix changed `blur(0)` to `blur(0px)`, because the production minifier turns a unitless `blur(0)` into an invalid `blur()`. The test step built the app, read the generated CSS, and found that the minifier strips `0px` too. The fix didn't work, and no unit test or dev server would have shown it. The live validation said no-go, and the next attempt used `blur(0.01px)`.
+
+No test was added, and that is on purpose and also a gap. This class of bug only shows up in a production build, and the e2e suite, 194 tests at that point, was green the whole time.
+
+**A green suite only speaks for the build it ran against. Test the build you ship.**
+
+## What's still rough
+
+It is a proof of concept, and it shows. These are the three things I'd fix next, in the order I'd do them.
+
+**Nothing tests the production build.** Two of the bugs above only existed there, and the suite never saw either. CI should build the app and run at least a smoke test against that output, not only against the dev server's behavior.
+
+**There is no onboarding.** A new visitor lands in a room full of walls with no hint of what to do. The room is the whole idea, so it needs a short introduction: what each wall is, that the left one is yours, and that adding movies is what changes the other two. Right now you have to figure that out by trial and error.
+
+**The mobile layout needs real work.** I did fix mobile issues along the way, like the header margin and the search results width, but each one was a patch on a layout that started from the desktop room. The header search bar and the result items are where it still falls short. It works on a phone. It doesn't yet feel designed for one, and that needs a pass of its own, not more patches.
+
+**The search experience is the wrong shape.** I called it search, and I built it like search: a field, a list of matches, a button on each one. But nobody comes here to look for a movie. They come to tell the app which movies they like. That is closer to adding items to a collection than to querying a catalog, and it should behave that way:
+
+- it should invite you to add before you've typed anything
+- it should show what you've already added, not only what matches
+- a result should say "add to my posters wall" as its main action, not as a button that shows up on hover
+- it should treat an empty field as a starting point, not as a blank
+
+The mockup I drew already leaned in that direction, with the header turning into an input and the add button as the point of each row. The implementation kept the word "search" and the mental model that came with it. Renaming a thing is cheap. Noticing that the name set the design is what takes using it.
+
+**Naming a feature after the first thing it does can quietly design it for you.**
 
 ## I wear multiple hats
 
