@@ -4,7 +4,7 @@ seoTitle: 'Building a movie recommendation PoC with AI'
 description: 'I built a Nuxt and Vue movie recommender for a client challenge in fifteen pull requests, ending with a CI pipeline, and the engineering decisions behind it show which work belongs to a crew of agents, which to an adversarial review pipeline, and which to me.'
 pubDate: 'Oct 19 2026'
 tags: ['ai', 'nuxt', 'vue', 'agentic-workflow', 'engineering']
-heroImage: '../../assets/beyond-code/movies-room-yuki-ja.webp'
+heroImage: '../../assets/beyond-code/movies-room-live.webp'
 keyInsights:
   - number: '806'
     description: 'Users in the supplied dataset, against only **70 movies**. Enough overlap to learn from, small enough to evaluate honestly on every user.'
